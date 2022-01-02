@@ -1,0 +1,543 @@
+/*MAIN ordered*/
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+}
+body {
+    z-index: 0;  
+    font-family: 'lobster', cursive;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(
+            80deg,
+        #f1f,
+        #0f0,
+        #123
+    );    
+}
+body:hover {
+    background: linear-gradient(
+        80deg,
+        #321,
+        #f0f
+        #1f1,
+        #f0f,
+        #321
+    );
+
+}
+main {
+    z-index: 1;
+    position: relative;
+    top: 1%;
+    width: 100vw;
+    height: 90vh;
+    text-align: center;
+}
+
+img  {
+    box-shadow: 5px 10px 18px red; 
+    height: 8vh;
+    width: 8vw;
+    display: inline-block;
+    border-radius: 10%;
+}
+
+header button {
+    position: relative;
+    padding-top: -10%;
+    color: #04AA6D;
+    height: 10vh;
+    bottom: 3vh;
+}
+/*Table*/
+table {
+    background-color: white;
+    z-index: 2;
+    
+}
+
+
+td {
+    display: inline;
+    max-inline-size: 15%;
+    position: relative;
+}
+
+tr td {
+    display: inline-table;
+    width: 15%;
+    height: 15%;
+    border: 1px solid sandybrown;
+}
+
+
+/*table class/ids*/
+
+.desription {
+    font-size: 990px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+.tdr1 {
+    font: 100;
+}
+.tdr2 {
+    font: 200;
+}
+.tdr3 {
+    font: 100;
+}
+.tdr4 {
+    font: 800;
+}
+.tdr5 {
+    font: 500;
+}
+/*Headers*/
+h1 {
+    display: inline-block ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+h2 {
+    display: inline-block;
+    font-size: 60px;
+    color: #000;
+    box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #04AA6Daf;
+    border-radius: 10%;
+    
+    width: 40%;
+}
+h2 p {
+    opacity:1 ;
+    
+}
+h3 {
+    color: #fafafa;
+}
+h6 {
+    font-size: 80px;
+  
+    text-align: left;
+}
+div h6 {
+    background-color: #ffffff14;
+  position: absolute;
+    top: 12vh;
+    left: 5vw;
+    width: 80vw;
+    height: 50vh;
+}
+/*Misc*/
+p {
+    display: inline-block;
+}
+button {
+
+    
+}
+button p {
+    color: #fff; 
+}
+button a {
+ background-color: #fafafa;   
+}
+span {
+    box-shadow: 5px 10px 18px red;
+    display: inline-table; 
+}
+progress {
+    min-width: 40%;	
+    width: 50%;
+
+}
+
+/*MIXER*/
+
+  #lower-buttons button 
+{
+  box-shadow: 5px 10px 18px red;
+  
+}
+div a strong {
+    color: #fafafa;
+    background: #000;
+    font-size: 1.5vh;
+}
+
+
+/*Class list*/
+.mana{
+height: 15px;
+width: 15px;
+border-radius: 50%;
+display: inline-block;
+opacity: 1;
+background-image: url(../Logs/bluering.png);
+background-size: contain;
+background-blend-mode: darken;
+background-color: 
+    
+    #00ffff
+
+
+}
+.desription {
+    color: #fff;
+}
+.red {
+    color: #ff0000;
+}
+.green {
+    color: #0f0;
+    font-size: 200%;
+}
+.upgradebutton {
+        background-image: url(https://user-images.githubusercontent.com/84670867/141205653-b4f4351e-2d3f-4635-a779-317d8a024f7b.jpg);
+    background-size: contain;
+    
+    position: relative;
+    display: inline-block;
+    max-width: 10vw;
+    min-width: 8vw;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.Imagebtn {
+    float: right;
+    height: 10vh;
+    width: 10vw;
+    z-index: 1;
+  text-align: center;
+}
+.Gamebtn {
+    position: relative;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+}
+/*Slider time function*/
+.slidecontainer {
+    width: 100%;
+    text-align: center;
+    height: 1%;
+    margin-top: 20vh;
+  
+}
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    
+    background:linear-gradient(95deg, #f00 ,
+     #000,#000,#000,#000, #000, #000, #000,#000,#000,#000, #000, #000 );
+    padding-bottom: 1%;
+
+}
+.slider::-webkit-slider-thumb {
+    opacity: 0.4;
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 1%; /* Set a specific slider handle width */
+    height: 2vh; /* Slider handle height */
+    background: linear-gradient(
+        180deg,    
+     #04AA6D,
+     #27ca1d,
+     #ff0000
+     ); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+
+}
+.clickerimage {
+    width: 5%;
+    height: 5%;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: bottom;
+}
+/*IDS*/
+#card {
+position: absolute;
+    bottom:35%;
+    background-color: #000;
+    color: #fff;
+    height: 30%;
+}
+/*Click area*/
+#main {
+   width: 90%;
+    height: 100vh;
+    border: 10px solid black;
+    margin: 2px;
+    
+    
+    background-image: url(../Logs/chestultra.png);
+    background-repeat: no-repeat;
+    background-size:50% ;
+    background-position-x: center;
+    background-position-y: center;
+    z-index: -1;   
+}
+/*Button styling*/
+/*#topbuttons*/
+#upgrades {
+    float: left;
+}
+#options {
+    
+    float: left;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+#Diamonds {
+   
+    background-size:contain ;
+    color: #0f0;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+
+}
+#prestige {  
+     color: #fff;
+    text-align: center;
+} 
+
+#refresh {
+    background-size: contain;
+}
+/*Lower trwat*/
+#boxmain {
+    background: #000;
+    background-position-x:center ;
+    background-position-y: center;
+    box-shadow: 5px 10px 18px 10px  #a9a9a9; 
+    bottom: -20%;
+    position: absolute;
+    height: 23vh;
+    left: 2vw;
+}
+#lower-buttons {
+    background-color: #04AA6D;
+    margin-top: -36%;
+}
+#fireball { 
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+.cast {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: #000;
+        opacity: 0.7;
+        animation-name:cooldown;
+        animation-duration: 5.1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+    
+#iceball {
+    background-image: url(../Logs/fireballblue.png);
+    background-repeat: no-repeat;
+    background-color: #0f0;
+    
+}
+#arcaneball {
+    background-image: url(../Logs/fireballspellmirror.png);   
+    background-repeat: no-repeat;
+    background-color: #f0a;
+    border-radius: 10%; 
+}
+#earthball {
+    background-image: url(../Logs/fireballearthmirror.png);
+    
+    background-repeat: no-repeat;
+    background-color: #00fd;
+    border-radius: 10%; 
+}
+#m5 {
+    background-image: url(../Logs/confuseball.png);
+    
+    background-repeat: no-repeat;
+    background-color: #000;
+    border-radius: 10%; 
+ 
+} 
+#m6 {
+    background-image: url(../Logs/rageballeye.png);
+    
+    background-repeat: no-repeat;
+    background-color: #000;
+    border-radius: 10%; 
+   
+} 
+#metergain {
+    background-image: url(../Logs/mfireball.png);
+
+    background-repeat: no-repeat;
+    background-color: #000; 
+
+}
+#clicker {
+    background-image: url(../Logs/click.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-color: #f0a;
+    
+    border-radius: 10%;  
+}   
+#buyauto {
+    background-image: url(../Logs/Searchchest.PNG);
+   
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-color: #f0a;
+    border-radius: 10%; 
+} 
+
+/**/
+#head {
+   opacity: 1;
+    position: absolute;
+    left: 20vw;
+    width: 60%;
+}
+#myrange {
+    width: 100%; 
+}
+
+
+
+
+/* Doesnt need to exit forever*/
+#dev-tools {
+font-family: 'lobster', cursive;
+}
+
+.firecooldown{
+    animation: cooldown 6000ms ease-in-out ;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+}
+@keyframes cooldown {
+    from {opacity: 0.9;background:radial-gradient(circle at 50%, #333, #333 5%, #eee 10%, #333 75%); }
+    10%{background:radial-gradient(circle at 50%, #333, #333 15%, #eee 25%, #333 75%);}
+    20%{background: radial-gradient(circle at 50%, #333, #333 25%, #eee 35%, #333 75%);}
+    30% {background: radial-gradient(circle at 50%, #333, #333 35%, #eee 45%, #333 75%); }
+    40%{background: radial-gradient(circle at 50%, #333, #333 45%, #eee 55%, #333 75%); } 
+    50%{background: radial-gradient(circle at 50%, #333, #333 55%, #eee 65%, #333 75%);  }
+    60%{background: radial-gradient(circle at 50%, #333, #333 65%, #eee 75%, #333 75%);  }
+    70%{background: radial-gradient(circle at 50%, #333, #333 75%, #eee 85%, #333 75%);  }
+    80%{background: radial-gradient(circle at 50%, #333, #333 85%, #eee 85%, #333 75%);  }
+    90%{background: radial-gradient(circle at 50%, #333, #333 95%, #eee 90%, #333 75%);  }
+    to{background: radial-gradient(circle at 50%, #333, #333 99%, #eee 100%, #333 75%);}
+}
+#hiddenwrap{
+    position: absolute;
+    background-color: #00ffff;
+    border: 2px solid #0f0 ;
+     top: 10vh;
+    left: 1vw;
+    z-index: 0;
+    height: 92%;
+    width: 90%;
+
+}
+#closemenu {
+    
+    background-color: #faf;
+}
+#hiddenupgrades {
+      position: absolute;
+      background-color: rebeccapurple;
+      border: 2px solid blanchedalmond;
+}
+#upgradetable {
+    display: inline-block;
+    height: 90%;
+    position: absolute;
+    
+}
+.hiddentab {
+    font-family: 'lobster', cursive;
+ height: 25%;
+    width: 90%;
+ 
+    
+    top: 5vh;
+    left: 4vw;
+    z-index: 0;
+    
+    position: absolute;
+    background: linear-gradient(
+        80deg,
+        #321,
+        #f0f,
+        #1f1,
+        #f0f,
+        #321
+    );
+    
+}
+
+
+
+
+
+/*Credits laredgames.itch.io/gems-coins-free */
+
+/*Bumper jumper*/
+#game {
+    border: 10px solid #000;
+    width: 1000px;
+    height: 400px;
+    background-image:url(../../Pictures/Logos/bg.jfif);
+    background-repeat: repeat-x;
+    background-size: contain;
+    animation: BG  1s  linear infinite;
+}
+@keyframes BG {
+    from {background-position-x: 0px ;}
+    to {background-position-x: -1000px ;}
+}
+#character {
+    width: 100px;
+    height: 100px; 
+    position: relative;
+    top: 200px;
+    background-image: url(../../Pictures/Logos/buttr.jfif);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;  
+}
+.animate{
+    animation: jump 500ms;
+}
+@keyframes jump {
+    0% {top: 200px;}
+    30% {top: 100px;}
+    70% {top: 100px;}
+    100% {top: 200px;}
+}
+#block {
+    
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 150px;
+    left: 1000px;
+    background-color: aqua;
+    animation: block 1s linear infinite;
+}
+@keyframes block {
+    0% {left: 1000px;}
+    100% {left: -40px;}
+}
+#plonk {
+    width: 40px;
+    height: 40px;
+}
