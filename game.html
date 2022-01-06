@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> r</title>
+    <title>Idle Game</title>
 
     <link type="text/css" rel="stylesheet" href="game.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
@@ -76,15 +76,15 @@
 
          <div id="card"> <!--Prestiger-->
            <h4>Prestige level = <p id="levelt">0</p>
-         <br> Prestige progress <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
-            <br>Mana <p></p> <span class="mana"></span> <p id="manacount"></p>/ <p id="manamaxcount"></p>
+         <br> Prestige progress = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
+            <br>Mana = <p></p> <span class="mana"></span> <p id="manacount"></p>/ <p id="manamaxcount"></p>
             <br>Rage = <p id="ragetext">0</p>/333
             <br><p>TotalClicks = </p> <p id="TCcounter">0</p>
             <br> <p>Multiplier = </p><p id="multicounter">1</p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
-            <br><p>Fire level =</p> <p id="firelevel">1x0</p>
-            <br><p>Arcane level=</p><p id="arclevel">0</p>
-            <br><p>Arcan counter= </p><p id="arccounter"></p>
+            <br><p>Fire level = </p> <p id="firelevel">1x0</p>
+            <br><p>Arcane level= </p><p id="arclevel">0</p>
+            <br><p>Arcane counter= </p><p id="arccounter"></p>
         </h4>
         </h4></div>
         <!--Shiftery here-->
@@ -124,10 +124,12 @@
             <p id="button7txt">(100)</p></p><p>&#128176;</p>
             </button></span>  
 
-            <!--Button4-->
-            <span><br>
-                <img id="arcaneball" onclick="arcaneball()" class="Gamebtn" style="opacity: 0.1;"/>
-            <br><button class="upgradebutton">
+         
+
+            <!-- Button 6 ARCANE -->
+            <span id="abvarc"><p id="arcanecastcost">20</p> <span class="mana"></span><br>
+            <img onclick="arcaneballcast()" id="arcaneball" src="../Logs/fireballspellmirror.png" class="Gamebtn"  style="opacity: 0.1;"/>
+            <br><button onclick="arcaneballupgrade()" class="upgradebutton">
                 <p>ArcaneBall<br>
             Click + 10 <br> Upgrade cost:
             <p id="button6txt">(10)</p> <p>&#128176;</p> </p>
@@ -135,7 +137,7 @@
 
             <!--Button5-->
             <span><br>
-                <img id="clicker" onclick="mainclick()" class="Gamebtn" />
+            <img id="clicker" onclick="mainclick()" class="Gamebtn" />
             <br> <button onclick="upgrademc()" class="upgradebutton">
             <p>upgrade Click<strong>+1</strong></p>
             <br><p id="button0txt"></p>
@@ -143,7 +145,7 @@
 
             <!--Button6-->
             <span id="abvfire"><p>-<p id="fireballcastcost">10</p><span class="mana"></span></p><br>
-            <img onclick="fireballcast()" src="../Logs/fireball.png" id="fireball"  class="Gamebtn"  style="opacity: 0.1;" />
+            <img onclick="fireballcast()"  id="fireball" src="../Logs/fireball.png" class="Gamebtn" style="opacity: 0.1;" />
             <br> <button id="fbbutton" onclick="fireballupgrade()" class="upgradebutton">
             <p>Fireball</p><br><p>Upgrade Cost:</p>
             <br><p id="button4txt">10</p> <p>&#128176;</p>
@@ -177,16 +179,16 @@
     </fieldset>
       
 
-    <fieldset id="hiddenwrap" style="opacity: 0;">
+    <fieldset id="hiddenwrap" style="opacity: 0; z-index: -1; ">
         <button id="menutab" onclick="flipmenutab()"> Menu</button>
         <button id="upgtab" onclick="flipupgtab()"> <p id="ugradetext"> Upgrades </p></button>
         <button id="statstab" onclick="flipstatstab()">Stats</button>
         <button id="credits tab" onclick="flipcredits()">Credits</button>
         <button id="prestigetab" onclick="flipprestigetab()"><p id="prestigetext"> Prestige</p></button>
         <button id="closemenu" onclick="closemenu()" style="float: right;">	
-        <p>   &#10060;</p></button>
+        <p>&#10060;</p></button>
 
-        <span id="upgradetable" class="hiddentab" style="opacity: 0;" > 
+        <span id="upgradetable" class="hiddentab" style="opacity: 0; " > 
         <table id="hiddenupgrades" cellspacing="0" > 
         <tr> 
             <td ><p id="titler1c1">Firestorm</p><br>
@@ -283,8 +285,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis consequatur
    </main>
 
     <ref alt="image src" hidden>https://www.clipartmax.com/download/m2H7i8d3b1K9G6N4_chest-icon-treasure-chest-icon-png/</ref>
-    <script src="game.js"></script>
-    <script src="../Business-Card/Bcard.js"></script>
+     <script src="game.js"></script>
+     <script src="../Business-Card/Bcard.js"></script>
    
 </body>
 </html>
