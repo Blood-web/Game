@@ -9,7 +9,7 @@
 
     <link type="text/css" rel="stylesheet" href="game.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-
+    <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body onload="selftestini()" onclick="selftest()"  style="z-index: 0;">
    
@@ -19,11 +19,12 @@
     
          
 
-         <div id="head"><h2><p class="opacity">Score;</p>
-             <p id="scorecounter">0</p> <p class="opacity">&#128176;</p></h2>
+         <div id="head"><h1 onclick="instprestige()">Working title</h1>
+             <br><h2><p id="scorecounter">0</p><p class="opacity">&#128176;</p></h2>
+            <br>
             <progress id="prestigebar" value="0" min ="0" max="1000"></progress>
             <br>
-                <h1 onclick="instprestige()">Working title</h1>
+            
                    </div>
             
             <header>
@@ -39,7 +40,7 @@
                 </div>
            
 
-                <div class="Imagebtn">
+                <div class="Imagebtn" style="float: inline-end;">
                 <img id="Diamonds" onclick="Diamonds()" src="../Logs/diamond-icon.svg" />
                 <br><p>Diamonds Store</p>
                  </div>
@@ -50,12 +51,12 @@
                <br> <p>Prestige +50%</p>
                 </div>
 
-                <div class="Imagebtn">
-                 <a href="javascript:window.location.reload(true)">  
-                 <img id="Refresh" src="../Logs/refresh.png" alt="refresh" />
+                <div class="Imagebtn" >
+                 
+                 <img id="Refresh" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" />
                 <br><p><strong>&#8635;REFRESH&#8635;</strong></p>
-                </a></div>
-
+                </div>
+                </header>
               
                 
               
@@ -75,20 +76,28 @@
             <br>
 
          <div id="card"> <!--Prestiger-->
-           <h4>Prestige level = <p id="levelt">0</p>
-         <br> Prestige progress = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
-            <br>Mana = <p></p> <span class="mana"></span> <p id="manacount"></p>/ <p id="manamaxcount"></p>
-            <br>Rage = <p id="ragetext">0</p>/333
+            <button onclick="movecard()" id="cardbutton" ></button>
+           <h4>CurrentPrestige= <p id="prestigelevelcount">0</p>
+         <br> NextPrestige = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
+            <br> Manalevel = <p id="manalevelcounter">0</p> <p> totalregen= </p><p id="manaregencounter">0</p>
+            <br>Mana =  <span class="mana"></span> <p id="playermanacount"></p>/ <p id="manamaxcount"></p>
+            Rage = <p id="ragetext">0</p>/333
             <br><p>TotalClicks = </p> <p id="TCcounter">0</p>
-            <br> <p>Multiplier = </p><p id="multicounter">1</p>
+             <p>Multiplier = </p><p id="multicounter">1</p>
+             <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
-            <br><p>Fire level = </p> <p id="firelevel">1x0</p>
+            <p>Fire level = </p> <p id="firelevel">1x0</p>
             <br><p>Arcane level= </p><p id="arclevel">0</p>
-            <br><p>Arcane counter= </p><p id="arccounter"></p>
+            <p>Arcane counter= </p><p id="arccounter">0</p>
+            <br><p>Earth level= </p><p id="earthlevel">0</p>
+            <p>Earth counter=</p> <p id="earthcounter">0</p> 
+            <p id="magmincounter"></p>
+            <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
+            <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
         </h4>
         </h4></div>
         <!--Shiftery here-->
-    <div onclick="" id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
+    <div  id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
            
         
 
@@ -97,9 +106,9 @@
             <input type="range" min="0" max="1001" value="0" class="slider" id="myrange" overflow="hidden" />
          </div>
          <!--Button1-->
-            <span> <br>
+            <span id="abvauto"> <br>
             <img id="buyauto" class="Gamebtn" />
-            <br> <button onclick="buyauto()" class="upgradebutton" >
+            <br> <button id="autobutton" onclick="buyauto()" class="upgradebutton" >
             <p>Upgrade <br>Auto-Clicker:</p>
             <br><p id="autocost">(100)</p><p>&#128176;</p>
             </button></span>  
@@ -116,31 +125,31 @@
 
             <!--Button3-->
 
-            <span><br>
-                <img id="earthball"  class="Gamebtn" />
-            <br> <button onclick="moreClicks100()" class="upgradebutton">
+            <span id="abvearth"><p id="earthcastcost" >1000</p><span class="mana"></span><br>
+                <img id="earthball"  class="Gamebtn" src="../Logs/fireballearthmirror.png" style="opacity:0.1 ;" />
+            <br> <button id="earthbutton" onclick="earthcast()" class="upgradebutton">
             <p>EarthSpell <br>
-                <p>Upgradecost</p>
-            <p id="button7txt">(100)</p></p><p>&#128176;</p>
+                Upgradecost</p>
+            <p id="button7txt">(100)</p><p>&#128176;</p>
             </button></span>  
 
          
 
             <!-- Button 6 ARCANE -->
             <span id="abvarc"><p id="arcanecastcost">20</p> <span class="mana"></span><br>
-            <img onclick="arcaneballcast()" id="arcaneball" src="../Logs/fireballspellmirror.png" class="Gamebtn"  style="opacity: 0.1;"/>
+            <img onclick="arcaneballcast()" class="Gamebtn" id="arcaneball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
             <br><button onclick="arcaneballupgrade()" class="upgradebutton">
                 <p>ArcaneBall<br>
-            Click + 10 <br> Upgrade cost:
-            <p id="button6txt">(10)</p> <p>&#128176;</p> </p>
+            Click + 10 <br> Upgrade cost:</p>
+            <p id="button6txt">(10)</p> <p>&#128176;</p> 
             </button></span>
 
             <!--Button5-->
-            <span><br>
+            <span id="abvclick"><p>+1</p><br>
             <img id="clicker" onclick="mainclick()" class="Gamebtn" />
-            <br> <button onclick="upgrademc()" class="upgradebutton">
-            <p>upgrade Click<strong>+1</strong></p>
-            <br><p id="button0txt"></p>
+            <br> <button onclick="upgradeclicker()" class="upgradebutton">
+            <p>Upgrade Click<strong>+1</strong></p>
+            <br><p id="button0txt"></p>  <p>&#128176;</p> 
             </button></span>
 
             <!--Button6-->
@@ -152,17 +161,17 @@
             </button></span>
             
             <!--Button7-->
-            <span><span class="mana"></span><p>_</p><p id="iceballcastcost">29</p><br>
-            <img id="iceball" onclick="iceball()" class="Gamebtn" style="opacity: 1;" />
-            <br> <button id="arcbutton" class="upgradebutton">
+            <span id="abvice">- <p id="icecastcost">290</p><span class="mana"></span><br>
+            <img id="iceball" onclick="iceballcast()" class="Gamebtn" style="opacity: 1;" />
+            <br> <button id="arcbutton"  onclick="upgradeice()" class="upgradebutton">
             <p>Frost Shower</p><br> <p>Upgrade Cost:</p>    
             <p id="button3txt">120</p><p>&#128176;</p>
             </button></span>
 
             <!--Button8-->
-            <span>+<span class="mana"></span><br>
-                <img  id="metergain"  class="Gamebtn" style="opacity:1;"  />
-            <br><button onclick="upgrademana()" class="upgradebutton" >
+            <span id="abvmana">+1<span class="mana"></span><br>
+                <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
+            <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton" src="" >
                 <p> Mana <span class="mana"></span> 
                 <br>Upgrade:</p><br><p id="button2txt">250</p><p>&#128176;</p>
             </button></span>
@@ -191,66 +200,83 @@
         <span id="upgradetable" class="hiddentab" style="opacity: 0; " > 
         <table id="hiddenupgrades" cellspacing="0" > 
         <tr> 
-            <td ><p id="titler1c1">Firestorm</p><br>
+            <td ><p id="titler1c1">Firestorm</p><br><br>
                 <img id="tdr1c1" onclick="menufireballupgrade()"  src="../Logs/3fireball.jpg"> 
                 <br><p id="pr1c1">750</p><p>&#128176;</p>
-            <p id="fireupgdesc" class="description">Fireball casts 3x at once!
-                <br>(slight mana cost increase);
+            <p id="fireupgdesc" class="description">
             </p></td>
             
-            <td id="tdr1c2"> <img src="../Logs/3arcane.jpg" alt="arcane3" />
-                <br> Arcane Split 
+            <td id="tdr1c2">  Arcane Autocastbr <br> 
+                <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arcane auto" />
                 <br><p id="pr1c2"></p><p>&#128176;</p>
-            <p class="description">Your powerfull Arcane spells cast themselves! </p></td>
-            
-            <td id="tdr1c3"><img src="../Logs/staff.png" alt="staff">
-                <br>  Increase MaxMana
-                <br><p id="pr1c3"></p><p>&#128176;</p>
-                <p class="description"> Mana maximum 
-                    Before=1000 after=1200   
-                </p>
+            <p id="arcupgdesc" class="description">Your powerfull Arcane spells cast themselves! (click to toggle)</p></td>
+           
+            <td id="tdr1c3"> <img src="../Logs/snow.png" alt="frostupgrade"> 
+             Icewall <br> <p class="description"></p>
+            </td>
+
+            <td id="tdr1c4"> Earthquake <br>
+                <img onclick="menuearthupg()" src="../Logs/swordnstone.png" alt="">
+                <br><p id="pr1c4">150k</p><p>&#128176;</p>
+                <p class="description" id="earthquakeupgdesc"></p>
+                <p class="description">Earth Magnitude min increased by +1</p><p id="magminupg">Current minimum =1</p>
             </td> 
-            <td id="tdr1c5"><img src="../Logs/deer.png" alt="deer">
-                <br>upgrade5
+           
+
+            <td id="tdr1c6">All spells <br><br>
+                <img src="../Logs/deer.png" onclick="menuspellmulti()" alt="deer">
+                
                 <br> <p id="pr1c3"></p><p>&#128176;</p>
-                <p class="description"> Describe deer</p>
+                <p class="description"> Increases spells effieciency by +10%</p>
             </td>  
-          <td id="tdr1c4"><img src="../Logs/chestultra.png" alt="chest">
-            <br> Autoclick helper
-            <br><p id="pr1c4">10000</p><p>&#128176;</p>
+          <td id="tdr1c6">Autoclick helper<br> 
+              <img src="../Logs/chestultra.png" alt="chest">
+            <br><p id="pr1c6">10000</p><p>&#128176;</p>
             <p class="description"> For every 5levels in auto clicker get +1free autoclicker level</p>
             </td>        
         
-        <td id="tdr1c6"><p id="titler1c6">Shiftery</p><br>
-            <img src="../Logs/skull.png" alt="skull"/>
-                <br> <p id="pr1c6">42000</p>
-                <p id="" class="description"></p>
-                </td>
         </tr>
 
         <tr>
-            <td id="tdr2c2"> <img src="../Logs/swordnstone.png" alt="earthupgrade">
-                <br> EarthSpell
-                <br><p id="pr2c2"></p><p>&#128176;</p>
-                <p class="description">Earth spell now consumes Rage alongside mana but is far more powerful</p>
+        <td id="tdr2c1">
+            <p id="titler2c1">Manaregen</p><br><br>
+            <img src="../Logs/skull.png" alt="skull" onclick="manaregenplus10()"/><br>
+            <p id="pr2c1">42000 <br>  Increase base mana regen by +10</p>
+        </td>
+        <td id="tdr2c2"> Increase MaxMana<br>
+            <img onclick="menumaxmanainc()" src="../Logs/staff.png" alt="staff">
+            <br><p id="pr2c2"></p>
+            <p>&#128176;</p>
+            <p id="manamaxupgdesc" class="description"> Mana maximum
+                Before=1000 after=1200
+            </p>
+        </td>
+        <td id="tdr2c3"> Arcane autocast<br> 
+            <img src="../Logs/fireballspellmirror.png" onclick="upgarcautocast()" alt="arc autocast">
+            <br><p id="pr2c3"></p>
+            <p>&#128176;</p>
+            <p class="descrption"> Autocast click to toggle</p>
+        </td>
+        <td id="tdr2c4"> <img src="../Logs/swordnstone.png" alt="earthupgrade">
+            <br> EarthSpell
+            <br>
+            <p id="pr2c2"></p><p>&#128176;</p>
             </td>
-            <td id="tdr2c3"> <img src="../Logs/snow.png" alt="frostupgrade">
-                FrostSpell  
-            <br><p id="pr2c3"></p><p>&#128176;</p>
-        <p class="description"></p>
-    </td>
-            <td id="tdr2c4"><img src="../Logs/wand.png" alt="">
+            <td id="tdr2c5"><img src="../Logs/wand.png" alt="">
                 Wand Upgrade
                 <br><p></p>
                 <p id="description"> Empowers your magic, All MANA based spells are 1.3x more powerful</p>
             </td>
-            <td id="tdr2c5"><img src="../Logs/anon.png" alt="">
+            <td id="tdr2c6"><img src="../Logs/anon.png" alt="">
                 Activate shiftery
                 <br> <p id="pr2c5"></p><p>&#128176;</p> 
                 <p class="description"> Changes the menu bar background, and gives a random boost to stats</p>
-            </td>
-        </tr>
-     
+            </td> </tr>
+
+        <tr>
+    
+                
+            </td></tr> 
     </table>
 </span>
 
