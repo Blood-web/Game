@@ -12,19 +12,17 @@
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body onload="selftestini()" onclick="selftest()"  style="z-index: 0;">
-   
+  <p>jhhfhfid</p> 
 
-     <main >
+     
    <fieldset id="main" onclick="totalclickinc()">
     
          
 
-         <div id="head"><h1 onclick="instprestige()">Working title</h1>
+         <div id="head"><h1 onclick="instprestige()"></h1><br>
+            <progress style="width: 100%;" id="prestigebar" value="0" min ="0" max="1000"></progress>
+            <br>
              <br><h2><p id="scorecounter">0</p><p class="opacity">&#128176;</p></h2>
-            <br>
-            <progress id="prestigebar" value="0" min ="0" max="1000"></progress>
-            <br>
-            
                    </div>
             
             <header>
@@ -41,7 +39,7 @@
            
 
                 <div class="Imagebtn" style="float: inline-end;">
-                <img id="Diamonds" onclick="Diamonds()" src="../Logs/diamond-icon.svg" />
+                <img id="Diamonds" onclick="createtoken()" src="../Logs/diamond-icon.svg" />
                 <br><p>Diamonds Store</p>
                  </div>
                 <!--Prestige-->
@@ -75,13 +73,15 @@
 
             <br>
 
-         <div id="card"> <!--Prestiger-->
+         <div id="cardwrap" style="width: 40%;" > <!--Prestiger-->
             <button onclick="movecard()" id="cardbutton" ></button>
-           <h4>CurrentPrestige= <p id="prestigelevelcount">0</p>
+           <h4 id="card" style="width: 80%;">CurrentPrestige= <p id="prestigelevelcount">0</p>
          <br> NextPrestige = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
             <br> Manalevel = <p id="manalevelcounter">0</p> <p> totalregen= </p><p id="manaregencounter">0</p>
             <br>Mana =  <span class="mana"></span> <p id="playermanacount"></p>/ <p id="manamaxcount"></p>
-            Rage = <p id="ragetext">0</p>/333
+            
+            <br> Rage: Level = <p id="ragelevelcounter">0</p> Run# = <p id="rageruncounter">0</p>
+             <br> <p id="playerragecounter">0</p>/ <p id="ragecap">333</p>
             <br><p>TotalClicks = </p> <p id="TCcounter">0</p>
              <p>Multiplier = </p><p id="multicounter">1</p>
              <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
@@ -94,14 +94,10 @@
             <p id="magmincounter"></p>
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
-        </h4>
-        </h4></div>
+           </h4>
+        </div>
         <!--Shiftery here-->
     <div  id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
-           
-        
-
-        <div id="lower-buttons">
           <div class="slidecontainer">
             <input type="range" min="0" max="1001" value="0" class="slider" id="myrange" overflow="hidden" />
          </div>
@@ -173,18 +169,17 @@
                 <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
             <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton" src="" >
                 <p> Mana <span class="mana"></span> 
-                <br>Upgrade:</p><br><p id="button2txt">250</p><p>&#128176;</p>
+                <br>Upgrade:</p><br><p id="manaupgcost">250</p><p>&#128176;</p>
             </button></span>
         
           <!--Button9-->
-            <span><br>
+            <span id="abvrage"><br>
                 <img id="rage" onclick="startrage()" class="Gamebtn" style="opacity: 1;" />
-            <br> <button class="upgradebutton" >
-            <p>Rage </p><br><p id="button1txt">(10,000)</p>
-            <br><p id="click">100</p><p>&#128176;</p>
+            <br> <button id="ragebutton" onclick="upgraderage()" class="upgradebutton" >
+            <p>Rage </p><br><p id="rageupgcost">(10,000)</p><p>&#128176;</p>
+            <p id="ragemanacost"></p><span class="mana"></span>
             </button></span>
-        </div>
-    </div>
+</div>
     </fieldset>
       
 
@@ -308,7 +303,7 @@
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis consequatur ducimus suscipit amet odit esse reiciendis deserunt! Dolore commodi nam eius odit quae cum praesentium vitae beatae consequuntur natus?
 </span>
 </fieldset>
-   </main>
+   
 
     <ref alt="image src" hidden>https://www.clipartmax.com/download/m2H7i8d3b1K9G6N4_chest-icon-treasure-chest-icon-png/</ref>
      <script src="game.js"></script>

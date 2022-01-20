@@ -1,16 +1,19 @@
 /*MAIN ordered*/
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+   
 }
 html, body{
     height: 100%;
+    width: 100%;
 }
 body {
     z-index: 0;  
     font-family: 'lobster', cursive;
     height: 100%;
     width: 100%;
+  
     text-align: center;
     background: linear-gradient(
             80deg,
@@ -30,20 +33,13 @@ body:hover {
     );
 
 }
-main {
-    z-index: 1;
-    position: relative;
-    top: 1%;
-    width: 100vw;
-    height: 90vh;
-    text-align: center;
-}
+
 header {
     position: absolute;
     left: 0;
     right: 0;
     width: 95%;
-    top: 0;
+    top: 5%;
 }
 img  {
     box-shadow: 5px 10px 18px red; 
@@ -68,9 +64,9 @@ table {
 }
 
 
-
 td {
     display: inline;
+    font-size: 90%;
     max-inline-size: 15%;
     position: relative;
     overflow: hidden;
@@ -79,34 +75,15 @@ td {
 
 tr td {
     display: inline-block;
-    width: 15%;
+    width: 20%;
     height: 15%;
     border: 1px solid sandybrown;
 }
-
-
+span {
+    background-color: #faf;
+}
 /*table class/ids*/
 
-.desription {
-    font-size: 990px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: whitesmoke;
-}
-.tdr1 {
-    font: 100;
-}
-.tdr2 {
-    font: 200;
-}
-.tdr3 {
-    font: 100;
-}
-.tdr4 {
-    font: 800;
-}
-.tdr5 {
-    font: 500;
-}
 /*Headers*/
 h1 {
     display: inline-block ;
@@ -146,8 +123,9 @@ div h6 {
 p {
     display: inline-block;
 }
-button p {
-    color: #fff; 
+button p  {
+    color: #fff;
+    font-size: 2vh;
 }
 button a {
  background-color: #fafafa;   
@@ -193,7 +171,9 @@ background-color:
 
 }
 .desription {
-    color: #fff;
+    font-size: 990px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
 }
 .red {
     color: #ff0000;
@@ -232,8 +212,6 @@ background-color:
     width: 100%;
     text-align: center;
     height: 1%;
-    margin-top: 20vh;
-  
 }
 .slider {
     -webkit-appearance: none;
@@ -268,34 +246,35 @@ background-color:
 }
 /*IDS*/
 #card {
-    
-position: absolute;
+    font-size: small;
 text-align: left;
-
-    bottom:25%;
-    left: -32%;
+   float: left;
     background-color: #00000000;
     color: #707;
-    height: 60%;
-    width: 40% ;
-    border-radius:0 0 10% 10%;
     
+    width: 40vw ;
+    border-radius:0 0 10% 10%;
+    display:none;
 }
 #cardbutton {
     opacity: 1;
-    margin-top:50%;float: right;background-image: url(../Logs/arrow.png);
-    background-size:contain; transform: rotate(-90deg); height: 15%; width:15%;
-    border-radius: 10%; border: ridge 2px aqua;
+    float: right;background-image: url(../Logs/arrow.png);
+    background-size: contain; transform: rotate(-90deg); height: 10vh; width:10vh; 
+    border-radius: 10%; border: ridge 2px aqua; background-repeat:no-repeat ;
 }
-
+#cardwrap {
+    position: absolute;
+    top: 30vh;
+    min-width: 40vw;
+    height: min-content;
+    left: -29%;
+}
 /*Click area*/
 #main {
-   width: 90%;
-    height: 100vh;
+   width: auto;
+    height: 96vh;
     border: 10px solid black;
-    margin: 2px;
-    
-    
+    margin: 0 auto;
     background-image: url(../Logs/chestultra.png);
     background-repeat: no-repeat;
     background-size:50% ;
@@ -333,18 +312,15 @@ text-align: left;
 /*Lower trwat*/
 #boxmain {
     background: #000;
-    background-position-x:center ;
-    background-position-y: center;
     box-shadow: 5px 10px 18px 10px  #a9a9a9; 
-    bottom: -20%;
     position: absolute;
-    height: 23vh;
-    left: 2vw;
+    bottom: 0;
+    height: 22vh;
+   display: table-row;
+  width: 96vw;
+
 }
-#lower-buttons {
-    background-color: #04AA6D;
-    margin-top: -36%;
-}
+
 #fireball { 
     background-repeat: no-repeat;
     background-color: #000;
@@ -422,8 +398,7 @@ text-align: left;
 #head {
    opacity: 1;
     position: relative;
-    left: 15vw;
-    width: 60%;
+    margin: 0 auto;
 }
 #myrange {
     width: 100%; 
@@ -480,11 +455,11 @@ font-family: 'lobster', cursive;
     position: absolute;
     background-color: #00ffff;
     border: 2px solid #0f0 ;
-     top: 10vh;
+     top: 0.5vh;
     left: 1vw;
     z-index: 0;
-    height: 92%;
-    width: 90%;
+    height: 110%;
+    width: 98%;
 
 }
 #closemenu {
@@ -504,10 +479,8 @@ font-family: 'lobster', cursive;
 }
 .hiddentab {
     font-family: 'lobster', cursive;
- height: 25%;
-    width: 90%;
- 
-    
+ height: 25vh;
+    width: 90vw;
     top: 5vh;
     left: 4vw;
     z-index: 0;
