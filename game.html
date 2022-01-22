@@ -11,69 +11,80 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
-<body onload="selftestini()" onclick="selftest()"  style="z-index: 0;">
+<body id="body" onload="selftestini(); StartShift();" onclick="selftest()"  style="z-index: 0;">
   <p>jhhfhfid</p> 
 
      
-   <fieldset id="main" onclick="totalclickinc()">
-    
-         
+<fieldset id="main" onclick="totalclickinc()">
 
-         <div id="head"><h1 onclick="instprestige()"></h1><br>
-            <progress style="width: 100%;" id="prestigebar" value="0" min ="0" max="1000"></progress>
+
+
+    <div id="head">
+        <h1 onclick="instprestige()"></h1><br>
+        <progress style="width: 100%;" id="prestigebar" value="0" min="0" max="1000"></progress>
+        <br>
+        <br>
+        <h2>
+            <p id="scorecounter">0</p>
+            <p class="opacity">&#128176;</p>
+        </h2>
+    </div>
+
+    <header>
+        <!--DEV TOOLS-->
+        <!--upgrade menu not defined-->
+        <div id="upgrades" class="Imagebtn" onclick="flipupgtab()">
+            <img id="upgimg"
+                src="https://user-images.githubusercontent.com/84670867/145705663-45326101-0511-4bab-b37b-294e2a015f26.jpg"
+                alt="orestige sun" />
             <br>
-             <br><h2><p id="scorecounter">0</p><p class="opacity">&#128176;</p></h2>
-                   </div>
-            
-            <header>
-                <!--DEV TOOLS-->
-                <!--upgrades not defined-->
-                <div id="upgrades" class="Imagebtn" onclick="flipupgtab()">
-                    <img id="upgimg"  src="https://user-images.githubusercontent.com/84670867/145705663-45326101-0511-4bab-b37b-294e2a015f26.jpg" alt="orestige sun" />
-                   <br> <p>Upgrades Store</p>
-                    </div> 
-                <div id="options" class="Imagebtn" > 
-                 <img  src="../Logs/gear.png" onclick="moreClicks10000()" id="cheat1" />         
-                <br><p>Options</p>
-                </div>
-           
+            <p>Upgrades Store</p>
+        </div>
+        <!-- Options Menu-->
+        <div id="options" class="Imagebtn">
+            <img src="../Logs/gear.png" onclick="moreClicks10000()" id="cheat1" />
+            <br>
+            <p>Options</p>
+        </div>
 
-                <div class="Imagebtn" style="float: inline-end;">
-                <img id="Diamonds" onclick="createtoken()" src="../Logs/diamond-icon.svg" />
-                <br><p>Diamonds Store</p>
-                 </div>
-                <!--Prestige-->
-                
-                <div class="Imagebtn" onclick="Prestige()">
-                <img id="prestige" src="../Logs/fsun.png" alt="orestige sun" />
-               <br> <p>Prestige +50%</p>
-                </div>
+        <!-- Diamonds-->
+        <div class="Imagebtn" style="float: inline-end;">
+            <img id="Diamonds" onclick="createtoken()" src="../Logs/diamond-icon.svg" />
+            <br>
+            <p>Diamonds Store</p>
+        </div>
 
-                <div class="Imagebtn" >
-                 
-                 <img id="Refresh" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" />
-                <br><p><strong>&#8635;REFRESH&#8635;</strong></p>
-                </div>
-                </header>
-              
-                
+        <!--Prestige menu button-->
+        <div class="Imagebtn" onclick="Prestige()">
+            <img id="prestige" src="../Logs/fsun.png" alt="orestige sun" />
+            <br>
+            <p>Prestige </p>
+        </div>
+
+        <!-- Refresh Button-->
+        <div class="Imagebtn">
+            <img id="Refresh" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" />
+            <br>
+            <p><strong>&#8635;REFRESH&#8635;</strong></p>
+        </div>
+    </header>
               
                
-                </button>
+                
             <br>
                 <br>
     	       
             <h6 id="h6">sa</h6>
                 
             <br>
-            </header>
+            
       
           
             <h3 id="messages" ></h3>
 
             <br>
 
-         <div id="cardwrap" style="width: 40%;" > <!--Prestiger-->
+         <div id="cardwrap" style="width: 40%;" > <!--Card floater-->
             <button onclick="movecard()" id="cardbutton" ></button>
            <h4 id="card" style="width: 80%;">CurrentPrestige= <p id="prestigelevelcount">0</p>
          <br> NextPrestige = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
@@ -101,7 +112,7 @@
           <div class="slidecontainer">
             <input type="range" min="0" max="1001" value="0" class="slider" id="myrange" overflow="hidden" />
          </div>
-         <!--Button1-->
+         <!--Button1 Autoclicket-->
             <span id="abvauto"> <br>
             <img id="buyauto" class="Gamebtn" />
             <br> <button id="autobutton" onclick="buyauto()" class="upgradebutton" >
@@ -109,18 +120,15 @@
             <br><p id="autocost">(100)</p><p>&#128176;</p>
             </button></span>  
             
-            
-                       
-            <!--Button2--> 
+            <!--Button2 CHEAT/TEMP --> 
             <span><br>
                 <img id="m5" class="Gamebtn" />
             <br> <button onclick="pluscheat()" class="upgradebutton" >
-            <p> Click + <br> 1000 </p>
-            <br><p id="button8txt">(1000)</p><p>&#128176;</p>
+            <p> Developer Cheat <br>  </p>
+            <br><p id="button8txt">(NaN)</p><p>&#128176;</p>
             </button></span>
 
-            <!--Button3-->
-
+            <!--Button3 Earthspell-->
             <span id="abvearth"><p id="earthcastcost" >1000</p><span class="mana"></span><br>
                 <img id="earthball"  class="Gamebtn" src="../Logs/fireballearthmirror.png" style="opacity:0.1 ;" />
             <br> <button id="earthbutton" onclick="earthcast()" class="upgradebutton">
@@ -129,9 +137,7 @@
             <p id="button7txt">(100)</p><p>&#128176;</p>
             </button></span>  
 
-         
-
-            <!-- Button 6 ARCANE -->
+            <!-- Button 4 Arcanespell -->
             <span id="abvarc"><p id="arcanecastcost">20</p> <span class="mana"></span><br>
             <img onclick="arcaneballcast()" class="Gamebtn" id="arcaneball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
             <br><button onclick="arcaneballupgrade()" class="upgradebutton">
@@ -140,7 +146,7 @@
             <p id="button6txt">(10)</p> <p>&#128176;</p> 
             </button></span>
 
-            <!--Button5-->
+            <!--Button5 MC   -->
             <span id="abvclick"><p>+1</p><br>
             <img id="clicker" onclick="mainclick()" class="Gamebtn" />
             <br> <button onclick="upgradeclicker()" class="upgradebutton">
@@ -148,7 +154,7 @@
             <br><p id="button0txt"></p>  <p>&#128176;</p> 
             </button></span>
 
-            <!--Button6-->
+            <!--Button6 FIREBALL-->
             <span id="abvfire"><p>-<p id="fireballcastcost">10</p><span class="mana"></span></p><br>
             <img onclick="fireballcast()"  id="fireball" src="../Logs/fireball.png" class="Gamebtn" style="opacity: 0.1;" />
             <br> <button id="fbbutton" onclick="fireballupgrade()" class="upgradebutton">
@@ -156,7 +162,7 @@
             <br><p id="button4txt">10</p> <p>&#128176;</p>
             </button></span>
             
-            <!--Button7-->
+            <!--Button7 Iceball-->
             <span id="abvice">- <p id="icecastcost">290</p><span class="mana"></span><br>
             <img id="iceball" onclick="iceballcast()" class="Gamebtn" style="opacity: 1;" />
             <br> <button id="arcbutton"  onclick="upgradeice()" class="upgradebutton">
@@ -164,7 +170,7 @@
             <p id="button3txt">120</p><p>&#128176;</p>
             </button></span>
 
-            <!--Button8-->
+            <!--Button8 MANA-->
             <span id="abvmana">+1<span class="mana"></span><br>
                 <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
             <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton" src="" >
@@ -172,7 +178,7 @@
                 <br>Upgrade:</p><br><p id="manaupgcost">250</p><p>&#128176;</p>
             </button></span>
         
-          <!--Button9-->
+          <!--Button9 RAGE-->
             <span id="abvrage"><br>
                 <img id="rage" onclick="startrage()" class="Gamebtn" style="opacity: 1;" />
             <br> <button id="ragebutton" onclick="upgraderage()" class="upgradebutton" >
@@ -307,7 +313,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis consequatur
 
     <ref alt="image src" hidden>https://www.clipartmax.com/download/m2H7i8d3b1K9G6N4_chest-icon-treasure-chest-icon-png/</ref>
      <script src="game.js"></script>
-     <script src="../Business-Card/Bcard.js"></script>
+     <script src="Shiftery.js"></script>
    
 </body>
 </html>

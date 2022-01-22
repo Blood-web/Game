@@ -418,6 +418,7 @@ function clickreset(){
 }
 function updateclick(){
     if(click==null){click=0;}
+    
   clicker.upg$=clicker.level*10+50;Math.ceil(clicker.upg$);
     clicker.multi = prestige.level * 1.51;
     clicker.multi = Math.round(clicker.multi *100)/100;
@@ -426,7 +427,7 @@ function updateclick(){
     clicker.tcounter.innerText=clicker.totalclicks;
     clicker.multicounter.innerText=clicker.multi;
  number = clicker.upg$;  gennumberconverter(); clicker.p0.innerText= number;  
- 
+ BZbuster();
  clicker.truestatus=" Level="+clicker.level+" Totalclicks= "+clicker.totalclicks+'\n'+
     " Upg$=" +clicker.upg$+" Multi="+clicker.multi;
 }
@@ -1496,7 +1497,22 @@ function jump () {
     character.classList.add("animate");
     } 
 }
+function BZbuster(){  
+   //SHUFFLES Background//
+    difference(prestige.prog,prestige.req);
+    //IF ready//
+    if (result <= 1){menu.return.style.backgroundImage="url(../im1.png)";}
+    // if less than 30%//
+    else if (result <= 30){menu.return.style.backgroundImage="url(../400400.png)";}
+   //if less than 60%//
+    else if (result <= 60){menu.return.style.backgroundImage="url(../s1.jpg)";}
+    // under 100% - BUSTED//
+    else if(RESULT <= 100){menu.return.style.backgroundImage="URL(../"}
+ console.log(result+" BBZ diff");}
 
+function difference(a, b){
+        result=((a/b)*100).toFixed(2);
+    }
 //ifdead alert//
 /*var checkDead = setInterval(function(){
     

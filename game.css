@@ -8,8 +8,8 @@ html, body{
     height: 100%;
     width: 100%;
 }
-body {
-    z-index: 0;  
+#body {
+     z-index: 0;  
     font-family: 'lobster', cursive;
     height: 100%;
     width: 100%;
@@ -20,7 +20,7 @@ body {
         #f1f,
         #0f0,
         #123
-    );    
+    );   
 }
 body:hover {
     background: linear-gradient(
