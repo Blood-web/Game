@@ -14,6 +14,7 @@
 <body id="body" onload="selftestini(); StartShift();" onclick="selftest()"  style="z-index: 0;">
   <p>jhhfhfid</p> 
 
+
      
 <fieldset id="main" onclick="totalclickinc()">
 
@@ -47,6 +48,7 @@
             <p>Options</p>
         </div>
 
+
         <!-- Diamonds-->
         <div class="Imagebtn" style="float: inline-end;">
             <img id="Diamonds" onclick="createtoken()" src="../Logs/diamond-icon.svg" />
@@ -69,15 +71,7 @@
         </div>
     </header>
               
-               
-                
-            <br>
-                <br>
-    	       
-            <h6 id="h6">sa</h6>
-                
-            <br>
-            
+              
       
           
             <h3 id="messages" ></h3>
@@ -94,19 +88,11 @@
             <br> Rage: Level = <p id="ragelevelcounter">0</p> Run# = <p id="rageruncounter">0</p>
              <br> <p id="playerragecounter">0</p>/ <p id="ragecap">333</p>
             <br><p>TotalClicks = </p> <p id="TCcounter">0</p>
-             <p>Multiplier = </p><p id="multicounter">1</p>
-             <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
-            <br><p>Fire counter = </p> <p id="firecounter">0</p>
-            <p>Fire level = </p> <p id="firelevel">1x0</p>
-            <br><p>Arcane level= </p><p id="arclevel">0</p>
-            <p>Arcane counter= </p><p id="arccounter">0</p>
-            <br><p>Earth level= </p><p id="earthlevel">0</p>
-            <p>Earth counter=</p> <p id="earthcounter">0</p> 
-            <p id="magmincounter"></p>
+            
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
            </h4>
-        </div>
+        </div><h6 id="h6">sa</h6>
         <!--Shiftery here-->
     <div  id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
           <div class="slidecontainer">
@@ -286,8 +272,9 @@
     <tr>
     <td class="stats"><p><b><l>Click</l></b></p>
         <p>Total clicks=</p><p id="tc#"></p>
-        <p>Achievements Unlocked</p> <p id="ACH"></p>
+        <p>Achievements Unlocked</p> <p id="ACH"></p> <p>Multiplier = </p><p id="multicounter">1</p>
         <br><p>Clicker upgrades=</p><p id="mcupg#"></p><p id="multi#"></p>
+        <br><p>Auto clicker upgrades</p><p id="acupg"></p>
     </td>
     <td class="stats">
 
@@ -296,7 +283,15 @@
     <tr><caption>Manastats</caption>
     <td class="stats">
     <p>Total spells cast</p> <p id="tcCast">0</p>
-
+     
+             <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
+            <br><p>Fire counter = </p> <p id="firecounter">0</p>
+            <p>Fire level = </p> <p id="firelevel">1x0</p>
+            <br><p>Arcane level= </p><p id="arclevel">0</p>
+            <p>Arcane counter= </p><p id="arccounter">0</p>
+            <br><p>Earth level= </p><p id="earthlevel">0</p>
+            <p>Earth counter=</p> <p id="earthcounter">0</p> 
+            <p id="magmincounter"></p>
     </td>
     <td class="stats"></td>
     
@@ -306,7 +301,13 @@
 </span>
 
 <span id="prestigetable" class="hiddentab" style="opacity: 0;">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis consequatur ducimus suscipit amet odit esse reiciendis deserunt! Dolore commodi nam eius odit quae cum praesentium vitae beatae consequuntur natus?
+    Prestige <br><p id="bannerlevel"> 1</p> 
+   <figure>     
+        <img src="../Logs/br.png" alt=""></figure>
+    Prestiging Increases base click value by +14%.
+    You Currently have <p id="prestige_of"></p> Pretsige
+    <br> <p> Would you like to prestige?</p>
+    <button id="prestigeY" onclick="Prestige()">Yes</button id="prestigeN" onclick="closemenu()"><button>No</button>
 </span>
 </fieldset>
    

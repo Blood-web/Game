@@ -35,11 +35,10 @@ body:hover {
 }
 
 header {
-    position: absolute;
-    left: 0;
-    right: 0;
+    position: relative;
+   top: 0  auto;
     width: 95%;
-    top: 5%;
+ 
 }
 img  {
     box-shadow: 5px 10px 18px red; 
@@ -54,7 +53,7 @@ header button {
   
     color: #04AA6D;
     height: 10vh;
-    bottom: 3vh;
+    
 }
 /*Table*/
 table {
@@ -108,18 +107,9 @@ h3 {
 }
 h6 {
     font-size: 80px;
-  
-    text-align: left;
+    float: right;
 }
-div h6 {
-    background-color: #ffffff14;
-  position: absolute;
-    top: 12vh;
-    left: 5vw;
-    width: 80vw;
-    height: 50vh;
-}
-/*Misc*/
+
 p {
     display: inline-block;
 }
@@ -395,10 +385,15 @@ text-align: left;
 } 
 
 /**/
-#head {
+#head {position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
    opacity: 1;
-    position: relative;
-    margin: 0 auto;
+   
+    
 }
 #myrange {
     width: 100%; 
@@ -452,13 +447,14 @@ font-family: 'lobster', cursive;
     to{background: radial-gradient(circle at 50%, #333, #333 99%, #eee 100%, #333 75%);}
 }
 #hiddenwrap{
+    display: none;
     position: absolute;
     background-color: #00ffff;
     border: 2px solid #0f0 ;
      top: 0.5vh;
     left: 1vw;
     z-index: 0;
-    height: 110%;
+    height: 100%;
     width: 98%;
 
 }
@@ -473,7 +469,7 @@ font-family: 'lobster', cursive;
 }
 #upgradetable {
     display: inline-block;
-    height: 90%;
+    height: 92vw;
     position: absolute;
     
 }
@@ -498,8 +494,27 @@ font-family: 'lobster', cursive;
 }
 
 
+ figure {
+     margin :0 auto;
+     position: relative;
+     height: min-content;
+     width: min-content;
+     background:radial-gradient(rgb(243, 208, 6),rgb(229, 213,2));
+ }
 
-
+#bannerlevel{
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    left: 49%;
+    z-index: 2;
+    background-color: #00ffff55;
+    font-size: 6vh;
+    color: gold;
+    -webkit-text-fill-color: goldenrod; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
 
 /*Credits laredgames.itch.io/gems-coins-free */
 
