@@ -29,10 +29,7 @@ body:hover {
         #f0f
         #1f1,
         #f0f,
-        #321
-    );
-
-}
+        #321 );}
 
 header {
     position: relative;
@@ -50,18 +47,13 @@ img  {
 
 header button {
     position: relative;
-  
     color: #04AA6D;
     height: 10vh;
-    
 }
 /*Table*/
 table {
     background-color: white;
-    z-index: 2;
-    
-}
-
+    z-index: 2; }
 
 td {
     display: inline;
@@ -69,8 +61,7 @@ td {
     max-inline-size: 15%;
     position: relative;
     overflow: hidden;
-    vertical-align: top;
-}
+    vertical-align: top; }
 
 tr td {
     display: inline-block;
@@ -206,7 +197,7 @@ background-color:
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    
+   
     background:linear-gradient(95deg, #f00 ,
      #000,#000,#000,#000, #000, #000, #000,#000,#000,#000, #000, #000 );
     padding-bottom: 1%;
@@ -390,10 +381,7 @@ text-align: left;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
    opacity: 1;
-   
-    
 }
 #myrange {
     width: 100%; 

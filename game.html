@@ -12,8 +12,9 @@
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body id="body" onload="selftestini(); StartShift();" onclick="selftest()"  style="z-index: 0;">
-  <p>jhhfhfid</p> 
-
+  <p>Beta v0.2.1</p> 
+  <br>    
+<progress  id="prestigebar" value="0" min="0" max="1000"></progress>
 
      
 <fieldset id="main" onclick="totalclickinc()">
@@ -22,9 +23,8 @@
 
     <div id="head">
         <h1 onclick="instprestige()"></h1><br>
-        <progress style="width: 100%;" id="prestigebar" value="0" min="0" max="1000"></progress>
-        <br>
-        <br>
+        
+       
         <h2>
             <p id="scorecounter">0</p>
             <p class="opacity">&#128176;</p>
@@ -57,7 +57,7 @@
         </div>
 
         <!--Prestige menu button-->
-        <div class="Imagebtn" onclick="Prestige()">
+        <div class="Imagebtn" onclick="flipprestige()">
             <img id="prestige" src="../Logs/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
@@ -91,6 +91,7 @@
             
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
+            <button onclick="killshiftery()"> Kill shiftery </button>
            </h4>
         </div><h6 id="h6">sa</h6>
         <!--Shiftery here-->

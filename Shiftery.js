@@ -1,14 +1,14 @@
 //Shiftery Link to fieldset//
 
 g = 0;
-max=13;
+max=12;
 var run;
 console.log("peepee");
 function shiftery() {
 var L = document.getElementById('body');
     if (g == 0) { L.style.background = "linear-gradient( 40deg, #ddaadd, #11ffad)";  
         incg();  }
-    else if (g == 1){L.style.background = ('linear-gradient( 240deg, #11aa55, #29ace0)');
+    else if (g == 1){L.style.background = ('linear-gradient( 240deg, #11aa55, #29ace0)');+
         incg() ; }
     else if (g == 2) {L.style.background = ('linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)');
         incg();    }
@@ -36,9 +36,12 @@ var L = document.getElementById('body');
     }
 //Inc the var//
 function incg(){ g++;
-if (g==max){g==0;}}
+if (g>=max){g=0;}}
 function StartShift(){ 
    run=setInterval(shiftery,5000);
     shiftery();
     console.log("shiftery begin. G="+g);
+}
+function  killshiftery(){
+    run=clearInterval(shiftery,5000);
 }
