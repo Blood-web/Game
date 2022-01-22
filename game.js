@@ -77,7 +77,7 @@ const prestige = {
     capcount: document.getElementById('prestigecap'),
     levelcount:document.getElementById("prestigelevelcount"),
     bar:document.getElementById('prestigebar'),
-
+    overlay:document.getElementById("prestige"),
     stat:document.getElementById("prestige_of"),
     Ybtn:document.getElementById("prestigeY"),
     Nbtn:document.getElementById("prestigeN"),
@@ -413,16 +413,19 @@ function clickreset(){
 }
 function updateclick(){
     if(click==null){click=0;}
+
     clicker.upg$=Math.ceil(((clicker.level+1)*50)+(clicker.level*1.2));
+
     clicker.multi = prestige.level * 1.51;
     clicker.multi = Math.round(clicker.multi *100)/100;
     scorenumberconvertor();
     clicker.scorecounter.innerText=score;
     clicker.tcounter.innerText=clicker.totalclicks;
     clicker.multicounter.innerText=clicker.multi;
-    number = clicker.upg$;  gennumberconverter(); clicker.p0.innerText= number;  
- 
-    clicker.truestatus=" Level="+clicker.level+" Totalclicks= "+clicker.totalclicks+'\n'+
+ number = clicker.upg$;  gennumberconverter(); clicker.p0.innerText= number;  
+ BZbuster();
+ clicker.truestatus=" Level="+clicker.level+" Totalclicks= "+clicker.totalclicks+'\n'+
+
     " Upg$=" +clicker.upg$+" Multi="+clicker.multi;
 }
 
@@ -499,9 +502,9 @@ function scorenumberconvertor(){
 function gennumberconverter(){
     if (number < 100000){ number=number;}
     else if (number < 1000000){number=(number/1000).toFixed(1)+"K"; }
-    else if (number < 10000000000){number=(number/1000000).toFixed(1)+"M";}
-    else if (number < 10000000000000){number=(number/1000000000).toFixed(1)+"B";}
-    else if (number < 10000000000000000){numer=(number/1000000000000).toFixed(1)+"T";}
+    else if (number < 1000000000){number=(number/1000000).toFixed(1)+"M";}
+    else if (number < 1000000000000){number=(number/1000000000).toFixed(1)+"B";}
+    else if (number < 1000000000000000){numer=(number/1000000000000).toFixed(1)+"T";}
     else{number=number;}}
 
 function setstatus() {
@@ -545,32 +548,27 @@ function mainclick(){
 
 
 function buyauto(){
-  clicker.totalclicks++;
+clicker.totalclicks++;
   
-  if (click < auto.upg$)  {
+if (click < auto.upg$)  {
     alert('no coins');
-    idj++;
-}
+    idj++;}
 else  if (click > auto.upg$ && auto.level==0){
     auto.level++;
     myVar = setInterval(autocps,1000); //Auto completion 
     click -= auto.upg$;     
     auto.upg$ *=  10.38 ;
     auto.upg$ = Math.round(auto.upg$);
-    
     console.log("buyautoupgrade");
     updateautoclicker(); 
     updateclick();
-    
-    levelup(); 
-}
+    levelup(); }
 else  if (click > auto.upg$ && auto.level!=0){
     auto.level++;
     //Auto completion 
     click -= auto.upg$;     
     auto.upg$ *=  1.78 ;
     auto.upg$ = Math.round(auto.upg$);
-    
     console.log("buyautoupgrade");
     updateclick();
     updateautoclicker();  
@@ -595,9 +593,7 @@ function setstatusauto(){
 
 function updateautoclicker(){
 
-    number = auto.upg$;
-    gennumberconverter();
-    auto.cc.innerText=number;
+    number = auto.upg$; gennumberconverter();  auto.cc.innerText=number;
     
     if (click < auto.upg$){
     auto.btn.style.opacity=0.7; }
@@ -674,19 +670,18 @@ function manacostcheck(){
         mana.upgrade="ready";
         mana.master.style.opacity=1;
         mana.btn.style.opacity=1;
-        mana.image.style.opacity=1;
-    }
+        mana.image.style.opacity=1;}
     else if (click >= mana.upg$){
     mana.btn.style.opacity=1;
-    mana.upgrade="ready";
-}}
+    mana.upgrade="ready"; }}
+
 function updatemana(){
     mana.truestatus=mana.level+" "+mana.runcount+" "+mana.player+" "+mana.max+
     " "+mana.upg$+"  "+mana.regen+" "+ mana.regentotal+
     " "+mana.upgrade + " "+ mana.image.classList+" "+mana.maxinc;
    
     updatemenumanamax();
-    mana.p2.innerText=mana.upg$;
+    number=mana.upg$;    gennumberconverter();  mana.p2.innerText=number;
     mana.regencounter.innerText=mana.regentotal;
     mana.levelcounter.innerText=mana.level;
     mana.range.max=mana.max;
@@ -721,7 +716,6 @@ function setstatusrage(){
     else if(click>=rage.upg$ && mana.player>=rage.mana$){ 
         rage.status="ready"; rage.master.style.opacity=1
         rage.img.style.opacity=1; rage.btn.style.opacity=1;}
-    
 }
 function updateragecounters(){
     
@@ -765,17 +759,13 @@ function fireballcast(){
         document.getElementById("fireball").classList.remove("firecooldown");   
         fire.cast="ready"; 
         message.innerText = fire.status+"Fireball Cooldown is over";
-    },5000);
-}
+    },5000);}
    else {console.log('fireball failed -variable?-');return;}
 }
-
 
 function setstatusfire(){
     updatefirecounter();
     firecostcheck();
-    
-    
     if (clicker.totalclicks <=50) {
         fire.image.src="../Logs/lock.png";
         fire.master.style.opacity=0;
@@ -820,7 +810,7 @@ function updatefirecounter(){
    
     fire.counter.innerText=fire.castcounter;
     fire.levelcounter.innerText=fire.level;
-    fire.p4.innerText=fire.upgradecost;
+    number=fire.upgradecost; gennumberconverter(); fire.p4.innerText=number;
     fire.cc.innerText=fire.castcost; 
     }
     
@@ -994,8 +984,8 @@ function updatearccounter(){
     " upg: "+arcane.upgrade + " class: "+ arcane.image.classList+" status: "+arcane.status+'\n'+" src: "+arcane.image.src;
         arcane.counter.innerText=arcane.castcounter;
         arcane.levelcounter.innerText=arcane.status+arcane.level;
-        arcane.p6.innerText=arcane.upgrade$;
         arcane.cc.innerText=arcane.cast$; 
+        number=arcane.upgrade$; gennumberconverter(); arcane.p6.innerText=number; 
 }
 function arcaneauto(){
 
@@ -1080,8 +1070,8 @@ function updateice(){
     " Cast#: "+ice.castcounter+" Upg$: "+ice.upg$+" cast$:"+ice.cast$+
     " upg: "+ice.upgrade+" Class: "+ice.image.classList+" status: "+ice.status+'\n'+" src: "+ice.image.src;
 
-    ice.counter=
-    ice.p3.innerText=ice.upg$;   
+    
+ number=ice.upg$; gennumberconverter();   ice.p3.innerText=number;   
 }
 //###################################//
 //                EARTH SPELL         //
@@ -1157,10 +1147,10 @@ function updatearthcounter(){
     " cast#: "+earth.castcounter+" upg$: "+earth.upg$+" cast$: "+earth.cast$+
     " upg: "+earth.upgrade + " class: "+ earth.image.classList+" status: "+earth.status+'\n'+" src: "+earth.image.src;
    
-    earth.p7.innerText=earth.upg$;
     earth.counter.innerText=earth.castcounter;
     earth.levelcounter.innerText=earth.level;
     earth.cc.innerText=earth.cast$;
+    number=earth.upg$; gennumberconverter(); earth.p7.innerText=number;
 }
 //Rage meter//
 
@@ -1169,8 +1159,7 @@ function ragemeter(){
         mana.player-=10000;
         click -=10000;
         startrage();
-        console.log('rage has started');
-}
+        console.log('rage has started');}
     else{
         console.log('norage');
     }
@@ -1499,16 +1488,47 @@ function updatemenumanamax(){
         menu.manamaxupg$=Math.floor(menu.manamaxupg$);
         document.getElementById('pr2c2').innerText=menu.manamaxupg$;
 }
+var pd;
+function BZbuster(){  
+   //SHUFFLES Background//
+    difference(prestige.prog,prestige.req);
+    //IF ready//
+    if (result <= 1){menu.return.style.backgroundImage="url(../im1.png)";}
+    // if less than 30%//
+    else if (result <= 30){menu.return.style.backgroundImage="url(../400400.png)";}
+   //if less than 60%//
+    else if (result <= 60){menu.return.style.backgroundImage="url(../s1.jpg)";}
+    // under 100% //
+    else if (result <= 99){menu.return.style.backgroundImage="url(../s1.jpg)";}
+    else if(result >= 100){menu.return.style.backgroundImage="url(../bg.jpg)";
+ pd=setInterval(prestigeflex, 1000); p=d;}
+ console.log(result+" BBZ diff");}
+
+function difference(a, b){
+        result=((a/b)*100).toFixed(2);
+    }
+function prestigeflex(){
+
+    if (result != 100.00){
+    pd=clearInterval(prestigeflex, 1000);}
+    else if (p==d){p=p;
+        prestige.overlay.style.boxShadow="0 10px 20px #ffd700, 0 6px 6px #daa520 ";
+        prestige.overlay.backgroundColor="#ffd70055";}
+    else if(p==p){p=d;
+        prestige.overlay.style.boxShadow="0 6px 10px #daa520, 0 20px 10px #ffd700 ";
+        prestige.overlay.backgroundColor="#ffd70055";}
+
+}
+
 // Jumper game.//
-var character = 
+/*var character = 
 document.getElementById("character"); 
 var block = document.getElementById("block");
 function jump () {
     if(character.classList != "animate"){
     character.classList.add("animate");
     } 
-}
-
+}*/
 //ifdead alert//
 /*var checkDead = setInterval(function(){
     
