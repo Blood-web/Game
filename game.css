@@ -95,10 +95,17 @@ h2 p {
 }
 h3 {
     color: #fafafa;
+    font-size: 8vh;
 }
 h6 {
-    font-size: 80px;
+    font-size: 6vh;
     float: right;
+}
+#igmessage {
+position: absolute;
+right:2%;
+margin-top: 28vh;
+
 }
 
 p {
@@ -248,7 +255,7 @@ text-align: left;
     top: 30vh;
     min-width: 40vw;
     height: min-content;
-    left: -29%;
+    left: -33vw;
 }
 /*Click area*/
 #main {

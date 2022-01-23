@@ -47,6 +47,8 @@ if (g>=max){g=0;}}
 function StartShift(){ 
    run=setInterval(shiftery,5000);
     shiftery();
-    console.log("shiftery begin. G="+g);
-function  killshiftery(){
-    run=clearInterval(shiftery,5000);
+    console.log("shiftery begin. G="+g);}
+
+function killshiftery(){
+    clearInterval(run);
+alert("CUNT");}

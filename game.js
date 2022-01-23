@@ -360,13 +360,12 @@ function savemana(){
     localStorage.setItem("Mruncount",mana.runcount);
     localStorage.setItem("Mmax",mana.max);
     localStorage.setItem("Maxupglevel",manaupgrade.maxupglevel);
-
 }
 function load(){
     loadprestige();
     loadclick();
     loadmana();
-console.log('Load state');
+    console.log('Load state');
 }
 function loadclick(){
     click=localStorage.getItem("score");
@@ -381,7 +380,7 @@ function loadmana(){
     mana.max=localStorage.getItem("Mmax"); manaupgrade.maxupglevel=localStorage.getItem("Maxupglevel");
     updatemana();}
 //DEV//
-var cheat=1000000
+var cheat=1000000;
 function pluscheat(){
     clicker.totalclicks+=5000;
     click+=cheat;
@@ -480,6 +479,11 @@ console.log("Debug stats:"+'\n'+"Setstatus:Selftest: "+'\n'
 +'\n'+":Prestige= "+prestige.truestatus+'\n'
 
 +'\n'+" :Rage= "+rage);  
+}
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(ndom() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 function scorenumberconvertor(){
     if (click <=  99999){
@@ -1175,26 +1179,7 @@ function startrage(){
 
 
 
-//##############################################################################//
-//stat Card move//
-var card = document.getElementById("card");
-var cardbutton = document.getElementById("cardbutton");
-var cardwrap=document.getElementById("cardwrap");
-function movecard(){
-    if (cardbutton.style.opacity =="0.9"){
-    
-    cardbutton.style.float="left";
-    cardwrap.style.backgroundColor="#00000000";
-    card.style.border="0"; card.style.display="none";
-    cardbutton.style.transform="rotate(-90deg)";cardbutton.style.height="10vh";
-    cardbutton.style.width="10vh";
-    cardbutton.style.opacity=1;
-    }
-    else {
-       cardwrap.style.left="1vw"; card.style.opacity=1;  cardwrap.style.backgroundColor="#faf";  card.style.border="ridge 2px aqua "; card.style.display="contents";
-        cardbutton.style.opacity=0.9;  cardbutton.style.height="5vh";  cardbutton.style.width="5vh"; cardbutton.style.transform="rotate(90deg)"; cardbutton.style.float="right";
-          }
-    }
+
 //Menu Upgrades//
 //#########################################//
             //Prestige//
@@ -1239,7 +1224,28 @@ function movecard(){
     //True//
                 prestige.truestatus=prestige.level+" "+prestige.prog+" "+prestige.req+" "+ prestige.multi+" "+prestige.boo;
     }
-        
+
+
+   //##############################################################################//
+//stat Card move//
+var card = document.getElementById("card");
+var cardbutton = document.getElementById("cardbutton");
+var cardwrap=document.getElementById("cardwrap");
+function movecard(){
+    if (cardbutton.style.opacity =="0.9"){
+    
+    cardbutton.style.float="left";
+    cardwrap.style.backgroundColor="#00000000";
+    card.style.border="0"; card.style.display="none";
+    cardbutton.style.transform="rotate(-90deg)";cardbutton.style.height="10vh";
+    cardbutton.style.width="10vh";
+    cardbutton.style.opacity=1;
+    }
+    else {
+       cardwrap.style.left="1vw"; card.style.opacity=1;  cardwrap.style.backgroundColor="#faf";  card.style.border="ridge 2px aqua "; card.style.display="contents";
+        cardbutton.style.opacity=0.9;  cardbutton.style.height="5vh";  cardbutton.style.width="5vh"; cardbutton.style.transform="rotate(90deg)"; cardbutton.style.float="right";
+          }
+    }     
 var boo;
 function openmenu(){
     closemenu();menu.fieldset.style.display="block";
@@ -1489,6 +1495,7 @@ function updatemenumanamax(){
         document.getElementById('pr2c2').innerText=menu.manamaxupg$;
 }
 var pd;
+var p =0;
 function BZbuster(){  
    //SHUFFLES Background//
     difference(prestige.prog,prestige.req);
@@ -1501,24 +1508,26 @@ function BZbuster(){
     // under 100% //
     else if (result <= 99){menu.return.style.backgroundImage="url(../s1.jpg)";}
     else if(result >= 100){menu.return.style.backgroundImage="url(../bg.jpg)";
- pd=setInterval(prestigeflex, 1000); p=d;}
+    startflex();
+  }
  console.log(result+" BBZ diff");}
 
 function difference(a, b){
         result=((a/b)*100).toFixed(2);
     }
+function  startflex(){
+pd=setInterval(prestigeflex, 1000);
+p==1;   }
 function prestigeflex(){
-
     if (result != 100.00){
-    pd=clearInterval(prestigeflex, 1000);}
-    else if (p==d){p=p;
+    pd=clearInterval(prestigeflex, 1000); prestige.overlay.style.boxShadow="5px 10px 18px red ";}
+    else if (p==1){p=0;
         prestige.overlay.style.boxShadow="0 10px 20px #ffd700, 0 6px 6px #daa520 ";
-        prestige.overlay.backgroundColor="#ffd70055";}
-    else if(p==p){p=d;
-        prestige.overlay.style.boxShadow="0 6px 10px #daa520, 0 20px 10px #ffd700 ";
-        prestige.overlay.backgroundColor="#ffd70055";}
-
-}
+        prestige.overlay.style.backgroundColor="#ffd70055";}
+    else if(p==0){p=1;
+        prestige.overlay.style.boxShadow="0 6px 10px #daa520, 0 10px 15px #ffd700 ";
+        prestige.overlay.style.backgroundColor="#ffd70055";}
+ else {alert(Avar);}}
 
 // Jumper game.//
 /*var character = 
