@@ -1,9 +1,8 @@
 /*MAIN ordered*/
 * {
     margin: 0 auto;
-    padding: 0;
-   
-}
+    padding: 0;}
+
 html, body{
     height: 100%;
     width: 100%;
@@ -56,24 +55,25 @@ table {
     z-index: 2; }
 
 td {
-    display: inline;
+    margin-bottom: 2%;
+    display: inline-block;
     font-size: 90%;
-    max-inline-size: 15%;
+    width: 16%;
+    height: 99%;
     position: relative;
     overflow: hidden;
     vertical-align: top; }
-
-tr td {
-    display: inline-block;
-    width: 20%;
-    height: 15%;
-    border: 1px solid sandybrown;
+tr { width: 100%;
+height: 33%;
 }
+
+
+td .description {border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 span {
     background-color: #faf;
 }
 /*table class/ids*/
-
+.tdtile{ border: 3px dashed aqua; background-color: azure;}
 /*Headers*/
 h1 {
     display: inline-block ;
@@ -105,7 +105,6 @@ h6 {
 position: absolute;
 right:2%;
 margin-top: 28vh;
-
 }
 
 p {
@@ -232,10 +231,10 @@ background-color:
     background-position-x: center;
     background-position-y: bottom;
 }
-/*IDS*/
+/*card*/
 #card {
     font-size: small;
-text-align: left;
+    text-align: left;
    float: left;
     background-color: #00000000;
     color: #707;
@@ -457,6 +456,16 @@ font-family: 'lobster', cursive;
     
     background-color: #faf;
 }
+.hiddentab {
+    font-family: 'lobster', cursive;
+    height: 25vh;
+    width: 90vw;
+    top: 5vh;
+    left: 4vw;
+    z-index: 0;
+    display: inline-block;
+    position: absolute;
+}
 #hiddenupgrades {
       position: absolute;
       background-color: rebeccapurple;
@@ -466,18 +475,7 @@ font-family: 'lobster', cursive;
     display: inline-block;
     height: 92vw;
     position: absolute;
-    
-}
-.hiddentab {
-    font-family: 'lobster', cursive;
- height: 25vh;
-    width: 90vw;
-    top: 5vh;
-    left: 4vw;
-    z-index: 0;
-    
-    position: absolute;
-    background: linear-gradient(
+      background: linear-gradient(
         80deg,
         #321,
         #f0f,
@@ -485,11 +483,22 @@ font-family: 'lobster', cursive;
         #f0f,
         #321
     );
-    
 }
 
+#prestigetable{
+    display: block;
+    opacity: 1;
+    z-index: 2;
+}
 
- figure {
+#stats{
+display: block;
+}
+#stats > div.stats{ background-color: #00ffff;
+    width: 30%;
+margin-top: 0 auto;}
+
+figure {
      margin :0 auto;
      position: relative;
      height: min-content;

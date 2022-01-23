@@ -1,5 +1,6 @@
 
 //Dev var//
+let click = 0;
 idjcounter = 0;
 idj = idjcounter;
 
@@ -58,7 +59,7 @@ const menu = {
     manaregen10upg$:42000,
     manaregenupgdesc:document.getElementById('pr2c1'),
     manamaxupg$:25000,
-    manamaxupgdesc:document.getElementById('manamaxupgdesc'),
+    manamaxupgdesc:document.getElementById('pr2c2'),
     earthquakeupg$:100000,
     earhquakeupgdesc:document.getElementById('earthquakeupgdesc'),
     //times openend//
@@ -100,7 +101,7 @@ var manatimer;
 ///scorecounters///
 
 var message = document.getElementById('messages');
-
+var messagetimer;
 
 
 var p8 = document.getElementById('button8txt');
@@ -109,9 +110,7 @@ let p8val = 1000;
 //up img ids//
 var upGimg = document.getElementById('upgimg');
 
-//low img ids//
-//button cost labels//
-let click = 0;
+
 const player= {
     id:"stri",
     spellmulti:0,
@@ -1276,7 +1275,7 @@ if (menu.stats.style.opacity <= 0){
     statstabactive();
     console.log('Open Stats');
 }
-else { closemenu(); menu.exitstab++; console.log('close from stats');} }
+else { closemenu(); menu.exitsTab++; console.log('close from stats');} }
 //Open PRESTIGE//
 function flipprestigetab(){
     if (menu.prestiget.style.opacity<=0){
@@ -1302,39 +1301,38 @@ function closealltabs(){
     closeprestige();
     closeupgrades();
     closestats();
-    
 }
 function closeprestige(){
-    menu.prestiget.style.zIndex=0;
-    menu.prestiget.style.opacity=0;
+   menu.prestiget.style.display="none";
+    menu.prestiget.style.zIndex=0; menu.prestiget.style.opacity=0;
     menu.prestigetab.style.boxShadow="0";
-    menu.prestigetext.style.color="#000";    }
+    menu.prestigetext.style.color="";    }
 function closeupgrades(){
-    menu.upgT.style.opacity=0;
-    menu.upgT.style.zIndex=0;
+    menu.upgT.style.display="none"
+    menu.upgT.style.opacity=0;  menu.upgT.style.zIndex=0;
     menu.upgtab.style.boxShadow="0";
-  
-   
 }
 function closestats(){
     menu.statstab.style.backgroundColor="gray";
     menu.stats.style.opacity=0;
     menu.stats.style.zindex=0;
+    menu.stats.style.display="none";
 }
 function upgtabactive(){
+    menu.upgT.style.display="inline-block";
     menu.upgtab.style.boxShadow="  5px 10px 18px green ";
-    menu.upgT.style.opacity = 1;
-    menu.upgT.style.zIndex = 1;}
+    menu.upgT.style.opacity = 1; menu.upgT.style.zIndex = 1;}
 function statstabactive(){
+    //check//
+    menu.stats.style.display="inline";
     menu.statstab.style.backgroundColor="#000";
-    menu.stats.style.opacity = 1;
-    menu.stats.style.zIndex = 1;
+    menu.stats.style.opacity = 1;   menu.stats.style.zIndex = 1;
 }
 function prestigetabactive(){
+    menu.prestiget.style.display="contents";
     menu.prestigetab.style.boxShadow="5px 10px 18px 10px  black";
     menu.prestigetab.style.backgroundColor="#090a00";
-    menu.prestiget.style.zIndex = 1;
-    menu.prestiget.style.opacity = 1;
+    menu.prestiget.style.zIndex = 20; menu.prestiget.style.opacity = 1;
 }
 function updatestatmenutext(){
     menu.statTC.innerText="Total Spells cast:"+mana.level+" ";
@@ -1354,7 +1352,7 @@ function menufireballupgrade(){
         fireupgrade.$=7500; fire.castcost+=10; fire.val*=2;   
         updatemenufireball(); 
         console.log('fireball has been upgraded');
-    }
+}
     else if(click>=fireupgrade.$ && fireupgrade.level ==1){
         fireupgrade.level++;
         click -=fireupgrade.$;
@@ -1492,7 +1490,7 @@ function updatemenumanamax(){
         mana.max=manaupgrade.maxupglevel*100+1000;
         menu.manamaxupg$=2500*(manaupgrade.maxupglevel+1*2.3);
         menu.manamaxupg$=Math.floor(menu.manamaxupg$);
-        document.getElementById('pr2c2').innerText=menu.manamaxupg$;
+        menu.manamaxupgdesc.innerText=menu.manamaxupg$;
 }
 var pd;
 var p =0;
