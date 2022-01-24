@@ -4,6 +4,7 @@ let click = 0;
 idjcounter = 0;
 idj = idjcounter;
 
+menukey="//check//";
 var playertoken="";
 const space=' ';
 function createtoken(){
@@ -429,14 +430,12 @@ function updateclick(){
 
 
 function updatetext(){
-    updateautoclicker();
-    updateclick();
- 
-    updatefirecounter();
     updateprestigecounter();
-    mana.maxc.innerText=mana.max;
-    mana.p2.innerText=mana.upg$;
-    p8.innerText=param3;
+    updateclick();
+    updatemana();
+    updateautoclicker();
+    updatefirecounter();
+    p8.innerText=cheat;
 }
 
 // tOTAL cLICK INCREMENTER//
@@ -638,7 +637,7 @@ if (click >= mana.upg$ && mana.level==0){
     click-=mana.upg$;
     mana.upg$*=1.3;
     mana.level++;
-    mana.upg$= Math.round(mana.upg$);
+    mana.upg$= Math.round(mana.upg$);0
     mana.regen+= mana.level;
 
     mana.image.src=manaupgrade.manaimg;
@@ -843,17 +842,21 @@ else {
 
 //Checs click against upgreade cost//
 function firecostcheck(){
-    if (click < fire.upgradecost && mana.level == 0 ){
-        fire.btn.style.opacity=0; 
+    if (fire.castcounter==0 || mana.level == 0 ){
+      
+        fire.btn.style.display="none"; 
         fire.upgrade="notready";
     }
     else if (click < fire.upgradecost) {
         fire.btn.style.opacity=0.7;
         fire.upgrade="notready";
+        
+        fire.btn.style.display="inline-block";
     }
     else if (click >= fire.upgradecost){
     fire.btn.style.opacity=1;
     fire.upgrade="ready";
+    fire.btn.style.display="inline-block";
 }}
 
 // Theres an Arc//
@@ -910,15 +913,16 @@ function setstatusarc(){
     if  ( mana.level ==0) {
      arcane.image.src="../Logs/lock.png";
      arcane.master.style.opacity=0;
+    
         // arcaneball not unlocked//
     }
     else if (arcane.status=="basicbitch" && mana.level != 0 ){
      arcane.master.style.opacity=1;
-     arcane.btn.style.opacity=0.7;
+    arcane.btn.style.display="none";
      arcane.image.style.opacity=0.7;
      arcane.cc.innerText = arcane.cast$;
      arcane.status="await";
- //   alert('Arcane has been unlocked, try casting a fireball');//
+ //   alert('Arcane has been unlocked, try casting ');//
         //1st unlock//
     }   
      else if (arcane.status=="await" && mana.player> arcane.cast$){
@@ -967,18 +971,19 @@ function setstatusarc(){
         console.log("Arcaneballupgfail: "+"click="+click+" :cost="+ arcane.upgrade$);
         idj++; }    }
 function arccostcheck(){
-    if (click < arcane.upgrade$ && mana.level == 0 ){
+    if (arcane.castcounter == 0 || mana.level == 0 ){
         arcane.btn.style.opacity=0; 
         arcane.upgrade="notready";
+        arcane.btn.style.display="none";
     }
+    else if(click< arcane.upgrade$) { 
+        arcane.btn.style.opacity=0.7; arcane.upgrade =="notready";
+        arcane.btn.style.display="inline-block";}
     else if(click >= arcane.upgrade$ && mana.level>=1){
-        arcane.upgrade="ready";
+        arcane.upgrade="ready"; arcane.btn.style.display="inline-block";
         arcane.btn.style.opacity=1;
     }
-    else if (click >= arcane.upgrade$){
-    arcane.btn.style.opacity=1;
-    arcane.upgrade="ready";
-}}
+}
 
 function updatearccounter(){
     //update arc counters//
