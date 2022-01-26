@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body id="body" onload="selftestini(); StartShift();" onclick="selftest()"  style="z-index: 0;">
-  <p>Beta v0.2.1</p> 
+  <p>Beta v0.2.2.3</p> 
   <br>    
 <progress  id="prestigebar" value="0" min="0" max="1000"></progress>
 
@@ -92,7 +92,8 @@
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
             <button onclick="killshiftery()"> Kill shiftery </button>
-           </h4>
+            <button onclick="createmenukey()">MenuKey</button>
+        </h4>
         </div>
         <!--Shiftery here-->
     <div  id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
@@ -254,7 +255,7 @@
                 <p class="description">  Increase base mana regen by +10</p>
             </td>
             <td>
-                <p id="tdr2c2" class="tdtile"> Increase MaxMana </p> <br> <br>
+                <p id="tdr2c2" class="tdtile"> Increase <br> MaxMana </p>  <br>
                 <img onclick="menumaxmanainc()" src="../Logs/staff.png" alt="staff" />
                 <br>
                 <p id="pr2c2"> 4000000</p> <p>&#128176;</p>
