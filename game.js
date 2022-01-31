@@ -5,6 +5,19 @@ idjcounter = 0;
 idj = idjcounter;
 
 menukey="//check//";
+function createmenukey(){
+    Mkey=fireupgrade.level+" "+arcaneupgrade.level+" "+"PH-ice"+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level+
+    ' \n'+ menu.m10X+" "+menu.mmlevel+" "+ "PH";
+    breakmenukey();
+}
+function breakmenukey(){
+     for (var i = 0; i < Mkey.length; i++) {   
+        if (Mkey[i] == undefined || Mkey[i] == null) {
+            Mkey[i] = 0; }   }
+    fireupgrade.level=Mkey[0]; arcaneupgrade.level=Mkey[1]; "PHICE";
+    earthupg.level=Mkey[3]; menu.allspellsupglevel=Mkey[4]; autoupg.level=Mkey[5]; 
+    console.log(Mkey +" Length"+Mkey.length);
+}
 var playertoken="";
 const space=' ';
 //FINISHTOKE//
@@ -36,7 +49,7 @@ function breakplayertoken(token, seperator){
 ;
     console.log('original string:'+token);
     console.log("The array has "+tokensplit.length+" elements: "+ tokensplit.join(' / '));
-    message.innerText=tokensplit[2];
+message.innerText=tokensplit[2];
 }
 let score = 0;
 let number=0;
@@ -59,9 +72,10 @@ const menu = {
     prestigetab:document.getElementById("prestigetab"),
     prestiget:document.getElementById("prestigetable"),
     prestigetext:document.getElementById("prestigetext"),
-    
-    //ROW1//
-    fireballxupg$:0,  earthquakeupg$:100000,
+
+   
+    //ROW1 -- spells can be found in relative + UPG//
+
     earhquakeupgdesc:document.getElementById('earthquakeupgdesc'),
     allspells:document.getElementById("spellmultimenu"),
     ach$: document.getElementById("pr1c6"),
@@ -158,8 +172,7 @@ const auto ={
     truestatus:"",}
 const autoupg={
     level:0,
-    upg$:600000,
-    
+    upg$:600000,    
 }
 const mana = {
     level:0,upg$: 250, player: 0, max: 1000,
@@ -581,6 +594,7 @@ else  if (click > auto.upg$ && auto.level==0){
 else  if (click > auto.upg$ && auto.level!=0){
     auto.level++;   click -= auto.upg$;     
     console.log("buyautoupgrade");
+
     updateclick();  updateautoclicker();  levelup(); 
 }}
 
@@ -597,8 +611,7 @@ function setstatusauto(){
     }
     else if (auto.status=="basicbitch"){
         auto.master.style.opacity=0;
-    }
-}
+    } }
 
 function updateautoclicker(){
     auto.upg$ =Math.ceil((auto.level+1+103)*((auto.level+1)*(auto.level+1))*3.78) ;
@@ -862,26 +875,21 @@ function setstatusfire(){
     }  
     else if(fire.image.classList.contains("firecooldown") || mana.player <= fire.castcost){
         fire.image.style.opacity=0.9;
-        //absolutefalse//
+        //absolutefalse//   
     } 
     else {
-        console.log("failed to set fireball status");
-    }
-}
+        console.log("failed to set fireball status"); } }
 
 function updatefirecounter(){
     fire.truestatus="level: "+fire.level+" "+fire.cast+" val: "+fire.val+
     " cast#: "+fire.castcounter+" upg$: "+fire.upgradecost+" cast$: "+fire.castcost+
-    " upg: "+fire.upgrade + " class: "+ fire.image.classList+" status: "+fire.status+'\n'+" src: "+fire.image.src
-   ;
+    " upg: "+fire.upgrade + " class: "+ fire.image.classList+" status: "+fire.status+'\n'+" src: " +fire.image.src ;
    
     fire.counter.innerText=fire.castcounter;
     fire.levelcounter.innerText=fire.level;
     number=fire.upgradecost; gennumberconverter(); fire.p4.innerText=number;
-    fire.cc.innerText=fire.castcost; 
-    }
+    fire.cc.innerText=fire.castcost; }
     
-
 function fireballupgrade(){
     firecostcheck();
     if (fire.btn.style.opacity >=1 && click >= fire.upgradecost){
@@ -1444,9 +1452,11 @@ function shiftupdate(){
 
         //P inc +1, Multiplier x Plevel //
         function Prestige(){
+
              if (prestige.prog >= prestige.req && prestige.boo=="1") {
                  //..Level UP prestige//
                 prestige.boo=0; prestige.prog=0; prestige.level+=1; 
+
                 levelup();  updateprestigecounter();
                 console.log( clicker.multi + ' level = ' + prestige.level + '. user has prestiged');
              }        
@@ -1455,9 +1465,9 @@ function shiftupdate(){
              }    }
 
              function updateprestigecounter(){
-            if (prestige.level==null){prestige.level="0";  }
-                
-            prestige.req= Math.floor(prestige.level+1000*1.57) ;  
+            if (prestige.level==null){prestige.level="0";  { 
+            prestige.req=prestige.level+1000*1.57 ; prestige.req = Math.floor(prestige.req); 
+               
             prestige.levelcount.innerText = prestige.level;   prestige.progcount.innerText=prestige.prog;
             prestige.bar.value=prestige.prog;   prestige.bar.max=prestige.req;
             prestige.capcount.innerText=prestige.req;  prestige.multi=Math.round((prestige.level +1) *0.14)/100;            

@@ -12,7 +12,9 @@
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body id="body" onload="selftestini(); StartShift();" onclick="selftest()"  style="z-index: 0;">
+
   <p>Beta v0.2.2.4</p> 
+
   <br>    
 <progress  id="prestigebar" value="0" min="0" max="1000"></progress>
 
@@ -92,7 +94,8 @@
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
             <button onclick="killshiftery()"> Kill shiftery </button>
-           </h4>
+            <button onclick="createmenukey()">MenuKey</button>
+        </h4>
         </div>
         <!--Shiftery here-->
     <div  id="boxmain" value="0" min="0" max="5"> <!--Lower controls-->
@@ -254,9 +257,11 @@
                 <p id="pr2c1">42000  </p> 
                 <p class="description">  Increase base mana regen by +10</p>
             </td>
+
             <td> 
                 <p id="tdr2c2" class="tdtile"> Wand Upgrade </p> <br> <br>
                 <img src="../Logs/wand.png" alt="wand">
+
                 <br>
                 <p id="pr2c2">PH</p> <p>&#128176;</p>
                 <p CLASS="description"> Empowers your magic, All MANA based spells are 1.3x more powerful</p>
