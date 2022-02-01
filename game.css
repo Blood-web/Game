@@ -155,8 +155,19 @@ background-blend-mode: darken;
 background-color: 
     
     #00ffff
-
-
+}
+.rage{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 1;
+    background-position-x: center;
+    background-image: url(../Logs/rring.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: #ffa1a155;
+          
 }
 .desription {
     font-size: 990px;
@@ -378,6 +389,16 @@ background-color:
     background-color: #f0a;
     border-radius: 10%; 
 } 
+#rage{
+   
+    background-color: #04AA6D;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-color: red;
+    border-radius: 10%; 
+    opacity: 1;
+}
+
 
 /**/
 #head {position: absolute;

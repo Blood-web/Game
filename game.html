@@ -161,7 +161,7 @@
             </button></span>
 
             <!--Button8 MANA-->
-            <span id="abvmana">+1<span class="mana"></span><br>
+            <span id="abvmana"><p id="manatop">+1</p><span class="mana"></span><br>
                 <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
             <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton" src="" >
                 <p> Mana <span class="mana"></span> 
@@ -169,12 +169,12 @@
             </button></span>
         
           <!--Button9 RAGE-->
-            <span id="abvrage"><br>
-                <img id="rage" onclick="startrage()" class="Gamebtn" style="opacity: 1;" />
+            <span id="abvrage" >+1 <span class="rage"></span><br>
+                <img id="rage" onclick="startrage()" class="Gamebtn"  />
             <br> <button id="ragebutton" onclick="upgraderage()" class="upgradebutton" >
-            <p>Rage </p><br><p id="rageupgcost">(10,000)</p><p>&#128176;</p>
-            <p id="ragemanacost"></p><span class="mana"></span>
-            </button></span>
+            <br><p id="rageupgcost">(10,000)</p><p>&#128176;</p>
+            <p id="ragemanacost"></p></button>
+            </span>
 </div>
     </fieldset>
       
@@ -202,9 +202,9 @@
         
             <td>
                 <p id="tdr1c2" class="tdtile"> Arcane Autocast </p> <br> <br>
-                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arcane auto" />
+                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arcane auto" id="arcautoupgimg"/>
                     <br>
-                <p id="pr1c2">5000</p>
+                <p id="pr1c2">300K</p>
                 <p>&#128176;</p>
                 <p id="arcupgdesc" class="description">Your powerfull Arcane spells cast themselves! (click to toggle)</p>
             </td>
@@ -274,11 +274,11 @@
                 <p class="description"> Autocast click to toggle</p>
             </td>
             <td>
-                <p id="tdr2c4" class="tdtile"> EarthSpell </p> <br><br>
-                <img src="../Logs/swordnstone.png" alt="earthupgrade">
+                <p id="tdr2c4" class="tdtile"> Unlock Rage </p> <br><br>
+                <img onclick="unlockrage()" src="../Logs/swordnstone.png" alt="rageunlock" id="rageunlock">
                 <br>
-                <p id="pr2c4">PH</p> <p>&#128176;</p>
-                <p class="description"> YYEYEYe Emmet is gr8</p>
+                <p id="rageulprice"></p> 
+                <p class="description" > Allows for the casting of more advanced spells</p>
             </td>
         
             

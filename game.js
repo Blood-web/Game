@@ -72,10 +72,17 @@ const menu = {
     prestigetab:document.getElementById("prestigetab"),
     prestiget:document.getElementById("prestigetable"),
     prestigetext:document.getElementById("prestigetext"),
+<<<<<<< Updated upstream
 
    
     //ROW1 -- spells can be found in relative + UPG//
 
+=======
+    
+    //ROW1//
+    fireballxupg$:0,  earthquakeupg$:100000,
+    arcupgdesc:document.getElementById("arcupgdesc"),
+>>>>>>> Stashed changes
     earhquakeupgdesc:document.getElementById('earthquakeupgdesc'),
     allspells:document.getElementById("spellmultimenu"),
     ach$: document.getElementById("pr1c6"),
@@ -83,14 +90,22 @@ const menu = {
     //row2//
   
     manab10:document.getElementById('pr2c1'),
+ 
+    ragedesc:document.getElementById("24desc"),
+    rageprice:document.getElementById("rageulprice"),
+    rageimg:document.getElementById("rageunlock"),
     manamaxprice:document.getElementById('pr2c5'),
     manamaxdesc:document.getElementById("manamaxupgdesc"),
     shiftery$:420690000000,
     shiftlvl:0,
-    //times openend//
+    
     //row 3//
-    upgr3c1:0,upgr3c2:0,upgr3c3:0,upgr3c4:0,upgr3c5:0,upgr3c6:0,
-
+    upgr3c1:document.getElementById("pr3c1"), r3c1img:document.getElementById("imgr3c1"),
+    upgr3c2:document.getElementById("pr3c2"), r3c2img:document.getElementById("imgr3c2"),
+    upgr3c3:document.getElementById("pr3c3"), r3c3img:document.getElementById("imgr3c3"),
+    upgr3c4:document.getElementById("pr3c4"), r3c4img:document.getElementById("imgr3c4"),
+    upgr3c5:document.getElementById("pr3c5"), r3c5img:document.getElementById("imgr3c5"),
+    upgr3c6:document.getElementById("pr3c6"), r3c6img:document.getElementById("imgr3c6"),
     upgTab:0,
     statsTab:0,
     menuTab:0,
@@ -192,7 +207,7 @@ const mana = {
     master:document.getElementById("abvmana"),
     p2:document.getElementById("manaupgcost"),
     range:document.getElementById("manabar"),
-
+    top:document.getElementById("manatop"),
     upgrade:"notready",
     status:"notready",
     truestatus:"",
@@ -207,12 +222,13 @@ const manaupgrade = {
 //RAGE//
 var ragetimer;
  const rage = {
+     alpha:0,
      level:0,
      regen:0,
      player:0,
      cap:333,
-     upg$:100000,
-     mana$:10000,
+     upg$:6000000000,
+     mana$:100,
      runcount:0,
      capcount:document.getElementById("ragecap"),
      runcounter:document.getElementById("rageruncounter"),
@@ -221,14 +237,13 @@ var ragetimer;
      levelcounter:document.getElementById("ragelevelcounter"),
      count: document.getElementById('playerragecounter'),
      img: document.getElementById("rage"),
+     top:document.getElementById("ragetop"),
      btn:document.getElementById("ragebutton"),
      master:document.getElementById("abvrage"),
+     upgrade:"",
      status:"basicbitch",
      truestatus:"",
  }
-const rageupg ={
-    level:0,
-}
  //Fireball//
 const fire = {
     castcost:10,   
@@ -268,10 +283,8 @@ const fireupgrade = {
 //ARCANE//
 var arcaneautotimer = "";
 const arcane = {
-    level:0,
-    val:1,
-    cast$:1,
-    upgrade$: 133,
+    level:0, val:1,
+    cast$:1, upgrade$: 133, auto:0,
     castcounter:0,
     cc:document.getElementById("arcanecastcost"),
     image:document.getElementById("arcaneball"),
@@ -295,7 +308,7 @@ const arcaneupgrade = {
     description:document.getElementById('arcupgdesc'),
     title:document.getElementById('titler2c1'), 
     image: document.getElementById('tdr2c1'),
-    price: document.getElementById('pr2c1'), 
+    price: document.getElementById('tdr2c1'),
 }
 //ICE//
 var Iceball = document.getElementById('iceball');
@@ -411,7 +424,7 @@ var cheat=1000000;
 function pluscheat(){
     clicker.totalclicks+=5000;
     click+=cheat;
-    cheat=cheat*2+cheat;
+    cheat=cheat*2+cheat*(cheat+1);
     mana.player+=500;
       
     message.innerText = "Cheat used! -10,000";
@@ -465,11 +478,12 @@ function updatetext(){
     updatearth();
     p8.innerText=cheat;
 }
-function updatemenu(){ updatemenumanamax(); updatestatmenutext();
-     updatemenufireball(); updatemenuearth(); updatemenuspellmulti(); updatemenuachelper();
-    //row2//
-    updatebase10(); shiftupdate();
+function updatemenu(){  updatestatmenutext(); 
+     updatemenufireball(); updatemenuarcauto(); updatemenuearth(); updatemenuspellmulti(); updatemenuachelper();
+    
+    updatebase10(); updatemenurul();  updatemenumanamax(); shiftupdate(); 
     }
+
 // tOTAL cLICK INCREMENTER//
 var totalclickcount = document.getElementById("TCcounter");
 function totalclickinc() {
@@ -670,17 +684,20 @@ function incrementandsetmana(){
 function mps() {
     if (manatimer!="setInterval(incrementandsetmana,1000)"){manatimer= setInterval(incrementandsetmana,1000);}
 }
+
 function upgrademana(){    
 if (click >= mana.upg$ && mana.level==0){
     click-=mana.upg$;
     mana.level++;
     mana.image.src=manaupgrade.manaimg;
+    mana.top.innerText="+"+mana.level;
     mps();
 }
 else if (click >= mana.upg$){
     click-=mana.upg$;
     mana.level++;
     incrementandsetmana();
+    mana.top.innerText="+"+mana.level;
 }
 else if(click <=mana.upg$) {
     console.log(" Upgrade failed "+click+"/"+mana.upg$);
@@ -704,6 +721,7 @@ function manacostcheck(){
 
 function updatemana(){
     mana.upg$= Math.round((mana.level+1)*1157);
+    mana
 
     mana.truestatus=mana.level+" "+mana.upg$+" "+mana.player+" "+mana.max+
     mana.baseupg+" "+mana.maxlvl+" "+mana.duplicater+" "+mana.runcount+" "+ mana.regentotal;
@@ -781,32 +799,52 @@ function incrementandsetrage(){
     else if(rage.player==null){rage.player=0;rage.level=0;}
     setstatusrage();}
 
-function startrage(){ if(rage.level>0){ragetimer= setInterval(rps,5000);} setstatusrage();}
+function startrage(){ if(rage.alpha==1){ragetimer= setInterval(rps,5000);} setstatusrage();}
 function upgraderage(){
     if (click>=rage.upg$ && mana.player>=rage.mana$){
-        rage.level++;
-        click-=rage.upg$;   mana.player-=rage.mana$;
-    startrage();
+        rage.level++; 
+        click-=rage.upg$;   mana.max-=rage.mana$;
+    
     setstatusrage();
 }}
 function setstatusrage(){
     updateragecounters();
-    if (rage.status=="basicbitch"){rage.master.style.opacity=0;}
+    if (rage.alpha==0){rage.master.style.display="none"; rage.btn.style.display="none";}
     
-    else if(click>=rage.upg$ && mana.player>=rage.mana$){ 
-        rage.status="ready"; rage.master.style.opacity=1
-        rage.img.style.opacity=1; rage.btn.style.opacity=1;}
-}
+    else if(click>=rage.upg$ && mana.max>=rage.mana$){ 
+        
+        rage.upgrade="ready"; 
+        rage.btn.style.opacity=1; rage.btn.style.display="";}
+       
+ }
+
 function updateragecounters(){
     
-    rage.upg$=(rage.level+1)*100000*(rage.level+1);
-    rage.mana$=(rage.level+1)*50+(10000*(1+rage.level));
+   if(rage.alpha==1){rage.master.style.opacity=1; rage.master.style.display="";
+    rage.upg$=(rage.level+1)*1000000*(rage.level+1); rage.img.style.display="";
+}
+
+    ragetop.innertext='+'+rage.level;
+    rage.mana$=rage.alpha*100*(rage.level+rage.alpha);
     rage.capcount.innertext=rage.cap;
     rage.count.innerText=rage.player;
     rage.levelcounter.innerText=rage.level;
     rage.runcounter.innerText=rage.runcount;
-    rage.cc.innerText=rage.upg$;
+  number=rage.upg$; gennumberconverter();  rage.cc.innerText=number;
     rage.mcc.innerText=rage.mana$;
+}
+//######## MENU########//
+// R2 C4 RAGE //
+function unlockrage(){
+    if (click>=rage.upg$ &&rage.alpha<1){
+        rage.alpha=1; click-=rage.upg$;
+       updatemenurul(); setstatusrage(); startrage();
+    }
+    else { alert(upgm);}
+}
+function updatemenurul(){
+  if ( rage.alpha==0){ number= rage.upg$; gennumberconverter();  menu.rageprice.innerText=number+'💰';}
+  else if (rage.alpha==1){menumaxer(menu.rageprice,menu.rageimg);}
 }
 //######################################################################################//
 //#####################   FFIIRREE     ###################//
@@ -940,7 +978,7 @@ function arcaneballcast(){
     setstatusarc();
 
     
-    if (arcane.status =="auto" && arcane.cast=="ready") {
+    if (arcane.status =="auto" && arcane.auto==1) {
         alert("starting arc auto");
         arcaneauto();   
     } 
@@ -1067,6 +1105,17 @@ function updatearccounter(){
         arcane.cc.innerText=arcane.cast$; 
         number=arcane.upgrade$; gennumberconverter(); arcane.p6.innerText=number; 
 }
+//######## MENU #######//
+// Button 2 arcauto//
+function upgarcautocast(){
+    if ( click >= arcaneupgrade.$auto){
+    arcane.auto=1;    
+   }
+else {
+    alert("no money");
+    idj++; }
+updatemenuarcauto();}
+
 function arcaneauto(){
 
     //Checks for auto then runs cast till mana out//
@@ -1085,6 +1134,13 @@ function arcaneauto(){
         if(arcane.status="run"){arcane.status="auto";}
         console.log("ending auto cast");
     }
+var arcprice=document.getElementById('tdr2c1');
+var arcimg=document.getElementById('arcautoupgimg');
+function updatemenuarcauto(){
+    if (arcane.auto=1){
+        menumaxer(arcprice,arcimg);
+    }
+}
 //##############################################################################################################################//
 //                 iceball                    //
 //###########################################################################################//
@@ -1387,14 +1443,7 @@ function menufireballupgrade(){
             fire.image.src=fireupgrade.mayhemballimg; 
             fire.status="m"; }
      }
-// Button 2 arcauto//
-        function upgarcautocast(){
-            if ( click >= arcaneupgrade.$auto){
-            arcane.cast="auto"    
-            arcaneupgrade.$auto="auto"; }
-        else {
-            alert("no money");
-            idj++; }}
+
 //button3 Ice shield//
 
 //Button 4 EarthUPG//
@@ -1508,7 +1557,7 @@ function openmenu(){
     menu.fieldset.style.zIndex=1;
     menu.return.style.opacity=0;
     menu.return.style.zIndex=0;
-    
+    updatemenu();
 }
 //Open UOGRADES//
 function flipupgtab() {
@@ -1552,6 +1601,7 @@ function closemenu(){
     menu.return.style.zIndex=1; 
     menu.open="";
     console.log("Closeall");
+    setstatus();
     closealltabs(); 
 }
 function closealltabs(){ 
