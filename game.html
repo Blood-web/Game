@@ -12,19 +12,15 @@
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
 <body id="body" onload="selftestini(); StartShift(); scorepersecon();" onclick="selftest()"  style="z-index: 0;">
+<!--Score and cash symbol-->
+<div id="header" class="wave">
+    <h1 onclick="instprestige()"> Version 0.2.4.2</h1><br>
+    <h2 id="scorecounter" >0- </h2> 
 
-      <h1 onclick="instprestige()"> Version 0.2.4.2</h1><br>
- <div id="head">
-        <h2>
-            <!--Score and cash symbol-->
-            <p id="scorecounter">0</p> <p class="opacity">&#128176;</p>
-        </h2>
-    </div>
-  <br>
-<span style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">    
-<div  id="prestigebar" value="0" min="0" max="1000" ></div>
-</span>
- 
+    <span style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">    
+        <div  id="prestigebar" value="0" min="0" max="1000" ></div>
+    </span>
+</div>
 <fieldset id="main" onclick="levelup(1)">
    
 
@@ -71,7 +67,7 @@
               
       
         <div id="igmessage">          
-            <h3 id="messages" ></h3>
+            <h4 id="messages" ></h4>
             <h6 id="h6">sa</h6>
         </div>
 

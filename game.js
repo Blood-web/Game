@@ -6,6 +6,7 @@ idj = idjcounter;
 
 var setcore;
 var h6=document.getElementById("h6");
+
 function scorepersecon(){
     setcore=click;
     setTimeout(function() {
