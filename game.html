@@ -13,16 +13,17 @@
 </head>
 <body id="body" onload="selftestini(); StartShift(); scorepersecon();" onclick="selftest()"  style="z-index: 0;">
 
-      <h1 onclick="instprestige()"> Version 0.2.4.2</h1><br>
- <div id="head">
-        <h2>
-            <!--Score and cash symbol-->
-            <p id="scorecounter">0</p> <p class="opacity">&#128176;</p>
-        </h2>
-    </div>
-  <br>
+<h1 onclick="instprestige()"> Version 0.2.4.2</h1>
+
+<div id="head">
+    <h2>
+        <!--Score and cash symbol-->
+        <p id="scorecounter">0</p>
+    </h2>
+</div>
+  
 <span style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">    
-<div  id="prestigebar" value="0" min="0" max="1000" ></div>
+<div id="prestigebar" value="0" min="0" max="1000" ></div>
 </span>
  
 <fieldset id="main" onclick="levelup(1)">
@@ -48,7 +49,7 @@
 
         <!-- Diamonds-->
         <div class="Imagebtn" style="float: inline-end;">
-            <img id="Diamonds" onclick="createtoken()" src="../Logs/diamond-icon.svg" />
+            <img id="Diamonds" onclick="createtoken()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzft-PqYTFnCbxvwY_xbweTOrcu67IlXabA&usqp=CAU" />
             <br>
             <p>Diamonds Store</p>
         </div>
@@ -75,12 +76,12 @@
             <h6 id="h6">sa</h6>
         </div>
 
-         <div id="cardwrap" style="width: 40%;" > <!--Card floater-->
-            <button onclick="movecard()" id="cardbutton" ></button>
-           <h4 id="card" style="width: 80%;">CurrentPrestige= <p id="prestigelevelcount">0</p>
-         <br> NextPrestige = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
-            <br> Manalevel = <p id="manalevelcounter">0</p> <p> totalregen= </p><p id="manaregencounter">0</p>
-            <br>Mana =  <span class="mana"></span> <p id="playermanacount"></p>/ <p id="manamaxcount"></p>
+        <div id="cardwrap" style="width: 40%;" > <!--Card floater-->
+        <button onclick="movecard()" id="cardbutton" ></button>
+        <h4 id="card" style="width: 80%;">CurrentPrestige= <p id="prestigelevelcount">0</p>
+        <br> Next Prestige = <p id="prestigeprogress">-</p>/<p id="prestigecap">1000</p>
+        <br> Manalevel = <p id="manalevelcounter">0</p> <p> totalregen= </p><p id="manaregencounter">0</p>
+        <br>Mana =  <span class="mana"></span> <p id="playermanacount"></p>/ <p id="manamaxcount"></p>
             
             <br> Rage: Level = <p id="ragelevelcounter">0</p> Run# = <p id="rageruncounter">0</p>
              <br> <p id="playerragecounter">0</p>/ <p id="ragecap">333</p>
@@ -385,6 +386,39 @@
     You Currently have <p id="prestige_of"></p> Prestige
     <br> <p> Would you like to prestige?</p>
     <button id="prestigeY" onclick="Prestige()">Yes</button id="prestigeN" onclick="closemenu()"><button>No</button>
+    
+    <table style="background-color: cadetblue;">
+            <tr><p>Prestige Table - ST , move me</p>
+            <td id="ptr1c1" onclick="prestigeupg1()"> Base click Increase ++ </td>
+            <td id="ptr1c2"> Increase base click+10 </td>
+            <td id="ptr1c3"> Spells squared </td>
+            <td id="ptr1c4"> Unlock (something) </td>
+            <td id="ptr1c5"> Lorem</td>
+        </tr>
+        <tr>
+            <td id="ptr2c1"> Unlock multi Purchase  </td>
+            <td id="ptr2c2"> Lopper  </td>  
+            <td id="ptr2c3"> Squall  </td>
+            <td id="ptr2c4">   </td>
+            <td id="ptr2c5"> Increase Prestige points per level +1 (Cost:1,3,4,7,11,15,19,25,32)</td>
+        </tr>
+        <tr>
+            <td id="ptr3c1"></td>
+            <td id="ptr3c2"></td>  
+            <td id="ptr3c3"></td>
+            <td id="ptr3c4"></td>
+            <td id="ptr3c5"></td>  
+        </tr>
+        <tr>
+            <td id="ptr4c1"> Reduce Prestige req.</td>
+            <td id="ptr4c2"></td>  
+            <td id="ptr4c3"></td>
+            <td id="ptr4c4"></td>
+            <td id="ptr4c5">Amplifier - undefined</td>  
+        </tr>
+
+    </table>
+    <button onclick="">RESET Prestige board (cost: 12 <span class="diamondicon"> </span> ) - prestige end</button>
 </span>
 </fieldset>
    

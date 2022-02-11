@@ -13,7 +13,6 @@ html, body{
     height: 100%;
     width: 100%;
   
-  
     text-align: center;
     background: linear-gradient(
             80deg,
@@ -65,7 +64,7 @@ td {
     overflow-x: hidden;
     vertical-align: top; }
 tr { width: 100%;
-height: 33%;
+    height: 33%;
 }
 
 
@@ -82,6 +81,7 @@ h1 {
 }
 h2 {
     display: inline-block;
+    margin: 0 auto;
     font-size: 60px;
     color: #000;
     box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -91,8 +91,7 @@ h2 {
     width: 20%;
 }
 h2 p {
-    opacity:1 ; 
-    
+    opacity:1 ;     
 }
 h3 {
     color: #fafafa;
@@ -149,10 +148,10 @@ opacity: 1;
 background-image: url(../Logs/bluering.png);
 background-size: contain;
 background-blend-mode: darken;
-background-color: 
-    
+background-color:     
     #00ffff
 }
+
 .rage{
     height: 15px;
     width: 15px;
@@ -163,25 +162,27 @@ background-color:
     background-image: url(../Logs/rring.jpg);
     background-size: cover;
     background-blend-mode: darken;
-    background-color: #ffa1a155;
-          
+    background-color: #ffa1a155;          
 }
+
 .desription {
     font-size: 990px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: whitesmoke;
 }
+
 .red {
     color: #ff0000;
 }
+
 .green {
     color: #0f0;
     font-size: 200%;
 }
+
 .upgradebutton {
     background-image: url(https://user-images.githubusercontent.com/84670867/141205653-b4f4351e-2d3f-4635-a779-317d8a024f7b.jpg);
-    background-size: contain;
-    
+    background-size: contain;    
     position: relative;
     display: inline-block;
     max-width: 10vw;
@@ -189,6 +190,7 @@ background-color:
     color: whitesmoke;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
 .Imagebtn {
     float: right;
     height: 10vh;
@@ -196,6 +198,7 @@ background-color:
     z-index: 1;
   text-align: center;
 }
+
 .Gamebtn {
     position: relative;
     background-size: contain;
@@ -211,15 +214,20 @@ background-color:
     height: 1vh;
    bottom: 0 auto;
    padding-bottom: 1vh;
-   margin-bottom: 0.2vh;
- 
-    
+   margin-bottom: 0.2vh;    
 }
+
+.diamondsvg{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl3Q0nUuZKBgqIzeSaQSVQoRNrXNB4G7TgAg&usqp=CAU);
+    background-size: contain; background-position-x: center; background-position-y: center;
+
+}
+
 #manabar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5vh;
     max-width:99.9%;
- position: absolute;
+    position: absolute;
     z-index: 4;
     border-top-right-radius: 10%; border-bottom-left-radius: 10%;
     background: radial-gradient(circle, 
@@ -265,7 +273,7 @@ background-color:
 }
 /*Click area*/
 #main {
-   width: auto;
+   width: 100%;
     height: 96vh;
     border: 10px solid black;
     margin: 0 auto;
@@ -288,7 +296,7 @@ background-color:
     background-size: cover;
 }
 #Diamonds {
-   
+   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzft-PqYTFnCbxvwY_xbweTOrcu67IlXabA&usqp=CAU);
     background-size:contain ;
     color: #0f0;
     border-radius: 50%;
@@ -406,8 +414,8 @@ background-color:
 
 /**/
 #head {position: absolute;
-    display: inline-block;
-    
+    display: block;
+    font-size: 50px;
     transform: translate(-50%, -50%);
    opacity: 1;
 }
