@@ -29,13 +29,6 @@ body:hover {
         #1f1,
         #f0f,
         #321 );}
-
-header {
-    position: relative;
-   top: 0  auto;
-    width: 95%;
- 
-}
 img  {
     box-shadow: 5px 10px 18px red; 
     height: 8vh;
@@ -43,57 +36,94 @@ img  {
     display: inline-block;
     border-radius: 10%;
 }
-
-header button {
-    position: relative;
-    color: #04AA6D;
-    height: 10vh;
+#header {
+   position: absolute;
+    background: repeating-linear-gradient(183deg,
+     #f0e68cf0, green, greenyellow) ;
+    width: 95%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+ 
 }
-/*Table*/
-table {
-    background-color: white;
-    z-index: 2; }
-
-td {
-    margin-bottom: 2%;
-    display: inline-block;
-    font-size: 2.2vw;
-    width: 15%;
-    height: max-content;
-    position: relative;
-    overflow-x: hidden;
-    vertical-align: top; }
-tr { width: 100%;
-    height: 33%;
-}
-
-
-td .description {border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; height:10vh; overflow: auto;}
-span {
-    background-color: #faf;
-}
-/*table class/ids*/
-.tdtile{ font-size: 3.2vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555}
 /*Headers*/
+/*Title*/
 h1 {
-     float: left ;
+    width: fit-content; font-size: 4vmin;
+  float: left; margin-top:-3vh;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+/* Score*/
 h2 {
-    display: inline-block;
-    margin: 0 auto;
-    font-size: 60px;
+    border: 1px solid greenyellow;
+  
+    margin-top: -6vh;
+    margin-bottom: 1vh;
+    font-size: 5vmax;
     color: #000;
     box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #04AA6Daf;
     border-radius: 10%;
-    height: 10vh;
-    width: 20%;
+    height: fit-content;
+    width: fit-content;
 }
-h2 p {
-    opacity:1 ;     
+/* */
+h3{
+    width: 40%; z-index: 2; height: fit-content; 
+    display: block; background-color: aqua; border-radius: 10%;
 }
-h3 {
+
+
+/**HEADER WAVE**/
+.wave{
+    height: 50px;
+    position: relative;
+    background: repeating-linear-gradient(183deg,
+    #f0e68cf0, green, greenyellow) ;
+  }
+  
+  /* Wave text css */
+  .wave {
+    color:#fff;
+    text-align:center;
+    font-weight:bold;
+    font-size:24px;
+    padding-top:25px;
+    padding-bottom:25px;
+    
+  }
+  .wave::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: repeat;    
+    height: 10px;
+    background-size: 20px 20px;
+    background-image:
+     radial-gradient(circle at 10px -5px, transparent 12px, #fff 13px);
+  }
+  .wave::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: repeat;
+    height: 15px;
+    background-size: 40px 20px;
+    background-image:
+      radial-gradient(circle at 10px 15px, #fff 12px, transparent 13px);
+  }
+
+/* Ingame*/
+header{
+    position: relative;
+}
+header .Imagebtn {
+    margin-top: 11vh;
+}
+h4 {
     color: #fafafa;
     font-size: 8vh;
 }
@@ -107,9 +137,7 @@ right:2%;
 margin-top: 28vh;
 }
 
-p {
-    display: inline-block;
-}
+p { display: inline-block;}
 
 button a {
  background-color: #fafafa;   
@@ -137,6 +165,31 @@ div a strong {
     font-size: 1.5vh;
 }
 
+/*Table*/
+table {
+    background-color: white;
+    z-index: 2; }
+
+td {
+    margin-bottom: 2%;
+    display: inline-block;
+    font-size: 2.2vw;
+    width: 15%;
+    height: max-content;
+    position: relative;
+    overflow-x: hidden;
+    vertical-align: top; }
+tr { width: 100%;
+height: 33%;
+}
+
+
+td .description {border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; height:10vh; overflow: auto;}
+span {
+    background-color: #faf;
+}
+/*table class/ids*/
+.tdtile{ font-size: 3.2vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555}
 
 /*Class list*/
 .mana{
@@ -413,12 +466,6 @@ background-color:
 
 
 /**/
-#head {position: absolute;
-    display: block;
-    font-size: 50px;
-    transform: translate(-50%, -50%);
-   opacity: 1;
-}
 .finished {border: 2px solid lightgreen;}
 .selected{
     box-shadow: 1px 1px 8px gray, 1px 1px 8px goldenrod, 1px 1px 8px goldenrod;
