@@ -1845,7 +1845,17 @@ function BZbuster(){
 function difference(a, b){
         result=((a/b)*100).toFixed(2);
     }
-  
+
+var h1=document.getElementById("h1");
+ht= "headtitle"; h0="ht"; ti=document.getElementById("title");
+function showtitle(){
+    if(h1.classList==ht){ ti.style.display="none";
+        h1.classList.add(h0);h1.classList.remove(ht);
+     }
+    else{ ti.style.display="";
+        h1.classList.add(ht);h1.classList.remove(h0);}
+}
+
 // Jumper game.//
 /*var character = 
 document.getElementById("character"); 

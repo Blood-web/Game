@@ -1,19 +1,16 @@
 /*MAIN ordered*/
 * {
     margin: 0 auto;
-    padding: 0;}
-
-html, body{
-    height: 100%;
-    width: 100%;
+    padding: 0;
 }
-#body {
-     z-index: 0;  
-    font-family: 'lobster', cursive;
-    height: 100%;
-    width: 100%;
-  
+html{width: 100%; height: 100%;}
+body{ width: 100%; 
     text-align: center;
+    font-family: 'lobster', cursive;}
+
+#body { 
+    display: block;
+    z-index: 0;     
     background: linear-gradient(
             80deg,
         #f1f,
@@ -21,76 +18,73 @@ html, body{
         #123
     );   
 }
-body:hover {
-    background: linear-gradient(
-        80deg,
-        #321,
-        #f0f
-        #1f1,
-        #f0f,
-        #321 );}
+
 img  {
     box-shadow: 5px 10px 18px red; 
-    height: 8vh;
-    width: 8vw;
+    height: 8vh; width: 8vw;
     display: inline-block;
     border-radius: 10%;
 }
-#header {
-   position: absolute;
+#header {   
     background: repeating-linear-gradient(183deg,
      #f0e68cf0, green, greenyellow) ;
     width: 95%;
     padding-left: 2.5%;
     padding-right: 2.5%;
- 
 }
+
 /*Headers*/
+
+/*Top Block*/
 /*Title*/
-h1 {
-    width: fit-content; font-size: 4vmin;
-  float: left; margin-top:-3vh;
+h1 {   
+    width: fit-content; font-size: 3.2vmin; 
+    float: left; margin-top:-3.5vh; border: 4px double #ee82ee99 ;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
+#title{ color: black; -webkit-text-stroke: 1px crimson; }
+
+.ht{color: #00000000; background-color: #faffaf99; 
+background-size: contain; background-position-x: center; background-position-y: center; background-repeat: no-repeat; 
+     background-image: url(../Game/BloodWeb.png); 
+    color: none; -webkit-text-stroke:none;}
+.headtitle{color: whitesmoke;
+-webkit-text-stroke: 0.7px #00ffff;  background-color: #2196F355;   
+}
+
 /* Score*/
 h2 {
-    border: 1px solid greenyellow;
-  
-    margin-top: -6vh;
-    margin-bottom: 1vh;
-    font-size: 5vmax;
+    border: 1px solid greenyellow; 
+    margin-top: -6.2vh;
+    margin-bottom: .1vh;
+    font-size: 4.5vmax;
     color: #000;
     box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #04AA6Daf;
     border-radius: 10%;
     height: fit-content;
-    width: fit-content;
+    width: max-content;
 }
-/* */
+/* Prestige bar */
 h3{
     width: 40%; z-index: 2; height: fit-content; 
     display: block; background-color: aqua; border-radius: 10%;
 }
-
+#prestigebar{    
+    width: 80%; height: 1vmin; background-color: khaki;
+}
 
 /**HEADER WAVE**/
-.wave{
-    height: 50px;
+.wave{ width: 94vw;
+    padding: 4vh 3vw 5vh 3vw;
+    height: 2.7vmin;
     position: relative;
     background: repeating-linear-gradient(183deg,
     #f0e68cf0, green, greenyellow) ;
-  }
+}
   
   /* Wave text css */
-  .wave {
-    color:#fff;
-    text-align:center;
-    font-weight:bold;
-    font-size:24px;
-    padding-top:25px;
-    padding-bottom:25px;
-    
-  }
   .wave::before{
     content: "";
     position: absolute;
@@ -101,7 +95,7 @@ h3{
     height: 10px;
     background-size: 20px 20px;
     background-image:
-     radial-gradient(circle at 10px -5px, transparent 12px, #fff 13px);
+     radial-gradient(circle at 10px -5px, transparent 12px, #fafaf9 13px);
   }
   .wave::after{
     content: "";
@@ -113,15 +107,18 @@ h3{
     height: 15px;
     background-size: 40px 20px;
     background-image:
-      radial-gradient(circle at 10px 15px, #fff 12px, transparent 13px);
+    radial-gradient(circle at 10px 15px, #fafaf9 12px, transparent 13px);
   }
+/*End of topblock*/
+
 
 /* Ingame*/
+
 header{
     position: relative;
 }
 header .Imagebtn {
-    margin-top: 11vh;
+   -webkit-text-stroke: 1px hotpink;
 }
 h4 {
     color: #fafafa;
@@ -149,22 +146,17 @@ span {
 progress {
     min-width: 40%;	
     width: 50%;
-
 }
 
 /*MIXER*/
+  #lower-buttons button {
+  box-shadow: 5px 10px 18px red;  }
 
-  #lower-buttons button 
-{
-  box-shadow: 5px 10px 18px red;
-  
-}
 div a strong {
     color: #fafafa;
     background: #000;
     font-size: 1.5vh;
 }
-
 /*Table*/
 table {
     background-color: white;
@@ -183,14 +175,14 @@ tr { width: 100%;
 height: 33%;
 }
 
-
 td .description {border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; height:10vh; overflow: auto;}
 span {
     background-color: #faf;
 }
-/*table class/ids*/
-.tdtile{ font-size: 3.2vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555}
 
+/*table class/ids*/
+.tdtile{ font-size: 3.2vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555;
+}
 /*Class list*/
 .mana{
 height: 15px;
@@ -217,13 +209,11 @@ background-color:
     background-blend-mode: darken;
     background-color: #ffa1a155;          
 }
-
 .desription {
     font-size: 990px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: whitesmoke;
 }
-
 .red {
     color: #ff0000;
 }
@@ -260,37 +250,13 @@ background-color:
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
 }
 
-/*Mana Slider time function*/
-.slidecontainer {
-    width: 100%;
-    text-align: center;
-    height: 1vh;
-   bottom: 0 auto;
-   padding-bottom: 1vh;
-   margin-bottom: 0.2vh;    
-}
+
 
 .diamondsvg{
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl3Q0nUuZKBgqIzeSaQSVQoRNrXNB4G7TgAg&usqp=CAU);
     background-size: contain; background-position-x: center; background-position-y: center;
 
 }
-
-#manabar{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.5vh;
-    max-width:99.9%;
-    position: absolute;
-    z-index: 4;
-    border-top-right-radius: 10%; border-bottom-left-radius: 10%;
-    background: radial-gradient(circle, 
-        #00ffff,
-        #00ff1f );
-    color: #0f0;
-    height: 2vh;
-    
-}
-
 
 .clickerimage {
     width: 5%;
@@ -324,10 +290,12 @@ background-color:
     height: min-content;
     left: -33vw;
 }
-/*Click area*/
+
+/*Click area boxes*/
+
 #main {
-   width: 100%;
-    height: 96vh;
+    padding: 1vh 10vw 1vh 10vw;
+    height: 86vh;
     border: 10px solid black;
     margin: 0 auto;
     background-image: url(../Logs/chestultra.png);
@@ -360,32 +328,67 @@ background-color:
     color: #fff;
     text-align: center;
 } 
-#prestigebar{ 
-   
-    width: 80%; height: 1vmin; background-color: khaki;
-}
+
 #refresh {
     background-size: contain;
 }
-/*Lower trwat*/
+/*##################*/
+/*####      ########*/       
+/*###   x  x   #######*/
+/*##     -    ######*/
+/*####        ######*/
+/*####        ######*/
+/*#####       ######*/
+/*##      #    ######*/
+/*###         ######*/
+/*#####       ######*/
+/*#####   #   ######*/
+/*#####       ######*/
+/*###    ___   ####*/  
+/*###     |     ####*/
+/*####    |    #####*/
+/*####### | ########*/
+/*##################*/
+
+/*Lower Box */
 #boxmain {
     background: #000;
     box-shadow: 5px 10px 18px 10px  #a9a9a9; 
-    position:absolute;
-    
+    position: absolute;
     left: 1vw;
+    bottom: 0;
     margin: 0 auto;
-   margin-top: 74vh;
     height: 22vh;
     display: table-row;
-    width: 98%;
+    width: 98vw;
     
 }
 
-#fireball { 
-    background-repeat: no-repeat;
-    background-color: #000;
+/*Mana Slider time function*/
+.slidecontainer {
+    width: 100%;
+    text-align: center;
+    height: 1vh;
+   bottom: 0 auto;
+   padding-bottom: 1vh;
+   margin-bottom: 0.2vh;    
 }
+#manabar{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5vh;
+    max-width:99.9%;
+    position: absolute;
+    z-index: 4;
+    border-top-right-radius: 10%; border-bottom-left-radius: 10%;
+    background: radial-gradient(circle, 
+        #00ffff,
+        #00ff1f );
+    color: #0f0;
+    height: 2vh;
+    
+}
+
+/* BOXmain buttons */
 .cast {
         background-repeat: no-repeat;
         background-size: contain;
@@ -395,6 +398,11 @@ background-color:
         animation-duration: 5.1s;
         animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+#fireball { 
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+
     
 #iceball {
     background-image: url(../Logs/fireballblue.png);
