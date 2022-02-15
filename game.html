@@ -184,7 +184,7 @@
         <button id="upgtab" onclick="flipupgtab()"> <p id="ugradetext"> Upgrades </p></button>
         <button id="statstab" onclick="flipstatstab()">Stats</button>
         <button id="creditstab" onclick="flipcredits()">Credits</button>
-        <button id="prestigetab" onclick="flipprestigetab()"><p id="prestigetabbtntext"> Prestige</p></button>
+        <button id="prestigetab" onclick="flipprestigetab()"><button id="prestigetabbtntext" onclick="ULprestige()"> Prestige</button>
         <button id="closemenu" onclick="closemenu()" style="float: right;">	
         <p>&#10060;</p></button>
 
@@ -373,7 +373,10 @@
             <p id="magmincounter"></p>
     </div>
 </span>
-
+<span id="prestigelock" class="hiddentab">
+    <p></p>
+    <button onclick="ULprestige()"></button>
+</span>
 <span id="prestigetable" class="hiddentab" >
     Prestige <br><p id="bannerlevel"> 1</p> 
    <figure>     
