@@ -757,7 +757,7 @@ function updatemenuachelper(){
 //MANA//
 function incrementandsetmana(){
     
-        mana.player+=(mana.level+(mana.baseupg*10))*(mana.duplicater+1); mana.player=Math.floor(mana.player);
+        mana.player+=(mana.level+prestige.level+(mana.baseupg*10))*(mana.duplicater+1); mana.player=Math.floor(mana.player);
         
         mana.regentotal+=(mana.level+(mana.baseupg)*10)*(mana.duplicater+1) ;
         mana.runcount++;
@@ -950,7 +950,7 @@ function unlockmanablast(){
         click-=blast.unlock$; blast.ULlvl++;
         console.log("Manablast has been unlocked");
     }
-    else if(blast.ULlvl<2 &&cliock>=blast.unlock$){
+    else if(blast.ULlvl<2 &&click>=blast.unlock$){
           click-=blast.unlock$; blast.ULlvl++;
           console.log("Manablast max upgrade")
     }
@@ -1331,6 +1331,7 @@ function updatearccounter(){
     " upg: "+arcane.upgrade + " class: "+ arcane.image.classList+" status: "+arcane.status+'\n'+" src: "+arcane.image.src;
         arcane.counter.innerText=arcane.castcounter;
         arcane.levelcounter.innerText=arcane.status+arcane.level;
+        arcane.cast$=1+arcane.level*(prestige.level+1);
         arcane.cc.innerText=arcane.cast$; 
         number=arcane.upgrade$; gennumberconverter(); arcane.p6.innerText=number; 
 }
@@ -1759,7 +1760,7 @@ function Prestige() {
 }
 function updateprestigecounter(){
     if(prestige.unlocked==false){prestige.unlock$=(prestige.level+1)*(prestige.level+1)*(prestige.level+1)*1000000000*(prestige.level+prestige.level+1)
-    number=prestige.unlock$; gennumberconverter(); menu.prestigelocktab.innerText="Unlock"+'\n'+number+au; menu.prestigelocktab.style.display="";}
+    number=prestige.unlock$; gennumberconverter(); menu.prestigelocktab.innerText="Unlock"+'\n'+number+AU; menu.prestigelocktab.style.display="";}
     if (prestige.level == null) {prestige.level = 0; }
     if(prestige.prog==undefined){prestige.prog=0;}
     prestige.unlock$=(prestige.level+1)*10000*(prestige.level+1)**(prestige.level+1);
