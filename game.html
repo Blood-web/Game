@@ -14,13 +14,20 @@
 
 <!--Score and cash symbol-->
 <div class="wave">
-    <h1 id="h1" class="headtitle" onclick="instprestige()" onmouseenter="showtitle()" onmouseleave="showtitle()"> 
-        <strong id="title" >BW Buster</strong><br>  Version 0.2.5 
-    </h1> <br>
-    <h2 id="scorecounter" >0- </h2> 
-    <span style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">    
-        <div id="prestigebar" value="0" min="0" max="1000" ></div>
+    <h6 id="h6">sa</h6>
+  
+    <button id="sampsbutton" style="float: right;" onclick="pluscheat()"> Devcheat</button>
+    <a href="#" target="">
+        <h1 id="h1" class="headtitle" onclick="instprestige()" onmouseenter="showtitle()" onmouseleave="showtitle()">
+            <strong id="title">BW Buster</strong><br> Version 0.2.5
+        </h1>
+    </a> <br>
+    <h2 id="scorecounter">0- </h2>
+    <span
+        style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">
+        <div id="prestigebar" value="0" min="0" max="1000"></div>
     </span>
+
 </div>
 
 <fieldset id="main" onclick="levelup(1)">
@@ -28,7 +35,7 @@
         <!--DEV TOOLS-->
         <!--upgrade menu not defined-->
         <div id="upgrades" class="Imagebtn" onclick="flipupgtab()">
-            <img id="upgimg"
+            <img class="haadimgs"
                 src="https://user-images.githubusercontent.com/84670867/145705663-45326101-0511-4bab-b37b-294e2a015f26.jpg"
                 alt="orestige sun" />
             <br>
@@ -36,28 +43,28 @@
         </div>
         <!-- Options Menu-->
         <div id="options" class="Imagebtn">
-            <img  onclick="moreClicks10000()" id="cheat1" src="https://media.istockphoto.com/vectors/setting-gear-tool-cog-isolated-flat-web-mobile-icon-vector-sign-vector-id1033918582?k=20&m=1033918582&s=612x612&w=0&h=0g_XReAQvpHi94ubSo_VmxG9iWltT3LnpJl4wWhR02g=" />
+            <img  onclick="moreClicks10000()"style="border-radius: 50%;" class="haadimgs" src="https://media.istockphoto.com/vectors/setting-gear-tool-cog-isolated-flat-web-mobile-icon-vector-sign-vector-id1033918582?k=20&m=1033918582&s=612x612&w=0&h=0g_XReAQvpHi94ubSo_VmxG9iWltT3LnpJl4wWhR02g=" />
             <br>
             <p>Options</p>
         </div>
 
         <!-- Diamonds-->
         <div class="Imagebtn" style="float: inline-end;">
-            <img id="Diamonds" onclick="createtoken()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzft-PqYTFnCbxvwY_xbweTOrcu67IlXabA&usqp=CAU" />
+            <img class="haadimgs" style="border-radius: 50%;" onclick="flipdiamondtab()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzft-PqYTFnCbxvwY_xbweTOrcu67IlXabA&usqp=CAU" />
             <br>
             <p>Diamonds Store</p>
         </div>
 
         <!--Prestige menu button-->
         <div class="Imagebtn" onclick="flipprestigetab()">
-            <img id="prestige" src="../Logs/fsun.png" alt="orestige sun" />
+            <img id="prestige" class="haadimgs" src="../Logs/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
         </div>
 
         <!-- Refresh Button-->
         <div class="Imagebtn">
-            <img id="Refresh" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" />
+            <img class="haadimgs" style="border-radius: 50%;" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" src="https://www.clipartmax.com/png/full/3-32932_free-vector-refresh-clip-art-refresh-clipart.png" />
             <br>
             <p><strong>&#8635;REFRESH&#8635;</strong></p>
         </div>
@@ -67,7 +74,7 @@
       
         <div id="igmessage">          
             <h4 id="messages" ></h4>
-            <h6 id="h6">sa</h6>
+            
         </div>
 
         <div id="cardwrap" style="width: 40%;" > <!--Card floater-->
@@ -110,12 +117,12 @@
             <br><p id="autocost">(100)</p><p>&#128176;</p>
             </button></span>  
             
-            <!--Button2 CHEAT/TEMP --> 
-            <span><br>
-                <img id="m5" class="Gamebtn" />
-            <br> <button onclick="pluscheat()" class="upgradebutton" >
-            <p> Developer Cheat <br>  </p>
-            <br><p id="button8txt">(NaN)</p>
+            <!--Button2 ManaBlast --> 
+            <span id="abvMblast"><p id="Mblasttop"></p><br>
+                <img id="Mblast" onclick="BLAST()" class="Gamebtn" />
+            <br> <button onclick="upgradeMblast()"  class="upgradebutton" >
+            <p> ManaBlast <br>  </p>
+            <br><p id="mBprice">(NaN)</p>
             </button></span>
 
             <!--Button3 Earthspell-->
@@ -321,11 +328,11 @@
                 <p class="description" id="ragemanadesc"> Decreases manacost when upgrading rage </p>
             </td>
             <td>
-                <p id="tdr3c3" class="tdtile">PHtitle </p> <br> 
-                <img src="../Logs/anon.png" alt="shiftery">
+                <p id="tdblast" class="tdtile">Mana Blast </p> <br> 
+                <img src="../Logs/anon.png" alt="shiftery" id="menuimgBlast" onclick="unlockmanablast()">
                 <br>
-                <p id="pr3c3"> PH</p> <p>&#128176;</p> <br>
-                <p class="description"> Placeholder </p>
+                <p id="pblast"> PH</p>  <br>
+                <p id="Mblastdesc" class="description"> Unlock Manablast </p>
             </td>
             
             <td> 
@@ -401,7 +408,7 @@
         <tr>
             <td id="ptr3c1"></td>
             <td id="ptr3c2"></td>  
-            <td id="ptr3c3"></td>
+            <td id="ptblast"></td>
             <td id="ptr3c4"></td>
             <td id="ptr3c5"></td>  
         </tr>

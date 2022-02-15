@@ -43,7 +43,7 @@ h1 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-#title{ color: black; -webkit-text-stroke: 1px crimson; }
+#title{ color: black; -webkit-text-stroke: 1px crimson; font-size: 2.7vmin; }
 
 .ht{color: #00000000; background-color: #faffaf99; 
 background-size: contain; background-position-x: center; background-position-y: center; background-repeat: no-repeat; 
@@ -70,6 +70,14 @@ h2 {
 h3{
     width: 40%; z-index: 2; height: fit-content; 
     display: block; background-color: aqua; border-radius: 10%;
+}
+/* CPS */
+h6 {
+    font-size: 2.6vmin;
+    right: 0 ;
+    top: 0;
+    margin-right: 3vh;
+    position: absolute;
 }
 #prestigebar{    
     width: 80%; height: 1vmin; background-color: khaki;
@@ -111,23 +119,60 @@ h3{
   }
 /*End of topblock*/
 
+/*Click main area*/
+#main {
+    padding: 1vh 1.6vw 1vh 1.6vw;
+    height: 86vh;
+    border: 10px solid black;
+    margin: 0 auto;
+    background-image: url(../Logs/chestultra.png);
+    background-repeat: no-repeat;
+    background-size:50% ;
+    background-position-x: center;
+    background-position-y: center;
+    z-index: -1;   
+}
+/*Button styling*/
+/*#topbuttons*/
 
+.haadimgs{
+    background-repeat: no-repeat;   background-size:contain ;
+}
+
+#upgrades {
+    float: left;
+}
+#options {
+    
+    float: left;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+#Diamonds {
+    color: #0f0;
+
+}
+#prestige {  
+    color: #fff;
+    text-align: center;
+} 
+
+#refresh {
+    
+}
 /* Ingame*/
 
 header{
     position: relative;
 }
 header .Imagebtn {
-   -webkit-text-stroke: 1px hotpink;
+   -webkit-text-stroke: 1px hotpink; font-size: 2.2vmin;
 }
 h4 {
     color: #fafafa;
     font-size: 8vh;
 }
-h6 {
-    font-size: 6vh;
-    float: right;
-}
+
 #igmessage {
 position: absolute;
 right:2%;
@@ -148,7 +193,7 @@ progress {
     width: 50%;
 }
 
-/*MIXER*/
+
   #lower-buttons button {
   box-shadow: 5px 10px 18px red;  }
 
@@ -181,7 +226,7 @@ span {
 }
 
 /*table class/ids*/
-.tdtile{ font-size: 3.2vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555;
+.tdtile{ font-size: 2.65vw; border: 1px dashed aqua; background-color: azure; min-height: 8vw; height: 3vh; width:100%; margin-bottom: 1%; box-shadow:1px 25px 18px #f5f5f555, 1px 10px 5px #f5f5f555;
 }
 /*Class list*/
 .mana{
@@ -291,47 +336,7 @@ background-color:
     left: -33vw;
 }
 
-/*Click area boxes*/
 
-#main {
-    padding: 1vh 10vw 1vh 10vw;
-    height: 86vh;
-    border: 10px solid black;
-    margin: 0 auto;
-    background-image: url(../Logs/chestultra.png);
-    background-repeat: no-repeat;
-    background-size:50% ;
-    background-position-x: center;
-    background-position-y: center;
-    z-index: -1;   
-}
-/*Button styling*/
-/*#topbuttons*/
-#upgrades {
-    float: left;
-}
-#options {
-    
-    float: left;
-    background-repeat:no-repeat;
-    background-size: cover;
-}
-#Diamonds {
-   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzft-PqYTFnCbxvwY_xbweTOrcu67IlXabA&usqp=CAU);
-    background-size:contain ;
-    color: #0f0;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-
-}
-#prestige {  
-    color: #fff;
-    text-align: center;
-} 
-
-#refresh {
-    background-size: contain;
-}
 /*##################*/
 /*####      ########*/       
 /*###   x  x   #######*/
