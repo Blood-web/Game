@@ -3,7 +3,7 @@
 let click = 0;
 idjcounter = 0;
 idj = idjcounter;
-
+let AU= '💰';
 var setcore;
 var h6=document.getElementById("h6");
 
@@ -42,7 +42,7 @@ function createtoken(){
     //Menu encryption//
     +' \n'+fireupgrade.level+" "+autoupg.$+" "+Avar+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level;
     +' \n'+menu.upgr2c1+" "+menu.upgr2c1
-    +' \n'+menu.upgr3c1+" "+menu.upgr3c2+" "+menu.upgr3c3+" "+menu.upgr3c4+" "+menu.upgr3c5+" "+menu.upgr3c16+
+    +' \n'+menu.upgr3c1+" "+menu.upgr3c2+" "+menu.upgblast+" "+menu.upgr3c4+" "+menu.upgr3c5+" "+menu.upgr3c16+
     //Spell encryption level//
     +' \n'+auto.level+" "+Avar+" "+earth.level+" "+arcane.level+" "+clicker+" "+fire.level+" "+ice.level+" "+mana.level+" "+rage.level
     ;
@@ -114,7 +114,10 @@ const menu = {
     upgr3c1:document.getElementById("pr3c1"), r3c1img:document.getElementById("imgr3c1"),
     mugpr:document.getElementById("pr3c2"), manapriceimg:document.getElementById("imgr3c2"),
     mana$desc:document.getElementById("manareddesc"),
-    upgr3c3:document.getElementById("pr3c3"), r3c3img:document.getElementById("imgr3c3"),
+   
+    blastunlockprice:document.getElementById("pblast"), blastimg:document.getElementById("menuimgBlast"),
+    Tblast:document.getElementById("tdblast"), blastdesc:document.getElementById("Mblastdesc"),
+
     rmana$:document.getElementById("ragemanaprice"), rmimg:document.getElementById("ragemanaimg"),
     rmdesc:document.getElementById("ragemanadesc"),
     upgr3c5:document.getElementById("pr3c5"), r3c5img:document.getElementById("imgr3c5"),
@@ -233,6 +236,7 @@ const mana = {
     duplicater:0,
     runcount:0,
     
+
     levelcounter:document.getElementById("manalevelcounter"),
     regencounter:document.getElementById("manaregencounter"),
     count: document.getElementById('playermanacount'),
@@ -247,11 +251,31 @@ const mana = {
     status:"notready",
     truestatus:"",
 }
-
 const manaupgrade = {
     manaimg:"../Logs/mfireball.png",
     bmanaimg:"../Logs/mfireballblue.png",
     maxupglevel:0,
+}
+
+const blast ={
+lvl:0, ULlvl:0,
+upg$:0, unlock$:0,
+manainc:0, clickinc:0, rageinc:0,
+castcount:0, 
+
+levelcounter:document.getElementById("manalevelcounter"),
+regencounter:document.getElementById("manaregencounter"),
+count: document.getElementById('playermanacount'),
+maxc: document.getElementById('manamaxcount'),
+image: document.getElementById("metergain"),
+btn:document.getElementById("manabutton"),
+master:document.getElementById("abvMblast"),
+p:document.getElementById("mBprice"),
+top:document.getElementById("mBlasttop"),
+upgrade:"notready",
+status:"notready",
+truestatus:"",
+
 }
 
 //RAGE//
@@ -454,6 +478,7 @@ function pluscheat(){
     mana.player+=500;
     scheat=cheat;
     number=scheat; gennumberconverter(); p8.innerText=number+'💰';
+    document.getElementById("sampsbutton").innerText="+"+number;
     message.innerText = "Cheat used! +"+number;
    
     console.log('çheat used - 10000');
@@ -517,6 +542,7 @@ function updatetext(){
     updatefirecounter();
     updateice();
     updatearth();
+    updateMblast();
 
 }
 function updatemenu(){  updatestatmenutext(); 
@@ -914,6 +940,75 @@ function unlockduplicater(){
 }
 function updatemenuduper(){ 
   if(mana.duplicater=0){ number=dupe$; gennumberconverter(); menu.d$.innerText=number+'💰';}
+}
+  //##########################################################//
+//######################  Mana Blast ############################//
+//##########################################################//
+
+function unlockmanablast(){
+    if(blast.ULlvl==0 && click>=blast.unlock$){
+        click-=blast.unlock$; blast.ULlvl++;
+        console.log("Manablast has been unlocked");
+    }
+    else if(blast.ULlvl<2 &&cliock>=blast.unlock$){
+          click-=blast.unlock$; blast.ULlvl++;
+          console.log("Manablast max upgrade")
+    }
+    else if(click<=blast.upg$){alert(nm);}
+    updateMblast();
+}
+function upgradeMblast(){
+    if(click>= blast.upg$){
+        click-=blast.upg$; blast.lvl++;
+    }
+    updateMblast();
+}
+function BLAST(){
+    if(!blast.img.classList.contains("blastcooldown")){
+        blast.castcount++;
+        mana.player+=blast.manainc;
+}
+else{console.log("Blast fail");}
+}
+function updateMblast(){
+  checkMblastcosts();  checkMblastunlock(); 
+}
+
+function checkMblastcosts(){
+     blast.upg$=(1000000000*(1+blast.lvl)**(1+blast.lvl)**(2+blast.lvl)+602000000000000);
+    number=blast.upg$; gennumberconverter(); 
+    blast.p.innerText=number+AU;
+    
+    if (click>=blast.upg$){
+        blast.btn.style.opacity=1;
+        blast.upgrade="ready";}
+ 
+}
+
+const elem=document.createElement("span");
+
+function checkMblastunlock(){
+    blast.unlock$=7*(blast.ULlvl+1540000)*(blast.ULlvl+1)*(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1) *(blast.ULlvl+1)  ;
+    number=blast.unlock$; gennumberconverter();
+//--updt - updt - chckifUL$= - runauto--//
+if(blast.ULlvl==0){ 
+    menu.blastunlockprice.innerText=number+AU;
+    menu.Tblast.innerText="Unlock ManaBlast";
+    blast.master.style.display="none";}
+else if(blast.ULlvl==1){  menu.Tblast.innerText="RGB Mana Blast";
+    menu.blastdesc.innerText="Mana blast will generate a trio of Mana, "+(elem.className="mana");
+    menu.blastunlockprice.innerText=number;
+    blast.master.style.display="";}
+else if(blast.ULlvl==2 && menu.blastunlockprice.style.webkitTextStroke!="1px gold" ){ menumaxer(menu.blastunlockprice,menu.blastimg);}
+else if(blast.ULlvl==2){
+    runMblastauto();
+}
+}
+var blastauto;
+function runMblastauto(){
+    if (blast.lvl==2 && blastauto!="(setInterval(BLAST,10000)"){
+        blastauto=setInterval(BLAST,10000);}
+    else{console.log("Failure to run blast auto");}
 }
   //##########################################################//
 //######################  RAAGEE ############################//
