@@ -81,6 +81,7 @@ const menu = {
     upgtab:document.getElementById("upgtab"),
     upgT:document.getElementById('upgradetable'),
     upgtext:document.getElementById("upgradetext"),
+    prestigelocktab:document.getElementById("prestigelock"),
     prestigetab:document.getElementById("prestigetab"),
     prestiget:document.getElementById("prestigetable"),
     prestigetext:document.getElementById("prestigetabbtntext"),
@@ -1729,11 +1730,18 @@ function shiftupdate(){
 
 //#########################################//
 //Prestige//
+function ULprestige(){
+    if (click>=prestige.unlock$){
+        click-=prestige.unlock$;
+        prestige.unlocked==true; flipprestigetab();
+    }
+    else{alert(nm);}
+}
 
 function instprestige() {
-   
     levelup(prestige.req);
 }
+
 
 //P inc +1, Multiplier x Plevel //
 function Prestige() {
@@ -1750,6 +1758,8 @@ function Prestige() {
     }
 }
 function updateprestigecounter(){
+    if(prestige.unlocked==false){prestige.unlock$=(prestige.level+1)*(prestige.level+1)*(prestige.level+1)*1000000000*(prestige.level+prestige.level+1)
+    number=prestige.unlock$; gennumberconverter(); menu.prestigelocktab.innerText="Unlock"+'\n'+number+au; menu.prestigelocktab.style.display="";}
     if (prestige.level == null) {prestige.level = 0; }
     if(prestige.prog==undefined){prestige.prog=0;}
     prestige.unlock$=(prestige.level+1)*10000*(prestige.level+1)**(prestige.level+1);
@@ -1839,8 +1849,7 @@ clicker.totalclicks++;
 if (menu.open!="upg"){
    
     menu.upgTab++;
-    closealltabs();
-    openmenu();
+    Resetmenufield();
     upgtabactive(); 
     
     console.log('Open Upgrade menu');
@@ -1850,23 +1859,30 @@ else {closemenu(); console.log('closefrom upg');}  }
 function flipstatstab(){
 if (menu.stats.style.opacity <= 0){
     menu.statsTab++;
-    closealltabs();
-    openmenu();
+    Resetmenufield();
     statstabactive();
     console.log('Open Stats');
 }
 else { closemenu(); menu.exitsTab++; console.log('close from stats');} }
 //Open PRESTIGE//
+function flipprestigelocktab(){
+    
+}
 function flipprestigetab(){
-    if (menu.prestiget.style.opacity<=0){
+    if (menu.prestiget.style.opacity<=0 &&prestige.unlocked==true){
         menu.prestigeTab++;
-        closealltabs();
-        openmenu();
+        Resetmenufield();
         prestigetabactive(); 
         console.log('Open Prestige');     
     }
+    else if(prestige.unlocked==false){
+        Resetmenufield();
+    }
     else{closemenu();console.log("menu close from stats");}}
 
+function Resetmenufield(){
+   closemenu();  openmenu();
+}
 function closemenu(){
     menu.exits++;
     menu.fieldset.style.opacity=0;
@@ -1909,12 +1925,25 @@ function statstabactive(){ menu.statstab.classList.add("selected");
     menu.stats.style.display="inline";
     menu.stats.style.opacity = 1;   menu.stats.style.zIndex = 1;
 }
+function prestigelocktabactive(){
+    menu.prestigelockTab.classList.add("selected");
+    menu.prestige
+}
 function prestigetabactive(){menu.prestigetab.classList.add("selected");
-    menu.open="prestige"
+    menu.open="prestige"; 
     menu.prestiget.style.display="contents";
     menu.prestiget.style.zIndex = 20; menu.prestiget.style.opacity = 1;
 }
 
+function updateprestigemenutext(){
+   
+    if(prestige.unlocked==true){
+    menu.prestigetext.style.display=none;
+    }
+    else if(prestige.unlocked==false){
+        menu
+    }
+}
 function updatestatmenutext(){
     menu.statTC.innerText="Total Spells cast:"+mana.level+" ";
 }
