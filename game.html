@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
-<body id="body" onload="selftestini(); StartShift(); scorepersecon();" onclick="selftest()" style="z-index: 0;"> 
+<body id="body" onload="selftestini();  scorepersecon();" onclick="selftest()" style="z-index: 0;"> 
 
 <!--Score and cash symbol-->
 <div class="wave">
     <h6 id="h6">sa</h6>
   
     <button id="sampsbutton" style="float: right;" onclick="pluscheat()"> Devcheat</button>
+     <br><button  style="margin-right: 10px; float: right;" onclick=setpmulti()><p id="setpmultitxt">Buy+1</p></button>
     <a href="#" target="">
         <h1 id="h1" class="headtitle" onclick="instprestige()" onmouseenter="showtitle()" onmouseleave="showtitle()">
             <strong id="title">BW Buster</strong><br> Version 0.2.5
@@ -60,7 +61,7 @@
 
         <!--Prestige menu button-->
         <div class="Imagebtn" onclick="flipprestigetab()">
-            <img id="prestige" class="haadimgs" src="../Logs/fsun.png" alt="orestige sun" />
+            <img id="prestige" class="haadimgs" src="Logs/Chest/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
         </div>
@@ -122,7 +123,7 @@
             
             <!--Button2 ManaBlast --> 
             <span id="abvMblast"><p id="Mblasttop"></p><br>
-                <img id="Mblast" onclick="BLAST()" class="Gamebtn" />
+                <img id="Mblast" onclick="BLAST()" class="Gamebtn" src="Logs/Blast/Mblast1.png" />
             <br> <button onclick="upgradeMblast()"  class="upgradebutton" >
             <p> ManaBlast <br>  </p>
             <br><p id="mBprice">(NaN)</p>
@@ -137,21 +138,21 @@
             <p id="button7txt">(100)</p><p>&#128176;</p>
             </button></span>  
 
-            <!-- Button 4 Arcanespell -->
-            <span id="abvarc"><p id="arcanecastcost">20</p> <span class="mana"></span><br>
-            <img onclick="arcaneballcast()" class="Gamebtn" id="arcaneball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
-            <br><button onclick="arcaneballupgrade()" id="arcbutton" class="upgradebutton">
-                <p>Arcane<br>
+            <!-- Button 4 arcspell -->
+            <span id="abvarc"><p id="arccastcost">20</p> <span class="mana"></span><br>
+            <img  class="Gamebtn" id="arcball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
+            <br><button onclick="arcballupgrade()" id="arcbutton" class="upgradebutton">
+                <p>arc<br>
               Upgrade cost:</p>
             <p id="button6txt">(10)</p> <p>&#128176;</p> 
             </button></span>
 
             <!--Button5 MC   -->
-            <span id="abvclick"><p>+1</p><br>
-            <img id="clicker" onclick="mainclick()" class="Gamebtn" />
+            <span id="abvclick" ><p id="clickertop">+1</p><br>
+            <img id="clicker" class="Gamebtn" src="Logs/Spell/tpclick.png"/>
             <br> <button onclick="upgradeclicker()" class="upgradebutton">
             <p>Upgrade Click<strong>+1</strong></p>
-            <br><p id="button0txt"></p>  <p>&#128176;</p> 
+            <br><p id="button0txt"></p>  
             </button></span>
 
             <!--Button6 FIREBALL-->
@@ -194,11 +195,11 @@
         <button id="upgtab" onclick="flipupgtab()"> <p id="ugradetext"> Upgrades </p></button>
         <button id="statstab" onclick="flipstatstab()">Stats</button>
         <button id="creditstab" onclick="flipcredits()">Credits</button>
-        <button id="prestigetab" onclick="flipprestigetab()"><button id="prestigetabbtntext" onclick="ULprestige()"> Prestige</button>
+        <button id="prestigetab" onclick="flipprestigetab()">Prestige</button>
         <button id="closemenu" onclick="closemenu()" style="float: right;">	
         <p>&#10060;</p></button>
 
-        <span id="upgradetable" class="hiddentab" style="opacity: 0; " > 
+        <span id="upgradetable" class="hiddentab"  > 
         <table id="hiddenupgrades" cellspacing="0" > 
         <tr>
             <td class="finished">
@@ -211,12 +212,12 @@
             </td>
         
             <td class="finished">
-                <p id="tdr1c2" class="tdtile"> Arcane Autocast </p> 
-                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arcane auto" id="arcautoupgimg"/>
+                <p id="tdr1c2" class="tdtile"> arc Autocast </p> 
+                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arc auto" id="arcautoupgimg"/>
                     <br>
                 <p id="arcmenuprice">300K</p>
                 <p>&#128176;</p>
-                <p id="arcupgdesc" class="description">Your powerfull Arcane spells cast themselves! (click to toggle)</p>
+                <p id="arcupgdesc" class="description">Your powerfull arc spells cast themselves! (click to toggle)</p>
             </td>
         
             <td>
@@ -376,18 +377,25 @@
              <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
             <p>Fire level = </p> <p id="firelevel">1x0</p>
-            <br><p>Arcane level= </p><p id="arclevel">0</p>
-            <p>Arcane counter= </p><p id="arccounter">0</p>
+            <br><p>arc level= </p><p id="arclevel">0</p>
+            <p>arc counter= </p><p id="arccounter">0</p>
             <br><p>Earth level= </p><p id="earthlevel">0</p>
             <p>Earth counter=</p> <p id="earthcounter">0</p> 
             <p id="magmincounter"></p>
     </div>
 </span>
-<span id="prestigelock" class="hiddentab">
-    <p></p>
-    <button onclick="ULprestige()"></button>
-</span>
+
 <span id="prestigetable" class="hiddentab" >
+    <div id="prestitle">Text</div>
+    <div id="prestitlebody">text2</div>
+  
+<!--Prestige 1 Unlock-->
+<div id="prestigec1"></div> 
+
+<button id="presbodybtn">DSD</button>
+
+<!--Prestige2 Main-->
+<div id="prestigec2">
     Prestige <br><p id="bannerlevel"> 1</p> 
    <figure>     
         <img src="../Logs/br.png" alt=""></figure>
@@ -395,7 +403,7 @@
     You Currently have <p id="prestige_of"></p> Prestige
     <br> <p> Would you like to prestige?</p>
     <button id="prestigeY" onclick="Prestige()">Yes</button id="prestigeN" onclick="closemenu()"><button>No</button>
-    
+<div id="prestigec3">
     <table style="background-color: cadetblue;">
             <tr><p>Prestige Table - ST , move me</p>
             <td id="ptr1c1" onclick="prestigeupg1()"> Base click Increase ++ </td>
@@ -428,7 +436,9 @@
 
     </table>
     <button onclick="">RESET Prestige board (cost: 12 <span class="diamondicon"> </span> ) - prestige end</button>
+</div>
 </span>
+</div>
 </fieldset>
 
 
