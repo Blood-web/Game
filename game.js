@@ -16,7 +16,7 @@ function scorepersecon(){
 }
 menukey="//check//";
 function createmenukey(){
-    Mkey=fire.upglevel+" "+arcupgrade.level+" "+"PH-ice"+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level+
+    Mkey=MenuUpglvl[0]+" "+arcupgrade.level+" "+"PH-ice"+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level+
     ' \n'+ menu.m10X+" "+menu.mmlevel+" "+ "PH";
     breakmenukey();
 }
@@ -24,7 +24,7 @@ function breakmenukey(){
      for (var i = 0; i < Mkey.length; i++) {   
         if (Mkey[i] == undefined || Mkey[i] == null) {
             Mkey[i] = 0; }   }
-    fire.upglevel=Mkey[0]; arcupgrade.level=Mkey[1]; "PHICE";
+    MenuUpglvl[0]=Mkey[0]; arcupgrade.level=Mkey[1]; "PHICE";
     earthupg.level=Mkey[3]; menu.allspellsupglevel=Mkey[4]; autoupg.level=Mkey[5]; 
     console.log(Mkey +" Length"+Mkey.length);
 }
@@ -33,14 +33,14 @@ const space=' ';
 //FINISHTOKE//
 function createtoken(){
     playertoken=+' \n'+score+
-    ' \n'+clicker.truestatus+
+    ' \n'+clc.true+
     ' \n'+prestige.truestatus+
     ' \n'+mana.truestatus+
     ' \n'+auto.truestatus+
     ' \n'+rage.level+" "+rage.player+" "+rage.cap
      
     //Menu encryption//
-    +' \n'+fire.upglevel+" "+autoupg.$+" "+Avar+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level;
+    +' \n'+MenuUpglvl[0]+" "+autoupg.$+" "+Avar+" "+earthupg.level+" "+menu.allspellsupglevel+" "+autoupg.level;
     +' \n'+menu.upgr2c1+" "+menu.upgr2c1
     +' \n'+menu.upgr3c1+" "+menu.upgr3c2+" "+menu.upgblast+" "+menu.upgr3c4+" "+menu.upgr3c5+" "+menu.upgr3c16+
     //Spell encryption level//
@@ -67,7 +67,13 @@ let set="";
 
 
 var lockpng = "../Logs/lock.png";
-
+const MenuUpglvl=
+    
+    [0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0,
+    0,0,0,0,0,0]
+;
 //Menu $:cost;, UPG:upgmenu;,//
 const menu = {
     open:"upg, stats prestige ",
@@ -138,12 +144,13 @@ const gem={
 const gemupgsheet={}
 const prestige = {
     level:0, prog:0, req:1000, clickval:0,
-    unlock$:0,
+    unlock$:0, 
     totalPP:0,
-    
     PPinc:3,
-    PPmenu:"emptystring",
     multi:1,
+
+    PPmenu:"emptystring",
+    
     progcount: document.getElementById('prestigeprogress'),
     capcount: document.getElementById('prestigecap'),
     levelcount:document.getElementById("prestigelevelcount"),
@@ -197,10 +204,10 @@ const Mpres ={
     prestigetext:document.getElementById("prestigetabbtntext"),
 }
 var prestigeboard=[
-["0", "0","0", "0","0", "0" ],
-["0", "0","0", "0","0", "0"],
-["0", "0","0", "0","0", "0"],
-["0", "0","0", "0","0", "0"]
+"0", "0","0", "0","0", "0" ,
+"0", "0","0", "0","0", "0",
+"0", "0","0", "0","0", "0",
+"0", "0","0", "0","0", "0",
 ];
 const playerstats = {
     totalclicks: document.getElementById("tc#"),
@@ -238,12 +245,17 @@ const player= {
     spellmulti:0,
     clickmulti:0,
 }
+
 var clicker={
-    totalclicks:0, val:0,
+    totalclicks:0, 
+    val:0,
     Ptc:0,
     level:1,
     multi:0,
     upg$:0,
+}
+var clc={
+    true:"g",
     top:document.getElementById("clickertop"),
     img:document.getElementById("clicker"),
     imgmaster:"Truelog",
@@ -251,7 +263,6 @@ var clicker={
     tcounter:document.getElementById("TCcounter"),
     multicounter:document.getElementById("multicounter"),
     p0:document.getElementById("button0txt"),
-    truestatus:"",
 }
 var buyautos = document.getElementById('buyauto');
 const auto ={
@@ -566,30 +577,30 @@ function updateclick(){
     clicker.multi = Math.round(clicker.multi *100)/100;
 
     clicker.val=(clicker.multi+1)*clicker.level;
-    number=clicker.val; gennumberconverter(); clicker.top.innerText="+"+number+AU;
-    scorenumberconvertor(); clicker.scorecounter.innerText=score+AU; 
+    number=clicker.val; gennumberconverter(); clc.top.innerText="+"+number+AU;
+    scorenumberconvertor(); clc.scorecounter.innerText=score+AU; 
 
     //Multibuy//
-    clicker.upg$=Math.ceil(((clicker.level+1))*(1+clicker.level)*(1+prestige.level)*1.7);
-    getcost(clicker.upg$);clicker.p0.innerText= number+AU;
+    clicker.upg$=Math.ceil(((clicker.level+1+clicker.level))*(1+clicker.level+1)*(1+prestige.level)*1.7);
+    getcost(clicker.upg$);clc.p0.innerText= number+AU;
 
     //img//
     if(rage.active==true&&boardS!="Player is holding click"){
-        clicker.img.src=Logs.mcrage;
-        clicker.img.style.background="white";
-        clicker.img.border="3px solid ";clicker.img.style.borderColor="red";
+        clc.img.src=Logs.mcrage;
+        clc.img.style.background="white";
+        clc.img.border="3px solid ";clc.img.style.borderColor="red";
     }
     else if( rage.active==false && boardS!="Player is holding click"){
-    clicker.img.src=Logs.mc;  
-    clicker.img.style.background="repeating-linear-gradient(40deg, blue,red)";
-    clicker.img.border="2px solid black";
+    clc.img.src=Logs.mc;  
+    clc.img.style.background="repeating-linear-gradient(40deg, blue,red)";
+    clc.img.border="2px solid black";
     }
 
 //bkg/counters//
  BZbuster();
- clicker.tcounter.innerText=clicker.totalclicks;
- clicker.multicounter.innerText=clicker.multi;
- clicker.truestatus=clicker.level+" "+clicker.upg$+" "+clicker.multi+" "+clicker.totalclicks;
+ clc.tcounter.innerText=clicker.totalclicks;
+ clc.multicounter.innerText=clicker.multi;
+ clc.true=clicker.level+" "+clicker.upg$+" "+clicker.multi+" "+clicker.totalclicks;
 }
 function getcost(cost, multi ){
     multi=Di.all;
@@ -659,7 +670,7 @@ function selftest(){
 console.log("Debug stats:"+'\n'+"Setstatus:Selftest: "+'\n'+
 '\n'+boardS+'\n'
 +'\n'+ boardS2+'\n'
-+" :Clicker:= "+click+" "+clicker.truestatus+'\n'+
++" :Clicker:= "+click+" "+clc.true+'\n'+
 " :Autoclicker:="+ auto.truestatus
 +'\n'+" :Multiplier ="+ clicker.multi+" AutoClvl =" +'\n'
 
@@ -671,6 +682,7 @@ console.log("Debug stats:"+'\n'+"Setstatus:Selftest: "+'\n'+
 +'\n'+" :Ice:="+ice.truestatus+'\n'
 +'\n'+" :Earth:="+earth.truestatus+'\n'
 +'\n'+":Prestige= "+prestige.unlocked+" "+prestige.truestatus+'\n'
++'\n '+prestigeboard+'\n'
 
 +'\n'+" :Rage=  relvl :"+rage.relvl);  
 }
@@ -740,17 +752,17 @@ function setstatus() {
 //##########################################################################//
 //######################## CLICKER ######################################//
 //###################################################################################//
-clicker.img.addEventListener("mousedown", clickunder );
-clicker.img.addEventListener("mouseup", clickover);
+clc.img.addEventListener("mousedown", clickunder );
+clc.img.addEventListener("mouseup", clickover);
 
 function clickunder(){
- clicker.imgmaster=clicker.img.src;   
+ clc.imgmaster=clc.img.src;   
  if(rage.active==false){
-    clicker.img.src=Logs.mcCD;
+    clc.img.src=Logs.mcCD;
     boardS="Player is holding click";
     }
     else if(rage.active==true){
-        clicker.img.src=Logs.mcCD;
+        clc.img.src=Logs.mcCD;
         boardS="Player is holding click";
         setTimeout(function() {
             rage.chargecount++;
@@ -760,7 +772,7 @@ function clickunder(){
 }
 function clickover(){ 
     boardS="Player has released click";
-    clicker.img.src=clicker.imgmaster;
+    clc.img.src=clc.imgmaster;
     mainclick();
 }
 
@@ -1777,51 +1789,51 @@ function menumaxer(price, img){
 function menufireballupgrade(){
         if (click < fire.mupg$){
         alert("Cant upgrade fireball"); idj++;  }  
-    else if(click >=fire.mupg$ && fire.upglevel !="max"){
+    else if(click >=fire.mupg$ && MenuUpglvl[0] !="max"){
         click -=fire.mupg$;
-        fire.upglevel++;
+        MenuUpglvl[0]++;
     }
-    else if(click>=fire.mupg$ && fire.upglevel ==4){
+    else if(click>=fire.mupg$ && MenuUpglvl[0] ==4){
         click -=fire.mupg$;
-        fire.upglevel="max";
+        MenuUpglvl[0]="max";
     } 
     else{boardS2="Fireball trying upgrade /fail";}
 console.log('menu fireball upgrade complete');updatemenufireball(); }
 
         function updatemenufireball(){
-        fire.mupg$=(fire.upglevel+1)+5400*(fire.upglevel+1)**(fire.upglevel+1);
+        fire.mupg$=(MenuUpglvl[0]+1)+5400*(MenuUpglvl[0]+1)**(MenuUpglvl[0]+1);
         number=fire.mupg$; gennumberconverter();
         fire.upgprice.innerText=number+AU;   
-        if (fire.upglevel == 0){
+        if (MenuUpglvl[0] == 0){
         fire.upgtitle.innerText="FireSplit (x2)";
         fire.upgimg.src=Logs.f2;
         fire.upgdescription.innerText="Your fire splits and deals twice as much damage"+'\n'+"(Slight "+" increase)";
         fire.status="x1";
     } 
-        else if (fire.upglevel==1){
+        else if (MenuUpglvl[0]==1){
             fire.upgimg.src=Logs.f3;
             fire.upgtitle.innerText="Firetrio (x3)";
             fire.upgdescription.innerText="Your fire splits and deals Thrice! as much damage"+'\n'+"(Slight mana castcost increase)"; 
             fire.img.src=Logs.f2ballimg; 
             fire.status="x2";
             
-    } else if (fire.upglevel==2){fire.upgimg.src=Logs.f5;
+    } else if (MenuUpglvl[0]==2){fire.upgimg.src=Logs.f5;
         fire.upgtitle.innerText="FireShower (x5)";
         fire.upgprice.innerText=fire.mupg$;
         fire.upgdescription.innerText="Your fire now has a total of 5orbs and deals 5x as much damage"+'\n'+"(Moderate mana castcost increase)"; 
         fire.img.src=Logs.f3; 
         fire.status="x3";}
-    else if ( fire.upglevel == 3){fire.upgimg.src=Logs.f7;
+    else if ( MenuUpglvl[0] == 3){fire.upgimg.src=Logs.f7;
         fire.upgtitle.innerText="FireStorm (x7)";
         fire.upgdescription.innerText="Your fire becomes uncortrollable  and casts 7 orbs at once!"+'\n'+"(Moderate mana castcost increase)"; 
         fire.img.src=Logs.f5ballimg; 
         fire.status="x5";}
-    else if ( fire.upglevel == 4){fire.upgimg.src=Logs.fM;
+    else if ( MenuUpglvl[0] == 4){fire.upgimg.src=Logs.fM;
         fire.upgtitle.innerText="Fire Mayhem";
         fire.upgdescription.innerText="All control is lost, Fireball casts between 9 and 19 orbs an will decide to cast itself for free occasionally"+'\n'+"(Moderate mana castcost increase)"; 
         fire.img.src=Logs.f7; 
         fire.status="x7";
-    }else if ( fire.upglevel == "max"){
+    }else if ( MenuUpglvl[0] == "max"){
             fire.upgtitle.innerText="Fire King";
             fire.upgimg.src=Logs.fmax;
             menumaxer(fire.upgprice, fire.upgimg);
@@ -1867,6 +1879,23 @@ function shiftupdate(){
     else if (menu.shiftlvl==1){menumaxer(shiftprice, shiftimg); }
 }
 
+
+//RESET//
+function resetboard(){
+//Keepers//
+
+//TC, Prestige, spells cast, other trackers//
+try{
+prestigeboard.fill(0);
+Object.keys(clicker).forEach(key => clicker[key] = 0);
+}
+catch(err){alert("Critical prestige failure, reloading window");
+window.location.reload(true);
+}
+alert( Object.values(clicker)+"\n"+Object.values(prestige));
+updatetext();
+}
+
 //#########################################//
 //Prestige//
 function ULprestige() {
@@ -1888,7 +1917,7 @@ function Prestige() {
         //..Level UP prestige//
         prestige.unlocked = false; prestige.prog = 0; prestige.level++;
         prestige.multi += prestige.clickval;
-
+        resetboard();
         updateprestige();
         console.log(clicker.multi + ' level = ' + prestige.level + '. user has prestiged');
     }
@@ -1938,7 +1967,7 @@ function updateprestext(){
         prestige.req = ((prestige.level + 1) * 1057 * (prestige.level + 1) * (prestige.level + 1));
         
 
-        prestige.pF.innerText = "Prestiging increases base click value by:" + (14 + prestige.clickval);
+        prestige.pF.innerText = "Prestiging increases base click value by:" + (14 + ((clicker.Ptc/prestige.level)/13330)).toFixed(2);
 //BAR//
         prestige.levelcount.innerText = prestige.level; prestige.progcount.innerText = prestige.prog;
         prestige.bar.value = prestige.prog; difference(prestige.prog,prestige.req); prestige.bar.style.width = result + "%";
@@ -2169,7 +2198,8 @@ function prestigetabactive(p){menu.ptab.classList.toggle(selec);
 }
     else if ( p == "Unlock Prestige"){ p="ULprestige()"; Mpres.btn.setAttribute("onClick", "ULprestige();");
     number=prestige.unlock$; gennumberconverter(); Mpres.btn.innerText="Unlock"+'\n'+number+AU;
-    Mpres.ptitle.innerText="It Will Cost \n"+number+AU+" to unlock prestige, upon doing so you will recieve wondeful benefits";
+    Mpres.ptitle.innerText="It Will Cost \n"+number+AU+'\n'+" to unlock prestige, upon doing so you will begin to gain prestige power \n"+
+    "(Your Prestige value will be rectoactively counted)";
     Mpres.btn.style.display=""; Mpres.btn.innerText="Unlock\n"+number+AU;
     Mpres.btn.style.display="";Mpres.btn.style.opacity = 1;
     Mpres.div1.style.display="";

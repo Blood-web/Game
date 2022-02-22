@@ -582,6 +582,8 @@ background-color:
 
 #prestigetable{
     display: block;
+    height: 80%;
+    width: 88vw;
     opacity: 1;
     z-index: 2;
 }
