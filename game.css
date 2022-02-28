@@ -20,7 +20,7 @@ body{ width: 100%;
 }
 
 img  {
-    box-shadow: 5px 10px 18px red; 
+
     height: 8vh; width: 8vw;
     display: inline-block;
     border-radius: 10%;
@@ -125,11 +125,11 @@ h6 {
     height: 86vh;
     border: 10px solid black;
     margin: 0 auto;
-    background-image: url(../Logs/chestultra.png);
+    background-image: url(/Logs/Chest/chestultra.png);
     background-repeat: no-repeat;
-    background-size:50% ;
     background-position-x: center;
-    background-position-y: center;
+    background-position-y:8vh;
+    background-size: 50vmax;
     z-index: -1;   
 }
 /*Button styling*/
@@ -155,6 +155,10 @@ h6 {
 #prestige {  
     color: #fff;
     text-align: center;
+    background-position: center;
+    background-color: #000;
+    border-radius: 50%;
+    box-shadow: 0 0 45px 5px  red; 
 } 
 
 #refresh {
@@ -235,7 +239,7 @@ width: 15px;
 border-radius: 50%;
 display: inline-block;
 opacity: 1;
-background-image: url(../Logs/bluering.png);
+background-image: url(Logs/Spell/bluering.png);
 background-size: contain;
 background-blend-mode: darken;
 background-color:     
@@ -249,13 +253,13 @@ background-color:
     display: inline-block;
     opacity: 1;
     background-position-x: center;
-    background-image: url(../Logs/rring.jpg);
+    background-image: url(Logs/Spell/rring.jpg);
     background-size: cover;
     background-blend-mode: darken;
     background-color: #ffa1a155;          
 }
-.desription {
-    font-size: 990px;
+.description {
+    font-size: 2vmin;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: whitesmoke;
 }
@@ -268,7 +272,21 @@ background-color:
     font-size: 200%;
 }
 
+/**/
+.finished {border: 2px solid lightgreen;}
+.selected{
+    box-shadow: 1px 1px 8px gray, 1px 1px 8px goldenrod, 1px 1px 8px goldenrod;
+    font-size: 2vh;
+    color: thistle;
+    -webkit-text-stroke: 2px black;
+}
+.deselected{
+    box-shadow:0;
+    
+}
+
 .upgradebutton {
+    font-size: 2.2vw;
     background-image: url(https://user-images.githubusercontent.com/84670867/141205653-b4f4351e-2d3f-4635-a779-317d8a024f7b.jpg);
     background-size: contain;    
     position: relative;
@@ -287,13 +305,7 @@ background-color:
   text-align: center;
 }
 
-.Gamebtn {
-    position: relative;
-    background-size: contain;
-    background-position-x: center;
-    background-position-y: center; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
-}
+
 
 
 
@@ -394,6 +406,12 @@ background-color:
 }
 
 /* BOXmain buttons */
+.Gamebtn {
+    position: relative;  max-width: 7vw;   background-size: contain; background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+}
 .cast {
         background-repeat: no-repeat;
         background-size: contain;
@@ -403,99 +421,76 @@ background-color:
         animation-duration: 5.1s;
         animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+#metergain {
+    background-image: url(Logs/Spell/bluering.png);
+    background-color: lightseagreen;
+    background-size: cover;
+    border-radius: 50%; 
+
+}
 #fireball { 
-    background-repeat: no-repeat;
+    
     background-color: #000;
 }
 
     
 #iceball {
     background-image: url(../Logs/fireballblue.png);
-    background-repeat: no-repeat;
+  
     background-color: #0f0;
 }
 
-#arcaneball {
+#arcball {
     background-image: url(../Logs/fireballspellmirror.png);   
-    background-repeat: no-repeat;
+  
     background-color: #f0a;
-    border-radius: 10%; 
+   
 }
 #earthball {
     background-image: url(../Logs/fireballearthmirror.png);
-    
-    background-repeat: no-repeat;
     background-color: #00fd;
     border-radius: 10%; 
 }
-#m5 {
-    background-image: url(../Logs/confuseball.png);
-    
-    background-repeat: no-repeat;
-    background-color: #000;
-    border-radius: 10%; 
- 
+#Mblast {
+    background-image: url(Logs/Spell/mfireballblue.png);
+    background-color: #1e90ff55; background-size: cover;
 } 
 #m6 {
     background-image: url(../Logs/rageballeye.png);
-    
-    background-repeat: no-repeat;
     background-color: #000;
-    border-radius: 10%; 
    
 } 
-#metergain {
-    background-image: url(../Logs/mfireball.png);
+.max{
 
+    background: url(crown.png);
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
-    background-color: #000; 
-
+    
 }
 #clicker {
-    background-image: url(../Logs/click.png);
+    background-image: url(crown.png);
     background-size: cover;
-    background-repeat:no-repeat;
-    background-color: #f0a;
-    
-    border-radius: 10%;  
 }   
+#null{border:2px solid red 2px solid green;
+}
 #buyauto {
     background-image: url(../Logs/Searchchest.PNG);
-   
-    background-repeat:no-repeat;
-    background-size: cover;
     background-color: #f0a;
     border-radius: 10%; 
 } 
 #rage{
-   
     background-color: #04AA6D;
-    background-repeat:no-repeat;
-    background-size: cover;
     background-color: red;
     border-radius: 10%; 
     opacity: 1;
 }
 
 
-/**/
-.finished {border: 2px solid lightgreen;}
-.selected{
-    box-shadow: 1px 1px 8px gray, 1px 1px 8px goldenrod, 1px 1px 8px goldenrod;
-    font-size: 2vh;
-    color: thistle;
-    -webkit-text-stroke: 2px black;
-}
-.deselected{
-    box-shadow:0;
-    
-}
 
-/* Doesnt need to exit forever*/
-#dev-tools {
-font-family: 'lobster', cursive;
-}
-
+.blastcooldown{  animation: cooldown 10000ms reverse;
+    animation-fill-mode: reverse;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    }
 .firecooldown{
     animation: cooldown 6000ms ease-in-out ;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
@@ -535,8 +530,8 @@ font-family: 'lobster', cursive;
     50%{background: radial-gradient(circle at 50%, #333, #333 55%, #eee 65%, #333 75%);  }
     60%{background: radial-gradient(circle at 50%, #333, #333 65%, #eee 75%, #333 75%);  }
     70%{background: radial-gradient(circle at 50%, #333, #333 75%, #eee 85%, #333 75%);  }
-    80%{background: radial-gradient(circle at 50%, #333, #333 85%, #eee 85%, #333 75%);  }
-    90%{background: radial-gradient(circle at 50%, #333, #333 95%, #eee 90%, #333 75%);  }
+    80%{background: radial-gradient(circle at 50%, #333, #333 75%, #eee 85%, #333 75%);  }
+    90%{background: radial-gradient(circle at 50%, #333, #333 85%, #eee 90%, #333 75%);  }
     100%{background: radial-gradient(circle at 50%, #333, #333 99%, #eee 100%, #333 75%);}
 }
 @keyframes backwardcooldown {}
@@ -587,10 +582,14 @@ font-family: 'lobster', cursive;
 
 #prestigetable{
     display: block;
+    height: 80%;
+    width: 88vw;
     opacity: 1;
     z-index: 2;
 }
 #prestigetab{background-size: cover; background-image: url(http://clipart-library.com/data_images/13248.jpg); color: blanchedalmond; -webkit-text-stroke: 0.5px black;}
+#prestigetable >button{ width: 70%; background-color: #00ff1f;}
+
 
 #stats{
 display: block;

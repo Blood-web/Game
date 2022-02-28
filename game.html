@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
-<body id="body" onload="selftestini(); StartShift(); scorepersecon();" onclick="selftest()" style="z-index: 0;"> 
+<body id="body" onload="selftestini();  scorepersecon();" onclick="selftest()" style="z-index: 0;"> 
 
 <!--Score and cash symbol-->
 <div class="wave">
     <h6 id="h6">sa</h6>
   
     <button id="sampsbutton" style="float: right;" onclick="pluscheat()"> Devcheat</button>
+     <br><button  style="margin-right: 10px; float: right;" onclick=setpmulti()><p id="setpmultitxt">Buy+1</p></button>
     <a href="#" target="">
         <h1 id="h1" class="headtitle" onclick="instprestige()" onmouseenter="showtitle()" onmouseleave="showtitle()">
             <strong id="title">BW Buster</strong><br> Version 0.2.5
@@ -27,7 +28,10 @@
         style="width: 40%; z-index: 2; height: fit-content; display: block; background-color: aqua; border-radius: 10%;">
         <div id="prestigebar" value="0" min="0" max="1000"></div>
     </span>
+<!--Temp Achievement Bar-->
+<span id="achbar">
 
+</span>
 </div>
 
 <fieldset id="main" onclick="levelup(1)">
@@ -57,14 +61,14 @@
 
         <!--Prestige menu button-->
         <div class="Imagebtn" onclick="flipprestigetab()">
-            <img id="prestige" class="haadimgs" src="../Logs/fsun.png" alt="orestige sun" />
+            <img id="prestige" class="haadimgs" src="Logs/Chest/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
         </div>
 
         <!-- Refresh Button-->
         <div class="Imagebtn">
-            <img class="haadimgs" style="border-radius: 50%;" onclick="window.location.reload(true)" src="../Logs/refresh.png" alt="refresh" src="https://www.clipartmax.com/png/full/3-32932_free-vector-refresh-clip-art-refresh-clipart.png" />
+            <img class="haadimgs" style="border-radius: 50%;" onclick="window.location.reload(true)" src="data:image/png;base64,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" />
             <br>
             <p><strong>&#8635;REFRESH&#8635;</strong></p>
         </div>
@@ -90,6 +94,7 @@
             
             <br><button onclick="save()">Save</button> <button onclick="load()">Load</button>
             <br> <button onclick="clickreset();">Score dumper</button> <button onclick="localStorage.clear()">Erase data</button>
+            <br> <button onclick="resetboard()"> Prestige Reset Recurve</button>
             <button onclick="killshiftery()"> Kill shiftery </button>
             <button onclick="createmenukey()">MenuKey</button>
         </h4>
@@ -119,7 +124,7 @@
             
             <!--Button2 ManaBlast --> 
             <span id="abvMblast"><p id="Mblasttop"></p><br>
-                <img id="Mblast" onclick="BLAST()" class="Gamebtn" />
+                <img id="Mblast" onclick="BLAST()" class="Gamebtn" src="Logs/Blast/Mblast1.png" />
             <br> <button onclick="upgradeMblast()"  class="upgradebutton" >
             <p> ManaBlast <br>  </p>
             <br><p id="mBprice">(NaN)</p>
@@ -134,21 +139,21 @@
             <p id="button7txt">(100)</p><p>&#128176;</p>
             </button></span>  
 
-            <!-- Button 4 Arcanespell -->
-            <span id="abvarc"><p id="arcanecastcost">20</p> <span class="mana"></span><br>
-            <img onclick="arcaneballcast()" class="Gamebtn" id="arcaneball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
-            <br><button onclick="arcaneballupgrade()" id="arcbutton" class="upgradebutton">
-                <p>ArcaneBall<br>
-            Click + 10 <br> Upgrade cost:</p>
+            <!-- Button 4 arcspell -->
+            <span id="abvarc"><p id="arccastcost">20</p> <span class="mana"></span><br>
+            <img  class="Gamebtn" id="arcball" src="../Logs/fireballspellmirror.png"   style="opacity: 0.1;"/>
+            <br><button onclick="arcballupgrade()" id="arcbutton" class="upgradebutton">
+                <p>arc<br>
+              Upgrade cost:</p>
             <p id="button6txt">(10)</p> <p>&#128176;</p> 
             </button></span>
 
             <!--Button5 MC   -->
-            <span id="abvclick"><p>+1</p><br>
-            <img id="clicker" onclick="mainclick()" class="Gamebtn" />
+            <span id="abvclick" ><p id="clickertop">+1</p><br>
+            <img id="clicker" class="Gamebtn" src="Logs/Spell/tpclick.png"/>
             <br> <button onclick="upgradeclicker()" class="upgradebutton">
             <p>Upgrade Click<strong>+1</strong></p>
-            <br><p id="button0txt"></p>  <p>&#128176;</p> 
+            <br><p id="button0txt"></p>  
             </button></span>
 
             <!--Button6 FIREBALL-->
@@ -191,11 +196,11 @@
         <button id="upgtab" onclick="flipupgtab()"> <p id="ugradetext"> Upgrades </p></button>
         <button id="statstab" onclick="flipstatstab()">Stats</button>
         <button id="creditstab" onclick="flipcredits()">Credits</button>
-        <button id="prestigetab" onclick="flipprestigetab()"><button id="prestigetabbtntext" onclick="ULprestige()"> Prestige</button>
+        <button id="prestigetab" onclick="flipprestigetab()">Prestige</button>
         <button id="closemenu" onclick="closemenu()" style="float: right;">	
         <p>&#10060;</p></button>
 
-        <span id="upgradetable" class="hiddentab" style="opacity: 0; " > 
+        <span id="upgradetable" class="hiddentab"  > 
         <table id="hiddenupgrades" cellspacing="0" > 
         <tr>
             <td class="finished">
@@ -208,12 +213,12 @@
             </td>
         
             <td class="finished">
-                <p id="tdr1c2" class="tdtile"> Arcane Autocast </p> 
-                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arcane auto" id="arcautoupgimg"/>
+                <p id="tdr1c2" class="tdtile"> arc Autocast </p> 
+                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arc auto" id="arcautoupgimg"/>
                     <br>
                 <p id="arcmenuprice">300K</p>
                 <p>&#128176;</p>
-                <p id="arcupgdesc" class="description">Your powerfull Arcane spells cast themselves! (click to toggle)</p>
+                <p id="arcupgdesc" class="description">Your powerfull arc spells cast themselves! (click to toggle)</p>
             </td>
         
             <td>
@@ -373,26 +378,35 @@
              <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
             <p>Fire level = </p> <p id="firelevel">1x0</p>
-            <br><p>Arcane level= </p><p id="arclevel">0</p>
-            <p>Arcane counter= </p><p id="arccounter">0</p>
+            <br><p>arc level= </p><p id="arclevel">0</p>
+            <p>arc counter= </p><p id="arccounter">0</p>
             <br><p>Earth level= </p><p id="earthlevel">0</p>
             <p>Earth counter=</p> <p id="earthcounter">0</p> 
             <p id="magmincounter"></p>
     </div>
 </span>
-<span id="prestigelock" class="hiddentab">
-    <p></p>
-    <button onclick="ULprestige()"></button>
-</span>
+
 <span id="prestigetable" class="hiddentab" >
+    <div id="prestitle">Text</div>
+    <div id="prestitlebody">text2</div>
+  
+<!--Prestige 1 Unlock-->
+<div id="prestigec1"></div> 
+
+<button id="presbodybtn">DSD</button>
+
+<!--Prestige2 Main-->
+<div id="prestigec2">
     Prestige <br><p id="bannerlevel"> 1</p> 
    <figure>     
         <img src="../Logs/br.png" alt=""></figure>
-    <p id="Prestigeinload"> Prestiging Increases base click value by +14%.</p> <br>
+    <p id="Prestigeinload"> Prestiging Increases base click value by +14%</p> <br>
     You Currently have <p id="prestige_of"></p> Prestige
     <br> <p> Would you like to prestige?</p>
     <button id="prestigeY" onclick="Prestige()">Yes</button id="prestigeN" onclick="closemenu()"><button>No</button>
-    
+
+
+<div id="prestigec3">
     <table style="background-color: cadetblue;">
             <tr><p>Prestige Table - ST , move me</p>
             <td id="ptr1c1" onclick="prestigeupg1()"> Base click Increase ++ </td>
@@ -425,7 +439,9 @@
 
     </table>
     <button onclick="">RESET Prestige board (cost: 12 <span class="diamondicon"> </span> ) - prestige end</button>
+</div>
 </span>
+</div>
 </fieldset>
 
 
