@@ -1,0 +1,287 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+#spinmaster {
+            margin-top: 14vh;
+            display: none;
+            margin: 0 auto;
+            z-index: 2;
+            border-radius: 10%;
+            height: 25vh;
+            width: 25vh;
+            background: url(../Pictures/img1.png);
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        #spinner {
+            display: block;
+            border-radius: 20%;
+            margin: 0 auto;
+            margin-top: 4vh;
+            font-size: 10vh;
+            height: min-content;
+            width: min-content;
+        }
+
+        #spinnerbutton {
+            display: block;
+            margin: 0 auto;
+            margin-top: 3vh;
+        }
+
+        .loss {
+            animation: 5s loss ease-in;
+            animation-fill-mode: forwards;
+        }
+
+        .loss::after {
+            background-color: firebrick;
+        }
+
+        .bigwin {
+            animation: 5s bwin ease-in;
+            animation-fill-mode: forwards;
+        }
+
+        .redbullwin {
+            animation: 5s rwin ease-in;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes bwin {
+            from {
+                background-color: floralwhite;
+            }
+
+            50% {
+                transform: scale(2) rotate(1500deg);
+            }
+
+            to {
+                transform: rotate(150deg);
+                background-color: forestgreen;
+            }
+        }
+
+        @keyframes rwin {
+            from {
+                background-color: red;
+            }
+
+            50% {
+                transform: rotate(2000deg) scale(1.6);
+            }
+
+            to {
+                background-color: gold;
+                transform: rotate(2090deg);
+            }
+        }
+
+        @keyframes loss {
+            from {
+                background-color: deeppink;
+            }
+
+            50% {
+                transform: scale(2) rotate(1388deg);
+            }
+
+            to {
+                transform: rotate(33deg);
+            }
+        }
+
+        label p{
+            background-color:lightgreen;
+            width: min-content;
+            display: inline-block;
+        } body{    background-size: cover; background-repeat: no-repeat; background-image: url(data:image/jpeg;base64,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);}
+        p {display: inline-block;}
+        main{text-align: center; width:80vw; padding-left: 10vw; background-color: #fafafa88;
+  padding-right: 10vw;}
+    </style>
+</head>
+<body onload="logwin(); setguess(); timer();" >
+    <main> <h2 id="h2"></h2> 
+       <div id="gua"> <h1>  Hey <p id="h1namearea"></p>, Good job washing your own dishes!.
+            </h1><p> Guess the number and win a prize!
+                </p>
+           
+                <label id="label" for="Myinput">Guess the number <p id="labeltext">3</p>   Trys left!</label>
+        <br>
+        <input id="nameinput" type="text" placeholder="Name: Edward" required>
+        <br>
+        <input type="text" name="Myinput" id="Guessarea" placeholder="0-29" > <br>
+        <p id="LWIN" style="margin-right: 1vh;">Last win: 12</p> <br><p id="LGUESS">Lastguess: Are you new here?</p>
+        <br>
+        <button onclick="submitguess()" > Submit </button>
+        </div>
+        <div id="spinmaster" style="display: none;"><button onclick="closespinner()" style="float: right; width: 4vh;">X</button> 
+            <p id="spincou" style="text-align:  center; margin-top: -1vh; background-color: gold;">Spins left: 2</p>
+    
+            <p id="spinner">&#10233;</p>
+            <button id="spinnerbutton" onclick="spinwheel();">Begin wheel</button>
+        </div> 
+    </main>
+
+<script type="text/javascript">
+    var nameplace=document.getElementById("nameinput");
+    var winningnumber= randomnum(1,29);
+const lastwinningnumber =7;
+    var labeltext=document.getElementById("labeltext");
+    var lwin=document.getElementById("LWIN");
+    var lguess=document.getElementById("LGUESS");
+    var numberguess=document.getElementById("Guessarea");
+    var Nameprint=document.getElementById("h1namearea");
+    var abv = document.getElementById("gua");
+    var lastguess;
+    var trys =3;
+    var getname=localStorage.getItem("name"); 
+    
+    const d = new Date().getDay();
+
+function timer(){
+setkey("trys",trys);
+
+console.log(winningnumber+" "+lastwinningnumber+" "+loadsys(trys)+" "+loadsys(lastguess)+" "+ getname+" "+d+" WIN# LWIN# TRYS LGUESS NAME(IFANY) DATE");
+    setTimeout(function(){
+        timer(); setguess();
+    },1000)
+}
+function loadsys(key){
+   totalkey= localStorage.getItem('\"'+key+'\"');
+if (totalkey==undefined){totalkey=0;}
+return totalkey;
+}
+function setkey(param, key){
+    localStorage.setItem(param,key);
+}
+function logwin(){console.log(winningnumber);}
+function submitguess(){
+    trys-=1;
+    setkey("name", nameplace.value);
+    setkey("lastguess", numberguess.value);
+    setkey("lplaydate",d);
+    if(nameplace.value!=""){nameplace.value=localStorage.getItem("name");  }
+    if(winningnumber==lastguess){trys=="win"; displayspinner();}
+    winningnumber=(randomnum(1,29));
+    setguess();
+}
+function setguess(){ 
+if (d!= localStorage.getItem("lplaydate")){ trys+=3;}  
+
+ setkey("daystrys",trys);  trys= loadsys(trys); 
+    if (trys>0){ 
+         labeltext.innerText=trys; }
+         
+    else if(trys<0||trys=="win"){ abv.style.display="none";
+}  
+    updatetext();
+}
+function updatetext(){
+    if(localStorage.getItem("lastguess")==undefined){lastguess="(none) Welcome New player!";}
+    lguess.innerText="Last Guess:"+lastguess; 
+    if(lastwinningnumber==undefined){lastwinningnumber==7;}
+    lwin.innerText= "Last winning number:"+lastwinningnumber;
+    if(getname!=null){Nameprint.innerText==getname;}
+    else{return;}
+}
+
+function setname(){
+     setname();
+}
+function randomnum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+</script>
+<script type="text/javascript">
+    //SPINNErr//
+    var spino; var spins = 2;
+    var spi = document.getElementById("spinner");
+    var spibtn = document.getElementById("spinnerbutton");
+    var abvspin = document.getElementById("spinmaster");
+    var spinc = document.getElementById("spincou");
+    var timer;
+    
+    function closespinner(){
+        spins=0;
+        abvspin.style.display="none";
+    }
+    function displayspinner() {
+            abvspin.style.zIndex = 10;
+            abvspin.style.display="block";
+            abvspin.style.backgroundColor="green";
+            abvspin.style.background="../Pictures/img1.png";
+
+        }
+    function timed(time, message) {
+        spibtn.innerText = "Would you like to spin again?";
+        timer = setInterval(alert(message), 5000);
+    }
+    function spinwheel() {
+        spins-=1;
+       
+        if (!spins <= 0) {
+            spino = randomnum(1, 109);
+            
+          } else if (spins <= 0) {
+            alert("better luck tomorrow")
+            abvspin.style.display = "none";
+            console.log("SPIN LOSS ");
+        }  
+           
+            if (spino == 73) {
+                spi.classList.add("bigwin");
+                console.log("bigwin");
+                setTimeout(function () {
+                    timed(5000, "WIN - 5$" + '\n' + "Take a screenshot and show Jack");
+
+                }, 5000);
+            }
+            else if (spino < 33) {
+                spi.classList.add("redbullwin");
+                console.log("redbullwin");
+                setTimeout(function () {
+                    timed(5000, "WIN - Redbull" + '\n' + "Take a screenshot and show Jack");
+
+                }, 5000);      
+            }
+            else if (spino < 66) {
+                spi.classList.add("minor");
+                console.log("minor win")
+                setTimeout(function () {
+                    timed(5000, "WIN - minor prize- $2" + '\n' + "Take a screenshot and show Jack");
+
+                }, 5000);      
+            }
+            
+            else if (spino < 109) {
+                spi.classList.add("loss");
+                spins = 0;
+                console.log("loss");
+                setTimeout(function () {
+                    timed(5000, "Uh-Oh, no prize today," + '\n' + "Better luck tomorrow!");
+
+                }, 5000); 
+                spinwheel();}
+            
+            else {
+                alert("fail");
+            }
+        
+        console.log(spino + " " + spins);
+        spinc.innerText = "spins left: " + spins;
+    }
+
+</script>
+</body>
+
+</html>
