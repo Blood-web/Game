@@ -10,10 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../Logs/bweb.ico" style="border-radius: 50%;">
 </head>
-<body id="body" onload="selftestini();  scorepersecon();" onclick="selftest()" style="z-index: 0;"> 
+<body id="body" onload="startintro(); selftestini();  scorepersecon(); " onclick="selftest()" style="z-index: 0;"> 
 
 <!--Score and cash symbol-->
-<div class="wave">
+<div id="intro" class="intro" style="display:none;">
+<p id="introText">Placeholder</p>
+<div id="iLogo"></div></div>
+<div class="wave" id="wave">
     <h6 id="h6">sa</h6>
   
     <button id="sampsbutton" style="float: right;" onclick="pluscheat()"> Devcheat</button>
@@ -38,12 +41,12 @@
     <header>
         <!--DEV TOOLS-->
         <!--upgrade menu not defined-->
-        <div id="upgrades" class="Imagebtn" onclick="flipupgtab()">
+        <div id="upgrades" class="Imagebtn" onclick="openmenu('upg')" >
             <img class="haadimgs"
                 src="https://user-images.githubusercontent.com/84670867/145705663-45326101-0511-4bab-b37b-294e2a015f26.jpg"
                 alt="orestige sun" />
             <br>
-            <p>Upgrades Store</p>
+            <p>Upgrades  Store</p>
         </div>
         <!-- Options Menu-->
         <div id="options" class="Imagebtn">
@@ -60,7 +63,7 @@
         </div>
 
         <!--Prestige menu button-->
-        <div class="Imagebtn" onclick="flipprestigetab()">
+        <div class="Imagebtn" onclick="openmenu('Prestige')">
             <img id="prestige" class="haadimgs" src="Logs/Chest/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
@@ -75,8 +78,8 @@
     </header>
               
               
-      
-        <div id="igmessage">          
+        <div id="clickico" style="display: none;"> +1</div>
+        <div id="igmessage" style="background-color: beige; border: 2px solid saddlebrown; font-size: 4px ;">          
             <h4 id="messages" ></h4>
             
         </div>
@@ -132,7 +135,7 @@
 
             <!--Button3 Earthspell-->
             <span id="abvearth"><p id="earthcastcost" >1000</p><span class="mana"></span><br>
-                <img id="earthball" onclick="earthcast()" class="Gamebtn" src="../Logs/fireballearthmirror.png" style="opacity:0.1 ;" />
+                <img id="earthball" onclick="earthcast()" class="Gamebtn" src="Logs/Earth/earthg.png"  style="opacity:0.1 ;" />
             <br> <button id="earthbutton"  class="upgradebutton">
             <p>EarthSpell <br>
                 Upgradecost</p>
@@ -175,7 +178,7 @@
             <!--Button8 MANA-->
             <span id="abvmana"><p id="manatop">+1</p><span class="mana"></span><br>
                 <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
-            <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton" src="" >
+            <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton"  >
                 <p> Mana <span class="mana"></span> 
                 <br>Upgrade:</p><br><p id="manaupgcost">250</p><p>&#128176;</p>
             </button></span>
@@ -191,7 +194,8 @@
     </fieldset>
  
 
-    <fieldset id="hiddenwrap" style="opacity: 0; z-index: -1; ">
+    <fieldset id="hiddenwrap" style=" display: none;">
+    <div>
         <button id="menutab" onclick="flipmenutab()"> Menu</button>
         <button id="upgtab" onclick="flipupgtab()"> <p id="ugradetext"> Upgrades </p></button>
         <button id="statstab" onclick="flipstatstab()">Stats</button>
@@ -199,6 +203,7 @@
         <button id="prestigetab" onclick="flipprestigetab()">Prestige</button>
         <button id="closemenu" onclick="closemenu()" style="float: right;">	
         <p>&#10060;</p></button>
+    </div>
 
         <span id="upgradetable" class="hiddentab"  > 
         <table id="hiddenupgrades" cellspacing="0" > 
@@ -208,157 +213,154 @@
                 <img id="tdr1c1" onclick="menufireballupgrade()" src="../Logs/3fireball.jpg" alt="fireball upg" >
                 <br>
                 <p id="pr1c1">750</p>
-                <p>&#128176;</p>
+               
                 <p id="fireupgdesc" class="description"> </p>
             </td>
         
             <td class="finished">
-                <p id="tdr1c2" class="tdtile"> arc Autocast </p> 
-                    <img onclick="upgarcautocast()" src="../Logs/fireballspellmirror.png" alt="arc auto" id="arcautoupgimg"/>
+                <p id="arcmenutitle" class="tdtile"> arc Autocast </p> 
+                    <img onclick="upgarcautocast()"  alt="arc auto" id="arcupgimg"/>
                     <br>
                 <p id="arcmenuprice">300K</p>
-                <p>&#128176;</p>
+              
                 <p id="arcupgdesc" class="description">Your powerfull arc spells cast themselves! (click to toggle)</p>
             </td>
         
             <td>
-                <p id="tdr1c3" class="tdtile"> Icewall </p> 
-                    <img src="../Logs/snow.png" alt="frostupgrade">
+                <p id="menuiceT" class="tdtile"> Icewall </p> 
+                    <img id="menuiceimg"  alt="frostupgrade">
                     <br>
-                <p id="pr1c3"> 1000</p>
+                <p id="menuice$"> 1000</p>
                 <p>&#128176;</p>
-                <p class="description"> Break it, reality is transparent</p>
+                <p id="icemenudesc" class="description"> Break it, reality is transparent</p>
             </td>
         
             <td>
-                <p id="tdr1c4" class="tdtile"> Earthquake </p> 
-                <img onclick="menuearthupg()" src="../Logs/swordnstone.png" alt="Earthquake">
+                <p id="quaketitle" class="tdtile"> Earthquake </p> 
+                <img onclick="menuearthupg()" id="quakeimg" alt="Earthquake">
                 <br>
-                <p id="pr1c4">150k</p>
-                <p>&#128176;</p>
+                <p id="quakeprice">150k</p>
+
         
-                <p class="description">Earth Magnitude min increased by +1 Current minimum =1</p>
+                <p id="quakedesc" class="description">Earth Magnitude min increased by +1 Current minimum =1</p>
             </td>
         
         
             <td class="finished">
-                <p id="tdr1c5" class="tdtile oneline">All spells </p> 
-                <img src="../Logs/deer.png" onclick="upgmenuspellmulti()" alt="deer" id="spellmultiimage">
+                <p id="allspellstitle" class="tdtile oneline">All spells </p> 
+                <img   onclick="upgmenuallspells()" alt="deer" id="allspellsimg">
                 <br>
-                <p id="spellmultiprice"></p>
-                <p>&#128176;</p>
-                <p id="spellmultimenu" class="description"> Increases spells effieciency by +10%</p>
+                <p id="allspells$"></p>
+                <p id="allspellsdesc" class="description"> Increases spells effieciency by +10%</p>
                 
             </td>
 
             <td class="finished">
-                <p id="tdr1c6" class="tdtile">Autoclick helper </p> <br>
-                <img src="../Logs/chestultra.png" onclick="upgradeautohelper()" alt="chest" id="autohelper" />
+                <p id="achtitle" class="tdtile">Autoclick helper </p> <br>
+                <img onclick="upgradeautohelper()" alt="chest" id="achimg" />
                 <br>
-                <p id="pr1c6">10000</p>
-                <p>&#128176;</p>
-                <p id="achelpdesc" class="description"> For every 5levels in auto clicker get +1free autoclicker level</p>
+                <p id="ach$">10000</p>
+                <p id="achdesc" class="description"> For every 5levels in auto clicker get +1free autoclicker level</p>
             </td>
         </tr>
         <!-- ROW 2-->
         <tr >
             <td class="finished">
-                <p id="tdr2c1" class="tdtile">Manaregen </p> 
-                <img id="img21" onclick="menuplus10manaupg()" src="../Logs/skull.png" alt="skull" />
+                <p id="b10title" class="tdtile">Manaregen </p> 
+                <img id="b10img" onclick="menuplus10manaupg()" src="../Logs/skull.png" alt="skull" />
                 <br>
-                <p id="pr2c1">42000  </p> 
-                <p class="description">  Increase base mana regen by +10</p>
+                <p id="b10$">42000  </p> 
+                <p id="b10desc" class="description">  Increase base mana regen by +10</p>
             </td>
 
             <td class="finished"> 
                 <p id="manaftitle" class="tdtile">  Mana Overflow </p> 
-                <img src="../Logs/wand.png" alt="wand" onclick="unlockmanaoverflow()" />
+                <img alt="wand" id="manafimg" onclick="unlockmanaoverflow()" />
 
                 <br>
-                <p id="manafprice">PH</p> 
+                <p id="manaf$">PH</p> 
                 <p class="description" id="manafdesc"> </p>
             </td>
             <td  class="finished">
-                <p id="tdr2c3" class="tdtile"> Chest Buster </p>
-                <img onclick="unlockdbzbuster()" id="dbzimg" src="../Logs/fireballspellmirror.png" alt="arc autocast">
+                <p id="DBZtitle" class="tdtile"> Chest Buster </p>
+                <img onclick="unlockdbzbuster()" id="DBZimg"  alt="arc autocast">
                 <br>
-                <p id="dbzp">placeholder</p> 
-                <p id="dbzdesc" class="description"> The chest becomes weaker as you hit it, allowing for more gold stolen!</p>
+                <p id="DBZ$">placeholder</p> 
+                <p id="DBZdesc" class="description"> The chest becomes weaker as you hit it, allowing for more gold stolen!</p>
             </td>
             <td class="finished">
-                <p id="tdr2c4" class="tdtile"> Unlock  Rage </p> <br>
-                <img onclick="unlockrage()" src="../Logs/swordnstone.png" alt="rageunlock" id="rageunlock">
+                <p id="rageultitle" class="tdtile"> Unlock  Rage </p> <br>
+                <img onclick="unlockrage()"  alt="rageunlock" id="rageunlock">
                 <br>
                 <p id="rageulprice"></p> 
-                <p class="description" > Allows for the casting of more advanced spells</p>
+                <p id="rageuldesc" class="description" > Allows for the casting of more advanced spells</p>
             </td>
-        
             
             <td class="finished">
-                <p id="tdr2c5" class="tdtile"> Increase MaxMana </p> <br> 
-                <img onclick="menumaxmanainc()" src="../Logs/staff.png" alt="staff" />
+                <p id="manamaxtitle" class="tdtile"> Increase MaxMana </p> <br> 
+                <img onclick="menumaxmanainc()" id="manamaximg" alt="staff" />
                 <br>
-                <p id="pr2c5"> 4000000</p> <p>&#128176;</p>
-                <p id="manamaxupgdesc" class="description"> Mana maximum Before=1000 after=1200 </p>
+                <p id="manamax$"> 4000000</p> 
+                <p id="MMupgdesc" class="description"> Mana maximum Before=1000 after=1200 </p>
             </td>
             <td class="finished">
-                <p id="tdr2c6" class="tdtile">Activate shiftery </p> <br> 
-                <img id="shiftimg" src="../Logs/anon.png" onclick="upgshiftery()" alt="shiftery">
+                <p id="shifterytitle" class="tdtile">Activate shiftery </p> <br> 
+                <img id="shifteryimg"  onclick="upgshiftery()" alt="shiftery">
                 <br>
-                <p id="pr2c6">420.69 B</p> <p>&#128176;</p>
-                <p class="description"> Changes the menu bar background, and gives a random boost to stats</p>
+                <p id="shiftery$">420.69 B</p> <p>&#128176;</p>
+                <p id="shifterydesc" class="description"> Changes the menu bar background, and gives a random boost to stats</p>
             </td>
         </tr>
         <tr>   
             <td>
-                <p id="tdr3c1" class="tdtile"> PHtitle </p> <br>
-                <img src="../Logs/anon.png" alt="shiftery">
+                <p id="PresForevtitle" class="tdtile"> PHtitle </p> <br>
+                <img id="PresForevimg" src="../Logs/anon.png" alt="shiftery">
                 <br>
-                <p id="pr3c1"> PH</p> <p>&#128176;</p> <br>
-                <p class="description"> Placeholder </p>
+                <p id="pPresForev$"> PH</p> <p>&#128176;</p> <br>
+                <p class="description" id="PresForevdesc"> Placeholder </p>
             </td>
             <td class="finished"> 
-                <p id="tdr3c2" class="tdtile">Mana upg   reduction </p> 
-                <img src="../Logs/anon.png" alt="shiftery" onclick="menuupgmana$()" id="imgr3c2">
+                <p id="Mredtitle" class="tdtile">Mana upg   reduction </p> 
+                <img  alt="shiftery" onclick="menuupgmana$()" id="Mredimg">
                 <br>
-                <p id="pr3c2"> PH</p> <br>
-                <p class="description" id="manareddesc"> Reduces Mana upgrade cost 
+                <p id="Mred$"> PH</p> <br>
+                <p class="description" id="Mreddesc"> Reduces Mana upgrade cost 
                     <br>  Next:10% Current:0% Max:99% </p>
             </td>
             <td class="finished">
-                <p id="tdr3c4" class="tdtile">Rage  cost reduction </p> <br> 
-                <img src="../Logs/anon.png" alt="shiftery" id="ragemanaimg" onclick="ragemanacostupg()">
+                <p id="rageredtitle" class="tdtile">Rage  cost reduction </p> <br> 
+                <img  alt="shiftery" id="rageredimg" onclick="ragemanacostupg()">
                 <br>
-                <p id="ragemanaprice"> PH</p> <p>&#128176;</p> <br>
-                <p class="description" id="ragemanadesc"> Decreases manacost when upgrading rage </p>
+                <p id="ragered$"> PH</p> <br>
+                <p class="description" id="ragereddesc"> Decreases manacost when upgrading rage </p>
             </td>
             <td>
                 <p id="tdblast" class="tdtile">Mana Blast </p> <br> 
-                <img src="../Logs/anon.png" alt="shiftery" id="menuimgBlast" onclick="unlockmanablast()">
+                <img  alt="shiftery" id="menuimgBlast" onclick="unlockmanablast()">
                 <br>
                 <p id="pblast"> PH</p>  <br>
-                <p id="Mblastdesc" class="description"> Unlock Manablast </p>
+                <p id="blastdesc" class="description"> Unlock Manablast </p>
             </td>
             
             <td> 
-                <p id="tdr3c5" class="tdtile">GemMine </p> <br> 
-                <img src="../Logs/anon.png" alt="shiftery">
+                <p id="GemMinetitle" class="tdtile">GemMine </p> <br> 
+                <img  alt="shiftery" id="GemMineimg">
                 <br>
-                <p id="pr3c5"> PH</p> <p>&#128176;</p> <br>
-                <p class="description"> Placeholder </p>
+                <p id="GemMine$"> PH</p> <br>
+                <p id="GemMinedesc" class="description"> Placeholder </p>
             </td>
             <td class="finished"> 
-                <p id="tdr3c6" class="tdtile">Duplicator </p> <br> 
-                <img src="../Logs/anon.png" alt="shiftery" id="dupeimg" onclick="unlockduplicater()">
+                <p id="dupetitle" class="tdtile">Duplicator </p> <br> 
+                <img  alt="shiftery" id="dupeimg" onclick="unlockduplicater()">
                 <br>
-                <p id="dprice"> 100Dec</p> <p>&#128176;</p> <br>
-                <p class="description"> Spell and click value X5 (forever) </p>
+                <p id="dprice"> 100Dec</p>  <br>
+                <p id="dupedesc" class="description"> Spell and click value X5 (forever) </p>
             </td>
         </tr> 
     </table>
 </span>
 
-<span id="stats" class="hiddentab" style="opacity:0;">
+<span id="stats" class="hiddentab" style="display:none;">
 
     <div class="stats"><p><b><l>Click</l></b></p>
         <p>Total clicks=</p><p id="tc#"></p>
@@ -375,7 +377,7 @@
     <div class="stats"> <br> <p> Manastats </p>
     <p>Total spells cast</p> <p id="tcCast">0</p>
      
-             <p>Spell Multiplier =</p><p id="spellmulticounter"></p>
+             <p>Spell Multiplier =</p><p id="allspellscounter"></p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
             <p>Fire level = </p> <p id="firelevel">1x0</p>
             <br><p>arc level= </p><p id="arclevel">0</p>
@@ -386,8 +388,11 @@
     </div>
 </span>
 
-<span id="prestigetable" class="hiddentab" >
-    <div id="prestitle">Text</div>
+<span id="prestigetable" class="hiddentab" style="display: none;">
+    <button class="prestitlebtns " id="presSbtn" style="float: left;" onclick="prestigetabactive('s')"><p style="transform: rotate(180deg);">➩</p> Prestige Stats </button> 
+    <button class="prestitlebtns"  id="presUbtn" style="float: right;" onclick="prestigetabactive('u')">Prestige Upgrades <p>➩</p> </span></button>
+    <button class="presselected" id="prestitle" onclick="prestigetabactive('Prestige')">Text</button>
+   
     <div id="prestitlebody">text2</div>
   
 <!--Prestige 1 Unlock-->
@@ -399,7 +404,7 @@
 <div id="prestigec2">
     Prestige <br><p id="bannerlevel"> 1</p> 
    <figure>     
-        <img src="../Logs/br.png" alt=""></figure>
+        <img src="Logs/Chest/goldpile.png" alt=""></figure>
     <p id="Prestigeinload"> Prestiging Increases base click value by +14%</p> <br>
     You Currently have <p id="prestige_of"></p> Prestige
     <br> <p> Would you like to prestige?</p>

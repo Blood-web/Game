@@ -6,7 +6,7 @@ max=12;
 var run;
 console.log("peepee");
 function shiftery() {
-var L = document.getElementById('body');
+var L = document.getElementById('wave');
     if (g == 0) { L.style.background = "linear-gradient( 40deg, #ddaadd, #11ffad)";  
         incg();  }
 
