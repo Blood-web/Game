@@ -46,7 +46,7 @@ function createtoken() {
     +' \n' + menu.upgr2c1 + " " + menu.upgr2c1
         + ' \n' + menu.upgr3c1 + " " + menu.upgr3c2 + " " + menu.upgblast + " " + menu.upgr3c4 + " " + menu.upgr3c5 + " " + menu.upgr3c16 +
         //Spell encryption level//
-        +' \n' + auto.level + " " + Avar + " " + earth.level + " " + arc.level + " " + clicker + " " + fire.level + " " + ice.level + " " + mana.level + " " + rage.level
+        +' \n' + auto.level + " " + Avar + " " + Sorcerer.Earth[1] + " " + arc.level + " " + clicker + " " + fire.level + " " + ice.level + " " + mana.level + " " + rage.level
         ;
     localStorage.setItem("GS", JSON.stringify(playertoken));
     breaktoken();
@@ -66,9 +66,6 @@ function breakplayertoken(token, seperator) {
 let score = 0;
 let number = 0;
 let set = "";
-
-
-var lockpng = "../Logs/lock.png";
 const MenuUpglvl =
 
     [0, 0, 0, 0, 0, 0,
@@ -77,16 +74,34 @@ const MenuUpglvl =
         0, 0, 0, 0, 0, 0]
     ;
 //Menu $:cost;, UPG:upgmenu;,//
-const menu = {o:false,
+const menu = {
+    o:false,
     open: " ",
+    headmenu:document.getElementById("KatzeMenu"),
+    headmenuframe:document.getElementById("HeadMenuOverlay"),
+
     return: document.getElementById("main"),
     fieldset: document.getElementById("hiddenwrap"),
+
+    KatLI:document.getElementById("LKimg"),
+    KatLT:document.getElementById("LKT"),
+    KatLTT:document.getElementById("LKTT"),
+    KatRI:document.getElementById("RKimg"),
+    KatRT:document.getElementById("RKT"),
+    KatRTT:document.getElementById("RKTT"),
+
     menutab: document.getElementById("menutab"),
     statstab: document.getElementById("statstab"),
     stats: document.getElementById("stats"), statTC: "",
     statstext: document.getElementById("statstext"),
     creditstab: document.getElementById("creditstab"),
     upgtab: document.getElementById("upgtab"),
+    currentupgtab:"none",
+    subdiv:document.getElementById("menusubsetdiv"),
+    Clickster:document.getElementById("MSBtn1"),
+    Sorcerer:document.getElementById("MSBtn2"),
+    nooper:document.getElementById("MSBtn3"),
+
     upgT: document.getElementById('upgradetable'),
     upgtext: document.getElementById("upgradetext"),
 
@@ -96,28 +111,16 @@ const menu = {o:false,
     prestigetext: document.getElementById("prestigetabbtntext"),
     //ROW1//
     fireballxupg$: 0, earthquakeupg$: 100000,
-    
-
-
- 
     //row2//dbzbusterimg: document.getElementById("dbzimg"),
     dzp: document.getElementById("dbzp"),
     dbzbusterdesc: document.getElementById("dbzdesc"),
  
     maxtile:document.getElementById("tdr2c5"),
-
-    shifteryimg:document.getElementById("shifteryimg"),
-    shiftery$: 420690000000,
-    shiftlvl: 0,
-
     //row 3//
     upgr3c1: document.getElementById("pr3c1"), r3c1img: document.getElementById("imgr3c1"),
    
-
-   
     rmana$: document.getElementById("ragemanaprice"), rmimg: document.getElementById("ragemanaimg"),
     rmdesc: document.getElementById("ragemanadesc"),
-
 
     gemmine$: document.getElementById("p35"), gemmineImg: document.getElementById("Mimg35"),
     gemmineTitle: document.getElementById("T35"), gemmineDesc:document.getElementById("35Desc"),
@@ -128,8 +131,62 @@ const menu = {o:false,
     statsTab: 0,
     menuTab: 0,
     prestigeTab: 0,
-    exitsTab: 0,
+    exitsTab: 0,}
+
+const MuT ={
+    //Row 1//
+D1:document.getElementById("upgTDrow1"),
+TA11:document.getElementById("TA11"), TT11:document.getElementById("TT11"),Ti11:document.getElementById("Ti11"),T$11:document.getElementById("T$11"),Td11:document.getElementById("Td11"),
+TA12:document.getElementById("TA12"), TT12:document.getElementById("TT12"),Ti12:document.getElementById("Ti12"),T$12:document.getElementById("T$12"),Td12:document.getElementById("Td12"),
+TA13:document.getElementById("TA13"), TT13:document.getElementById("TT13"),Ti13:document.getElementById("Ti13"),T$13:document.getElementById("T$13"),Td13:document.getElementById("Td13"),
+TA14:document.getElementById("TA14"), TT14:document.getElementById("TT14"),Ti14:document.getElementById("Ti14"),T$14:document.getElementById("T$14"),Td14:document.getElementById("Td14"),
+TA15:document.getElementById("TA15"), TT15:document.getElementById("TT15"),Ti15:document.getElementById("Ti15"),T$15:document.getElementById("T$15"),Td15:document.getElementById("Td15"),
+    //row 2//
+D2:document.getElementById("upgTDrow2"),
+TA21:document.getElementById("TA21"), TT21:document.getElementById("TT21"),Ti21:document.getElementById("Ti21"),T$21:document.getElementById("T$21"),Td21:document.getElementById("Td21"),
+TA22:document.getElementById("TA22"), TT22:document.getElementById("TT22"),Ti22:document.getElementById("Ti22"),T$22:document.getElementById("T$22"),Td22:document.getElementById("Td22"),
+TA23:document.getElementById("TA23"), TT23:document.getElementById("TT23"),Ti23:document.getElementById("Ti23"),T$23:document.getElementById("T$23"),Td23:document.getElementById("Td23"),
+TA24:document.getElementById("TA24"), TT24:document.getElementById("TT24"),Ti24:document.getElementById("Ti24"),T$24:document.getElementById("T$24"),Td24:document.getElementById("Td24"),
+TA25:document.getElementById("TA25"), TT25:document.getElementById("TT25"),Ti25:document.getElementById("Ti25"),T$25:document.getElementById("T$25"),Td25:document.getElementById("Td25"),
+    //Row 3// 
+D3:document.getElementById("upgTDrow3"),   
+TA31:document.getElementById("TA31"), TT31:document.getElementById("TT31"),Ti31:document.getElementById("Ti31"),T$31:document.getElementById("T$31"),Td31:document.getElementById("Td31"),
+TA32:document.getElementById("TA32"), TT32:document.getElementById("TT32"),Ti32:document.getElementById("Ti32"),T$32:document.getElementById("T$32"),Td32:document.getElementById("Td32"),
+TA33:document.getElementById("TA33"), TT33:document.getElementById("TT33"),Ti33:document.getElementById("Ti33"),T$33:document.getElementById("T$33"),Td33:document.getElementById("Td33"),
+TA34:document.getElementById("TA34"), TT34:document.getElementById("TT34"),Ti34:document.getElementById("Ti34"),T$34:document.getElementById("T$34"),Td34:document.getElementById("Td34"),
+TA35:document.getElementById("TA35"), TT35:document.getElementById("TT35"),Ti35:document.getElementById("Ti35"),T$35:document.getElementById("T$35"),Td35:document.getElementById("Td35"),
+     
 }
+const player = {
+    id: "stri",
+    allspells: 0,
+    clickmulti: 0,
+    TotalSpells:[0,0,0]
+}
+const Clickster={
+    M:['0','0','0','0'],
+    C10:['0','0'],
+    CD:['0','0'],
+    Auto:['0','0'], 
+    Dbz:['0','0'],
+    Cmulti:['0','0','0'],
+
+
+}
+const Sorcerer={
+    M:['0','0','0','0'],
+   Fireball:['0','0','100','0'],
+   Arc:['3','4'],
+   Ice:['3','4'],
+   Earth:['0','0'],
+   SpellMulti:['0','0','0'],
+};
+
+var ClicksterKey=
+[Clickster.C10[1],Clickster.CD[1],Clickster.Auto[1],Clickster.CD[1], Clickster.Dbz[1], Clickster.Cmulti[1],
+
+
+];
 
 
 const gem = {
@@ -154,7 +211,8 @@ const Logs = {
     blastimg1: "Logs/Blast/Mblast1.png", MblastCD: "Logs/Blast/Mblast2.png",
     rageblast: "Logs/Blast/yragemb.png", rageauto: "Logs/Blast/rauto.png",
     blastmax: "Logs/Blast/raM.png",
-
+    //Clicker//
+    ptc:"Logs/Clicker/ptc.png", Ccd:"Logs/Clicker/nCD.png",
     mc: "Logs/Clicker/mc.png", mcCD: "Logs/Clicker/mcCD.png",
     mcrage: "Logs/Clicker/rclick.png", mcrageCD: "",
     rageB:"Logs/Rage/rageballeye.png",    rageBM:"Logs/Rage/rageballeyemax.png",
@@ -167,9 +225,9 @@ const Logs = {
     arcau:"Logs/Arc/arcauto.png", arcauCD:"Logs/Arc/arcauto.png",
     aauM:"Logs/Arc/arcautoM.png",
     //fire//
-    f1: "Logs/Fire/x1fireball.png", f2: "Logs/Fire/x2fireball.png", f3: "Logs/Fire/x3fireball.png",
-    f5: "Logs/Fire/x5fireball.png", f7: "Logs/Fire/x7fireball.png", fM: "Logs/Fire/xmayhemfireball.png",
-    fmax: "Logs/Fire/xmaxfireball.png",
+    Fx1: "Logs/Fire/x1fireball.png", Fx2: "Logs/Fire/x2fireball.png", Fx3: "Logs/Fire/x3fireball.png",
+    Fx5: "Logs/Fire/x5fireball.png", Fx7: "Logs/Fire/x7fireball.png", FxM: "Logs/Fire/xmayhemfireball.png",
+    Fxmax: "Logs/Fire/xmaxfireball.png",
     //ice//
     i1: "Logs/Ice/i1.jpg", iCD: "Logs/Ice/iCD.png",
     iW: "Logs/Ice/Ishield.png", iWM: "Logs/Ice/IshieldM.png",
@@ -178,6 +236,8 @@ const Logs = {
     equake:"Logs/Earth/equ.png", equakeM:"Logs/Earth/equM.png",
 
     //menu//
+    //Kat//
+    Sorcerer:"Logs/K/Sorcerer.png", Clickster:"g.png",
     allspells:"Logs/MenuMix/allspells.png",
     manareg:"Logs/Mana/Manaregenp10.png" , manaregM:"Logs/Mana/mp10M.png",
    
@@ -210,6 +270,7 @@ const prestige = {
     levelcount: document.getElementById("prestigelevelcount"),
     bar: document.getElementById('prestigebar'),
     overlay: document.getElementById("prestige"),
+    menuOverlay: document.getElementById("prestigeovermenu"),
     pF: document.getElementById("Prestigeinload"),
     stat: document.getElementById("prestige_of"),
     Ybtn: document.getElementById("prestigeY"),
@@ -271,29 +332,15 @@ var messagetimer;
 var p8 = document.getElementById('button8txt');
 let p8val = 1000;
 
-//up img ids//
-var upGimg = document.getElementById('upgimg');
 const Di = {
     all: "0",
     cost: "",
     pUscale: 0,
-
-
 }
 var pmulti = document.getElementById("setpmultitxt");
-const player = {
-    id: "stri",
-    allspells: 0,
-    clickmulti: 0,
-}
-
 var clicker = {
-    totalclicks: 0,
-    val: 0,
-    Ptc: 0,
-    level: 1,
-    multi: 0,
-    upg$: 0,
+    num:['0','0','0','0','0','0'],
+    
 }
 var clc = {
     ico:document.getElementById("clickico"),
@@ -419,12 +466,12 @@ const duplicator={
     Udesc:document.getElementById("dupedesc"),
 }
 
-var blastauto;
+var blastauto;2
 const blast = {
     lvl: 0, ULlvl: 0,
     upg$: 0, unlock$: 0,
     manainc: 0, clickinc: 0, rageinc: 0,
-    castcount: 0, auto: "",
+    castcount: 0, auto: "", TD:"",
 
     levelcounter: document.getElementById("manalevelcounter"),
     regencounter: document.getElementById("manaregencounter"),
@@ -485,10 +532,10 @@ const Ragered={
 const fire = {
     upglevel: 0, mupg$: 0,
     castcost: 10,
-    upgradecost: 10,
-    val: 5,
-    level: 0,
+    upg$: 10, level: 0,val: 5,
     castcounter: 0,
+    
+    
     cc: document.getElementById('fireballcastcost'),
     img: document.getElementById("fireball"),
     btn: document.getElementById("fbbutton"),
@@ -532,11 +579,6 @@ const arc = {
     upgrade: "notready",
     status: "basicbitch",
     truestatus: "",
-
-    Utitle:document.getElementById("arcmenutitle"),
-    Uimg:document.getElementById("arcupgimg"),
-    U$:document.getElementById("arcmenuprice"),
-    Udesc:document.getElementById("arcupgdesc"),
 
 }
 
@@ -627,11 +669,10 @@ function save() {
     saveprestige();
     savespellstate()
 
-
     console.log("Saved state");
 }
 function saveclick() {
-    localStorage.setItem("score", click); localStorage.setItem("tc", clicker.totalclicks);
+    localStorage.setItem("score", click); localStorage.setItem("tc", clicker.num[4]);
 }
 function saveprestige() {
     localStorage.setItem("Pstatus", JSON.stringify(prestige.truestatus)); console.log(localStorage.getItem("Pstatus").length)
@@ -653,7 +694,7 @@ function load() {
 }
 function loadclick() {
     click = localStorage.getItem("score");
-    clicker.totalclicks = localStorage.getItem("tc");
+    clicker.num[4] = localStorage.getItem("tc");
 }
 function loadprestige() {
     prestige.level = tokenspilt[0]; prestige.req = tokenspilt[2];
@@ -671,7 +712,7 @@ function pluscheat() {
 
     click += cheat;
     cheat = cheat * 2 + cheat * (cheat + 1);
-    mana.player += 500;
+    mana.player+=mana.max;
     scheat = cheat;
     number = scheat; gennumberconverter(); p8.innerText = number + '💰';
     document.getElementById("sampsbutton").innerText = "+" + number;
@@ -686,7 +727,7 @@ function pluscheat() {
 var levelupvar = 0;
 function levelup(levelupvar) {
     prestige.prog += levelupvar;
-    clicker.totalclicks += levelupvar;
+    clicker.num[4] += levelupvar;
     clicker.Ptc += levelupvar;
 
 
@@ -698,79 +739,8 @@ function levelup(levelupvar) {
         return;
     } document.getElementById("prestigebar").value = prestige.prog; updateprestigecounter();
 }
-//Main inc function, reg click, log score//
-//incprestigebar//
 
-function incrementandset() {
 
-    click += clicker.level * (clicker.multi + 1);
-    click = Math.floor(click);
-    updateclick();
-}
-
-function clickreset() {
-    click = 0;
-    incrementandset();
-}
-function updateclick() {
-    if (click == null) { click = 0; }
-
-    //$//
-    clicker.multi = (rage.active + 1) * prestige.level * 1.51;
-    clicker.multi = Math.round(clicker.multi * 100) / 100;
-
-    clicker.val = (clicker.multi + 1) * clicker.level;
-    number = clicker.val; gennumberconverter(); clc.top.innerText = "+" + number + AU;
-    scorenumberconvertor(); clc.scorecounter.innerText = score + AU;
-
-    //Multibuy//
-    clicker.upg$ = Math.ceil(((clicker.level + 1 + clicker.level)) * (1 + clicker.level + 1) * (1 + prestige.level) * 1.7);
-    getcost(clicker.upg$); clc.p0.innerText = number + AU;
-
-    //img//
-    if (rage.active == true && boardS != "Player is holding click") {
-        clc.img.src = Logs.mcrage;
-        clc.img.style.background = "white";
-        clc.img.border = "3px solid "; clc.img.style.borderColor = "red";
-    }
-    else if (rage.active == false && boardS != "Player is holding click") {
-        clc.img.src = Logs.mc;
-        clc.img.style.background = "repeating-linear-gradient(40deg, blue,red)";
-        clc.img.border = "2px solid black";
-    }
-
-    //bkg/counters//
-    BZbuster();
-    clc.tcounter.innerText = clicker.totalclicks;
-    clc.multicounter.innerText = clicker.multi;
-    clc.true = clicker.level + " " + clicker.upg$ + " " + clicker.multi + " " + clicker.totalclicks;
-}
-function getcost(cost, multi) {
-    multi = Di.all;
-    if (multi == "0") {
-        cost = cost;
-    }
-    else if (multi != "0") {
-        cost = (cost * multi) + ((cost * multi) / 10);
-    }
-    number = cost; gennumberconverter();
-    return number;
-}
-function setpmulti() {
-    Di.pUscale++;
-    if (Di.pUscale == "1") {
-        Di.all = "10";
-    }
-    else if (Di.pUscale == "2") {
-        Di.all = "100";
-    }
-    else { Di.pUscale = "0"; Di.all = "1"; }
-    updp$multi();
-}
-
-function updp$multi() {
-    pmulti.innerText = ("Buy\n" + 'x' + Di.all);
-}
 function updatetext() {
     updateprestigecounter();
     updateclick();
@@ -808,11 +778,12 @@ function selftest() {
     updatetext();
 
     console.log("Debug stats:" + '\n' + "Setstatus:Selftest: " + '\n' +
-        '\n' + boardS + '\n'
-        + '\n' + boardS2 + '\n'
-        + " :Clicker:= " + click + " " + clc.true + '\n' +
+        '\n' + boardS+ '\n'
+        + '\n'+boardS2 + 
+        "\nMenu:"+menu.open +" Submenu:"+ menu.currentupgtab
+        +"\n\n :Clicker:= " + click + " " + clc.true + '\n' +
         " :Autoclicker:=" + auto.truestatus
-        + '\n' + " :Multiplier =" + clicker.multi + " AutoClvl =" + '\n'
+        + '\n' + " :Multiplier =" + clicker.num[3] + " AutoClvl =" + '\n'
 
         + '\n' + ":Spells:" + '\n' +
         "Spellmultiplier " + player.allspells + '\n' +
@@ -902,6 +873,50 @@ function setstatus() {
     setstatusearth();
 
 }
+
+
+function getcost(cost, multi) {
+    multi = Di.all;
+    if (multi == "0") {
+        cost = cost;
+    }
+    else if (multi != "0") {
+        cost = (cost * multi) + ((cost * multi) / 10);
+    }
+    number = cost; gennumberconverter();
+    return number;
+}
+function setpmulti() {
+    Di.pUscale++;
+    if (Di.pUscale == "1") {
+        Di.all = "10";
+    }
+    else if (Di.pUscale == "2") {
+        Di.all = "100";
+    }
+    else { Di.pUscale = "0"; Di.all = "1"; }
+    updp$multi();
+}
+function updp$multi() {
+    pmulti.innerText = ("Buy " + 'x' + Di.all);
+}
+
+
+function upgMB(t, updfunc){
+    click -= t[0]; 
+    t[1]++; 
+    player.TotalSpells[1]++;
+    if(updfunc!=undefined){updfunc;}
+    console.log(t+updfunc+"UPG");
+
+}
+function setcost(price,location,multi){
+    if(multi==0 || multi==undefined){
+    number =price; gennumberconverter();
+    location.innerText="-"+number+AU;
+    }
+    if(ErrorEvent==true){alert("setcostfail");}
+}
 //##########################################################################//
 //######################## CLICKER ######################################//
 //###################################################################################//
@@ -929,8 +944,72 @@ function clickover() {
     generateclickico();
     mainclick();
 }
+//CLicker MAIN//
+function mainclick() {
+    incrementandset();
+    incandsetPrestige(1);
+    setstatus();
+    selftest();
+    updatetext();
+
+}
+//Main inc function, reg click, log score//
+//incprestigebar//
+function incrementandset() {
+
+    click += (clicker.num[1]+1) * (clicker.num[3] + 1);
+    click = Math.floor(click);
+    updateclick();
+}
+
+function clickreset() {
+    click = 0;
+    incrementandset();
+}
+function updateclick() {
+    if (click == null) { click = 0; }
+
+    //$//
+    clicker.num[0]=2*(clicker.num[1]+1)*3+12*(prestige.level+1)*(clicker.num[1]+clicker.num[1])+13 ;
+    clicker.num[2] = (rage.active + 1) * prestige.level * 1.51;
+   
+
+    clicker.num[5] = ((clicker.num[3]+1)) * (clicker.num[1]+1);
+    number = clicker.num[5]; gennumberconverter(); clc.top.innerText = "+" + number + AU;
+    scorenumberconvertor(); clc.scorecounter.innerText = score + AU;
+
+    //Multibuy//
+    
+    setcost(clicker.num[0],clc.p0);
+    
+
+    //img//
+    if (rage.active == true && boardS != "Player is holding click") {
+        clc.img.src = Logs.mcrage;
+        clc.img.style.background = "white";
+        clc.img.border = "3px solid "; clc.img.style.borderColor = "red";
+    }
+    else if (rage.active == false && boardS != "Player is holding click") {
+        clc.img.src = Logs.mc;
+        clc.img.style.background = "repeating-linear-gradient(40deg, blue,red)";
+        clc.img.border = "2px solid black";
+    }
+
+    //bkg/counters//
+    BZbuster();
+    clc.tcounter.innerText = clicker.num[4];
+    clc.multicounter.innerText = clicker.num[2];
+    clc.true = "Upg$/Lvl/Multi/PTC/TC/: "+clicker.num.join("/");
+}
+
+ function upgradeclicker() {
+    if (click >= clicker.num[0]) {
+        upgMB(clicker.num);
+    }
+    updateclick();
+}
 function generateclickico(){clc.ico.style.display="block";
-    clc.ico.innerText="+"+clicker.val;
+    clc.ico.innerText="+"+clicker.num[5];
     clc.ico.style.marginLeft=randomnum(50,500)+"px";
     clc.ico.style.marginTop=randomnum(50,500)+"px";
     
@@ -946,27 +1025,15 @@ setTimeout(() => {
 clcM="";    clc.ico.style.display="none";
 }, 1000);}
 }
-function mainclick() {
-    incrementandset();
-    setstatus();
-    selftest();
-    updatetext();
 
-} function upgradeclicker() {
-    if (click >= clicker.upg$) {
-        //upgrademc//
-        clicker.level++;
-        click -= clicker.upg$;
-        updateclick();
-    }
-}
+
 
 //##########################################################################//
 //######################## AUTO CLICKER ######################################//
 //###################################################################################//
 
 function buyauto() {
-    clicker.totalclicks++;
+    clicker.num[4]++;
     if (click < auto.upg$) {
         alert('no coins'); idj++;
     }
@@ -990,7 +1057,7 @@ function setstatusauto() {
         auto.status = "running";
         auto.image.style.opacity = 1;
     }
-    else if (auto.status == "basicbitch" && clicker.totalclicks >= 500) {
+    else if (auto.status == "basicbitch" && clicker.num[4] >= 500) {
         auto.status = "unlocked";
         auto.master.style.opacity = 0.9;
         auto.image.style.opacity = 0.9;
@@ -1005,11 +1072,11 @@ function updateautoclicker() {
     auto.upg$ = (auto.level + 1 + 103) * (auto.level + 1) * (auto.level + 1) * 3.78;
     number = auto.upg$; gennumberconverter(); auto.cc.innerText = number;
 
-    if (auto.helperlvl > 0) { auto.helpertotal = Math.floor(auto.level / auto.help); }
+    if (Clickster.Auto[0] > 0) { auto.helpertotal = Math.floor(auto.level / auto.help); }
     if (click < auto.upg$) { auto.btn.style.opacity = 0.7; }
     else if (click > auto.upg$) { auto.btn.style.opacity = 1; }
     auto.top.innerText = (auto.helpertotal + auto.level) + '🖱';
-    auto.truestatus = " " + auto.level + " " + auto.upg$ + " " + auto.helperlvl + " " + auto.helpertotal +
+    auto.truestatus = " " + auto.level + " " + auto.upg$ + " " + Clickster.Auto[0] + " " + auto.helpertotal +
         " " + auto.runcount;
 }
 
@@ -1017,8 +1084,8 @@ function autocps() {
     updateautoclicker();
     auto.runcount++;
     //if upg do//
-    if (auto.helperlvl != 0 || duplicator.level != 0) {
-        click += 1 + ((auto.level + auto.helpertotal) * (clicker.multi + 1));
+    if (Clickster.Auto[0] != 0 || duplicator.lvl != 0) {
+        click += 1 + ((auto.level + auto.helpertotal) * (clicker.num[3] + 1));
     }
     else { click += auto.level; }
     updateclick();
@@ -1029,29 +1096,29 @@ function autocps() {
 
 function upgradeautohelper() {
     updatemenuachelper();
-    if (click >= auto.helper$ && auto.helperlvl < 3) {
-        auto.helperlvl++;
+    if (click >= auto.helper$ && Clickster.Auto[0] < 3) {
+        Clickster.Auto[0]++;
     }
     else if (click < auto.helper$) { alert(nm); }
     updatemenuachelper();
 }
 var helpo = "swim";
 function updatemenuachelper() {
-    if (auto.helperlvl == 0) { auto.help = 0; helpo = 10; auto.Uimg.src=Logs.acCD}
-    else if (auto.helperlvl == 1) { auto.help = 10; helpo = 5; auto.Uimg.src=Logs.ac}
-    else if (auto.helperlvl == 2) { auto.help = 5; helpo = 2; auto.Uimg.src=Logs.acauto}
-    else if (auto.helperlvl == 3) { auto.help = 2; helpo = 2; auto.Uimg.src=Logs.acM}
-    auto.helper$ = (10000 * (auto.helperlvl + 1)) * ((auto.helperlvl + 1) ** (auto.helperlvl + 1) * (10000 * (auto.helperlvl + 1)));
+    if (Clickster.Auto[0] == 0) { auto.help = 0; helpo = 10; auto.Uimg.src=Logs.acCD}
+    else if (Clickster.Auto[0] == 1) { auto.help = 10; helpo = 5; auto.Uimg.src=Logs.ac}
+    else if (Clickster.Auto[0] == 2) { auto.help = 5; helpo = 2; auto.Uimg.src=Logs.acauto}
+    else if (Clickster.Auto[0] == 3) { auto.help = 2; helpo = 2; auto.Uimg.src=Logs.acM}
+    auto.helper$ = (10000 * (Clickster.Auto[0] + 1)) * ((Clickster.Auto[0] + 1) ** (Clickster.Auto[0] + 1) * (10000 * (Clickster.Auto[0] + 1)));
 
-    if (click < auto.helper$ && auto.helperlvl==0){
+    if (click < auto.helper$ && Clickster.Auto[0]==0){
         upgradehider(auto);
     } 
-    else if(click>=auto.helper$ &&auto.helperlvl==0){
+    else if(click>=auto.helper$ &&Clickster.Auto[0]==0){
         auto.Utitle.innerText="Unlock Auto Helper";
         auto.Uimg.src=Logs.ac;
 
     }
-    else if (auto.helperlvl < 3 &&auto.helperlvl!=0) {
+    else if (Clickster.Auto[0] < 3 &&Clickster.Auto[0]!=0) {
         auto.Utitle.innerText="Autoclick helper";
         auto.Udesc.innerText = "For every " + helpo + " autoclick levels get 1 helper";
         number = auto.helper$; gennumberconverter(); auto.U$.innerText = number + AU;
@@ -1065,24 +1132,27 @@ function updatemenuachelper() {
 //#########################################################//
 //MANA//
 function incrementandsetmana() {
-    mana.player += (mana.level + prestige.level + (mana.baseupg * 10)) * (duplicator.level + 1); mana.player = Math.floor(mana.player);
-    mana.regentotal += (mana.level + (mana.baseupg) * 10) * (duplicator.level + 1);
+    mana.player += (mana.level + prestige.level + (mana.baseupg * 10)) * (duplicator.lvl + 1); 
+    mana.player = Math.floor(mana.player);
+    mana.regentotal += (mana.level + (mana.baseupg) * 10) * (duplicator.lvl + 1);
     mana.runcount++;
-    setstatusmana();
+  setstatusmana();
     mana.range.innerText = "";
     if (mana.player >= mana.max) {
         mana.player = mana.max;
         idj++;
-        mana.range.style.color = "white"; mana.range.style.webkitTextStroke = "0.1vh black"
+        mana.range.style.color = "white"; mana.range.style.webkitTextStroke = "0.1vh black";
         mana.range.innerText = "Mana is full, You should probably cast something";
     }
+    else if(mana.player ==NaN){
+        mana.player=0; alert("Mana reset");
+    }  
 }
 //***********************//
 // Upgrade mana gain  needs work//
 function mps() {
     if (manatimer != "setInterval(incrementandsetmana,1000)") { manatimer = setInterval(incrementandsetmana, 1000); mana.img.classList.add("manaCD"); }
 }
-
 function upgrademana() {
     if (click >= mana.upg$ && mana.level == 0) {
         click -= mana.upg$;
@@ -1124,8 +1194,10 @@ function manacostcheck() {
 }
 
 function updatemana() {
+    if(mana.player==NaN){mana.player=0;}
+
     mana.truestatus = mana.level + " " + mana.upg$ + " " + mana.player + " " + mana.max +
-        mana.baseupg + " " + Manamax.lvl + " " + mana.PRlvl + " " + duplicator.level + " " + mana.runcount + " " + mana.regentotal;
+        mana.baseupg + " " + Manamax.lvl + " " + mana.PRlvl + " " + duplicator.lvl + " " + mana.runcount + " " + mana.regentotal;
     mana.reduction = (mana.PRlvl * 10) + mana.PRlvl;
     mana.upg$ = (((mana.level ** mana.level) + 1000 / (mana.reduction + 1)) + 1);
     updatemenumanamax(); updatemenuallspells(); updatemenuMana();
@@ -1141,8 +1213,9 @@ function updatemana() {
 //row 1 item 5////button5 spell multi //
 //Later compile MANA based, Click based//
 function upgmenuallspells() {
-    if (click >= allspells.upg$) {
-        allspells.lvl++;;
+    if (click >= Sorcerer.SpellMulti[0]) {
+        Sorcerer.SpellMulti[1]++;
+        click -= Sorcerer.SpellMulti[0];
         updatemenuallspells();
     }
 }
@@ -1150,20 +1223,17 @@ function updatemenuallspells() {
 
     mana.smv = (((mana.multilvl / 10 + mana.smv) + mana.smv) / 10);
     mana.smv.toFixed();
-    allspells.multi=(allspells.lvl*10);
+    Sorcerer.SpellMulti[2]=(Sorcerer.SpellMulti[1]/10);
 
     document.getElementById("allspellscounter").innerText = player.allspells + 1;
-    allspells.upg$ = (allspells.lvl + 1) * 1000000 * (allspells.lvl + 1+allspells.lvl);
-    if (click < allspells.upg$ && allspells.lvl==0){
-        upgradehider(allspells);
+    Sorcerer.SpellMulti[0] = (Sorcerer.SpellMulti[1] + 1) * 1000000 * (Sorcerer.SpellMulti[1] + 1+Sorcerer.SpellMulti[1]);
+    if (click < Sorcerer.SpellMulti[0] &&Sorcerer.SpellMulti[1]==0){
+ 
+        upgradehider2(15,"Req: Cast x more spells");
     }
-    else if (click>= allspells.upg$||allspells.lvl< 99) { 
-        allspells.Utitle.innerText="Upgrade All Spells Power";
-        allspells.Uimg.src=Logs.allspells;
-        number = allspells.upg$; gennumberconverter(); allspells.U$.innerText = number + '💰';
-        allspells.Udesc.innerText = "Increase spell power \n. Current:" + allspells.multi + '\%' + " Next:" + (allspells.multi+10)+'%';
-    }
-}
+    else if (click>=Sorcerer.SpellMulti[0]||Sorcerer.SpellMulti[1]< 99) {
+        setUpgtile(15,"All Spells", number,"Increases the power of all spells by "+Sorcerer.SpellMulti[2]+"%",Logs.allspells,"upgmenuallspells()",'rev' ); 
+} }
 
 
 
@@ -1295,13 +1365,17 @@ function menuUpdDuper() {
     if (duplicator.lvl == 0 &&click<dupe$){
         upgradehider(duplicator);
     }
-    else if (duplicator.lvl == 0 && click >= dupe$) { duplicator.Uimg.src=Logs.dupe;
+    else if (duplicator.lvl == 0 && click >= dupe$) { 
+        duplicator.Utitle.innerText+"Unlock Duplicator";
+        duplicator.Uimg.src=Logs.dupe;
          number = dupe$; gennumberconverter(); duplicator.U$.innerText = number + '💰';
-        dupe.Udesc.innerText=="" }
-    else if (duplicator.lvl == 1) { duplicator.Uimg.src=Logs.dupeM;}
+        duplicator.Udesc.innerText=" 5X Multiplier (Forever)"; }
+    else if (duplicator.lvl >= 1) { 
+        duplicator.Uimg.src=Logs.dupeM;
+        duplicator.Udesc.innerText=(5*duplicator.lvl)+"  Multiplier (Forever)";}
     }
 //##########################################################//
-//######################  Mana Blast ############################//
+//######################  Mana  ############################//
 //##########################################################//
 
 function unlockmanablast() {
@@ -1328,12 +1402,14 @@ function BLAST() {
         blast.castcount++;
         mana.player += blast.manainc;
         if (blast.ULlvl >= 2) {
-            click += blast.lvl * (clicker.multi + 1);
-            rage.player += blast.lvl * (prestige.level + 1);
+            click += blast.clickinc;
+            rage.player + blast.rageinc;
         }
         setblastCD();
+    } else if(blast.auto=="run"){
+        boardS2="Failing Blast, Auto error";
     }
-    else { alert("Blast fail"); }
+    else { BoardS2="Blast fail"; }
 }
 function setblastCD() {
     Logs.bl = blast.img.src;
@@ -1358,18 +1434,46 @@ function clearblastCD() {
 
 function autoblast() {
     if (blast.auto != "run" && blast.ULlvl == 3) {
-        blast.auto = "run"; blastauto.setInterval(BLAST, 10010);
+        blast.auto = "run"; updateMblast();
     }
-    else cancelautoblast();
+    else {BLAST();}
 }
 function cancelautoblast() {
     blast.auto = "";
     blastauto = clearInterval(blast);
 }
+var MBMT=document.getElementById("MblastT");
+var MBR=document.getElementById("MBR");
+
+MBR.addEventListener("click", blastswitch);
+
+function blastswitch(){
+    current = MBR.classList;
+
+    if(current=="mana"){
+        MBR.classList="rage";
+    }
+    else if(current=="rage"){  MBR.classList="click"; 
+    }
+    else if(current=="click") {MBR.classList="mana";}
+        blast.status=current; updateMblast();
+}
 function updateMblast() {
-    blast.manainc = blast.lvl * (1 + prestige.level) * (clicker.multi + 1) + 100;
-    blast.clickinc = blast.lvl * (1 + prestige.level) * (clicker.multi + 1) * 1000;
-    blast.rageinc = (blast.lvl * 10) * (1 + prestige.level);
+    blast.manainc = (1+blast.lvl) * (1 + prestige.level) * (clicker.num[3] + 1) * (blast.lvl+1);
+    blast.clickinc = (1+blast.lvl) * (1 + prestige.level) * (clicker.num[3] + 1) * 1000*(1+blast.lvl);
+    blast.rageinc = (blast.lvl * 5) * (1 + prestige.level);
+    
+    //Top bar Mblast//
+    if(blast.status=="mana" || blast.status==undefined){
+        MBR.onclick="blastswitch(rage)";
+        number=blast.manainc;   gennumberconverter(); MBMT.innerText=number; 
+    }
+    else if(blast.status=="rage"){ MBR.onclick="blastswitch(click)";
+    number=blast.rageinc;   gennumberconverter(); MBMT.innerText=number; 
+    }
+    else if(blast.status=="click"){MBR.onclick="blastswitch(mana)";
+        number = blast.clickinc; gennumberconverter(); MBMT.innerText= number;  MBRT.innerText=blast.rageinc;
+    }
 
     //if not CD check level and image//
     if (!blast.img.classList.contains("blastcooldown")) {
@@ -1377,12 +1481,15 @@ function updateMblast() {
         else if (blast.ULlvl == 1) { blast.img.src = Logs.blastimg1; }
         else if (blast.ULlvl >= 2) { blast.img.src = Logs.rageblast; }
     }
+    else if( !blast.img.classList.contains("blastcooldown") && blast.auto=="run"){
+        BLAST();
+    }
 
     checkMblastcosts(); checkMblastunlock();
 }
 
 function checkMblastcosts() {
-    blast.upg$ = (3 * (1 + blast.lvl * (1 + blast.lvl) * (blast.lvl + 100000) * blast.lvl + 30000) * (blast.lvl + 1));
+    blast.upg$ = (3 * (1 + blast.lvl * (1 + blast.lvl) * (blast.lvl + 100000) * blast.lvl + 30000) * blast.lvl *blast.lvl)+5000*(blast.lvl+1);
     number = blast.upg$; gennumberconverter();
     blast.p.innerText = number + AU;
 
@@ -1390,7 +1497,6 @@ function checkMblastcosts() {
         blast.btn.style.opacity = 1;
         blast.upgrade = "ready";
     }
-
 }
 
 const elem = document.createElement("span");
@@ -1433,13 +1539,6 @@ function checkMblastunlock() {
         runMblastauto();
     }
 }
-var blastauto;
-function runMblastauto() {
-    if (blast.lvl == 2 && blastauto != "(setInterval(BLAST,10000)") {
-        blastauto = setInterval(BLAST, 10000);
-    }
-    else { console.log("Failure to run blast auto"); }
-}
 
 //######################################################################################//
 //#####################   FFIIRREE     ###################//
@@ -1481,13 +1580,13 @@ function fireballcast() {
 function setstatusfire() {
     updatefirecounter();
     firecostcheck();
-    fire.img.src = "Logs/Fire/" + fire.status + "fireball.png";
-    if (clicker.totalclicks <= 5) {
+
+    if (clicker.num[4] <= 5) {
         fire.img.src = Logs.lc;
         fire.master.style.display = "none";
         //fireball not unlocked//
     }
-    else if (fire.master.style.display == "none" && clicker.totalclicks >= 5) {
+    else if (fire.master.style.display == "none" && clicker.num[4] >= 5) {
         //fire unlock - runs once//
         fire.img.style.opacity = 0.7; fire.master.style.display = "";
 
@@ -1500,6 +1599,7 @@ function setstatusfire() {
         fire.master.style.display = "";
         fire.btn.style.opacity = 1;
         fire.status = "x1";
+        fire.img.src=Logs.Fx1;
 
         // alert('Mana has been unlocked, try casting a fireball');//
         //1st unlock//
@@ -1521,32 +1621,34 @@ function setstatusfire() {
 function updatefirecounter() {
     firecostcheck();
     fire.truestatus = "level: " + fire.level + " " + fire.cast + " val: " + fire.val +
-        " cast#: " + fire.castcounter + " upg$: " + fire.upgradecost + " cast$: " + fire.castcost +
+        " cast#: " + fire.castcounter + " upg$: " + fire.upg$ + " cast$: " + fire.castcost +
         " upg: " + fire.upgrade + " class: " + fire.img.classList + " status: " + fire.status + '\n' + " src: " + fire.img.src;
+
+
 
     fire.counter.innerText = fire.castcounter;
     fire.levelcounter.innerText = fire.level;
-    number = fire.upgradecost; gennumberconverter(); fire.p4.innerText = number;
+    number = fire.upg$; gennumberconverter(); fire.p4.innerText = number;
     fire.cc.innerText = fire.castcost;
-    updateMenu('spell','fire');
+   
 }
 
 function fireballupgrade() {
     firecostcheck();
-    if (fire.btn.style.opacity >= 1 && click >= fire.upgradecost) {
-        click -= fire.upgradecost;
+    if (fire.btn.style.opacity >= 1 && click >= fire.upg$) {
+        click -= fire.upg$;
  
         fire.val *= 1.3;
         fire.val = Math.round(fire.val);
-        fire.upgradecost *= 1.3;
-        fire.upgradecost = Math.round(fire.upgradecost);
+        fire.upg$ *= 1.3;
+        fire.upg$ = Math.round(fire.upg$);
 
         fire.level++;
         incrementandset();
         setstatusfire();
     }
     else {
-        console.log("fireballupgfail: " + "click=" + click + " :cost=" + fire.upgradecost);
+        console.log("fireballupgfail: " + "click=" + click + " :cost=" + fire.upg$);
         idj++;
     }
 }
@@ -1559,17 +1661,83 @@ function firecostcheck() {
         fire.btn.style.display = "none";
         fire.upgrade = "notready";
     }
-    else if (click < fire.upgradecost) {
+    else if (click < fire.upg$) {
         fire.btn.style.opacity = 0.7;
         fire.upgrade = "notready";
 
         fire.btn.style.display = "inline-block";
     }
-    else if (click >= fire.upgradecost) {
+    else if (click >= fire.upg$) {
         fire.btn.style.opacity = 1;
         fire.upgrade = "ready";
         fire.btn.style.display = "inline-block";
     }
+}
+//### MENU ###//
+//Button 1 fireball multi//
+function menufireballupgrade() {
+    if (click < fire.mupg$) {
+        alert("Cant upgrade fireball"); idj++;
+    }
+    
+    else if (click >= fire.mupg$ && MenuUpglvl[0] == 4) {
+        click -= fire.mupg$;
+        MenuUpglvl[0] = "max";
+    }
+    else if (click >= fire.mupg$ && MenuUpglvl[0] != "max") {
+        click -= fire.mupg$;
+        MenuUpglvl[0]++;
+    }
+    else { boardS2 = "Fireball trying upgrade /fail"; }
+    console.log('menu fireball upgrade complete'); 
+    updateMenu('Sorcerer');
+
+}
+function updatemenufireball() {
+
+    fire.mupg$ = (MenuUpglvl[0] + 1) + 5400 * (MenuUpglvl[0] + 1) ** (MenuUpglvl[0] + 1);
+
+    number = fire.mupg$; gennumberconverter();
+    MuT.T$11.innerText = number + AU;
+    if( MenuUpglvl[0] == 0&&click<=fire.mupg$) {
+        upgradehider2('11');
+        fire.status = "x1";
+        fire.img.src=Logs.Fx1;
+    }
+    else if (MenuUpglvl[0] == 0) {
+        setUpgtile(11, "FireSplit (x2)","10000","Your fire splits and deals twice as much damage" + "\n(Slight Mana increase)",Logs.Fx2, "menufireballupgrade()");
+        fire.status = "x1";fire.img.src=Logs.Fx1;
+    }
+    else if (MenuUpglvl[0] == 1) {
+        MuT.Ti11.src = Logs.Fx3;
+        setUpgtile(11, "FireTrio (x3)","10000","Your fire splits and deals Thrice! as much damage" + "\n(Slight Mana increase)",Logs.Fx3, "menufireballupgrade()");
+        fire.status = "x2";
+        fire.img.src=Logs.Fx2;
+    } else if (MenuUpglvl[0] == 2) {
+        MuT.Ti11.src = Logs.Fx5;
+        setUpgtile(11, "FireBarrage (x5)","10000","Your fire now splits 5 times and deals 5x as much damage" + "\n(Small Mana Cost increase)",Logs.Fx5, "menufireballupgrade()");
+   
+        MuT.T$11.innerText = fire.mupg$;
+
+        fire.status = "x3";fire.img.src=Logs.Fx3;
+    }
+    else if (MenuUpglvl[0] == 3) {
+        MuT.Ti11.src = Logs.Fx7;
+        setUpgtile(11, "FireStorm (x7)","10000","Your fire becomes uncontrollable and deals twice as much damage" + "\n(Moderate Mana cost increase)",Logs.Fx7, "menufireballupgrade()");
+        fire.status = "x5";
+        fire.img.src=Logs.Fx5;}
+    else if (MenuUpglvl[0] == 4) {
+        MuT.Ti11.src = Logs.FxM;
+        setUpgtile(11, "FireMayhem (x?)","10000","All control is lost, Fireball casts between 9 and 19 orbs an will decide to cast itself for free occasionally" + "\n (Large Mana cost increase)",Logs.FxM, "menufireballupgrade()");
+        MuT.TT11.innerText = "Fire Mayhem";
+        MuT.Td11.innerText = "" + '\n' + "(Moderate mana castcost increase)";
+        fire.status = "x7";
+        fire.img.src=Logs.Fx7;
+    } else if (MenuUpglvl[0] == "max") {
+        MuT.TT11.innerText = "Fire King";
+        setUpgtile(11, "FireKing (x?)","10000","Fireball casts between 9 and 19 orbs and will occasionally cast itself for free \n Enjoy the Chaos! ",Logs.Fxmax, "menufireballupgrade()", 'fow');
+        fire.status = "xmayhem";fire.img.src=Logs.Fxmax;
+    } 
 }
 
 // Theres an Arc//
@@ -1641,7 +1809,7 @@ function setstatusarc() {
     updatearccounter();
 
     if (mana.level == 0) {
-        arc.img.src = "../Logs/lock.png";
+        arc.img.src = Logs.lc;
         arc.master.style.opacity = 0;
         // arcball not unlocked//
     }
@@ -1755,14 +1923,14 @@ function cancelarcauto() {
 
 function updatemenuarcauto() {
     arc.auto$ = 10e12;
-    arc.Uimg.src=Logs.arcau;
+    MuT.Ti12.src=Logs.arcau;
 
     if (arc.auto==false && click<=arc.auto$){
-        upgradehider(arc);
+        upgradehider2(12);
 }
     else if (arc.auto == true) {
-        arc.Uimg.src=Logs.aauM;
-        menumaxer(arc.U$, arc.Uimg);
+        MuT.Ti12.src=Logs.aauM;
+        menumaxer(MuT.T$12, MuT.Ti12);
     }
 }
 //##############################################################################################################################//
@@ -1804,7 +1972,7 @@ function setstatusice() {
     updateice();
     icecostcheck();
 
-    if (clicker.totalclicks >= 100 && ice.status == "basicbitch") {
+    if (clicker.num[4] >= 100 && ice.status == "basicbitch") {
         ice.status = "";
         ice.master.style.opacity = 0.9;
         //unlocked//
@@ -1859,17 +2027,17 @@ function updateice() {
 function updatemenuice(){
     ice.wall$=(prestige.level+1)*333000;
     if(ice.walllvl==0 && click<ice.upg$){
-        upgradehider(ice);
+        upgradehider2(13);
     }
     else if(ice.walllvl==0 &&click>=ice.upg$){
-        ice.Utitle.innerText="Unlock \n IceWall";
-        ice.wall$; gennumberconverter(); ice.U$.innerText=number+AU;
-        ice.Udesc.innerText="Cast a 60 Second Shield";
-        ice.Uimg.src=Logs.iW;
+        MuT.TT13.innerText="Unlock \n IceWall";
+        number =ice.wall$; gennumberconverter(); MuT.T$13.innerText=number+AU;
+        MuT.Td13.innerText="Cast a 60 Second Shield";
+        MuT.Ti13.src=Logs.iW;
     }
     else if(ice.walllvl==1){
-        ice.Uimg.src=Logs.iWM;
-        menumaxer(ice.U$,ice.Uimg);
+        MuT.Ti13.src=Logs.iWM;
+        menumaxer(MuT.T$13,MuT.Ti13);
     }
 }
 //###################################//
@@ -1935,7 +2103,7 @@ function setstatusearth() {
         earth.master.style.opacity = 1;
     }
 
-    else if (earth.status == "basicbitch" && clicker.totalclicks >= 1000) {
+    else if (earth.status == "basicbitch" && clicker.num[4] >= 1000) {
         //Unlock//
         earth.master.style.opacity = 0.7;
         earth.status = "unlocked";
@@ -1961,46 +2129,44 @@ function earthcostcheck() {
         earth.upgrade = "notready";
         earth.btn.style.display = "none";
     }
-    else if (click < earth.upg$) {
+    else if (click < Sorcerer.Earth[0]) {
         earth.btn.style.opacity = 0.7; earth.upgrade == "notready";
         earth.btn.style.display = "inline-block";
     }
-    else if (click >= earth.upg$ && mana.level >= 1) {
+    else if (click >= Sorcerer.Earth[0] && mana.level >= 1) {
         earth.upgrade = "ready"; earth.btn.style.display = "inline-block";
         earth.btn.style.opacity = 1;
     }
 }
 
 function updatearth() {
-    earth.truestatus = " level: " + earth.level + " " + earth.cast + " val: " + earth.val +
-        " cast#: " + earth.castcounter + " upg$: " + earth.upg$ + " cast$: " + earth.cast$ +
+    earth.truestatus = " level: " + Sorcerer.Earth[1] + " " + earth.cast + " val: " + earth.val +
+        " cast#: " + earth.castcounter + " upg$: " + Sorcerer.Earth[0] + " cast$: " + earth.cast$ +
         " upg: " + earth.upgrade + " class: " + earth.img.classList + " status: " + earth.status + '\n' + " src: " + earth.img.src;
 
     earth.counter.innerText = earth.castcounter;
-    earth.levelcounter.innerText = earth.level;
     earth.cc.innerText = earth.cast$;
-    number = earth.upg$; gennumberconverter(); earth.p7.innerText = number;
+    number = Sorcerer.Earth[0]; gennumberconverter(); earth.p7.innerText = number;
 }//Button 4 EarthUPG//
 function menuearthupg() {
     if (click >= earthupg.upg$ && earthupg.level == 0) {
-        earth.level++;
+        Sorcerer.Earth[1]++;
         earth.magmin++;
         updatemenuearth();
     }
 }
 function updatemenuearth() {
-    earth.upg$ = (earth.level+1) * 15 + 100;
+    Sorcerer.Earth[0] = (Sorcerer.Earth[1]+1) * 15 + 100;
     earthupg.magmincounter.innerText = earth.magmin;
-    earthupg.price.innerText = earth.upg$;
-    if(earth.quakelvl ==0 && click< earth.upg$){
-        upgradehider(earth);
+    if(Sorcerer.Earth[1] ==0 && click< Sorcerer.Earth[0]){
+        upgradehider2(14, "Cast 14 nature spells");
     }
-    else if(earth.quakelvl==0){
-        earth.Utitle.innerText=" ";
-        earthupg.img.src=Logs.equake;
+    else if(Sorcerer.Earth[1]==0){
+        number= Sorcerer.Earth[0]; gennumberconverter();
+        setUpgtile(14,"Unlock EarthQuake", number,"Be one with Nature",Logs.equake, "menuearthupg()");
     }
-    else if(earth.quakelvl==1){
-        earthupg.img.src=Logs.equakeM;
+    else if(Sorcerer.Earth[1]==1){
+        setUpgtile(14,"EarthQuake", number,"Be one with Nature",Logs.equake, "menuearthupg()", 'fow');
     }
 }
 //##########################################################//
@@ -2116,97 +2282,15 @@ function ragemeter() {
 }
 
 
-
-//################################################################//
-//MENU UPGRADES//
-function menumaxer(price, img) {
-    img.style.boxShadow = " 2px 17px 28px gold";
-    price.innerText = "Upgrade maxed!!";
-    price.style.webkitTextStroke = "1px gold"; price.style.backgroundColor = "whitesmoke";
-}
-//Button 1 fireball multi//
-function menufireballupgrade() {
-    if (click < fire.mupg$) {
-        alert("Cant upgrade fireball"); idj++;
-    }
-    else if (click >= fire.mupg$ && MenuUpglvl[0] != "max") {
-        click -= fire.mupg$;
-        MenuUpglvl[0]++;
-    }
-    else if (click >= fire.mupg$ && MenuUpglvl[0] == 4) {
-        click -= fire.mupg$;
-        MenuUpglvl[0] = "max";
-    }
-    else { boardS2 = "Fireball trying upgrade /fail"; }
-    console.log('menu fireball upgrade complete'); 
-    updateMenu('spell','fire');
-}
-
-function updatemenufireball() {
-    fire.mupg$ = (MenuUpglvl[0] + 1) + 5400 * (MenuUpglvl[0] + 1) ** (MenuUpglvl[0] + 1);
-    number = fire.mupg$; gennumberconverter();
-    fire.U$.innerText = number + AU;
-    if( MenuUpglvl[0] == 0&&click<=fire.mupg$) {
-        upgradehider(fire);
-        fire.status = "x1";
-    }
-    else if (MenuUpglvl[0] == 0) {
-        fire.Utitle.innerText = "FireSplit (x2)";
-        fire.Uimg.src = Logs.f2;
-        fire.Udesc.innerText = "Your fire splits and deals twice as much damage" + '\n' + "(Slight " + " increase)";
-        fire.status = "x1";
-    }
-    else if (MenuUpglvl[0] == 1) {
-        fire.Uimg.src = Logs.f3;
-        fire.Utitle.innerText = "Firetrio (x3)";
-        fire.Udesc.innerText = "Your fire splits and deals Thrice! as much damage" + '\n' + "(Slight mana castcost increase)";
-        fire.img.src = Logs.f2ballimg;
-        fire.status = "x2";
-
-    } else if (MenuUpglvl[0] == 2) {
-        fire.Uimg.src = Logs.f5;
-        fire.Utitle.innerText = "FireShower (x5)";
-        fire.U$.innerText = fire.mupg$;
-        fire.Udesc.innerText = "Your fire now has a total of 5orbs and deals 5x as much damage" + '\n' + "(Moderate mana castcost increase)";
-        fire.img.src = Logs.f3;
-        fire.status = "x3";
-    }
-    else if (MenuUpglvl[0] == 3) {
-        fire.Uimg.src = Logs.f7;
-        fire.Utitle.innerText = "FireStorm (x7)";
-        fire.Udesc.innerText = "Your fire becomes uncortrollable  and casts 7 orbs at once!" + '\n' + "(Moderate mana castcost increase)";
-        fire.img.src = Logs.f5ballimg;
-        fire.status = "x5";
-    }
-    else if (MenuUpglvl[0] == 4) {
-        fire.Uimg.src = Logs.fM;
-        fire.Utitle.innerText = "Fire Mayhem";
-        fire.Udesc.innerText = "All control is lost, Fireball casts between 9 and 19 orbs an will decide to cast itself for free occasionally" + '\n' + "(Moderate mana castcost increase)";
-        fire.img.src = Logs.f7;
-        fire.status = "x7";
-    } else if (MenuUpglvl[0] == "max") {
-        fire.Utitle.innerText = "Fire King";
-        fire.Uimg.src = Logs.fmax;
-        menumaxer(fire.U$, fire.Uimg);
-        fire.Udesc.innerText = "Max upgrade!" + '\n' + "Enjoy the chaos";
-        fire.img.src = Logs.fM;
-        fire.status = "xmayhem";
-    }
-}
-
 //button3 Ice shield//
 
 
 
 //Menu Upgrades Unlisted//
-
-
 //row 2 c6 - SHIFTERY//
-var shiftprice = document.getElementById("pr2c6");
-var shiftimg = document.getElementById("shiftimg");
 function upgshiftery() {
     if (click >= Shift.upg$) {
-
+        click-=Shift.upg$;
         Shift.lvl = 1; StartShift();
     }
     menushiftupdate();
@@ -2218,11 +2302,12 @@ function menushiftupdate() {
         upgradehider(Shift);
     } 
     else if (Shift.lvl == 0) { 
+        Shift.Utitle.innerText="Shiftery";
         number=Shift.upg$; gennumberconverter(); Shift.U$.innerText=number+AU;
-        Shift.Uimg.src=Logs.shift;}
-    else if (Shift.lvl == 1) {Shift.Uimgsrc=Logs.shiftM; menumaxer(shiftprice, shiftimg); }
+        Shift.Uimg.src=Logs.shift; Shift.Udesc="Start the party (and enjoy various bonuses)";}
+    else if (Shift.lvl == 1) {Shift.Uimgsrc=Logs.shiftM; menumaxer(Shift.upg$,Shift.Uimg); }
 }
-
+blast.ULlvl=2;
 
 //RESET//
 function resetboard() {
@@ -2243,10 +2328,18 @@ function resetboard() {
 
 //#########################################//
 //Prestige//
+function incandsetPrestige(val){
+    if(prestige.unlocked==true){
+        if(val==undefined){
+            prestige.prog++;
+        }
+        else{prestige.prog+=val;}
+    } updateprestige();
+}
 function ULprestige() {
     if (click >= prestige.unlock$) {
         click -= prestige.unlock$; prestige.bar.style.display = "";
-        prestige.unlocked = true; flipprestigetab(); alert("clear FlashUL");
+        prestige.unlocked = true; flipprestigetab(); startflash(2);
     }
     else { alert(nm); }
 }
@@ -2264,7 +2357,7 @@ function Prestige() {
         prestige.multi += prestige.clickval;
         resetboard();
         updateprestige();
-        console.log(clicker.multi + ' level = ' + prestige.level + '. user has prestiged');
+        console.log(clicker.num[3] + ' level = ' + prestige.level + '. user has prestiged');
     }
     else {
         console.log(prestige.level + 'insufficient for prestige');
@@ -2278,22 +2371,24 @@ function updateprestige() {
 function updateprestigecounter() {
 
     if (prestige.level == null) { prestige.level = 0; }
-    if(prestige.unlocked==false && PresForev.lvl==1){ prestige.unlocked=true;}
+    if(prestige.unlocked==false && PresForev.lvl==1){ prestige.menuOverlay.style.display="block";  prestige.unlocked=true;}
     //lock//
     if (prestige.unlocked == false) {
+        prestige.menuOverlay.style.display="none"; 
         prestige.unlock$ = (prestige.level + 1) * (prestige.level + 1) * (prestige.level + 1) * 1000000000 * (prestige.level + prestige.level + 1) * (prestige.level + 1);
         number = prestige.unlock$; gennumberconverter();
         prestige.prog = 0; prestige.bar.style.display = "none";
-        if (click >= prestige.unlock$ && pflash != setInterval) { startflash(2); }
+        if (click >= prestige.unlock$ && !prestige.overlay.classList.contains("PrestFlash")) {prestige.menuOverlay.style.display="block";  startflash(2); }
     }
     //Unlock//
     else if (prestige.unlocked == true && menu.dbzlvl == 0) {
-       
+        prestige.menuOverlay.style.display="block"; 
         prestige.clickval = Math.round(clicker.Ptc / (prestige.level + 1) / 1000);
 
     }
     //unlcok++shiftery//
     else if (prestige.unlocked == true && menu.dbzlvl >= 1) {
+        prestige.menuOverlay.style.display="block"; 
         BZbuster(); prestige.bar.style.width = result + "%";
 
     }
@@ -2338,7 +2433,7 @@ function startflash(type) {
     if (type == 1) {
         pflash = setInterval(flashprestige, 1000);
     } else if (type == 2) {
-        pflash = setInterval(flashprestigeUL, 1000);
+        flashprestigeUL();
     }
 }
 function flashprestige() {
@@ -2357,18 +2452,14 @@ function flashprestige() {
 
 function flashprestigeUL() {
 
-    if (prestige.unlocked == false && prestige.overlay.style.backgroundColor != "goldenrod") {
-        prestige.overlay.style.boxShadow = "0 0 45px 5px gold";
-        prestige.overlay.style.backgroundColor = "goldenrod";
-        boardS2 = "Ul-p FLASH1";
-    }
-    else if (prestige.unlocked == false && prestige.overlay.style.backgroundColor == "goldenrod") {
-        prestige.overlay.style.boxShadow = "0 0 10px 5px goldenrod ";
-        prestige.overlay.style.backgroundColor = "#ffd70055";
-        boardS2 = "UL-p flash 2";
+    if (prestige.unlocked == false && click>= prestige.unlock$) {
+       if (!prestige.overlay.classList.contains("PrestigeFlash")){
+         prestige.overlay.classList.add("PrestigeFlash");} }
+    else if (prestige.unlocked == false && click<=prestige.unlock$) {
+       prestige.overlay.classList.remove("PrestigeFlash");
     }
     else if (prestige.unlocked == true || prestige.bar.style.display != "none") {
-        clearInterval(pflash);
+      prestige.overlay.classList.remove("PrestigeFlash");
     }
 }
 function prestigeboardinc(id, price, oard) {
@@ -2379,60 +2470,9 @@ function prestigeboardinc(id, price, oard) {
     console.log(storedboard);
 }
 
-//menuupg//
-//Row 2 C3 - Chest buster//
-var unlock23$ = 4000000000;
-function unlockdbzbuster() {
-    if (click >= Mpres.dbz$ && DBZ.lvl < 1) {
-        click -= Mpres.dbz$; DBZ.lvl++;
-    }
-    else if (click <= Mpres.dbz$) { alert(nm); }
-    else { alert(upgm); }
-    updatemenudbzbuster();
-}
-function updatemenudbzbuster() {
-    if (DBZ.lvl< 1 && click < DBZ.upg$){
-        upgradehider(DBZ);
-    }
-    else if (DBZ.lvl< 1) {
-        DBZ.Utitle.innerText="Chest Buster";
-        DBZ.Uimg.src=Logs.chestv3;
-        number = DBZ.upg$; gennumberconverter();  DBZ.U$.innerText=number+AU;
-        DBZ.Udesc.innerText=" Unlock the ability to get more gold from the chest each click";
-    } else if (Mpres.dbzlvl >= 1 && Mpres.dbz$ != "MAX") {menu.dbzbusterimg.src=Logs.chestv3M;
-        menumaxer(DBZ.U$, DBZ.Uimg); Mpres.dbz$ = "MAX";
-    }
-}
+
 var pd;
 var p = 0;
-
-function BZbuster() {
-    if (prestige.unlocked == true || Mpres.dbzlvl > 0) {
-        //SHUFFLES Background//
-        difference(prestige.prog, prestige.req);
-        //IF ready//
-        if (prestige.unlocked == false) {
-            prestige.bar.style.display = "none";
-            menu.return.style.backgroundImage = Mpres.Dlock
-        }
-        else if (result <= 25) { menu.return.style.backgroundImage = Mpres.D1; }
-        // if less than 30%//
-        else if (result <= 50) { menu.return.style.backgroundImage = Mpres.D2; }
-        //if less than 60%//
-        else if (result <= 75) { menu.return.style.backgroundImage = Mpres.D3; }
-        // under 100% //
-        else if (result <= 99) { menu.return.style.backgroundImage = "url(../goldpile.jpg)"; }
-        else if (result >= 100) {
-            menu.return.style.backgroundImage = "url(../bg.jpg)";
-        } console.log(result + " BBZ diff");
-    }
-    else if (prestige.unlocked == false || Mpres.dbzlvl == 0) { BoardS2 = "Failed DBZ"; }
-
-}
-
-function difference(a, b) {
-    result = ((a / b) * 100).toFixed(2);
-}
 
 //#################################//
 //#### DIAMONDS ####//
@@ -2478,31 +2518,51 @@ function movecard() {
         cardbutton.style.opacity = 0.9; cardbutton.style.height = "5vh"; cardbutton.style.width = "5vh"; cardbutton.style.transform = "rotate(90deg)"; cardbutton.style.float = "right";
     }
 }
-//MENU//
+//##############################//
+//############### MENU ##########//
+//##############################//
+//Menu// 
+var textsdf;
+document.getElementById("Katzeimg").addEventListener("click", switchHeadmenu);
+function switchHeadmenu(){
 
-function updatemenu() {
-   
-    updateMenu('all');
-   
+if(menu.headmenu.style.backgroundColor!="gold"){
+    menu.headmenu.style.backgroundColor="gold";
+    menu.headmenuframe.style.display="inline-block";
+    }
+else if(menu.headmenu.style.backgroundColor=="gold"){
+    menu.headmenu.style.backgroundColor="white";
+    menu.headmenuframe.style.display="none"; 
+    }
 }
+
+
 
 function updateMenu(menu, variant){   
-if(menu=="all" ||menu==undefined && variant=="sweep"||variant==undefined){
-    updatemenuMana(); updateRageMenu();
-    updatemenufireball(); updatemenuarcauto(); updatemenuice(); updatemenuearth(); updatemenuallspells(); updatemenuachelper();
-    updatemanaoverflow(); updatemenudbzbuster();  updatemenumanamax();   menushiftupdate();  
-    updatemenuprestigeUL(); updateGmine(); menuUpdDuper();  
+ updateMenucat();
+ if(Clickster.M[0]<1){
+    MuT.D2.style.display="none";
+ }   
+if(menu=="Clickster" ||menu==undefined){
+    // Row1 - 2 - 3 //
+    updatemenuclick10(); updateCcd(); updatemenuautoUL(); 
+    if(Clickster.M[0]>=1){updatemenudbzbuster();      
+     menushiftupdate();  
+    updatemenuprestigeUL(); updateGmine(); menuUpdDuper();   updateRageMenu();}
 }
-if(menu=="spell"){ if  (variant=="sweep" || variant==undefined){ updatemenufireball(); updatemenuarcauto(); updatemenuice(); updatemenuearth(); updatemenuallspells();   }
-                   else if (variant=="fire"){ updatemenufireball(); }
-if(menu=="mana"){if(variant=="sweep"||variant==undefined){updatemenuMana(); updatemanaoverflow(); updatemenumanamax();  updatemenuMana();   }
-                   }
-if(menu=="rage"){if (variant=="sweep"||variant==undefined){ updateRageMenu(); }}
-if(menu=="click"){if(variant=="sweep"||variant==undefined){ updatemenuachelper();menuUpdDuper();   }}
-if(menu=="misc"){if(variant=="sweep"||variant==undefined){  updateGmine();  updatemenudbzbuster(); menushiftupdate(); ;
-        }}
+else if(menu=="Sorcerer"){  
+updatemenufireball(); updatemenuarcauto(); updatemenuice(); updatemenuearth(); updatemenuallspells();   
 }
+else if(menu=="mana"){if(variant=="all"||variant==undefined){
+updatemenuMana(); updatemanaoverflow(); updatemenumanamax();  updatemenuMana();  }         }
+
+else if(menu=="rage"){if (variant=="all"||variant==undefined){
+updateRageMenu(); }}
+else if(menu=="click"){if(variant=="all"||variant==undefined){ updatemenuachelper();menuUpdDuper();   }}
+else if(menu=="misc"){if(variant=="all"||variant==undefined){  updateGmine();  updatemenudbzbuster(); menushiftupdate(); ;
+        }} updateMenucat();
 }
+
 
 var boo;
 
@@ -2518,21 +2578,273 @@ function openmenu(sar) {
         flipstatstab();
     }
     else if(sar=="upg"){
-        flipupgtab();updateMenu('all');closeprestige();
+        flipupgtab();closeprestige();
     }
     else if(sar=="Prestige"){
         flipprestigetab();closeupgrades();
     }
 }
-//Open UOGRADES//
-function flipupgtab() {
-    clicker.totalclicks++;
-    if (menu.open != "upg") {
-        menu.upgTab++;  
-        upgtabactive();
+function Resetmenufield() {
+    closemenu(); openmenu();
+}
+
+//Open UpGRADES//
+function flipupgtab(tab) {
+    closealltabs()
+    clicker.num[4]++; 
+    if (tab=="Clickster"||tab==undefined &&menu.currentupgtab!="Clickster") { 
+        menu.upgTab++;   tab='Clickster';
+        upgtabactive(tab); menu.currentupgtab=tab;  updateMenu(tab);
         console.log('Open Upgrade menu');
     }
-    else if(menu.open=="upg") { closemenu(); console.log('closefrom upg'); alert("na"); }
+    else if(tab=="Sorcerer" && menu.currentupgtab!="Sorcerer"){
+        menu.upgTab++;
+        upgtabactive(tab);  menu.currentupgtab=tab; updateMenu(tab);
+    }
+    else if(tab=="wise" && menu.currentupgtab!="wise"){
+        menu.upgTab++; menu.currentupgtab=tab;  
+    }
+    else if(menu.open=="upg" || tab==menu.currentupgtab ) { 
+        closemenu(); console.log('closefrom upg'); alert("na"); }
+}
+function upgtabactive(tab) {
+
+    menu.upgT.style.display = ""; menu.subdiv.style.display = "inline";
+    if (menu.open!="upg" ||tab == "Clickster"){ menu.open = "upg";
+     menu.Clickster.classList.add(selec);
+    menu.upgtab.classList.add(selec);
+    menu.upgT.style.zIndex = 2;
+    }
+    else if(menu.open=="upg" && menu.currentupgtab!=tab){
+        if(tab=="Clickster"){
+            menu.Clickster.classList.add(selec); 
+        } 
+        else if(tab=="Sorcerer" && menu.currentupgtab!=tab){
+            menu.Sorcerer.classList.add(selec); updateMenu(tab);
+        }
+        else if(tab=="wise" && menu.currentupgtab!=tab){
+            menu.nooper.classList.add(selec);
+    }   } 
+    else if(menu.currentupgtab==tab){
+        closemenu();
+    }
+}
+function updatebankercat(){
+    
+}
+
+
+
+function updateMenucat(){
+        menu.KatLTT.innerText=menu.currentupgtab;
+    if(menu.currentupgtab=="Clickster"){
+        Clickster.M[3]=Clickster.Cmulti[2];
+        menu.KatLI.src=Logs.Clickster;
+        menu.KatLT.innerText=" Lvl: "+Clickster.M[0]+
+        "\n Next Lvl: "+Clickster.M[1]+"/"+Clickster.M[2]+'\n'+"Bonus: +"+Clickster.M[3]+"%";
+    }
+    else if(menu.currentupgtab=="Sorcerer"){
+    
+        Sorcerer.M[3]=Sorcerer.Cmulti[2];
+        menu.KatLI.src=Logs.Sorcerer;
+        menu.KatLT.innerText=" Lvl: "+Sorcerer.M[0]+
+        "\n Next Lvl: "+Sorcerer.M[1]+"/"+Sorcerer.M[2]+'\n'+"Bonus: +"+Sorcerer.M[3]+"%";
+    }
+    }
+
+//Menu tile set//
+function upgradehider2(num, des){
+    if(des==undefined){des="???";}
+    document.getElementById("TT"+num).innerText="???";
+    document.getElementById("Ti"+num).src=Logs.lc;
+    document.getElementById("T$"+num).innerText="???";
+    document.getElementById("Td"+num).innerText=des;
+    menumaxer(num,'rev');
+ 
+}
+function setUpgtile(num, t1,t2,t3,img,func,mode){
+    document.getElementById("TT"+num).innerText=t1;
+    document.getElementById("Ti"+num).src=img;
+    document.getElementById("T$"+num).innerText=t2+AU;
+    document.getElementById("Td"+num).innerText=t3;
+    document.getElementById("Ti"+num).setAttribute('onclick',func);
+    if(mode==undefined){menumaxer(num, 'rev');}
+    else if(mode=="fow"){menumaxer(num, mode);}
+}
+function menumaxer(num, mode) {
+    if(mode=="fow"|| mode ==undefined){
+    document.getElementById("Td"+num).border="2px solid gold";
+    document.getElementById("Ti"+num).style.boxShadow="2px 17px 28px gold";
+    document.getElementById("T$"+num).classList="MaXXed";
+    document.getElementById("T$"+num).innerText="Upgrade-Maxxed!";
+} else if(mode=="rev"){
+    document.getElementById("Td"+num).border="none";
+    document.getElementById("Ti"+num).style.boxShadow="none";
+    document.getElementById("T$"+num).classList="";
+}}
+
+//Clickster Upg//
+// BC+10 //
+function upgbaseclick10(){
+    if(click>= Clickster.C10[1]){
+        click -=Clickster.C10[1];
+        Clickster.C10[0]++;
+    }
+    else if(click< Clickster.C10[1]) {alert(nm);}
+    else if( Clickster.C10[0]>=1) {alert(upgm);}
+    updatemenuclick10();
+}
+function updatemenuclick10(){
+    Clickster.C10[1]=((Clickster.C10[0]+1)*1000)*100000;
+    if(click<Clickster.C10[1] && Clickster.C10[0]==0){
+        upgradehider2(11);
+    }
+    else if(click >= Clickster.C10[1] && Clickster.C10[0]==0){
+        number=Clickster.C10[1]; gennumberconverter();
+        setUpgtile(11,"Base Click +10", number , "Increases Base click Value by +10", Logs.ptc,"upgbaseclick10()", 'rev' );
+    }
+    else if(Clickster.C10[0] >= 1){
+        setUpgtile(11,"Base Click +10", number , "Increases Base click Value by +10", Logs.ptc,"upgbaseclick10()", 'fow' );
+        
+    }
+}
+function upgradeCcd(){
+    if(click >= Clickster.CD[1]){
+        Clickster.CD[0]++;click -= Clickster.CD[1];
+    }
+    else if(click < Clickster.CD[1]){
+        alert(nm);
+    }
+}
+function updateCcd(){
+    Clickster.CD[1]=((Clickster.CD[0]+Clickster.CD[0]+1)*156)*10+4300000;
+    if(click<Clickster.CD[1] && Clickster.CD[0]==0){
+        upgradehider2(12);
+    }
+    else if(click >= Clickster.CD[1]){
+        number=Clickster.C10[1]; gennumberconverter();
+        setUpgtile(12,"No more CD!", number , "No more Cooldown on Click", Logs.Ccd, 'upgradeCcd()' );
+    } 
+}
+function unlockautoclicker(){
+    if (click >= Clickster.Auto[1] && Clickster.Auto[0]<3){
+        Clickster.Auto[0]++; click -= Clickster.Auto[1];
+    }
+    else if(click< Clickster.Auto[1]){
+        alert(nm);
+    }
+    else{alert(upgm);}
+    updatemenuautoUL();
+}
+function updatemenuautoUL(){
+    Clickster.Auto[1]=((Clickster.Auto[0]+1)*10000)*(Clickster.Auto[0]+1);
+if (click < Clickster.Auto[1] && Clickster.Auto[0]==0){
+    upgradehider2(13);
+}
+else if (click >= Clickster.Auto[1] && Clickster.Auto[0]==0){
+    number = Clickster.Auto[1]; gennumberconverter();
+    setUpgtile(13,"Unlock Auto Scratcher", number, "Unlock the AutoScratcher", Logs.ac, "unlockautoclicker()");
+}
+else if( Clickster.Auto[0]==1){
+    setUpgtile(13,"Unlock Auto Scratcher", number, "Unlock the AutoScratcher", Logs.ac, "unlockautoclicker()", true, "fow");
+}
+}
+//Row 2 C3 - Chest buster//
+
+function unlockdbzbuster() {
+    if (click >= Mpres.dbz$ && Clickster.Dbz[1] < 1) {
+        click -= Mpres.dbz$; Clickster.Dbz[1]++;
+    }
+    else if (click <= Mpres.dbz$) { alert(nm); }
+    else { alert(upgm); }
+    updatemenudbzbuster();
+}
+function updatemenudbzbuster() {
+    
+    if (Clickster.Dbz[1]< 1 && click < Clickster.Dbz[0]){
+        upgradehider2(14);
+    }
+    else if (Clickster.Dbz[1]< 1) {
+        number= Clickster.Dbz[0]; gennumberconverter();
+        setUpgtile(14,"Chest Buster",number," The chest weakens as you get closer to prestige, giving you more gold", Logs.chestv3, "unlock")
+
+      
+    } else if (Clickster.Dbz[1] >= 1) {
+        setUpgtile(14,"Chest Buster",number," The chest weakens as you get closer to prestige, giving you more gold \nCurrent:"+difference(prestige.prog,prestige.req), Logs.chestv3, "unlock", 'fow')
+
+    }
+}
+function BZbuster() {
+    if (prestige.unlocked == true || Clickster.Dbz[1] > 0) {
+        //SHUFFLES Background//
+        difference(prestige.prog, prestige.req);
+        //IF ready//
+        if (prestige.unlocked == false) {
+            prestige.bar.style.display = "none";
+            menu.return.style.backgroundImage = Mpres.Dlock
+        }
+        else if (result <= 25) { menu.return.style.backgroundImage = Mpres.D1; }
+        // if less than 30%//
+        else if (result <= 50) { menu.return.style.backgroundImage = Mpres.D2; }
+        //if less than 60%//
+        else if (result <= 75) { menu.return.style.backgroundImage = Mpres.D3; }
+        // under 100% //
+        else if (result <= 99) { menu.return.style.backgroundImage = "url(../goldpile.jpg)"; }
+        else if (result >= 100) {
+            menu.return.style.backgroundImage = "url(../bg.jpg)";
+        } console.log(result + " BBZ diff");
+    }
+    else if (prestige.unlocked == false || Clickster.Dbz[1] == 0) { BoardS2 = "Failed DBZ"; }
+
+}
+function difference(a, b) {
+    result = ((a / b) * 100).toFixed(2);
+}
+//Sorcerer Menu UPG//
+
+//Wise One Menu UPG//
+function setClickster(){
+
+}
+function setSorcerer(){
+ 
+}
+function setupg(id){
+    if(id==11 && menu.currentupgtab=="Sorcerer"){
+        updatemenufireball();
+    }
+
+}
+//Menuclaer//
+function closemenu() {
+    if(menu.o==true){
+    menu.exits++;
+    menu.fieldset.style.zIndex = -1;
+    menu.fieldset.style.display = "none";
+    menu.return.style.display="";
+    
+    menu.o = false; closealltabs();
+    menu.open="";
+    setstatus();
+    console.log("Closeall");
+}}
+function closealltabs() {
+    closeprestige();
+    closeupgrades(); closeupgtabs();
+    closestats(); 
+}
+function closeupgrades() {
+    if(menu.open=="upg"){
+    menu.upgtab.classList="";
+    menu.upgT.style.display = "none";
+    menu.upgT.style.zIndex = 0;
+    menu.upgtab.style.boxShadow = "0";}
+    closeupgtabs();
+}
+function closeupgtabs() {
+    menu.subdiv.style.display="none";
+    menu.currentupgtab="none";
+    menu.Clickster.classList="";  menu.Sorcerer.classList="";  menu.nooper.classList="";
 }
 //Open STATS//
 function flipstatstab() {
@@ -2557,26 +2869,7 @@ function flipprestigetab() {
     }
     else if(menu.open=="Prestige") { alert("double open prestig"); closemenu(); console.log("menu close from stats"); }
 }
-function Resetmenufield() {
-    closemenu(); openmenu();
-}
-function closemenu() {
-    if(menu.o==true){
-    menu.exits++;
-    menu.fieldset.style.zIndex = -1;
-    menu.fieldset.style.display = "none";
-    menu.return.style.display="";
-    
-    menu.o = false; closealltabs();
-    menu.open="";
-    setstatus();
-    console.log("Closeall");
-}}
-function closealltabs() {
-    closeprestige();
-    closeupgrades();
-    closestats();
-}
+
 var selec = "selected";
 function closeprestige() {
     if (menu.open=="Prestige") {
@@ -2588,14 +2881,7 @@ function closeprestige() {
         console.log("cant  closing prestige"); menu.ptab.classList.toggle(selec);
     }
 }
-function closeupgrades() {
-    if(menu.open=="upg"){
-    menu.upgtab.classList="";
-    menu.upgT.style.display = "none";
-   menu.upgT.style.zIndex = 0;
-    menu.upgtab.style.boxShadow = "0";}
 
-}
 function closestats() {
     if(menu.open=="stats"){
     menu.statstab.classList="";
@@ -2605,13 +2891,7 @@ function closestats() {
     menu.stats.style.display = "none";
 }
 else{console.log("failed to close stats");}}
-function upgtabactive() {
-    if (menu.open!="upg"){closealltabs();
-    menu.upgtab.classList.add("selected");
-    menu.open = "upg";
-    menu.upgT.style.display = ""; menu.upgT.style.zIndex = 2;
-    }
-}
+
 function statstabactive() {
     if(menu.open!="stats"){
     closealltabs();
@@ -2695,7 +2975,6 @@ function upgradehider(title){
     title.Udesc.innerText="???";
 }
 
-
 var h1 = document.getElementById("h1");
 ht = "headtitle"; h0 = "ht"; ti = document.getElementById("title");
 function showtitle() {
@@ -2716,34 +2995,12 @@ function startintro(){
     itxt.innerText="Welcome";
     setTimeout(()=>{itxt.innerText="Welcome\n To Bloodworks Latest Game";
     setTimeout(() => { iLogo.innerText="IDLECLICKER! \n";
-    setTimeout(() => { iLogo.classList="Logs";
-    setTimeout(() => { iLogo.classList="Logs";},5000);
+    setTimeout(() => { i.classList="Logs";
+    setTimeout(() => { i.classList.remove("Logs"); i.style.display="none";},5000);
 } ,10000);},10000);
     
     },10000);
-    
 }
-
-// Jumper game.//
-/*var character =
-document.getElementById("character");
-var block = document.getElementById("block");
-function jump () {
-    if(character.classList != "animate"){
-    character.classList.add("animate");
-    }
-}*/
-//ifdead alert//
-/*var checkDead = setInterval(function(){
-    
-    var characterTop =
-    parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-    var blockLeft =
-    parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    if (blockLeft<20 && blockLeft>0 && characterTop>=180){
-        block.style.animation = "none";
-        block.style.display = "none";
-        alert("    Insertion = True , Victory = False. Maybe you like penis up the bum, to each their own...");
-        
-    }  },10);
-*///}
+function skipintro(){
+    i.classList.remove("Logs"); i.style.display="none";
+}
