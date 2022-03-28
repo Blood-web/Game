@@ -6,7 +6,6 @@ idj = idjcounter;
 let AU = '💰';
 var setcore;
 var h6 = document.getElementById("h6");
-
 function scorepersecon() {
     setcore = click;
     setTimeout(function () {
@@ -14,119 +13,48 @@ function scorepersecon() {
         scorepersecon();
     }, 1000);
 }
-menukey = "//check//";
-function createmenukey() {
-    Mkey = MenuUpglvl[0] + " " + arcupgrade.level + " " + "PH-ice" + " " + earthupg.level + " " + menu.allspellsupglevel + " " + autoupg.level +
-        ' \n' + menu.m10X + " " + menu.mmlevel + " " + "PH";
-    breakmenukey();
-}
-function breakmenukey() {
-    for (var i = 0; i < Mkey.length; i++) {
-        if (Mkey[i] == undefined || Mkey[i] == null) {
-            Mkey[i] = 0;
-        }
-    }
-    MenuUpglvl[0] = Mkey[0]; arcupgrade.level = Mkey[1]; "PHICE";
-    earthupg.level = Mkey[3]; menu.allspellsupglevel = Mkey[4]; autoupg.level = Mkey[5];
-    console.log(Mkey + " Length" + Mkey.length);
-}
-var playertoken = "";
-const space = ' ';
-//FINISHTOKE//
-function createtoken() {
-    playertoken = +' \n' + score +
-        ' \n' + clc.true +
-        ' \n' + prestige.truestatus +
-        ' \n' + mana.truestatus +
-        ' \n' + auto.truestatus +
-        ' \n' + rage.level + " " + rage.player + " " + rage.cap
 
-        //Menu encryption//
-        + ' \n' + MenuUpglvl[0] + " " + autoupg.$ + " " + Avar + " " + earthupg.level + " " + menu.allspellsupglevel + " " + autoupg.level;
-    +' \n' + menu.upgr2c1 + " " + menu.upgr2c1
-        + ' \n' + menu.upgr3c1 + " " + menu.upgr3c2 + " " + menu.upgblast + " " + menu.upgr3c4 + " " + menu.upgr3c5 + " " + menu.upgr3c16 +
-        //Spell encryption level//
-        +' \n' + auto.level + " " + Avar + " " + Sorcerer.Earth[1] + " " + arc.level + " " + clicker + " " + fire.level + " " + ice.level + " " + mana.level + " " + rage.level
-        ;
-    localStorage.setItem("GS", JSON.stringify(playertoken));
-    breaktoken();
-}
-function breaktoken() {
-    breakplayertoken(playertoken, space);
-}
-function breakplayertoken(token, seperator) {
-    const tokensplit = token.split(seperator);
-    var TokenState = JSON.parse(localStorage.getItem("GS"));
-    console.log(tokensplit[0] + tokensplit[1] + tokensplit[2] + tokensplit[3] + tokensplit[4] + tokensplit[5]);
-    ;
-    console.log('original string:' + token);
-    console.log("The array has " + tokensplit.length + " elements: " + tokensplit.join(' / '));
-    message.innerText = tokensplit[2];
-}
-let score = 0;
-let number = 0;
-let set = "";
-const MenuUpglvl =
 
-    [0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0]
-    ;
+
 //Menu $:cost;, UPG:upgmenu;,//
 const menu = {
     o:false,
     open: " ",
-    headmenu:document.getElementById("KatzeMenu"),
-    headmenuframe:document.getElementById("HeadMenuOverlay"),
-
     return: document.getElementById("main"),
     fieldset: document.getElementById("hiddenwrap"),
-
-    KatLI:document.getElementById("LKimg"),
-    KatLT:document.getElementById("LKT"),
-    KatLTT:document.getElementById("LKTT"),
-    KatRI:document.getElementById("RKimg"),
-    KatRT:document.getElementById("RKT"),
-    KatRTT:document.getElementById("RKTT"),
-
     menutab: document.getElementById("menutab"),
     statstab: document.getElementById("statstab"),
     stats: document.getElementById("stats"), statTC: "",
     statstext: document.getElementById("statstext"),
     creditstab: document.getElementById("creditstab"),
     upgtab: document.getElementById("upgtab"),
+
+    headmenu:document.getElementById("KatzeMenu"),
+    headmenuframe:document.getElementById("HeadMenuOverlay"),
     currentupgtab:"none",
     subdiv:document.getElementById("menusubsetdiv"),
     Clickster:document.getElementById("MSBtn1"),
     Sorcerer:document.getElementById("MSBtn2"),
-    nooper:document.getElementById("MSBtn3"),
+    Banker:document.getElementById("MSBtn3"),
+
+    KatLI:document.getElementById("LKimg"),
+    KatLT:document.getElementById("LKT"),
+    KatLbar:document.getElementById("LKbar"),
+    KatLTT:document.getElementById("LKTT"),
+    currentSubCat:"none",
+    KatRI:document.getElementById("RKimg"),
+    KatRT:document.getElementById("RKT"),
+    KatRbar:document.getElementById("RKbar"),
+    KatRTT:document.getElementById("RKTT"),
+  
 
     upgT: document.getElementById('upgradetable'),
     upgtext: document.getElementById("upgradetext"),
-
     pULtab: document.getElementById("prestigelock"),
     ptab: document.getElementById("prestigetab"),
     prestiget: document.getElementById("prestigetable"),
     prestigetext: document.getElementById("prestigetabbtntext"),
-    //ROW1//
-    fireballxupg$: 0, earthquakeupg$: 100000,
-    //row2//dbzbusterimg: document.getElementById("dbzimg"),
-    dzp: document.getElementById("dbzp"),
-    dbzbusterdesc: document.getElementById("dbzdesc"),
- 
-    maxtile:document.getElementById("tdr2c5"),
-    //row 3//
-    upgr3c1: document.getElementById("pr3c1"), r3c1img: document.getElementById("imgr3c1"),
-   
-    rmana$: document.getElementById("ragemanaprice"), rmimg: document.getElementById("ragemanaimg"),
-    rmdesc: document.getElementById("ragemanadesc"),
 
-    gemmine$: document.getElementById("p35"), gemmineImg: document.getElementById("Mimg35"),
-    gemmineTitle: document.getElementById("T35"), gemmineDesc:document.getElementById("35Desc"),
-
-    d$: document.getElementById("dprice"), dimg: document.getElementById("dupeimg"),
-    
     upgTab: 0,
     statsTab: 0,
     menuTab: 0,
@@ -163,27 +91,170 @@ const player = {
     clickmulti: 0,
     TotalSpells:[0,0,0]
 }
+//Boxmain//
+const auto = {
+    text:"auto",
+    level: 0, upg$: 100,
+    help: 0, helperlvl: 0, helper$: 0, helpertotal: 0,
+    runcount: 0,
+    cc: document.getElementById('autocost'),
+    levelcounter: document.getElementById("autolevelcounter"),
+    count: document.getElementById('autoclickercount'),
+    top: document.getElementById("autotop"),
+    image: document.getElementById("buyauto"),
+    btn: document.getElementById("autobutton"),
+    master: document.getElementById("abvauto"),
+    status: "basicbitch",
+    truestatus: "",
+
+    Utitle:document.getElementById('achtitle'),
+    U$: document.getElementById('ach$'),
+    Udesc: document.getElementById("achdesc"),
+    Uimg:document.getElementById("achimg"),
+}
+//Fireball//
+const fire = {
+    text:"Fire",
+    M:[0,0,0,0,0,0,0,"","",0,0],  
+    cc: document.getElementById('fireballcastcost'),
+    img: document.getElementById("fireball"),
+    btn: document.getElementById("fbbutton"),
+    master: document.getElementById("abvfire"),
+    p4: document.getElementById("button4txt"),
+    counter: document.getElementById('firecounter'),
+    levelcounter: document.getElementById('firelevel'),
+    status: "basicbitch",
+    cast: "notready",
+
+    truestatus: "",
+
+    //upg//
+    
+    Udesc: document.getElementById('fireupgdesc'),
+    Utitle: document.getElementById('titler1c1'),
+    Uimg: document.getElementById('tdr1c1'),
+    U$: document.getElementById('pr1c1'),
+
+}
+//arc//
+var arcautotimer = "";
+const arc = {
+    text:"Arc",
+    M:[0,0,0,0,0,0,0,"","",0,0],  
+    cc: document.getElementById("arccastcost"),
+    img: document.getElementById("arcball"),
+    btn: document.getElementById("arcbutton"),
+    master: document.getElementById("abvarc"),
+    p6: document.getElementById("button6txt"),
+    counter: document.getElementById('arccounter'),
+    levelcounter: document.getElementById('arclevel'),
+
+    arc: "",
+    cast: "notready",
+    upgrade: "notready",
+    status: "basicbitch",
+    truestatus: "",
+
+}
+
+//ICE//
+const ice = {
+    text:"Ice",
+    M:[0,0,0,0,0,0,0,"","",0,0],  
+    cc: document.getElementById('icecastcost'),
+    image: document.getElementById("iceball"),
+    btn: document.getElementById("icebutton"),
+    master: document.getElementById("abvice"),
+    p3: document.getElementById("button3txt"),
+    counter: document.getElementById('icecounter'),
+    levelcounter: document.getElementById('icelevel'),
+    truestatus:"",
+}
+
+//EARTH//
+var earthcd;
+const earth = { 
+    M:[0,0,0,0,0,0,0,"basicbitch","",0,0],
+    currentimg:"",
+
+    TT:document.getElementById('earthtop'),
+    cc: document.getElementById('earthcastcost'),
+    img: document.getElementById("earthball"),
+    btn: document.getElementById("earthbtn"),
+    master: document.getElementById("abvearth"),
+    p7: document.getElementById("button7txt"),
+    counter: document.getElementById('earthcounter'),
+    levelcounter: document.getElementById('earthlevel'),
+
+    upgrade: "notready",
+    status: "notready",
+    cast: "notready",
+    truestatus: "",
+}
+
+//Katze//
 const Clickster={
-    M:['0','0','0','0'],
-    C10:['0','0'],
-    CD:['0','0'],
+    text:"Clickster",
+    M:[0,0,'1000','0',0,0,0,0,0],
+    
+    C10:[0,0],
+    CD:[0,0],
     Auto:['0','0'], 
+    Trio:['0','0',false,'10000'],
+    Luck:['0','0',false,'50000'],
+
     Dbz:['0','0'],
     Cmulti:['0','0','0'],
 
-
+    Rage:[0,0]
 }
 const Sorcerer={
-    M:['0','0','0','0'],
+    text:"Sorcerer",
+    M:[0,0,0,0,0,0,0,0,0],
    Fireball:['0','0','100','0'],
    Arc:['3','4'],
    Ice:['3','4'],
    Earth:['0','0'],
    SpellMulti:['0','0','0'],
+   Cmulti:['0','0','0'],
 };
 
+const Banker = {
+    text : "Banker",
+    M:[0,0,0,0,0],
+
+}
+
+const MenuUpglvl = {
+    C:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],
+    S:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],
+    B:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],  
+};
+const MenuUpg$ = {
+    C:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],
+    S:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],
+    B:[ 0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, 
+        0, 0, 0, 0, 0, ],  
+}
 var ClicksterKey=
-[Clickster.C10[1],Clickster.CD[1],Clickster.Auto[1],Clickster.CD[1], Clickster.Dbz[1], Clickster.Cmulti[1],
+[MenuUpg$.C[0],MenuUpg$.C[1],MenuUpg$.C[2],MenuUpg$.C[1], MenuUpglvl.C[6], Clickster.Cmulti[1],
 
 
 ];
@@ -206,7 +277,7 @@ const gemupgsheet = {
 
 const Logs = {
     lc: "Logs/Clicker/lq.png",
-    bl: "",
+    bl: "", bweb:"bweb.ico",
     chestv3:"Logs/Chest/chestv3.png", chestv3M:"Logs/Chest/chestv3M.png",
     blastimg1: "Logs/Blast/Mblast1.png", MblastCD: "Logs/Blast/Mblast2.png",
     rageblast: "Logs/Blast/yragemb.png", rageauto: "Logs/Blast/rauto.png",
@@ -237,7 +308,7 @@ const Logs = {
 
     //menu//
     //Kat//
-    Sorcerer:"Logs/K/Sorcerer.png", Clickster:"g.png",
+    Sorcerer:"Logs/K/Sorcerer.png", Clickster:"g.png", Banker:"Logs/K/Banker.png",
     allspells:"Logs/MenuMix/allspells.png",
     manareg:"Logs/Mana/Manaregenp10.png" , manaregM:"Logs/Mana/mp10M.png",
    
@@ -338,41 +409,34 @@ const Di = {
     pUscale: 0,
 }
 var pmulti = document.getElementById("setpmultitxt");
+
+//Clicker Btn
 var clicker = {
-    num:['0','0','0','0','0','0'],
-    
+    text:"Clicker",
+    currentimg:"Logs/Clicker/tp.png",
+    M:[1,0,0,0,0,0,0,"","",0,0],
+    truestatus:"",
+    btn:document.getElementById("clickerbtn"),
+    img:document.getElementById("clickerimg"),
+    cc:document.getElementById("clicker$"),
+    TT:document.getElementById("clickertop"),
+    Master:document.getElementById("abvclick"),
 }
+
 var clc = {
     ico:document.getElementById("clickico"),
     true: "g",
     top: document.getElementById("clickertop"),
-    img: document.getElementById("clicker"),
     imgmaster: "Truelog",
     scorecounter: document.getElementById("scorecounter"),
     tcounter: document.getElementById("TCcounter"),
     multicounter: document.getElementById("multicounter"),
-    p0: document.getElementById("button0txt"),
+
 }
 var buyautos = document.getElementById('buyauto');
-const auto = {
-    level: 0, upg$: 100,
-    help: 0, helperlvl: 0, helper$: 0, helpertotal: 0,
-    runcount: 0,
-    cc: document.getElementById('autocost'),
-    levelcounter: document.getElementById("autolevelcounter"),
-    count: document.getElementById('autoclickercount'),
-    top: document.getElementById("autotop"),
-    image: document.getElementById("buyauto"),
-    btn: document.getElementById("autobutton"),
-    master: document.getElementById("abvauto"),
-    status: "basicbitch",
-    truestatus: "",
 
-    Utitle:document.getElementById('achtitle'),
-    U$: document.getElementById('ach$'),
-    Udesc: document.getElementById("achdesc"),
-    Uimg:document.getElementById("achimg"),
-}
+
+
 
 const DBZ = {
     lvl: 0,
@@ -528,131 +592,15 @@ const Ragered={
     Udesc: document.getElementById("ragereddesc"),
     Uimg:document.getElementById("rageredimg"),
 }
-//Fireball//
-const fire = {
-    upglevel: 0, mupg$: 0,
-    castcost: 10,
-    upg$: 10, level: 0,val: 5,
-    castcounter: 0,
-    
-    
-    cc: document.getElementById('fireballcastcost'),
-    img: document.getElementById("fireball"),
-    btn: document.getElementById("fbbutton"),
-    master: document.getElementById("abvfire"),
-    p4: document.getElementById("button4txt"),
-    counter: document.getElementById('firecounter'),
-    levelcounter: document.getElementById('firelevel'),
 
-    status: "basicbitch",
-    cast: "notready",
-    upgrade: "notready",
-    truestatus: "",
-
-    //upg//
-    
-    Udesc: document.getElementById('fireupgdesc'),
-    Utitle: document.getElementById('titler1c1'),
-    Uimg: document.getElementById('tdr1c1'),
-    U$: document.getElementById('pr1c1'),
-
-}
+//Boxmain Spells//
+document.getElementById("earthball").addEventListener("click",castspell(earth,'Earth'));
+document.getElementById("fireball").addEventListener("click",castspell(fire, 'Fire'));
 
 
-//arc//
-var arcautotimer = "";
-const arc = {
-    level: 0, val: 1,
-    cast$: 1, upgrade$: 133,
-    auto: 0, auto$: 0,
-    castcounter: 0,
-    cc: document.getElementById("arccastcost"),
-    img: document.getElementById("arcball"),
-    btn: document.getElementById("arcbutton"),
-    master: document.getElementById("abvarc"),
-    p6: document.getElementById("button6txt"),
-    counter: document.getElementById('arccounter'),
-    levelcounter: document.getElementById('arclevel'),
-
-    arc: "",
-    cast: "notready",
-    upgrade: "notready",
-    status: "basicbitch",
-    truestatus: "",
-
-}
-
-//ICE//
-var Iceball = document.getElementById('iceball');
-var param3 = 1300; //iceball var//
-var p3 = document.getElementById('button3txt');
-
-const ice = {
-    level: 0,   
-    val: 11,
-    cast$: 290,
-    upg$: 40000,
-    castcounter: 0,
-    wall$:0,
-    walllvl:0, wallcharge:0,
-    wallHP:0, 
 
 
-    cc: document.getElementById('icecastcost'),
-    image: document.getElementById("iceball"),
-    btn: document.getElementById("icebutton"),
-    master: document.getElementById("abvice"),
-    p3: document.getElementById("button3txt"),
-    counter: document.getElementById('icecounter'),
-    levelcounter: document.getElementById('icelevel'),
 
-    status: "basicbitch",
-    cast: "notready",
-    truestatus: "",
-
-    Uimg:document.getElementById("menuiceimg"),
-    Utitle:document.getElementById("menuiceT"),
-    U$:document.getElementById("menuice$"),
-    Udesc:document.getElementById("icemenudesc"),
-}
-
-//EARTH//
-var earthcd;
-const earth = {
-    level: 0, quakelvl:0,
-    val: 1000,
-    cast$: 1000,
-    upg$: 787878,
-    castcounter: 0, 
-     magmin: 1,    magmax: 9,    maggen: 0,
-    cc: document.getElementById('earthcastcost'),
-    img: document.getElementById("earthball"),
-    btn: document.getElementById("earthbutton"),
-    master: document.getElementById("abvearth"),
-    p7: document.getElementById("button7txt"),
-    counter: document.getElementById('earthcounter'),
-    levelcounter: document.getElementById('earthlevel'),
-
-    upgrade: "notready",
-    status: "basicbitch",
-    cast: "notready",
-    truestatus: "",
-
-    Utitle:document.getElementById("quaketitle"),
-    Uimg:document.getElementById("quakeimg"),
-    U$:document.getElementById("quakeprice"),
-    Udesc:document.getElementById("quakedesc"),
-}
-const earthupg = {
-    level: 0,
-    upg$: 100,
-    
-    img:document.getElementById("quakeimg"),
-    upgdesc: document.getElementById("earthquakeugdesc"),
-    magmincounter: document.getElementById("magmincounter"),
-    price: document.getElementById("quakeprice"),
-    master: document.getElementById("quaketitle"),
-}
 //BARS//
 
 var Pleveltext = document.getElementById('levelt');
@@ -664,6 +612,11 @@ var Avar = "Critical failure";
 var nm = "No money, purchase failed";
 var upgm = "Upgraed Maxed!!";
 
+
+
+
+// FUNCTIONS //
+
 function save() {
     saveclick();
     saveprestige();
@@ -672,7 +625,7 @@ function save() {
     console.log("Saved state");
 }
 function saveclick() {
-    localStorage.setItem("score", click); localStorage.setItem("tc", clicker.num[4]);
+    localStorage.setItem("score", click); localStorage.setItem("tc", clicker.M[4]);
 }
 function saveprestige() {
     localStorage.setItem("Pstatus", JSON.stringify(prestige.truestatus)); console.log(localStorage.getItem("Pstatus").length)
@@ -684,7 +637,7 @@ function savemana() {
     localStorage.setItem("Mlevel", mana.level);
     localStorage.setItem("Mruncount", mana.runcount);
     localStorage.setItem("Mmax", mana.max);
-    localStorage.setItem("Maxupglevel", Manamax.lvl);
+    localStorage.setItem("Maxupglevel", MenuUpglvl.S[6]);
 }
 function load() {
     loadprestige();
@@ -694,7 +647,7 @@ function load() {
 }
 function loadclick() {
     click = localStorage.getItem("score");
-    clicker.num[4] = localStorage.getItem("tc");
+    clicker.M[4] = localStorage.getItem("tc");
 }
 function loadprestige() {
     prestige.level = tokenspilt[0]; prestige.req = tokenspilt[2];
@@ -702,7 +655,7 @@ function loadprestige() {
 }
 function loadmana() {
     mana.level = tokenspilt[3]; mana.runcount = tokenspilt[4];
-    mana.max = localStorage.getItem("Mmax"); Manamax.lvl = localStorage.getItem("Maxupglevel");
+    mana.max = localStorage.getItem("Mmax"); MenuUpglvl.S[6] = localStorage.getItem("Maxupglevel");
     updatemana();
 }
 //DEV//
@@ -727,7 +680,7 @@ function pluscheat() {
 var levelupvar = 0;
 function levelup(levelupvar) {
     prestige.prog += levelupvar;
-    clicker.num[4] += levelupvar;
+    clicker.M[4] += levelupvar;
     clicker.Ptc += levelupvar;
 
 
@@ -748,7 +701,7 @@ function updatetext() {
     updateautoclicker();
     updatefirecounter();
     updateice();
-    updatearth();
+    setstatusearth();
     updateMblast();
 
 }
@@ -776,14 +729,14 @@ var boardS2;
 function selftest() {
     setstatus();
     updatetext();
-
+if(Debug==true){
     console.log("Debug stats:" + '\n' + "Setstatus:Selftest: " + '\n' +
         '\n' + boardS+ '\n'
         + '\n'+boardS2 + 
         "\nMenu:"+menu.open +" Submenu:"+ menu.currentupgtab
-        +"\n\n :Clicker:= " + click + " " + clc.true + '\n' +
-        " :Autoclicker:=" + auto.truestatus
-        + '\n' + " :Multiplier =" + clicker.num[3] + " AutoClvl =" + '\n'
+        +"\n\n :Clicker:= " + clicker.truestatus+
+        "\n :Autoclicker:=" + auto.truestatus
+        + '\n' + " :Multiplier =" + clicker.M[3] + " AutoClvl =" + '\n'
 
         + '\n' + ":Spells:" + '\n' +
         "Spellmultiplier " + player.allspells + '\n' +
@@ -795,8 +748,8 @@ function selftest() {
         + '\n' + ":Prestige= " + prestige.unlocked + " " + prestige.truestatus + '\n'
         + '\n ' + prestigeboard + '\n'
 
-        + '\n' + " :Rage=  relvl :" + rage.relvl);
-}
+        + '\n' + " :Rage=  relvl :" + MenuUpglvl.C[9]);
+}}
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -902,14 +855,7 @@ function updp$multi() {
 }
 
 
-function upgMB(t, updfunc){
-    click -= t[0]; 
-    t[1]++; 
-    player.TotalSpells[1]++;
-    if(updfunc!=undefined){updfunc;}
-    console.log(t+updfunc+"UPG");
 
-}
 function setcost(price,location,multi){
     if(multi==0 || multi==undefined){
     number =price; gennumberconverter();
@@ -920,17 +866,17 @@ function setcost(price,location,multi){
 //##########################################################################//
 //######################## CLICKER ######################################//
 //###################################################################################//
-clc.img.addEventListener("mousedown", clickunder);
-clc.img.addEventListener("mouseup", clickover);
+clicker.img.addEventListener("mousedown", clickunder);
+clicker.img.addEventListener("mouseup", clickover);
 
 function clickunder() {
-    clc.imgmaster = clc.img.src;
-    if (rage.active == false) {
-        clc.img.src = Logs.mcCD;
+    clicker.imgmaster = clicker.img.src;
+if (rage.active == false) {
+        clicker.img.src = Logs.mcCD;
         boardS = "Player is holding click";
     }
-    else if (rage.active == true) {
-        clc.img.src = Logs.mcCD;
+else if (rage.active == true) {
+        clicker.img.src = Logs.mcCD;
         boardS = "Player is holding click";
         setTimeout(function () {
             rage.chargecount++;
@@ -940,7 +886,7 @@ function clickunder() {
 }
 function clickover() {
     boardS = "Player has released click";
-    clc.img.src = clc.imgmaster;
+    clicker.img.src = clicker.imgmaster;
     generateclickico();
     mainclick();
 }
@@ -956,65 +902,49 @@ function mainclick() {
 //Main inc function, reg click, log score//
 //incprestigebar//
 function incrementandset() {
-
-    click += (clicker.num[1]+1) * (clicker.num[3] + 1);
+    click += (clicker.M[2]) ;
     click = Math.floor(click);
+    incandset("Clickster",1);
     updateclick();
 }
 
 function clickreset() {
     click = 0;
-    incrementandset();
+    click+=startcoins;
+ updateclick();
 }
 function updateclick() {
     if (click == null) { click = 0; }
-
     //$//
-    clicker.num[0]=2*(clicker.num[1]+1)*3+12*(prestige.level+1)*(clicker.num[1]+clicker.num[1])+13 ;
-    clicker.num[2] = (rage.active + 1) * prestige.level * 1.51;
+    clicker.M[1]=2*(clicker.M[0]+1)*3+12*(prestige.level+1)*(clicker.M[0]+clicker.M[0])+13 ;
+    clicker.M[2] =Math.floor((clicker.M[0]) * (rage.active + 1) * (prestige.level+1) * 1.01);
    
-
-    clicker.num[5] = ((clicker.num[3]+1)) * (clicker.num[1]+1);
-    number = clicker.num[5]; gennumberconverter(); clc.top.innerText = "+" + number + AU;
+    clicker.M[5] = ((clicker.M[3]+1)) * (clicker.M[1]+1);    
+    updatetile(clicker, '+');
     scorenumberconvertor(); clc.scorecounter.innerText = score + AU;
-
-    //Multibuy//
-    
-    setcost(clicker.num[0],clc.p0);
-    
-
-    //img//
+//img//
     if (rage.active == true && boardS != "Player is holding click") {
-        clc.img.src = Logs.mcrage;
-        clc.img.style.background = "white";
-        clc.img.border = "3px solid "; clc.img.style.borderColor = "red";
+        clicker.img.src = Logs.mcrage;
+        clicker.img.style.background = "white";
+        clicker.img.border = "3px solid "; clicker.img.style.borderColor = "red";
     }
     else if (rage.active == false && boardS != "Player is holding click") {
-        clc.img.src = Logs.mc;
-        clc.img.style.background = "repeating-linear-gradient(40deg, blue,red)";
-        clc.img.border = "2px solid black";
+        clicker.img.src = Logs.mc;
+        clicker.img.style.background = "repeating-linear-gradient(40deg, blue,red)";
+        clicker.img.border = "2px solid black";
     }
-
     //bkg/counters//
     BZbuster();
-    clc.tcounter.innerText = clicker.num[4];
-    clc.multicounter.innerText = clicker.num[2];
-    clc.true = "Upg$/Lvl/Multi/PTC/TC/: "+clicker.num.join("/");
+    clc.tcounter.innerText = clicker.M[4];
+    clc.multicounter.innerText = clicker.M[2];
+    clc.true = "Upg$/Lvl/Multi/PTC/TC/: "+clicker.M.join("/");
 }
 
- function upgradeclicker() {
-    if (click >= clicker.num[0]) {
-        upgMB(clicker.num);
-    }
-    updateclick();
-}
 function generateclickico(){clc.ico.style.display="block";
-    clc.ico.innerText="+"+clicker.num[5];
+    clc.ico.innerText="+"+clicker.M[2];
     clc.ico.style.marginLeft=randomnum(50,500)+"px";
     clc.ico.style.marginTop=randomnum(50,500)+"px";
-    
     clc.ico.backgroundColor="red";
-
     removeclickico();
 }
 var clcM;
@@ -1027,13 +957,124 @@ clcM="";    clc.ico.style.display="none";
 }
 
 
+//MENU LOWER BOX//
+var bmbuy=0;
+
+//BUY//
+function boxmainbuy(type,sub,multi){
+if (multi==undefined || multi=="0"){multi=1;}
+if(click>=(type['M'][1]*multi)){
+click-=type['M'][1]*multi;
+incupgcounters(type,sub);
+}
+else if(click<type['M'][1]){
+    if(bmbuy>0){
+    alert("Upg failed, no money");
+}}
+bmbuy++;
+}
+
+function incupgcounters(type,sub){
+    type['M'][0]++; type['M'][5]++;
+    if(sub!="Banker"){sub['M']+10;
+    updateclick();
+}}
+function costcheck(type) {
+    number = type['M'][1];
+
+    if (click<=type['M'][1] || type['M'][0]<0 ){
+        type['M'][8]==nr; 
+        if(type['M'][0] <1 && type['M'][5] <1){
+            type['btn'].style.display="none";
+        }
+        else if( type['M'][1]>0 ){ type['btn'].style.display="";}
+    }
+    else if (click>=type['M'][1] || type['M'][0]>0){
+        if(click>=type['M'][1] && type['M'][0]>=1){
+        type['btn'].style.display="";
+        type['btn'].style.opacity=1;
+        }
+        else if ((click<=type['M'][1]) )
+        type['M'][8]=="notready"; type['btn'].style.opacity=0.7;
+    }
+}
+var nr ="notready";
+
+
+function castspell(type, ){
+    text=type['text'];
+//check cd//
+if(type['img'].classList.contains("cooldown")){
+alert(text+"Spell failed, Class list contains cooldown");}
+//Check ready//
+else if(type['M'][7].includes(nr)){
+alert(text+" Contains not ready"); }
+//  check mana cost //
+else if(mana.player < type['M'][9]){alert(text+" Spell failed  No mana");}
+ //Cast//
+else if(!type['M'][7].includes(nr) && mana.player >= type['M'][9]){
+incspellcounters(type);
+console.log("Spell cast: " +text);
+BoardS2=text+" Cast"; 
+
+if (type==earth){  generatemagnitude(); }
+if (type==ice){     }
+if (type==arc){     }
+if (type==fire){  text="fire";  }
+//Minus mana plus val//
+mana.player-=type['M'][9];
+click+= (type['M'][2]+1)*(prestige.level+100)*(Sorcerer.M[3]+1); 
+type['img'].classList.add(text+'cooldown');
+cooldown(type, text);
+}
+setstatus();
+}
+
+function incspellcounters(type){
+    Sorcerer.M[4]++; Sorcerer.M[5]++;
+    type['M'][5]++; type['M'][6]++;
+}
+
+function cooldown(type,text,timer){
+    message.innerText=text+" Cooldown";
+    type['img'].classList.add((text+'Cooldown'));
+    if (type==earth){ earthcooldown();}
+    else if (type==ice){ icecooldown();}
+    else if (type==arc){ arccooldown();}
+    else if (type==fire){ firecooldown();} 
+}
+
+function updatetile(type, op){
+   
+type['truestatus']="Level:"+type['M'][0]+" Upg$:"+type['M'][1]+" Val:"+type['M'][2]+" CurrentUpg:"+type['M'][3]+
+    " TotalUpg:"+type['M'][4]+" CurrentCasts:"+type['M'][5]+" TotalCasts:"+type['M'][6]+" Status:"+type['M'][7]+
+    " Upgstatus:"+type['M'][8]+" Cast$:"+type['M'][9];
+
+if(type['M'][0]>=1){
+    if(op==undefined){op="NotDefined";}
+    number = type['M'][1]; gennumberconverter();
+    type['cc'].innerText = number+AU;
+    type['img'].src=type['currentimg'];
+    type['TT'].innerText=op+type['M'][2];
+    if(click>=type['M'][1]){
+        type['btn'].style.opactiy==1;
+}
+    else if(click<type['M'][1]){
+        type['btn'].style.opactiy==0.7;
+}
+}   
+//If not lvl 1, no display//
+else if(type['M'][0]<1){
+    type['Master'].style.display="none";
+}
+}
 
 //##########################################################################//
 //######################## AUTO CLICKER ######################################//
 //###################################################################################//
 
 function buyauto() {
-    clicker.num[4]++;
+    clicker.M[4]++;
     if (click < auto.upg$) {
         alert('no coins'); idj++;
     }
@@ -1046,7 +1087,6 @@ function buyauto() {
     else if (click > auto.upg$ && auto.level != 0) {
         auto.level++; click -= auto.upg$;
         console.log("buyautoupgrade");
-
         updateclick(); updateautoclicker(); levelup();
     }
 }
@@ -1057,7 +1097,7 @@ function setstatusauto() {
         auto.status = "running";
         auto.image.style.opacity = 1;
     }
-    else if (auto.status == "basicbitch" && clicker.num[4] >= 500) {
+    else if (auto.status == "basicbitch" && clicker.M[4] >= 500) {
         auto.status = "unlocked";
         auto.master.style.opacity = 0.9;
         auto.image.style.opacity = 0.9;
@@ -1072,11 +1112,11 @@ function updateautoclicker() {
     auto.upg$ = (auto.level + 1 + 103) * (auto.level + 1) * (auto.level + 1) * 3.78;
     number = auto.upg$; gennumberconverter(); auto.cc.innerText = number;
 
-    if (Clickster.Auto[0] > 0) { auto.helpertotal = Math.floor(auto.level / auto.help); }
+    if (MenuUpglvl.C[2] > 0) { auto.helpertotal = Math.floor(auto.level / auto.help); }
     if (click < auto.upg$) { auto.btn.style.opacity = 0.7; }
     else if (click > auto.upg$) { auto.btn.style.opacity = 1; }
     auto.top.innerText = (auto.helpertotal + auto.level) + '🖱';
-    auto.truestatus = " " + auto.level + " " + auto.upg$ + " " + Clickster.Auto[0] + " " + auto.helpertotal +
+    auto.truestatus = " " + auto.level + " " + auto.upg$ + " " + MenuUpglvl.C[2] + " " + auto.helpertotal +
         " " + auto.runcount;
 }
 
@@ -1084,8 +1124,8 @@ function autocps() {
     updateautoclicker();
     auto.runcount++;
     //if upg do//
-    if (Clickster.Auto[0] != 0 || duplicator.lvl != 0) {
-        click += 1 + ((auto.level + auto.helpertotal) * (clicker.num[3] + 1));
+    if (MenuUpglvl.C[2] != 0 || duplicator.lvl != 0) {
+        click += 1 + ((auto.level + auto.helpertotal) * (clicker.M[3] + 1));
     }
     else { click += auto.level; }
     updateclick();
@@ -1096,29 +1136,29 @@ function autocps() {
 
 function upgradeautohelper() {
     updatemenuachelper();
-    if (click >= auto.helper$ && Clickster.Auto[0] < 3) {
-        Clickster.Auto[0]++;
+    if (click >= auto.helper$ && MenuUpglvl.C[2] < 3) {
+        MenuUpglvl.C[2]++;
     }
     else if (click < auto.helper$) { alert(nm); }
     updatemenuachelper();
 }
 var helpo = "swim";
 function updatemenuachelper() {
-    if (Clickster.Auto[0] == 0) { auto.help = 0; helpo = 10; auto.Uimg.src=Logs.acCD}
-    else if (Clickster.Auto[0] == 1) { auto.help = 10; helpo = 5; auto.Uimg.src=Logs.ac}
-    else if (Clickster.Auto[0] == 2) { auto.help = 5; helpo = 2; auto.Uimg.src=Logs.acauto}
-    else if (Clickster.Auto[0] == 3) { auto.help = 2; helpo = 2; auto.Uimg.src=Logs.acM}
-    auto.helper$ = (10000 * (Clickster.Auto[0] + 1)) * ((Clickster.Auto[0] + 1) ** (Clickster.Auto[0] + 1) * (10000 * (Clickster.Auto[0] + 1)));
+    if (MenuUpglvl.C[2] == 0) { auto.help = 0; helpo = 10; auto.Uimg.src=Logs.acCD}
+    else if (MenuUpglvl.C[2] == 1) { auto.help = 10; helpo = 5; auto.Uimg.src=Logs.ac}
+    else if (MenuUpglvl.C[2] == 2) { auto.help = 5; helpo = 2; auto.Uimg.src=Logs.acauto}
+    else if (MenuUpglvl.C[2] == 3) { auto.help = 2; helpo = 2; auto.Uimg.src=Logs.acM}
+    auto.helper$ = (10000 * (MenuUpglvl.C[2] + 1)) * ((MenuUpglvl.C[2] + 1) ** (MenuUpglvl.C[2] + 1) * (10000 * (MenuUpglvl.C[2] + 1)));
 
-    if (click < auto.helper$ && Clickster.Auto[0]==0){
+    if (click < auto.helper$ && MenuUpglvl.C[2]==0){
         upgradehider(auto);
     } 
-    else if(click>=auto.helper$ &&Clickster.Auto[0]==0){
+    else if(click>=auto.helper$ &&MenuUpglvl.C[2]==0){
         auto.Utitle.innerText="Unlock Auto Helper";
         auto.Uimg.src=Logs.ac;
 
     }
-    else if (Clickster.Auto[0] < 3 &&Clickster.Auto[0]!=0) {
+    else if (MenuUpglvl.C[2] < 3 &&MenuUpglvl.C[2]!=0) {
         auto.Utitle.innerText="Autoclick helper";
         auto.Udesc.innerText = "For every " + helpo + " autoclick levels get 1 helper";
         number = auto.helper$; gennumberconverter(); auto.U$.innerText = number + AU;
@@ -1195,10 +1235,7 @@ function manacostcheck() {
 
 function updatemana() {
     if(mana.player==NaN){mana.player=0;}
-
-    mana.truestatus = mana.level + " " + mana.upg$ + " " + mana.player + " " + mana.max +
-        mana.baseupg + " " + Manamax.lvl + " " + mana.PRlvl + " " + duplicator.lvl + " " + mana.runcount + " " + mana.regentotal;
-    mana.reduction = (mana.PRlvl * 10) + mana.PRlvl;
+  mana.reduction = (mana.PRlvl * 10) + mana.PRlvl;
     mana.upg$ = (((mana.level ** mana.level) + 1000 / (mana.reduction + 1)) + 1);
     updatemenumanamax(); updatemenuallspells(); updatemenuMana();
     number = mana.upg$; gennumberconverter(); mana.p2.innerText = number;
@@ -1209,171 +1246,7 @@ function updatemana() {
     mana.count.innerText = mana.player;
     mana.maxc.innerText = mana.max;
 }
-//########## MENU ################//
-//row 1 item 5////button5 spell multi //
-//Later compile MANA based, Click based//
-function upgmenuallspells() {
-    if (click >= Sorcerer.SpellMulti[0]) {
-        Sorcerer.SpellMulti[1]++;
-        click -= Sorcerer.SpellMulti[0];
-        updatemenuallspells();
-    }
-}
-function updatemenuallspells() {
 
-    mana.smv = (((mana.multilvl / 10 + mana.smv) + mana.smv) / 10);
-    mana.smv.toFixed();
-    Sorcerer.SpellMulti[2]=(Sorcerer.SpellMulti[1]/10);
-
-    document.getElementById("allspellscounter").innerText = player.allspells + 1;
-    Sorcerer.SpellMulti[0] = (Sorcerer.SpellMulti[1] + 1) * 1000000 * (Sorcerer.SpellMulti[1] + 1+Sorcerer.SpellMulti[1]);
-    if (click < Sorcerer.SpellMulti[0] &&Sorcerer.SpellMulti[1]==0){
- 
-        upgradehider2(15,"Req: Cast x more spells");
-    }
-    else if (click>=Sorcerer.SpellMulti[0]||Sorcerer.SpellMulti[1]< 99) {
-        setUpgtile(15,"All Spells", number,"Increases the power of all spells by "+Sorcerer.SpellMulti[2]+"%",Logs.allspells,"upgmenuallspells()",'rev' ); 
-} }
-
-
-
-//row2 button1 manaregen +10;//
-function menuplus10manaupg() {
-    if (click >= base10.upg$ && base10.lvl != 1) {
-        base10.lvl=1;
-        incrementandsetmana();
-    }
-    else {
-      alert(upgm);   idj++;
-    } updatemenuMana();
-}
-
-
-// ROW 2 C @ ManaOverlflow//
-//level1 overflow, lvl2, unlock with rage level5//
-function unlockmanaoverflow() {
-    if (click >= Manaflow.upg$ && Manaflow.lvl < 1) {
-        click -= Manaflow.upg$
-        Manaflow.lvl++; menumaxer(Manaflow.U$, Manaflow.Uimg);
-    }
-    else if (Manaflow.lvl < 2 && click >= Manaflow.upg$) {
-        click -= Manaflow.upg$
-        Manaflow.lvl++;
-    }
-    updatemanaoverflow();
-}
-function setmanaflow() {
-
-}
-
-function updatemanaoverflow() {
-    Manaflow.upg$=(prestige.level+1)*5060000+4000000000;
-    if (Manaflow.lvl == 0 && click <Manaflow.upg$) { 
-        upgradehider(Manaflow);
-    }
-    else if (Manaflow.lvl == 0) { Manaflow.Uimg.src=Logs.Mflow1;
-        Manaflow.upg$ = (Manaflow.lvl + 1) ** (Manaflow.lvl + 1) * 10000000;
-        number = Manaflow.upg$; gennumberconverter(); Manaflow.U$.innerText = number;
-        Manaflow.Udesc.innerText = "Unlocks Mana overflow, Converting excess mana into 💰";
-    }
-    else if (Manaflow.lvl == 1 && rage.level < 5) {  Manaflow.Uimg.src=Logs.Mflow2; }
-    else if (Manaflow.lvl == 1 && rage.level >= 5) {
-        Manaflow.upg$ = (Manaflow.lvl + 1) ** (Manaflow.lvl + 1) * 10000000000;
-        number = Manaflow.upg$; gennumberconverter(); Manaflow.U$.innerText = number;
-        Manaflow.U$.backgroundColor = "none"; Manaflow.U$.style.boxShadow = "0";
-    }
-}
-// row2 button 5 Max mana inc//
-function menumaxmanainc() {
-    if (click >= Manamax.upg$) {
-        click -= Manamax.upg$;
-        Manamax.lvl++;
-        updatemenumanamax();
-        console.log("MANA MAX HAS BEEN UPGRADED new cap :" + mana.max);
-        updatetext();
-    }
-    else {
-        console.log(nm); alert('nm'); idj++;
-    }
-}
-
-//Row 3 c3 Manacost reduction//
-
-function menuupgmana$() {
-    if (click >= mana.PR$ && mana.PRlvl < 9) {
-        mana.PRlvl++; click -= mana.PR$; updatemana(); 
-       
-    } else if (click <= mana.PR$) { alert(nm); }
-    else { alert("Menu UPG MANA PRICE REDUCTION ERROR"); }
-    updateMenu('mana','upg$');
-}
-function updatemenuMana() {
-    mana.PR$ = ((((mana.PRlvl * 1000) + 1) * 2 * (mana.PRlvl + 1)) * 1000000000) * mana.PRlvl * mana.reduction + (100000000000000000 * ((mana.PRlvl + 1) ** (mana.PRlvl + 1))) + (100000000000000000000 * (mana.PRlvl + 1)) * 2;
-    number = mana.PR$; gennumberconverter(); Manareduc.U$.innerText = number + '💰';
-    Manareduc.Udesc.innerText = "Decrease mana upgrade cost  Current:" + mana.reduction + '%' + " Next:" + (mana.reduction + 11) + " Max:99";
-    base10.upg$=40000000*(prestige.level+1)*(prestige.level+1);
-    
-    if (base10.lvl == 0 && click<base10.upg$) {
-        upgradehider(base10);}
-    else if (base10.lvl == 0 &&click>base10.upg$) { base10.Uimg.src=Logs.manareg; number = base10.upg$; gennumberconverter(); base10.U$.innerText = number + '💰'; }
-    else if (base10.lvl == 1) { base10.Uimg.src=Logs.manaregM; menumaxer(base10.U$, base10.Uimg);  }
-   
-    if (mana.PRlvl ==0 &&click<mana.PR$) {
-        upgradehider(Manareduc);
-}
-    else if (mana.PRlvl <9) {
-        Manareduc.Utitle.innerText="Mana Cost Reduction"
-        Manareduc.Uimg.src=Logs.manared;
-    }
-    else if (mana.PRlvl == 9) {
-        Manareduc.Uimg.src=Logs.manaredM;
-        mana.reduction == 99; menumaxer(Manareduc.U$, Manareduc.Uimg);
-        Manareduc.Udesc.innerText = "Decreases Mana Upgrade cost by " + mana.reduction + '%';
-    }
-}
-
-
-
-//update menu mana max, base 10 and spell multi//
-function updatemenumanamax() {
-    mana.max = (Manamax.lvl * 100) + 1000;
-    Manamax.upg$ = 2500 * ((Manamax.lvl + 1) * 2.3) * (Manamax.lvl + 1);
-    number = Manamax.upg$; gennumberconverter();
-  
-    if (click <Manamax.upg$ &&Manamax.lvl<1){
-        upgradehider(Manamax); 
-    }
-    else if (Manamax.lvl>0){
-        Manamax.Uimg.src=Logs.ManaMax;
-        Manamax.Utitle.innerText='Increase \n MaxMana';
-        Manamax.U$.innerText = number + '💰';
-        Manamax.Udesc.innerText = "Manamaximum" + '\n' + "Current:" + mana.max + '\n' + " New:" + (mana.max + mana.maxinc);
-    }
-}
-
-
-var dupe$ = 100e24;
-function unlockduplicater() {
-    if (click >= dupe$) {
-        click -= dupe$; duplicator.lvl++;
-        menumaxer(duplicator.U$, duplicator.Uimg); menuUpdDuper();
-    }
-    else if (click < dupe$) { alert(nm); }
-    else { alert(upgm); }
-}
-function menuUpdDuper() {
-    if (duplicator.lvl == 0 &&click<dupe$){
-        upgradehider(duplicator);
-    }
-    else if (duplicator.lvl == 0 && click >= dupe$) { 
-        duplicator.Utitle.innerText+"Unlock Duplicator";
-        duplicator.Uimg.src=Logs.dupe;
-         number = dupe$; gennumberconverter(); duplicator.U$.innerText = number + '💰';
-        duplicator.Udesc.innerText=" 5X Multiplier (Forever)"; }
-    else if (duplicator.lvl >= 1) { 
-        duplicator.Uimg.src=Logs.dupeM;
-        duplicator.Udesc.innerText=(5*duplicator.lvl)+"  Multiplier (Forever)";}
-    }
 //##########################################################//
 //######################  Mana  ############################//
 //##########################################################//
@@ -1459,8 +1332,8 @@ function blastswitch(){
         blast.status=current; updateMblast();
 }
 function updateMblast() {
-    blast.manainc = (1+blast.lvl) * (1 + prestige.level) * (clicker.num[3] + 1) * (blast.lvl+1);
-    blast.clickinc = (1+blast.lvl) * (1 + prestige.level) * (clicker.num[3] + 1) * 1000*(1+blast.lvl);
+    blast.manainc = (1+blast.lvl) * (1 + prestige.level) * (clicker.M[3] + 1) * (blast.lvl+1);
+    blast.clickinc = (1+blast.lvl) * (1 + prestige.level) * (clicker.M[3] + 1) * 1000*(1+blast.lvl);
     blast.rageinc = (blast.lvl * 5) * (1 + prestige.level);
     
     //Top bar Mblast//
@@ -1544,201 +1417,100 @@ function checkMblastunlock() {
 //#####################   FFIIRREE     ###################//
 //#########################################################//
 /*cast - setstatus - counter - upgrade - mupgrade $check*/
-function fireballcast() {
-    setstatusfire();
 
-    //check for cooldown and mana//
-    if (fire.cast == "notready") {
-        console.log(fire.status + 'Fireball failed -timer-'); idj++;
-    }
-    else if (fire.img.classList.contains("firecooldown") && mana.player <= fire.castcost) {
-        console.log(fire.status + "!!!" + Avar); idj++;
-    }
-    else if (mana.player >= fire.castcost && fire.cast == "ready") {
-        mana.player -= fire.castcost;
-        fire.castcounter++;
-        fire.cast = "notready";
-        click += fire.val;
-        fire.img.classList.add("firecooldown");
-        console.log(fire.status + "fireballcast: " + " minus mana-" + fire.castcost + " +val- " + fire.val);
-        //Waits a little then does://
-        setTimeout(function () {
-            message.innerText = fire.status + "Fireball 5s cooldown";
-            setstatus();
-            updatetext();
-            levelup();
-        }, 50);
-        setTimeout(function () {
+
+function firecooldown(){
+    fire.M[7] = "notready";
+    setTimeout(function () {
             document.getElementById("fireball").classList.remove("firecooldown");
-            fire.cast = "ready";
+            fire.M[7] = "ready";
             message.innerText = fire.status + "Fireball Cooldown is over";
         }, 5000);
-    }
-    else { console.log('fireball failed -variable?-'); return; }
 }
-
 function setstatusfire() {
     updatefirecounter();
-    firecostcheck();
-
-    if (clicker.num[4] <= 5) {
+    firecostcheck(); 
+    if (clicker.M[4] <= 15) {
         fire.img.src = Logs.lc;
-        fire.master.style.display = "none";
+        fire.master.style.display = "none"; 
         //fireball not unlocked//
     }
-    else if (fire.master.style.display == "none" && clicker.num[4] >= 5) {
+    else if (fire.master.style.display == "none" && clicker.M[4] >= 5) {
         //fire unlock - runs once//
         fire.img.style.opacity = 0.7; fire.master.style.display = "";
-
-        fire.cc.innerText = fire.castcost;
+        fire.cc.innerText = fire.M[9];
         //alert('fireball has been unlocked');//
         fire.status = "unlocked";
     }
     else if (fire.status == "unlocked" && mana.level != 0) {
+
         fire.img.style.opacity = 0.7;
         fire.master.style.display = "";
         fire.btn.style.opacity = 1;
         fire.status = "x1";
         fire.img.src=Logs.Fx1;
-
-        // alert('Mana has been unlocked, try casting a fireball');//
+        message.innerText="Mana has been unlocked, try casting a fireball";
         //1st unlock//
     }
-    else if (!fire.img.classList.contains("firecooldown") && mana.player >= fire.castcost) {
+    else if (!fire.img.classList.contains("firecooldown") && mana.player >= fire.M[9]) {
         fire.img.style.opacity = 1;
-        fire.cast = "ready";
+        fire.M[7] = "ready";
         message.innerText = "Fireballready";
     }
-    else if (fire.img.classList.contains("firecooldown") || mana.player <= fire.castcost) {
+    else if (fire.img.classList.contains("firecooldown") || mana.player <= fire.M[9]) {
         fire.img.style.opacity = 0.9;
         //absolutefalse//   
     }
     else {
         console.log("failed to set fireball status");
     }
+if (fire.M[0]>=1){
+    updatetile(fire,"+");
+}
+
 }
 
 function updatefirecounter() {
     firecostcheck();
-    fire.truestatus = "level: " + fire.level + " " + fire.cast + " val: " + fire.val +
-        " cast#: " + fire.castcounter + " upg$: " + fire.upg$ + " cast$: " + fire.castcost +
-        " upg: " + fire.upgrade + " class: " + fire.img.classList + " status: " + fire.status + '\n' + " src: " + fire.img.src;
 
-
-
-    fire.counter.innerText = fire.castcounter;
-    fire.levelcounter.innerText = fire.level;
-    number = fire.upg$; gennumberconverter(); fire.p4.innerText = number;
-    fire.cc.innerText = fire.castcost;
+    fire.counter.innerText = fire.M[5];
+    fire.levelcounter.innerText = fire.M[0];
+    fire.cc.innerText = fire.M[9];
    
 }
 
 function fireballupgrade() {
     firecostcheck();
-    if (fire.btn.style.opacity >= 1 && click >= fire.upg$) {
-        click -= fire.upg$;
- 
-        fire.val *= 1.3;
-        fire.val = Math.round(fire.val);
-        fire.upg$ *= 1.3;
-        fire.upg$ = Math.round(fire.upg$);
-
-        fire.level++;
+    if (fire.btn.style.opacity >= 1 && click >= fire.M[1]) {
+        boxmainbuy(fire,Sorcerer);
         incrementandset();
         setstatusfire();
     }
     else {
-        console.log("fireballupgfail: " + "click=" + click + " :cost=" + fire.upg$);
+        console.log("fireballupgfail: " + "click=" + click + " :cost=" + fire.M[1]);
         idj++;
     }
 }
 
 //Checs click against upgreade cost//
 function firecostcheck() {
-    fire.castcost=((prestige.level+fire.level)*1)+10;
-    if (fire.castcounter == 0 || mana.level == 0) {
-
+    fire.M[9]=((prestige.level+fire.M[0])*1)+10;
+    if (fire.M[5] == 0 || mana.level == 0) {
         fire.btn.style.display = "none";
-        fire.upgrade = "notready";
+        fire.M[8] = "notready";
     }
-    else if (click < fire.upg$) {
+    else if (click < fire.M[1]) {
         fire.btn.style.opacity = 0.7;
-        fire.upgrade = "notready";
-
+        fire.M[8] = "notready";
         fire.btn.style.display = "inline-block";
     }
-    else if (click >= fire.upg$) {
+    else if (click >= fire.M[1]) {
         fire.btn.style.opacity = 1;
-        fire.upgrade = "ready";
+        fire.M[8] = "ready";
         fire.btn.style.display = "inline-block";
     }
 }
-//### MENU ###//
-//Button 1 fireball multi//
-function menufireballupgrade() {
-    if (click < fire.mupg$) {
-        alert("Cant upgrade fireball"); idj++;
-    }
-    
-    else if (click >= fire.mupg$ && MenuUpglvl[0] == 4) {
-        click -= fire.mupg$;
-        MenuUpglvl[0] = "max";
-    }
-    else if (click >= fire.mupg$ && MenuUpglvl[0] != "max") {
-        click -= fire.mupg$;
-        MenuUpglvl[0]++;
-    }
-    else { boardS2 = "Fireball trying upgrade /fail"; }
-    console.log('menu fireball upgrade complete'); 
-    updateMenu('Sorcerer');
 
-}
-function updatemenufireball() {
-
-    fire.mupg$ = (MenuUpglvl[0] + 1) + 5400 * (MenuUpglvl[0] + 1) ** (MenuUpglvl[0] + 1);
-
-    number = fire.mupg$; gennumberconverter();
-    MuT.T$11.innerText = number + AU;
-    if( MenuUpglvl[0] == 0&&click<=fire.mupg$) {
-        upgradehider2('11');
-        fire.status = "x1";
-        fire.img.src=Logs.Fx1;
-    }
-    else if (MenuUpglvl[0] == 0) {
-        setUpgtile(11, "FireSplit (x2)","10000","Your fire splits and deals twice as much damage" + "\n(Slight Mana increase)",Logs.Fx2, "menufireballupgrade()");
-        fire.status = "x1";fire.img.src=Logs.Fx1;
-    }
-    else if (MenuUpglvl[0] == 1) {
-        MuT.Ti11.src = Logs.Fx3;
-        setUpgtile(11, "FireTrio (x3)","10000","Your fire splits and deals Thrice! as much damage" + "\n(Slight Mana increase)",Logs.Fx3, "menufireballupgrade()");
-        fire.status = "x2";
-        fire.img.src=Logs.Fx2;
-    } else if (MenuUpglvl[0] == 2) {
-        MuT.Ti11.src = Logs.Fx5;
-        setUpgtile(11, "FireBarrage (x5)","10000","Your fire now splits 5 times and deals 5x as much damage" + "\n(Small Mana Cost increase)",Logs.Fx5, "menufireballupgrade()");
-   
-        MuT.T$11.innerText = fire.mupg$;
-
-        fire.status = "x3";fire.img.src=Logs.Fx3;
-    }
-    else if (MenuUpglvl[0] == 3) {
-        MuT.Ti11.src = Logs.Fx7;
-        setUpgtile(11, "FireStorm (x7)","10000","Your fire becomes uncontrollable and deals twice as much damage" + "\n(Moderate Mana cost increase)",Logs.Fx7, "menufireballupgrade()");
-        fire.status = "x5";
-        fire.img.src=Logs.Fx5;}
-    else if (MenuUpglvl[0] == 4) {
-        MuT.Ti11.src = Logs.FxM;
-        setUpgtile(11, "FireMayhem (x?)","10000","All control is lost, Fireball casts between 9 and 19 orbs an will decide to cast itself for free occasionally" + "\n (Large Mana cost increase)",Logs.FxM, "menufireballupgrade()");
-        MuT.TT11.innerText = "Fire Mayhem";
-        MuT.Td11.innerText = "" + '\n' + "(Moderate mana castcost increase)";
-        fire.status = "x7";
-        fire.img.src=Logs.Fx7;
-    } else if (MenuUpglvl[0] == "max") {
-        MuT.TT11.innerText = "Fire King";
-        setUpgtile(11, "FireKing (x?)","10000","Fireball casts between 9 and 19 orbs and will occasionally cast itself for free \n Enjoy the Chaos! ",Logs.Fxmax, "menufireballupgrade()", 'fow');
-        fire.status = "xmayhem";fire.img.src=Logs.Fxmax;
-    } 
-}
 
 // Theres an Arc//
 //####################################################################//
@@ -1746,47 +1518,16 @@ function updatemenufireball() {
 //####################################################################//
 arc.img.addEventListener("click", prearccast);
 function prearccast() {
-    if (arc.cast = "ready" && arc.auto == true) {
+    if (arc.cast = "ready" && MenuUpglvl.S[1] == true) {
         arcauto();
     }
-    else { arcballcast(); }
+    else { castspell(arc); }
 }
-function arcballcast() {
-    mainclick();
-    setstatusarc();
 
 
-    if (arc.img.classList.contains("arccooldown")) {
-        console.log('arc failed -timer-');
-        if (arc.status == "run") { cancelarcauto(); }
-    }
-    else if (arc.cast == "ready" && mana.player >= arc.cast$) {
-        console.log("arccast");
-        click += arc.val;
-        click = Math.floor(click);
-        levelup(levelvar = 1); //Prestige increment//
-        mana.player -= arc.cast$;//fee//
-        arc.castcounter++;
-        arccooldown();
-        updatetext();
-    }
-    else if (arc.img.style.opacity < 1 && mana.player < arc.cast$) {
-        console.log('arc ' + Avar);
-        if (arc.status == "running") { cancelarcauto(); }
-    }
-    else if (mana.player < arc.cast$) {
-        console.log(' arc failure -no mana-');
-        if (arc.status == "running") { cancelarcauto(); }
-    }
-    else {
-        console.log('failed arc -variable?-');
-        return;
-    }
-}
 function arccooldown() {
     arc.img.classList.add("arccooldown");
-
-    if (arc.auto == false) {
+    if (MenuUpglvl.S[1] == false) {
         arc.img.style.opacity = 0;
         setTimeout(function () {
             arc.img.src = Logs.arcCD; message.innerText = "arcball - 1S Cooldown";
@@ -1797,7 +1538,7 @@ function arccooldown() {
             arc.img.style.opacity = 1;
         }, 1000);
     }
-    else if (arc.auto == true) {
+    else if (MenuUpglvl.S[1] == true) {
         setTimeout(function () {
             arc.img.classList.remove("arccooldown");
         }, 1000);
@@ -1810,35 +1551,36 @@ function setstatusarc() {
 
     if (mana.level == 0) {
         arc.img.src = Logs.lc;
-        arc.master.style.opacity = 0;
+        arc.master.style.display = "none";
         // arcball not unlocked//
     }
-    else if (arc.status == "basicbitch" && mana.level != 0) {
+    else if (arc.M[7] == "basicbitch" && mana.level != 0) {
         arc.master.style.opacity = 1;
+        setUpgtile();
         arc.btn.style.display = "none";
         arc.img.style.opacity = 0.7;
         arc.img.src = Logs.arcim1;
-        arc.cc.innerText = arc.cast$;
-        arc.status = "await";
+        arc.cc.innerText = arc.M[9];
+        arc.M[7] = "await";
         //   alert('arc has been unlocked, try casting ');//
         //1st unlock//
     }
-    else if (arc.status == "await" && mana.player > arc.cast$) {
+    else if (arc.M[7] == "await" && mana.player > arc.M[9]) {
         arc.img.style.opacity = 1;
-        arc.status = "";
+        arc.M[7] = "";
         arc.img.src = Logs.arc;
         arc.cast = "ready";
     }
-    else if (arc.img.classList.contains("arccooldown") || mana.player <= arc.cast$) {
+    else if (arc.img.classList.contains("arccooldown") || mana.player <= arc.M[9]) {
         arc.img.opacity = 0.9;
         arc.cast = "notready";
         //absolutefalse either// 
     }
-    else if (!arc.img.classList.contains("arccooldown") && mana.player >= arc.cast$) {
+    else if (!arc.img.classList.contains("arccooldown") && mana.player >= arc.M[9]) {
         //absolute true, no cd + mana//
         arc.img.style.opacity = 1;
-        arc.cast = "ready"; if (arc.auto == true && arc.status != "running") { 
-            arc.img.src=Logs.arcau; arc.status == "run" }
+        arc.cast = "ready"; if (MenuUpglvl.S[1] == true && arc.M[7] != "running") { 
+            arc.img.src=Logs.arcau; arc.M[7] == "run" }
     }
     else {
         console.log("couldnt set arc status");
@@ -1847,29 +1589,29 @@ function setstatusarc() {
 
 function arcballupgrade() {
     setstatusarc();
-    if (arc.btn.style.opacity >= 1 && click >= arc.upgrade$) {
-        click -= arc.upgrade$;
-        arc.level++;
+    if (arc.btn.style.opacity >= 1 && click >= arc.M[1]) {
+        click -= arc.M[1];
+        arc.M[0]++;
         incrementandset();
     }
     else {
-        console.log("arcballupgfail: " + "click=" + click + " :cost=" + arc.upgrade$);
+        console.log("arcballupgfail: " + "click=" + click + " :cost=" + arc.M[1]);
         idj++;
     }
 }
 
 function arccostcheck() {
-    arc.upgrade$ = (arc.level + 1) * 1000 * (arc.level + arc.auto + 1);
+    arc.M[1] = (arc.M[0] + 1) * 1000 * (arc.M[0] + MenuUpglvl.S[1] + 1);
     if (arc.castcounter == 0 || mana.level == 0) {
         arc.btn.style.opacity = 0;
         arc.upgrade = "notready";
         arc.btn.style.display = "none";
     }
-    else if (click < arc.upgrade$) {
+    else if (click < arc.M[1]) {
         arc.btn.style.opacity = 0.7; arc.upgrade == "notready";
         arc.btn.style.display = "inline-block";
     }
-    else if (click >= arc.upgrade$ && mana.level >= 1) {
+    else if (click >= arc.M[1] && mana.level >= 1) {
         arc.upgrade = "ready"; arc.btn.style.display = "inline-block";
         arc.btn.style.opacity = 1;
     }
@@ -1877,37 +1619,26 @@ function arccostcheck() {
 
 function updatearccounter() {
     //update arc counters//
-    arc.truestatus = " level: " + arc.level + " " + arc.cast + " val: " + arc.val +
-        " cast#: " + arc.castcounter + " upg$: " + arc.upgrade$ + " cast$: " + arc.cast$ +
-        " upg: " + arc.upgrade + " class: " + arc.img.classList + " status: " + arc.status + '\n' + " src: " + arc.img.src;
+    arc.truestatus = " level: " + arc.M[0] + " " + arc.cast + " val: " + arc.val +
+        " cast#: " + arc.castcounter + " upg$: " + arc.M[1] + " cast$: " + arc.M[9] +
+        " upg: " + arc.upgrade + " class: " + arc.img.classList + " status: " + arc.M[7] + '\n' + " src: " + arc.img.src;
     arc.counter.innerText = arc.castcounter;
-    arc.levelcounter.innerText = arc.status + arc.level;
-    arc.cast$ = 1 + arc.level * (prestige.level + 1);
-    arc.cc.innerText = arc.cast$;
-    number = arc.upgrade$; gennumberconverter(); arc.p6.innerText = number;
+
+    arc.M[9] = 1 + arc.M[0] * (prestige.level + 1);
+    arc.cc.innerText = arc.M[9];
+    number = arc.M[1]; gennumberconverter(); arc.p6.innerText = number;
 }
 
 
 //######## MENU #######//
-// Button 2 arcauto//
-function upgarcautocast() {
-    if (click >= arc.auto$) {
-        click -= arc.auto$;;
-        arc.auto = true; updatemenuarcauto();
-    }
-    else {
-        alert("no money");
-        idj++;
-    }
-}
 
 function arcauto() {
     //Checks for auto then runs cast till mana out//
     console.log("arcauto cycle");
-    if (arc.status != "running" && arc.auto == true) {
+    if (arc.M[7] != "running" && MenuUpglvl.S[1] == true) {
         alert("arc auto beginth");
         arcautotimer = setInterval(arcballcast, 1200);
-        arc.status = "running";
+        arc.M[7] = "running";
         console.log("ärcaneautocast");
     }
     else {
@@ -1917,22 +1648,11 @@ function arcauto() {
 function cancelarcauto() {
     alert("Cancelling Arc auto");
     clearInterval(arcautotimer);
-    if (arc.status = "running") { arc.status = "run"; }
+    if (arc.M[7] = "running") { arc.M[7] = "run"; }
     console.log("ending auto cast");
 }
 
-function updatemenuarcauto() {
-    arc.auto$ = 10e12;
-    MuT.Ti12.src=Logs.arcau;
 
-    if (arc.auto==false && click<=arc.auto$){
-        upgradehider2(12);
-}
-    else if (arc.auto == true) {
-        MuT.Ti12.src=Logs.aauM;
-        menumaxer(MuT.T$12, MuT.Ti12);
-    }
-}
 //##############################################################################################################################//
 //                 iceball                    //
 //###########################################################################################//
@@ -1972,7 +1692,7 @@ function setstatusice() {
     updateice();
     icecostcheck();
 
-    if (clicker.num[4] >= 100 && ice.status == "basicbitch") {
+    if (clicker.M[4] >= 100 && ice.status == "basicbitch") {
         ice.status = "";
         ice.master.style.opacity = 0.9;
         //unlocked//
@@ -2043,28 +1763,14 @@ function updatemenuice(){
 //###################################//
 //                EARTH SPELL         //
 //###############################//
-
-function earthcast() {
-    mainclick();
+function upgradeEarth(){
+    if(click >= earth.M[1]){
+        boxmainbuy(earth,Sorcerer)
+        earth.M[0]++; click -= earth.M[1];
+    }
     setstatusearth();
-    if (mana.player >= earth.cast$ && earth.cast == "ready") {
-        earth.castcounter++; earth.cast = "notready";
-
-        generatemagnitude();
-        click += earth.val * magnitude;
-        mana.player -= earth.cast$;
-        earthcooldown();
-        incrementandset();
-        console.log("earth cast +" + (earth.val * magnitude));
-    }
-    else if (earth.cast == "not ready" || earth.img.classList.contains("earthcooldown")) {
-        console.log("Earth " + Avar);
-        idj++;
-    }
-    else {
-        console.log("earth cast failed ? variable");
-    }
 }
+
 var magnitude;
 function generatemagnitude() {
     magnitude = randomnum(earth.magmin, earth.magmax);
@@ -2074,47 +1780,37 @@ function randomnum(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function earthcooldown() {
-    earth.img.classList.add("earthcooldown");
-    message.innerText = "EARTH COOLDOWN";
     setstatusearth();
-    console.log("Earth cast" + earth.maggen);
 
     setTimeout(function () {
         document.getElementById("earthball").classList.remove("earthcooldown");
         earth.cast = "ready";
         message.innerText = "Earth cast ready";
+    setstatusearth();
     }, 10000);
 }
 function setstatusearth() {
-    updatearth();
-    earthcostcheck();
-
-    if (earth.status == "unlocked" && mana.player >= earth.cast$) {
-        earth.status = "ready";
-        earth.img.src = Logs.e1 ;
-        earth.master.style.opacity = 1;
+    earth.master.style.display="";
+    costcheck(earth);earth.counter.innerText = earth.M[4];
+    //val//  
+    earth.M[2]=(earth.M[0]+1)*1000*(earth.M[0]+1);
+    if (earth.M[7] == "unlocked" && mana.player >= earth.M[3]) {
+        earth.M[7] = "castready";
+        earth.currentimg = Logs.e1 ;
+        earth.master.style.display = "";
         earth.img.style.opacity = 1;
     }
-    else if (mana.player >= earth.cast$ && !earth.img.classList.contains("earthcooldown")) {
+    else if (mana.player >= earth.M[3] && !earth.img.classList.contains("earthcooldown")) {
         //Mana and NO CD//
-        earth.cast = "ready";
-        earth.status = "ready";
-        earth.img.style.opacity = 1;
-        earth.master.style.opacity = 1;
+        earth.M[7] = "castready";
     }
-
-    else if (earth.status == "basicbitch" && clicker.num[4] >= 1000) {
+    else if (earth.M[0] < 1  ) {
         //Unlock//
-        earth.master.style.opacity = 0.7;
-        earth.status = "unlocked";
+        earth.M[7]="unlocked";
+        earth.M[0]++;updatetile(earth);
         earth.img.src = lockpng;
     }
-
-    else if (earth.status == "basicbitch") {
-        earth.master.style.opacity = 0;
-    }
-
-    else if (earth.img.classList.contains("earthcooldown") || mana.player <= earth.cast$) {
+    else if (earth.img.classList.contains("earthcooldown") || mana.player <= earth.M[3]) {
         //absoulte false == AVAR//
         earth.img.style.opacity = 0.9;
         earth.cast = "notready";
@@ -2123,31 +1819,8 @@ function setstatusearth() {
         console.log("Earth failed to set status");
     }
 }
-function earthcostcheck() {
-    earth.btn.style.opacity = 0;
-    if (earth.castcounter == 0 || mana.level == 0) {
-        earth.upgrade = "notready";
-        earth.btn.style.display = "none";
-    }
-    else if (click < Sorcerer.Earth[0]) {
-        earth.btn.style.opacity = 0.7; earth.upgrade == "notready";
-        earth.btn.style.display = "inline-block";
-    }
-    else if (click >= Sorcerer.Earth[0] && mana.level >= 1) {
-        earth.upgrade = "ready"; earth.btn.style.display = "inline-block";
-        earth.btn.style.opacity = 1;
-    }
-}
 
-function updatearth() {
-    earth.truestatus = " level: " + Sorcerer.Earth[1] + " " + earth.cast + " val: " + earth.val +
-        " cast#: " + earth.castcounter + " upg$: " + Sorcerer.Earth[0] + " cast$: " + earth.cast$ +
-        " upg: " + earth.upgrade + " class: " + earth.img.classList + " status: " + earth.status + '\n' + " src: " + earth.img.src;
-
-    earth.counter.innerText = earth.castcounter;
-    earth.cc.innerText = earth.cast$;
-    number = Sorcerer.Earth[0]; gennumberconverter(); earth.p7.innerText = number;
-}//Button 4 EarthUPG//
+//Button 4 EarthUPG//
 function menuearthupg() {
     if (click >= earthupg.upg$ && earthupg.level == 0) {
         Sorcerer.Earth[1]++;
@@ -2184,9 +1857,9 @@ function incrementandsetrage() {
 }
 function startrage() { if (rage.level >= 1) { clearInterval(ragetimer); ragetimer = setInterval(rps, 5000); } setstatusrage(); }
 function upgraderage() {
-    if (click >= rage.upg$ && mana.player >= rage.mana$) {
+    if (click >= MenuUpg$.C[7] && mana.player >= rage.mana$) {
         rage.level++;
-        click -= rage.upg$; mana.max -= rage.mana$;
+        click -= MenuUpg$.C[7]; mana.max -= rage.mana$;
 
         setstatusrage();
     }
@@ -2194,7 +1867,7 @@ function upgraderage() {
 function setstatusrage() {
     updateragecounters();
     if (rage.level == 0) { rage.master.style.display = "none"; rage.btn.style.display = "none"; }
-    else if (click >= rage.upg$ && mana.max >= rage.mana$) {
+    else if (click >= MenuUpg$.C[7] && mana.max >= rage.mana$) {
         rage.upgrade = "ready"; rage.btn.style.opacity = 1; rage.btn.style.display = "";
     }
 }
@@ -2202,7 +1875,7 @@ function updateragecounters() {
 
     if (rage.level == 1) {
         rage.master.style.opacity = 1; rage.master.style.display = "";
-        rage.upg$ = (rage.level + 1) * 1000000 * ((rage.level + 1) * (rage.level + 1)) * (rage.level + 1) * (10 * (rage.level + rage.level)); rage.img.style.display = "";
+        MenuUpg$.C[7] = (rage.level + 1) * 1000000 * ((rage.level + 1) * (rage.level + 1)) * (rage.level + 1) * (10 * (rage.level + rage.level)); rage.img.style.display = "";
     }
 
     rage.top.innerText = '+' + rage.level;
@@ -2212,51 +1885,9 @@ function updateragecounters() {
     rage.count.innerText = rage.player;
     rage.levelcounter.innerText = rage.level;
     rage.runcounter.innerText = rage.runcount;
-    number = rage.upg$; gennumberconverter(); rage.cc.innerText = number;
+    number = MenuUpg$.C[7]; gennumberconverter(); rage.cc.innerText = number;
     rage.mcc.innerText = rage.mana$;
 }
-//######## MENU########//
-// R2 C4 RAGE //
-function unlockrage() {
-    if (click >= rage.upg$ && rage.ULlvl < 2) {
-        rage.ULlvl++; click -= rage.upg$;
-        updateRageMenu(); setstatusrage(); startrage();
-    }
-    else { alert(upgm); }
-}
-var rm = Ragered.U$;
-var rmimg = Ragered.Uimg;
-//Rage-Menu//
-//Unlock24,red34//
-function updateRageMenu() { 
-    //Unlock//
-    rage.UL$=(prestige.level+1)*600000000*(rage.ULlvl+1)**(rage.ULlvl+1);
-
-    if(rage.ULlvl==0 && click<rage.UL$){
-        upgradehider(rageUL);
-    }
-    else if (rage.ULlvl == 0) { rageUL.Uimg.src=Logs.rageB;
-        number = rage.upg$; gennumberconverter(); rageUL.U$.innerText = number + '💰'; }
-    else if (rage.ULlvl == 1) { rageUL.Uimg.src=Logs.rageBM; menumaxer(rageUL.U$, rageUL.Uimg); }
-
-    //Reduction//
-    rage.re$ = (rage.relvl + 1) * 1543209 * +800000 * (1 + rage.level);
-     if (rage.relvl ==0 && click<rage.re$) {upgradehider(Ragered);}
-    else if (rage.relvl < 9 && rage.ULlvl!=2) {Ragered.Utitle.innerText="Rage "+AU+"cost Reduction"; Ragered.Uimg.src=Logs.rageReda; number = rage.re$; gennumberconverter(); Ragered.U$.innerText = number +AU; }
-    else if(rage.relvl<9 &&rage.ULlvl==2){ Ragered.Utitle.innerText="Rage "+AU+"cost Reduction"; Ragered.Uimg.src=Logs.rageRedbM; number = rage.re$; gennumberconverter(); Ragered.U$.innerText = number + AU; }
-    else if (rage.relvl >= 9 &&rage.ULlvl==1) {Ragered.Utitle.innerText="Rage Cost Reduction"; Ragered.Uimg.src=Logs.rageRedaM; menumaxer(rm, rmimg); }
-    else if (rage.relvl >= 9 &&rage.ULlvl==2) {Ragered.Utitle.innerText=""; Ragered.Uimg.src=Logs.rageRedbM; menumaxer(rm, rmimg); }
-}
-
-// R3 C3 rage manacost//
-function ragemanacostupg() {
-    if (click >= rage.re$ && rage.relvl < 9) {
-        click -= rage.re$; rage.relvl++;
-    }
-    else if (click <= rage.re$) { alert(nm); idj++; }
-    else { alert(upgm); updatemenuragereduction(); } updatemenuragereduction();
-}
-
 
 //Rage meter//
 
@@ -2287,26 +1918,7 @@ function ragemeter() {
 
 
 //Menu Upgrades Unlisted//
-//row 2 c6 - SHIFTERY//
-function upgshiftery() {
-    if (click >= Shift.upg$) {
-        click-=Shift.upg$;
-        Shift.lvl = 1; StartShift();
-    }
-    menushiftupdate();
-}
 
-function menushiftupdate() {
-    Shift.upg$=(prestige.level+1)*555000000000;
-    if (Shift.lvl == 0 && click< Shift.upg$) {
-        upgradehider(Shift);
-    } 
-    else if (Shift.lvl == 0) { 
-        Shift.Utitle.innerText="Shiftery";
-        number=Shift.upg$; gennumberconverter(); Shift.U$.innerText=number+AU;
-        Shift.Uimg.src=Logs.shift; Shift.Udesc="Start the party (and enjoy various bonuses)";}
-    else if (Shift.lvl == 1) {Shift.Uimgsrc=Logs.shiftM; menumaxer(Shift.upg$,Shift.Uimg); }
-}
 blast.ULlvl=2;
 
 //RESET//
@@ -2357,7 +1969,7 @@ function Prestige() {
         prestige.multi += prestige.clickval;
         resetboard();
         updateprestige();
-        console.log(clicker.num[3] + ' level = ' + prestige.level + '. user has prestiged');
+        console.log(clicker.M[3] + ' level = ' + prestige.level + '. user has prestiged');
     }
     else {
         console.log(prestige.level + 'insufficient for prestige');
@@ -2464,7 +2076,7 @@ function flashprestigeUL() {
 }
 function prestigeboardinc(id, price, oard) {
     prestigeboard[id]++;
-    click -= price; oard
+    click -= price;
     localStorage.setItem("boardstate", JSON.stringify(prestigeboard));
     var storedboard = JSON.parse(localStorage.getItem("boardstate"));
     console.log(storedboard);
@@ -2483,13 +2095,14 @@ function updateDiamondsMenu(){
 }
 
 function updateGmine(){
-    gem.mine$=(prestige.level+1)*100*1000000; 
+    MenuUpg$.B[4]=(prestige.level+1)*100*1000000; 
     
-if (gem.mineLvl==0 && click<gem.mine$ ){ number=gem.mine$; gennumberconverter();
-    upgradehider(gemupgsheet);
+if (gem.mineLvl==0 && click<MenuUpg$.B[4] ){ number=MenuUpg$.B[4]; gennumberconverter();
+    upgradehider2(15,"Acquire a Diamond");
 }
-else if(gem.mineLvl==0 && click>= gem.mine$){
-    number=gem.mine$; gennumberconverter();
+else if(gem.mineLvl==0 && click>= MenuUpg$.B[4]){
+    setUpgtile(15,"Unlock Gem mine");
+    number=MenuUpg$.B[4]; gennumberconverter();
     gemupgsheet.U$.innerText=number+AU; gemupgsheet.Uimg.src=Logs.Gmine;
     gemupgsheet.Utitle.innerText="Unlock \n GemMine";
 }
@@ -2500,11 +2113,12 @@ else if(gem.mineLvl==1){
 }}
 //##############################################################################//
 //stat Card move//
-var card = document.getElementById("card");
-var cardbutton = document.getElementById("cardbutton");
-var cardwrap = document.getElementById("cardwrap");
+
 function movecard() {
-    if (cardbutton.style.opacity == "0.9") {
+    var card = document.getElementById("card");
+    var cardwrap = document.getElementById("cardwrap");
+    var cardbutton = document.getElementById("cardbutton");
+    if (cardbutton.style.opacity =="0.9") {
 
         cardbutton.style.float = "left";
         cardwrap.style.backgroundColor = "#00000000";
@@ -2540,26 +2154,38 @@ else if(menu.headmenu.style.backgroundColor=="gold"){
 
 function updateMenu(menu, variant){   
  updateMenucat();
- if(Clickster.M[0]<1){
-    MuT.D2.style.display="none";
- }   
-if(menu=="Clickster" ||menu==undefined){
-    // Row1 - 2 - 3 //
-    updatemenuclick10(); updateCcd(); updatemenuautoUL(); 
-    if(Clickster.M[0]>=1){updatemenudbzbuster();      
-     menushiftupdate();  
-    updatemenuprestigeUL(); updateGmine(); menuUpdDuper();   updateRageMenu();}
-}
-else if(menu=="Sorcerer"){  
-updatemenufireball(); updatemenuarcauto(); updatemenuice(); updatemenuearth(); updatemenuallspells();   
-}
-else if(menu=="mana"){if(variant=="all"||variant==undefined){
-updatemenuMana(); updatemanaoverflow(); updatemenumanamax();  updatemenuMana();  }         }
+ updatemenuscore();     
+//MuT.D2.style.display="none";//
+ MuT.D3.style.display="none"; 
+document.getElementById("upgradetable").classList="hiddentab "+menu;
+if(menu=="Clickster" ||menu==undefined){  MuT.D2.style.display=""; 
+    // Row1 - 2 - 3 // 
+    updatemenuclick10(); updateCcd(); updatemenuautoUL(); updatemenutrioclick(); updatemenuLuckyclick(); 
+    menushiftupdate(); updatemenudbzbuster(); updateRageMenu();
+    if(Clickster.M[0]>=1){
+    MuT.D2.style.display="";
+    menushiftupdate(); updatemenudbzbuster(); updateRageMenu();
+    }
+    else if (Clickster.M[0]>5) {
+        MuT.D3.style.display="";
+       menuUpdDuper(); 
+}           
+    updatemenuprestigeUL();  }
+else if (menu=="Sorcerer"){  
+    updatemenufireball(); updatemenuarcauto(); updatemenuice(); updatemenuearth(); updatemenuallspells();   
+    if (Sorcerer.M[0]>=1){
+    MuT.D2.style.display="";
+    updatemenuMana(); updatemanaoverflow(); updatemenumanamax();  updatemenuMana(); 
 
-else if(menu=="rage"){if (variant=="all"||variant==undefined){
-updateRageMenu(); }}
+    }
+    else if (Sorcerer.M[0]>5) {
+        MuT.D3.style.display="";
+    }     
+}
+else if(menu=="Banker"){if (variant=="all"||variant==undefined){
+ updateGmine(); }}
 else if(menu=="click"){if(variant=="all"||variant==undefined){ updatemenuachelper();menuUpdDuper();   }}
-else if(menu=="misc"){if(variant=="all"||variant==undefined){  updateGmine();  updatemenudbzbuster(); menushiftupdate(); ;
+else if(menu=="misc"){if(variant=="all"||variant==undefined){   updatemenudbzbuster(); menushiftupdate(); ;
         }} updateMenucat();
 }
 
@@ -2575,7 +2201,7 @@ function openmenu(sar) {
     else if(menu.o==true){alert("Menu try launch");}
 
     if (sar=="stats"){ 
-        flipstatstab();
+        flipstatstab(); closeupgrades();
     }
     else if(sar=="upg"){
         flipupgtab();closeprestige();
@@ -2588,87 +2214,232 @@ function Resetmenufield() {
     closemenu(); openmenu();
 }
 
+function updatemenuscore(){
+    document.getElementById("menuscore").innerText=score+AU;
+}
 //Open UpGRADES//
 function flipupgtab(tab) {
     closealltabs()
-    clicker.num[4]++; 
+    clicker.M[4]++; 
     if (tab=="Clickster"||tab==undefined &&menu.currentupgtab!="Clickster") { 
         menu.upgTab++;   tab='Clickster';
         upgtabactive(tab); menu.currentupgtab=tab;  updateMenu(tab);
-        console.log('Open Upgrade menu');
+         console.log('Open Upgrade menu');
     }
     else if(tab=="Sorcerer" && menu.currentupgtab!="Sorcerer"){
         menu.upgTab++;
         upgtabactive(tab);  menu.currentupgtab=tab; updateMenu(tab);
     }
-    else if(tab=="wise" && menu.currentupgtab!="wise"){
-        menu.upgTab++; menu.currentupgtab=tab;  
+    else if(tab=="Banker" && menu.currentupgtab!="Banker"){
+        menu.upgTab++;
+        upgtabactive(tab);  menu.currentupgtab=tab; updateMenu(tab);
     }
     else if(menu.open=="upg" || tab==menu.currentupgtab ) { 
-        closemenu(); console.log('closefrom upg'); alert("na"); }
-}
-function upgtabactive(tab) {
+        closemenu(); console.log('closefrom upg'); alert("na"); 
+    }
+menu.upgtab.classList.add(selec);}
 
+function upgtabactive(tab) {
     menu.upgT.style.display = ""; menu.subdiv.style.display = "inline";
     if (menu.open!="upg" ||tab == "Clickster"){ menu.open = "upg";
-     menu.Clickster.classList.add(selec);
-    menu.upgtab.classList.add(selec);
-    menu.upgT.style.zIndex = 2;
+        menu.Clickster.classList.add(Sselec);
+        menu.upgT.style.zIndex = 2;
     }
-    else if(menu.open=="upg" && menu.currentupgtab!=tab){
-        if(tab=="Clickster"){
-            menu.Clickster.classList.add(selec); 
-        } 
-        else if(tab=="Sorcerer" && menu.currentupgtab!=tab){
-            menu.Sorcerer.classList.add(selec); updateMenu(tab);
+    else if(tab=="Sorcerer" && menu.currentupgtab!=tab){
+            menu.Sorcerer.classList.add(Sselec); updateMenu(tab);
         }
-        else if(tab=="wise" && menu.currentupgtab!=tab){
-            menu.nooper.classList.add(selec);
-    }   } 
+    else if(tab=="Banker" && menu.currentupgtab!=tab){
+            menu.Banker.classList.add(Sselec); updateMenu(tab);
+    }  
     else if(menu.currentupgtab==tab){
         closemenu();
     }
+}  
+
+
+
+ //Open STATS//
+function flipstatstab() {
+    if (menu.open!="stats") {
+        menu.statsTab++;
+        statstabactive();
+        console.log('Open Stats');
+    }
+    else { closemenu(); menu.exitsTab++; console.log('close from stats'); }
 }
-function updatebankercat(){
+
+
+function statstabactive() {
+    if(menu.open!="stats"){
+    closealltabs();
+    CatstatGenerator("Clickster");
+    menu.statstab.classList.add("selected");
+    menu.open = "stats";
+    menu.stats.style.display = "";
+    menu.stats.style.opacity = 1; menu.stats.style.zIndex = 2;
+}}
+
+//My first functioning for loop//
+// Creates Cat stat bars //
+var KStext= "Lvl"+prestige.lvl+" jdjdj";
+
+
+
+
+function CatstatGenerator(){
+checkcatprogress();
+var cat = ["Clickster","Banker","Sorcerer","Banker1"];
+var KStext=["Totalclicks:"+Clickster.M[5]+" Totalclicks this prestige:"+Clickster.M[4]
+];
+var KStextlevel = [Clickster.M[0],Banker.M[0],Sorcerer.M[0]];
+var KSprog = [Clickster.M[1],Banker.M[1],Sorcerer.M[1]];
+var KSreq =  [Clickster.M[2],Banker.M[2],Sorcerer.M[2]];
+var KSbonus =[Clickster.M[3],Banker.M[3],Sorcerer.M[3]];
+
+for (let i = 0; i < cat.length; i++) {lorom = cat[i];
+var DivText=document.createTextNode(cat[i]);
+var StatDiv= document.createElement("div"); var NewDiv= document.createElement("div");
+var StatImg=document.createElement("img");  var Span=document.createElement("span");    
+const BR=document.createElement("br");
+    StatDiv.setAttribute("id", "StatDiv"+i);
+    StatDiv.setAttribute("class", "StatDiv");
+    StatImg.setAttribute("src", "Logs/K/"+cat[i]+".png");
+    StatImg.setAttribute("class","statimgs");
+    //img & title //
+    StatDiv.appendChild(StatImg);StatDiv.appendChild(BR);
+    StatDiv.appendChild(DivText);StatDiv.appendChild(BR.cloneNode());
     
+    DivText =  document.createTextNode("Level: "+ KStextlevel[i]);
+    StatDiv.appendChild(DivText);StatDiv.appendChild(BR.cloneNode());
+    
+    Span.setAttribute("class","spanbar");
+    NewDiv.setAttribute("id", "Kspan"+[i]);
+    NewDiv.setAttribute("class", "Kspan");
+    difference(KSprog[i],KSreq[i]);
+    NewDiv.style.width=result+"%";
+    Span.appendChild(NewDiv);
+    StatDiv.appendChild(Span);
+
+    DivText =  document.createTextNode("Bonus: "+ KSbonus[i]+"%");
+    StatDiv.appendChild(DivText);StatDiv.appendChild(BR.cloneNode());
+
+    document.getElementById("stats").appendChild(StatDiv);
+
+} 
+
 }
+function closestats() {
+    if(menu.open=="stats"){
+    menu.statstab.classList="";
+
+    menu.stats.style.opacity = 0;
+    menu.stats.style.zindex = 0;
+    menu.stats.style.display = "none";
+}
+else{console.log("failed to close stats");}}
+
+/*function updatesubMenucat(cat){
+    if(cat==null){cat="Banker";}
+    menu.currentSubCat=cat;
+    menu.KatRTT.innerText=menu.currentSubCat;
+    checkcatprogress();
+    sorc="Logs/K/"+menu.currentSubCat+".png";
+    menu.KatRI.src=sorc;
+
+    if(cat=="Banker"){
+    difference(Banker.M[1],Banker.M[2]);
+    menu.KatRT.innerText=" Lvl: "+Banker.M[0]+'\n'+"Bonus: +"+Banker.M[3]+"%";
+    menu.KatRbar.style.backgroundColor="gold";
+}
+ menu.KatRbar.style.width=result+"%";
+
+}*/
 
 
 
 function updateMenucat(){
+    checkcatprogress();
+if(menu.open=="upg"){
         menu.KatLTT.innerText=menu.currentupgtab;
-    if(menu.currentupgtab=="Clickster"){
+        //updatesubMenucat();//
+        showkatze();
+        
+        menu.KatLI.src="Logs/K/"+menu.currentupgtab+".png";
+    if(menu.currentupgtab=="Clickster"){  
         Clickster.M[3]=Clickster.Cmulti[2];
-        menu.KatLI.src=Logs.Clickster;
-        menu.KatLT.innerText=" Lvl: "+Clickster.M[0]+
-        "\n Next Lvl: "+Clickster.M[1]+"/"+Clickster.M[2]+'\n'+"Bonus: +"+Clickster.M[3]+"%";
+        difference(Clickster.M[1],Clickster.M[2]);
+        menu.KatLT.innerText=" Lvl: "+Clickster.M[0]+'\n'+"Bonus: +"+Clickster.M[3]+"%";
+        menu.KatLbar.style.backgroundColor="gold";
     }
-    else if(menu.currentupgtab=="Sorcerer"){
-    
+    else if(menu.currentupgtab=="Sorcerer"){  
         Sorcerer.M[3]=Sorcerer.Cmulti[2];
-        menu.KatLI.src=Logs.Sorcerer;
-        menu.KatLT.innerText=" Lvl: "+Sorcerer.M[0]+
-        "\n Next Lvl: "+Sorcerer.M[1]+"/"+Sorcerer.M[2]+'\n'+"Bonus: +"+Sorcerer.M[3]+"%";
-    }
-    }
-
+        difference(Sorcerer.M[1],Sorcerer.M[2]);
+        menu.KatLT.innerText=" Lvl: "+Sorcerer.M[0]+'\n'+"Bonus: +"+Sorcerer.M[3]+"%";
+        menu.KatLbar.style.backgroundColor="blue";
+    }    
+    else if(menu.currentupgtab=="Banker"){  
+   
+        difference(Banker.M[1],Banker.M[2]);
+        menu.KatLT.innerText=" Lvl: "+Banker.M[0]+'\n'+"Bonus: +"+Banker.M[3]+"%";
+        menu.KatLbar.style.backgroundColor="goldenrod";
+        }   
+menu.KatLbar.style.width=result+"%";
+}}
+function hidekatze(){
+    menu.subdiv.style.display="none";
+    document.getElementById("MenuKat").style.opacity="0";
+}
+function showkatze(){
+    document.getElementById("MenuKat").style.opacity="1";
+    menu.subdiv.style.display="";
+}
 //Menu tile set//
+function buyupgrade(n, type){
+let char = type.charAt(0);
+
+if(click >= MenuUpg$[char][(n)]){
+    //Clickster Upgrades//
+    if (type=="Clickster"){
+        Clickster.M[4]++;  Clickster.M[5]++;
+        MenuUpglvl.C[(n)]++; click-=MenuUpg$.C[(n)];
+        incandset("Banker",1); 
+    }
+    //Sorcerer
+    else if (type=="Sorcerer"){
+        Sorcerer.M[4]++; Sorcerer.M[5]++;
+        MenuUpglvl.S[(n)]++; click-=MenuUpg$.S[(n)]; 
+        incandset("Banker",1); 
+    }
+    else if (type=="Banker"){
+        Banker.M[4]++; Banker.M[5]++;
+        MenuUpglvl.B[(n)]++; click-=MenuUpg$.B[(n)]; 
+    }
+    incandset(type,100*(prestige.level+1));
+    updateMenu(type);
+    }
+else if(click <= MenuUpg$[char][(n)]){alert(nm);}
+}
+    
+
 function upgradehider2(num, des){
     if(des==undefined){des="???";}
     document.getElementById("TT"+num).innerText="???";
     document.getElementById("Ti"+num).src=Logs.lc;
     document.getElementById("T$"+num).innerText="???";
-    document.getElementById("Td"+num).innerText=des;
+    document.getElementById("Td"+num).innerText="\n "+des;
+    document.getElementById("Td"+num).classList.add("reqdesc");
     menumaxer(num,'rev');
  
 }
-function setUpgtile(num, t1,t2,t3,img,func,mode){
+function setUpgtile(num, t1,price,t3,img,func,mode){   
+    document.getElementById("Td"+num).classList.remove("reqdesc");
     document.getElementById("TT"+num).innerText=t1;
     document.getElementById("Ti"+num).src=img;
-    document.getElementById("T$"+num).innerText=t2+AU;
+    number = price; gennumberconverter();
+    document.getElementById("T$"+num).innerText=number+AU;
     document.getElementById("Td"+num).innerText=t3;
     document.getElementById("Ti"+num).setAttribute('onclick',func);
-    if(mode==undefined){menumaxer(num, 'rev');}
+    if(mode==undefined || mode =="rev"){menumaxer(num, 'rev');}
     else if(mode=="fow"){menumaxer(num, mode);}
 }
 function menumaxer(num, mode) {
@@ -2681,79 +2452,192 @@ function menumaxer(num, mode) {
     document.getElementById("Td"+num).border="none";
     document.getElementById("Ti"+num).style.boxShadow="none";
     document.getElementById("T$"+num).classList="";
+ 
 }}
 
-//Clickster Upg//
-// BC+10 //
-function upgbaseclick10(){
-    if(click>= Clickster.C10[1]){
-        click -=Clickster.C10[1];
-        Clickster.C10[0]++;
+
+
+//#####################################//
+function incandset(type, val){
+    number=val;
+    if(type=="Clickster"){
+        Clickster.M[1]=(Clickster.M[1]+number);
+     }
+    else if(type=="Sorcerer"){
+        Sorcerer.M[1]=(Sorcerer.M[1]+number);
     }
-    else if(click< Clickster.C10[1]) {alert(nm);}
-    else if( Clickster.C10[0]>=1) {alert(upgm);}
+    else if(type=="Banker"){
+        Banker.M[1]=(Banker.M[1]+number);
+    }
+    updatetext();    
+    checkcatprogress();
+    updateMenucat();
+
+}
+function checkcatprogress(){
+     Clickster.M[2]=(Clickster.M[0]+1)*1000*(Clickster.M[0]+1);
+     Sorcerer.M[2]=(Sorcerer.M[0]+1)*1000*(Sorcerer.M[0]+1);
+     Banker.M[2]=(Banker.M[0]+1)*10*(Banker.M[0]+1)**(Banker.M[0]+1);
+
+       if(Clickster.M[1]>= Clickster.M[2]){ Clickster.M[1]=0; Clickster.M[0]++; checkcatprogress();}
+       else if(Sorcerer.M[1]>= Sorcerer.M[2]){ Sorcerer.M[1]=0; Sorcerer.M[0]++; checkcatprogress();}
+       else if(Banker.M[1]>= Banker.M[2]){ Banker.M[1]=Banker.M[1]-Banker.M[2]; Banker.M[0]++; checkcatprogress();}
+    }
+
+//Clickster Upg//
+
+// 11  BC+10  0 //
+function upgbaseclick10(){
+    if(click>= MenuUpg$.C[0] && MenuUpglvl.C[0]<1 ){
+        buyupgrade(0,"Clickster",MenuUpg$.C[0]); }
+    else if(click< MenuUpg$.C[0]) {alert(nm);}
+    else if( MenuUpglvl.C[0]>=1) {alert(upgm);}
     updatemenuclick10();
 }
 function updatemenuclick10(){
-    Clickster.C10[1]=((Clickster.C10[0]+1)*1000)*100000;
-    if(click<Clickster.C10[1] && Clickster.C10[0]==0){
-        upgradehider2(11);
+    mo = (prestige.level+1)*10;
+    MenuUpg$.C[0]=((MenuUpglvl.C[0]+1)*100)*(mo)*(prestige.level+1);
+    
+    if(click<MenuUpg$.C[0] && clicker.M[3] <1){
+        upgradehider2(11,"Do the Bare Minimum");
+    }  
+    else if(MenuUpglvl.C[0] >= 1){
+        setUpgtile(11,"Base Click +"+mo, number , "Increases Base click Value by +"+mo, Logs.ptc,"upgbaseclick10()", 'fow' );
+     
     }
-    else if(click >= Clickster.C10[1] && Clickster.C10[0]==0){
-        number=Clickster.C10[1]; gennumberconverter();
-        setUpgtile(11,"Base Click +10", number , "Increases Base click Value by +10", Logs.ptc,"upgbaseclick10()", 'rev' );
+    else if(click >= MenuUpg$.C[0] && MenuUpglvl.C[0]==0){
+        number=MenuUpg$.C[0]; gennumberconverter();
+        setUpgtile(11,"Base Click +"+mo, number , "Increases Base click Value by +"+mo, Logs.ptc,"upgbaseclick10()", 'rev' );
     }
-    else if(Clickster.C10[0] >= 1){
-        setUpgtile(11,"Base Click +10", number , "Increases Base click Value by +10", Logs.ptc,"upgbaseclick10()", 'fow' );
-        
-    }
+  
 }
+
+// 12 Click Cooldown 1 //
 function upgradeCcd(){
-    if(click >= Clickster.CD[1]){
-        Clickster.CD[0]++;click -= Clickster.CD[1];
+    if(click >= MenuUpg$.C[1]){
+        buyupgrade(1,"Clickster", Cl1ickster.CD[1]);
     }
-    else if(click < Clickster.CD[1]){
+    else if(click < MenuUpg$.C[1]){
         alert(nm);
     }
 }
 function updateCcd(){
-    Clickster.CD[1]=((Clickster.CD[0]+Clickster.CD[0]+1)*156)*10+4300000;
-    if(click<Clickster.CD[1] && Clickster.CD[0]==0){
+    MenuUpg$.C[1]=((MenuUpglvl.C[1]+MenuUpglvl.C[1]+1)*156)*10+4300000;
+    if(click<MenuUpg$.C[1] && MenuUpglvl.C[1]==0){
         upgradehider2(12);
     }
-    else if(click >= Clickster.CD[1]){
-        number=Clickster.C10[1]; gennumberconverter();
+    else if(click >= MenuUpg$.C[1]){
+        number=MenuUpg$.C[0]; gennumberconverter();
         setUpgtile(12,"No more CD!", number , "No more Cooldown on Click", Logs.Ccd, 'upgradeCcd()' );
     } 
 }
+//13 Auto unlock//
 function unlockautoclicker(){
-    if (click >= Clickster.Auto[1] && Clickster.Auto[0]<3){
-        Clickster.Auto[0]++; click -= Clickster.Auto[1];
+    if (click >= MenuUpg$.C[2] && MenuUpglvl.C[2]<3){
+        buyupgrade(2, "Clickster", MenuUpg$.C[2]);
     }
-    else if(click< Clickster.Auto[1]){
+    else if(click< MenuUpg$.C[2]){
         alert(nm);
     }
     else{alert(upgm);}
     updatemenuautoUL();
 }
 function updatemenuautoUL(){
-    Clickster.Auto[1]=((Clickster.Auto[0]+1)*10000)*(Clickster.Auto[0]+1);
-if (click < Clickster.Auto[1] && Clickster.Auto[0]==0){
-    upgradehider2(13);
+    MenuUpg$.C[2]=((MenuUpglvl.C[2]+1)*10000)*(MenuUpglvl.C[2]+1);
+if (click < MenuUpg$.C[2] && MenuUpglvl.C[2]==0){
+    upgradehider2(13, "Hatch a pet");
 }
-else if (click >= Clickster.Auto[1] && Clickster.Auto[0]==0){
-    number = Clickster.Auto[1]; gennumberconverter();
+else if (click >= MenuUpg$.C[2] && MenuUpglvl.C[2]==0){
+    number = MenuUpg$.C[2]; gennumberconverter();
     setUpgtile(13,"Unlock Auto Scratcher", number, "Unlock the AutoScratcher", Logs.ac, "unlockautoclicker()");
 }
-else if( Clickster.Auto[0]==1){
+else if( MenuUpglvl.C[2]==1){
     setUpgtile(13,"Unlock Auto Scratcher", number, "Unlock the AutoScratcher", Logs.ac, "unlockautoclicker()", true, "fow");
 }
 }
-//Row 2 C3 - Chest buster//
+// 14 Trio //
+document.getElementById("clickerimg").addEventListener("dblclick", Trioclick);
+
+function Trioclick(){
+    if(Clickster.Trio[2]==false && MenuUpglvl.C[3]>0){
+  click+=(clicker.M[1]+1)*3; Clickster.Trio[2]=true;
+  setTimeout(() => {
+      Clickster.Trio[2]=false;
+  }, Clickster.Trio[3]);
+  alert("Triplle 2");
+}   else if(Clickster.Trio[2]==true){
+    BoardS2="Failed Tri click CD";
+}
+}
+function unlocktrioclick(){
+    if (click >= MenuUpg$.C[3]){
+        buyupgrade(3,"Clickster", MenuUpg$.C[3]);}
+    else {
+        alert("Cannot Upgrade trio Click");
+    }
+    updatemenutrioclick();
+}
+function updatemenutrioclick(){
+    MenuUpg$.C[3]=(MenuUpglvl.C[3]+1)*1000*170000*(prestige.level+1);
+    number=MenuUpg$.C[3]; gennumberconverter();
+    if (click <= MenuUpg$.C[3] && MenuUpglvl.C[3]<1){
+       upgradehider2(14,"Reach 333 Total Clicks");
+    }else if(click >= MenuUpg$.C[3] && MenuUpglvl.C[3]==0){
+        setUpgtile("14","Unlock Tri Click",number,"Score three hits on the chest at once! \n Cooldown: "+Clickster.Trio[3]/10+"Seconds",Logs.bweb,"unlocktrioclick()");
+    }
+    else if(MenuUpglvl.C[3]==1 ){
+          setUpgtile("14","Tri Click",number,"Score three hits on the chest at once! \n Cooldown:"+Clickster.Trio[3]/10+"Seconds",Logs.bweb,"unlocktrioclick()");
+        menumaxer("14", "fow");
+    }
+}
+// 15 Lucky Click //
+function unlockluckyclick(){
+    if(click>= MenuUpg$.C[4]){
+        buyupgrade(4, "Clickster", Clickseter.Luck[0]);
+
+    }
+    else if(click <= MenuUpg$.C[4]){
+        alert(nm);
+    }
+}
+function updatemenuLuckyclick(){
+    MenuUpg$.C[4]=(MenuUpg$.C[4]+1)*10003*(MenuUpg$.C[4]+1)*(prestige.level+1);
+    if(click <= MenuUpg$.C[4] && MenuUpglvl.C[4]<=0){
+        upgradehider2(15,"Are you felling Lucky?");
+    }
+    else if(MenuUpglvl.C[4]>1){
+        setUpgtile(15, "Lucky Click!", number, "Every 50000, ", Logs.bweb, "unlockluckyclick()", "fow");
+        menumaxer(15, "fow");
+    }
+    else if(Clickster){
+        setUpgtile("15", "Lucky Click!", number, "Every 50000, ", Logs.bweb, "unlockluckyclick()", "fow");
+    }
+}
+
+// 21 - SHIFTERY 5 //
+function upgshiftery() {
+    if (click >= MenuUpg$.C[5]) {
+        buyupgrade(5,"Clickster");
+        StartShift();
+    }
+    menushiftupdate();
+}
+
+function menushiftupdate() {
+    MenuUpg$.C[5]=(prestige.level+1)*555000000000;
+    if (MenuUpglvl.C[5] == 0 && click< MenuUpg$.C[5]) {
+        upgradehider2(21,"Increase Party points");
+    } 
+    else if (MenuUpglvl.C[5] == 0) {
+        setUpgtile(21, "Unlock Shiftery",MenuUpg$.C[5],"Increase bonus by shifting through colours",Logs.shift,"upgshiftery()") 
+    } 
+    else if (MenuUpglvl.C[5] == 1) {   setUpgtile(21, "Shiftery",MenuUpg$.C[5],"Increase bonus by shifting through colours",Logs.shiftM,"upgshiftery()" , 'fow')  }
+}
+//22 Chest buster 6//
 
 function unlockdbzbuster() {
-    if (click >= Mpres.dbz$ && Clickster.Dbz[1] < 1) {
-        click -= Mpres.dbz$; Clickster.Dbz[1]++;
+    if (click >= Mpres.dbz$ && MenuUpglvl.C[6] < 1) {
+        click -= Mpres.dbz$; MenuUpglvl.C[6]++;
     }
     else if (click <= Mpres.dbz$) { alert(nm); }
     else { alert(upgm); }
@@ -2761,21 +2645,18 @@ function unlockdbzbuster() {
 }
 function updatemenudbzbuster() {
     
-    if (Clickster.Dbz[1]< 1 && click < Clickster.Dbz[0]){
-        upgradehider2(14);
+    if (prestige.level< 1 && MenuUpglvl.C[6]< 1){
+        upgradehider2(22,"Prestige Once");
     }
-    else if (Clickster.Dbz[1]< 1) {
-        number= Clickster.Dbz[0]; gennumberconverter();
-        setUpgtile(14,"Chest Buster",number," The chest weakens as you get closer to prestige, giving you more gold", Logs.chestv3, "unlock")
-
-      
-    } else if (Clickster.Dbz[1] >= 1) {
-        setUpgtile(14,"Chest Buster",number," The chest weakens as you get closer to prestige, giving you more gold \nCurrent:"+difference(prestige.prog,prestige.req), Logs.chestv3, "unlock", 'fow')
+    else if (MenuUpglvl.C[6]< 1) {
+        setUpgtile(22,"Chest Buster",MenuUpg$.C[6]," The chest weakens as you get closer to prestige, giving you more gold", Logs.chestv3, "unlock")
+    } else if (MenuUpglvl.C[6] >= 1) {
+        setUpgtile(22,"Chest Buster",MenuUpg$.C[6]," The chest weakens as you get closer to prestige, giving you more gold \nCurrent:"+difference(prestige.prog,prestige.req), Logs.chestv3, "unlock", 'fow')
 
     }
 }
 function BZbuster() {
-    if (prestige.unlocked == true || Clickster.Dbz[1] > 0) {
+    if (prestige.unlocked == true || MenuUpglvl.C[6] > 0) {
         //SHUFFLES Background//
         difference(prestige.prog, prestige.req);
         //IF ready//
@@ -2794,27 +2675,308 @@ function BZbuster() {
             menu.return.style.backgroundImage = "url(../bg.jpg)";
         } console.log(result + " BBZ diff");
     }
-    else if (prestige.unlocked == false || Clickster.Dbz[1] == 0) { BoardS2 = "Failed DBZ"; }
+    else if (prestige.unlocked == false || MenuUpglvl.C[6] == 0) { BoardS2 = "Failed DBZ"; }
 
 }
 function difference(a, b) {
     result = ((a / b) * 100).toFixed(2);
 }
+
+// 23  RAGE  7 //
+function unlockrage() {
+    if (click >= MenuUpg$.C[7] && MenuUpglvl.C[7] < 2) {
+        buyupgrade(7,"Clickster");
+        updateRageMenu(); setstatusrage(); startrage();
+    }
+    else { alert(upgm); }
+}
+var rm = Ragered.U$;
+var rmimg = Ragered.Uimg;
+//Rage-Menu//
+//23 //
+function updateRageMenu() { 
+    //21 Unlock//
+    MenuUpg$.C[7]=(prestige.level+1)*600000000*(MenuUpglvl.C[7]+1)**(MenuUpglvl.C[7]+1);
+    if(MenuUpglvl.C[7]==0 && click<MenuUpg$.C[7]){
+        upgradehider2(23,"Get angry");
+    }
+    else if (MenuUpglvl.C[5] == 0) {
+        setUpgtile(23,"Unlock Rage", MenuUpg$.C[7], "Unlock rage generator and new upgrades!",Logs.rageB,"unlockrage()" );
+    }
+    else if (MenuUpglvl.C[5] == 1) {
+        setUpgtile(23,"Rage", MenuUpg$.C[7], "Unlock rage generator and new upgrades!",Logs.rageB,"unlockrage()", "fow" );
+    }
+    //Reduction//
+    MenuUpg$.C[9] = (MenuUpglvl.C[9] + 1) * 1543209 * +800000 * (1 + rage.level);
+     if (MenuUpglvl.C[9] ==0 && click<MenuUpg$.C[9]) {upgradehider2(25,"Unlock Rage");}
+    else if (MenuUpglvl.C[9] < 9 && MenuUpglvl.C[7]!=2) {Ragered.Utitle.innerText="Rage "+AU+"cost Reduction"; Ragered.Uimg.src=Logs.rageReda; number = MenuUpg$.C[9]; gennumberconverter(); Ragered.U$.innerText = number +AU; }
+    else if(MenuUpglvl.C[9]<9 &&MenuUpglvl.C[7]==2){ setUpgtile(25,"Rage Cost Reduction", MenuUpg$.C[7],"Rage cost reduction",Logs.rageRedaM,"ragemanacostupg()")}
+    else if (MenuUpglvl.C[9] >= 9 &&MenuUpglvl.C[7]==1) {Ragered.Utitle.innerText="Rage Cost Reduction"; Ragered.Uimg.src=Logs.rageRedaM; menumaxer(rm, rmimg); }
+    else if (MenuUpglvl.C[9] >= 9 &&MenuUpglvl.C[7]==2) {Ragered.Utitle.innerText=""; Ragered.Uimg.src=Logs.rageRedbM; menumaxer(rm, rmimg); }
+}
+
+// 24 rage manacost//
+function ragemanacostupg() {
+    if (click >= MenuUpg$.C[9] && MenuUpglvl.C[9] < 9) {
+        click -= MenuUpg$.C[9]; MenuUpglvl.C[9]++;
+    }
+    else if (click <= MenuUpg$.C[9]) { alert(nm); idj++; }
+    else { alert(upgm); updatemenuragereduction(); } updatemenuragereduction();
+}
+
+
+//## MENU 2 ## //
 //Sorcerer Menu UPG//
 
-//Wise One Menu UPG//
-function setClickster(){
+//Button 1 fireball multi//
+function menufireballupgrade() {
+    if (click < MenuUpg$.S[0]) {
+        alert("Cant upgrade fireball"); idj++;
+    }
+    else if (click >= MenuUpg$.S[0] && MenuUpglvl.S[0] == 4) {
+        click -= MenuUpg$.S[0];
+      
+        MenuUpglvl.S[0] = "max";
+    }
+    else if (click >= MenuUpg$.S[0] && MenuUpglvl.S[0] != "max") {
+      buyupgrade(0, "Sorcerer", MenuUpg$.S[0]);
+    }
+    else { boardS2 = "Fireball trying upgrade /fail"; }
+    console.log('menu fireball upgrade complete'); 
+    updateMenu('Sorcerer');
 
 }
-function setSorcerer(){
- 
+function updatemenufireball() {
+
+    MenuUpg$.S[0] = (MenuUpglvl.S[0] + 1) + 5400 * (MenuUpglvl.S[0] + 1) ** (MenuUpglvl.S[0] + 1);
+
+    number = MenuUpg$.S[0]; gennumberconverter();
+    MuT.T$11.innerText = number + AU;
+    if( MenuUpglvl.S[0] == 0&&click<=MenuUpg$.S[0]) {
+        upgradehider2('11');
+        fire.status = "x1";
+        fire.img.src=Logs.Fx1;
+    }
+    else if (MenuUpglvl.S[0] == 0) {
+        setUpgtile(11, "FireSplit (x2)",number,"Your fire splits and deals twice as much damage" + "\n(Slight Mana increase)",Logs.Fx2, "menufireballupgrade()");
+        fire.status = "x1";fire.img.src=Logs.Fx1;
+    }
+    else if (MenuUpglvl.S[0] == 1) {
+        MuT.Ti11.src = Logs.Fx3;
+        setUpgtile(11, "FireTrio (x3)",number,"Your fire splits and deals Thrice! as much damage" + "\n(Slight Mana increase)",Logs.Fx3, "menufireballupgrade()");
+        fire.status = "x2";
+        fire.img.src=Logs.Fx2;
+    } else if (MenuUpglvl.S[0] == 2) {
+        MuT.Ti11.src = Logs.Fx5;
+        setUpgtile(11, "FireBarrage (x5)",number,"Your fire now splits 5 times and deals 5x as much damage" + "\n(Small Mana Cost increase)",Logs.Fx5, "menufireballupgrade()");
+   
+        MuT.T$11.innerText = MenuUpg$.S[0];
+
+        fire.status = "x3";fire.img.src=Logs.Fx3;
+    }
+    else if (MenuUpglvl.S[0] == 3) {
+        MuT.Ti11.src = Logs.Fx7;
+        setUpgtile(11, "FireStorm (x7)",number,"Your fire becomes uncontrollable and deals twice as much damage" + "\n(Moderate Mana cost increase)",Logs.Fx7, "menufireballupgrade()");
+        fire.status = "x5";
+        fire.img.src=Logs.Fx5;}
+    else if (MenuUpglvl.S[0] == 4) {
+        MuT.Ti11.src = Logs.FxM;
+        setUpgtile(11, "FireMayhem (x?)",number,"All control is lost, Fireball casts between 9 and 19 orbs an will decide to cast itself for free occasionally" + "\n (Large Mana cost increase)",Logs.FxM, "menufireballupgrade()");
+        MuT.TT11.innerText = "Fire Mayhem";
+        MuT.Td11.innerText = "" + '\n' + "(Moderate mana castcost increase)";
+        fire.status = "x7";
+        fire.img.src=Logs.Fx7;
+    } else if (MenuUpglvl.S[0] == "max") {
+        MuT.TT11.innerText = "Fire King";
+        setUpgtile(11, "FireKing (x?)","","Fireball casts between 9 and 19 orbs and will occasionally cast itself for free \n Enjoy the Chaos! ",Logs.Fxmax, "menufireballupgrade()", 'fow');
+        menumaxer(11,"fow");
+        fire.status = "xmayhem";fire.img.src=Logs.Fxmax;
+    } 
 }
-function setupg(id){
-    if(id==11 && menu.currentupgtab=="Sorcerer"){
-        updatemenufireball();
+
+//Button2 Arc Auto //
+// Button 2 arcauto//
+function upgarcautocast() {
+    if (click >= MenuUpg$.S[1]) {
+        buyupgrade(1,Sorcerer);
+  
+    }
+    else {
+        alert("no money");
+        idj++;
+    }
+}
+function updatemenuarcauto() {
+    MenuUpg$.S[1] = 10e12;
+    MuT.Ti12.src=Logs.arcau;
+
+    if (MenuUpglvl.S[1]==0 && click<=MenuUpg$.S[1]){
+        upgradehider2(12);
+}
+    else if (MenuUpglvl.S[1] == 1) {
+        MuT.Ti12.src=Logs.aauM;
+        menumaxer(MuT.T$12, MuT.Ti12);
+    }
+}
+
+//15 All spells S4 //
+function upgmenuallspells() {
+    if (click >= MenuUpg$.S[4]) {
+        buyupgrade(4,"Sorcerer");
+    }
+}
+function updatemenuallspells() {
+
+    mana.smv = (((mana.multilvl / 10 + mana.smv) + mana.smv) / 10);
+    mana.smv.toFixed();
+    Sorcerer.SpellMulti[2]=(MenuUpglvl.S[4]/10);
+
+    document.getElementById("allspellscounter").innerText = player.allspells + 1;
+    MenuUpg$.S[4] = (MenuUpglvl.S[4] + 1) * 1000000 * (MenuUpglvl.S[4] + 1+MenuUpglvl.S[4]);
+    if(menu.currentupgtab=="Sorcerer"){
+    if (click < MenuUpg$.S[4] &&MenuUpglvl.S[4]==0){
+        upgradehider2(15,"Req: Cast x more spells");
+    }
+    else if (click>=MenuUpg$.S[4]||MenuUpglvl.S[4]< 99) {
+        setUpgtile(15,"All Spells", number,"Increases the power of all spells by "+Sorcerer.SpellMulti[2]+"%",Logs.allspells,"upgmenuallspells()",'rev' ); 
+} }
+}
+// Sorcerer Row2 //
+
+// button1 manaregen +10;//
+function menuplus10manaupg() {
+    if (click >= MenuUpg$.S[5] && MenuUpglvl.S[5] != 1) {
+        MenuUpglvl.S[5]=1;
+        incrementandsetmana();
+}
+    else {
+      alert(upgm);   idj++;
+    } updatemenuMana();
+}
+
+
+// ROW 2 C @ ManaOverlflow//
+//level1 overflow, lvl2, unlock with rage level5//
+function unlockmanaoverflow() {
+    if (click >= Manaflow.upg$ && Manaflow.lvl < 1) {
+        click -= Manaflow.upg$;
+        Manaflow.lvl++; menumaxer(Manaflow.U$, Manaflow.Uimg);
+    }
+    else if (Manaflow.lvl < 2 && click >= Manaflow.upg$) {
+        click -= Manaflow.upg$;
+        Manaflow.lvl++;
+    }
+    updatemanaoverflow();
+}
+function setmanaflow() {
+
+}
+
+function updatemanaoverflow() {
+    Manaflow.upg$=(prestige.level+1)*5060000+4000000000;
+    if (Manaflow.lvl == 0 && click <Manaflow.upg$) { 
+        upgradehider(Manaflow);
+    }
+    else if (Manaflow.lvl == 0) { Manaflow.Uimg.src=Logs.Mflow1;
+        Manaflow.upg$ = (Manaflow.lvl + 1) ** (Manaflow.lvl + 1) * 10000000;
+        number = Manaflow.upg$; gennumberconverter(); Manaflow.U$.innerText = number;
+        Manaflow.Udesc.innerText = "Unlocks Mana overflow, Converting excess mana into 💰";
+    }
+    else if (Manaflow.lvl == 1 && rage.level < 5) {  Manaflow.Uimg.src=Logs.Mflow2; }
+    else if (Manaflow.lvl == 1 && rage.level >= 5) {
+        Manaflow.upg$ = (Manaflow.lvl + 1) ** (Manaflow.lvl + 1) * 10000000000;
+        number = Manaflow.upg$; gennumberconverter(); Manaflow.U$.innerText = number;
+        Manaflow.U$.backgroundColor = "none"; Manaflow.U$.style.boxShadow = "0";
+    }
+}
+// row2 button 5 Max mana inc//
+function menumaxmanainc() {
+    if (click >= MenuUpg$.S[6]) {
+        buyupgrade(6,"Sorcerer");
+        updatemenumanamax();
+        updatetext();
+    }
+    else {
+        console.log(nm); alert('nm'); idj++;
+    }
+}
+function updatemenumanamax() {
+    mana.max = (MenuUpglvl.S[6] * 100) + 1000;
+    MenuUpg$.S[6] = 2500 * ((MenuUpglvl.S[6] + 1) * 2.3) * (MenuUpglvl.S[6] + 1);
+  if(menu.currentupgtab=="Sorcerer"){
+    if (click <MenuUpg$.S[6] &&MenuUpglvl.S[6]<1){
+        upgradehider2(25,"Reach 100 total mana regen per second"); 
+    }
+    else if (MenuUpglvl.S[6]>0){
+        setUpgtile(25,"Increase Max mana", MenuUpg$.S[6],"Manamaximum" + '\n' + "Current:" + mana.max + '\n' + " New:" + (mana.max + mana.maxinc),Logs.ManaMax,"menumanamaxinc()",'rev');
+    }
+}}
+//Row 3 c3 Manacost reduction//
+
+function menuupgmana$() {
+    if (click >= mana.PR$ && mana.PRlvl < 9) {
+        mana.PRlvl++; click -= mana.PR$; updatemana(); 
+       
+    } else if (click <= mana.PR$) { alert(nm); }
+    else { alert("Menu UPG MANA PRICE REDUCTION ERROR"); }
+    updateMenu('mana','upg$');
+}
+function updatemenuMana() {
+    mana.PR$ = ((((mana.PRlvl * 1000) + 1) * 2 * (mana.PRlvl + 1)) * 1000000000) * mana.PRlvl * mana.reduction + (100000000000000000 * ((mana.PRlvl + 1) ** (mana.PRlvl + 1))) + (100000000000000000000 * (mana.PRlvl + 1)) * 2;
+    number = mana.PR$; gennumberconverter(); Manareduc.U$.innerText = number + '💰';
+    Manareduc.Udesc.innerText = "Decrease mana upgrade cost  Current:" + mana.reduction + '%' + " Next:" + (mana.reduction + 11) + " Max:99";
+    MenuUpg$.S[5]=40000000*(prestige.level+1)*(prestige.level+1);
+    if(menu.currentupgtab=="Sorcerer"){
+    if (MenuUpglvl.S[5] == 0 && click<MenuUpg$.S[5]) {
+        upgradehider2(21,"Reach 10 Mana per second");}
+    else if (MenuUpglvl.S[5] == 0 &&click>MenuUpg$.S[5]) { base10.Uimg.src=Logs.manareg; number = MenuUpg$.S[5]; gennumberconverter(); base10.U$.innerText = number + '💰'; }
+    else if (MenuUpglvl.S[5] == 1) { base10.Uimg.src=Logs.manaregM; menumaxer(base10.U$, base10.Uimg);  }
+   
+    if (mana.PRlvl ==0 &&click<mana.PR$) {
+        upgradehider(Manareduc);
+}
+    else if (mana.PRlvl <9) {
+        Manareduc.Utitle.innerText="Mana Cost Reduction";
+        Manareduc.Uimg.src=Logs.manared;
+    }
+    else if (mana.PRlvl == 9) {
+        Manareduc.Uimg.src=Logs.manaredM;
+        mana.reduction == 99; menumaxer(Manareduc.U$, Manareduc.Uimg);
+        Manareduc.Udesc.innerText = "Decreases Mana Upgrade cost by " + mana.reduction + '%';
+    }}
+}
+
+
+
+
+
+var dupe$ = 100e24;
+function unlockduplicater() {
+    if (click >= dupe$) {
+        click -= dupe$; duplicator.lvl++;
+        menumaxer(duplicator.U$, duplicator.Uimg); menuUpdDuper();
+    }
+    else if (click < dupe$) { alert(nm); }
+    else { alert(upgm); }
+}
+function menuUpdDuper() {
+    if (duplicator.lvl == 0 &&click<dupe$){
+        upgradehider(duplicator);
+    }
+    else if (duplicator.lvl == 0 && click >= dupe$) { 
+        duplicator.Utitle.innerText+"Unlock Duplicator";
+        duplicator.Uimg.src=Logs.dupe;
+        number = dupe$; gennumberconverter(); duplicator.U$.innerText = number + '💰';
+        duplicator.Udesc.innerText=" 5X Multiplier (Forever)"; }
+    else if (duplicator.lvl >= 1) { 
+        duplicator.Uimg.src=Logs.dupeM;
+        duplicator.Udesc.innerText=(5*duplicator.lvl)+"  Multiplier (Forever)";}
     }
 
-}
+
+
+//##########################//
+//ENND UPGRADES//
 //Menuclaer//
 function closemenu() {
     if(menu.o==true){
@@ -2834,6 +2996,7 @@ function closealltabs() {
     closestats(); 
 }
 function closeupgrades() {
+   hidekatze();
     if(menu.open=="upg"){
     menu.upgtab.classList="";
     menu.upgT.style.display = "none";
@@ -2842,19 +3005,12 @@ function closeupgrades() {
     closeupgtabs();
 }
 function closeupgtabs() {
+   
     menu.subdiv.style.display="none";
     menu.currentupgtab="none";
-    menu.Clickster.classList="";  menu.Sorcerer.classList="";  menu.nooper.classList="";
+    menu.Clickster.classList="";  menu.Sorcerer.classList="";  menu.Banker.classList="";
 }
-//Open STATS//
-function flipstatstab() {
-    if (menu.open!="stats") {
-        menu.statsTab++;
-        statstabactive();
-        console.log('Open Stats');
-    }
-    else { closemenu(); menu.exitsTab++; console.log('close from stats'); }
-}
+
 //Open PRESTIGE//
 var p;
 function flipprestigetab() {
@@ -2871,6 +3027,7 @@ function flipprestigetab() {
 }
 
 var selec = "selected";
+var Sselec= "subselected"
 function closeprestige() {
     if (menu.open=="Prestige") {
         menu.ptab.classList="";
@@ -2882,24 +3039,8 @@ function closeprestige() {
     }
 }
 
-function closestats() {
-    if(menu.open=="stats"){
-    menu.statstab.classList="";
 
-    menu.stats.style.opacity = 0;
-    menu.stats.style.zindex = 0;
-    menu.stats.style.display = "none";
-}
-else{console.log("failed to close stats");}}
 
-function statstabactive() {
-    if(menu.open!="stats"){
-    closealltabs();
-    menu.statstab.classList.add("selected");
-    menu.open = "stats";
-    menu.stats.style.display = "inline";
-    menu.stats.style.opacity = 1; menu.stats.style.zIndex = 2;
-}}
 
 
 

@@ -33,63 +33,21 @@ img  {
     padding-right: 2.5%;
 }
 
+
+
 /*Headers*/
-
-/*Top Block*/
-/*Title*/
-h1 {   
-    width: fit-content; font-size: 3.2vmin; 
-    float: left; margin-top:-6.5vh; border: 4px double #ee82ee99 ;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-#title{ color: black; -webkit-text-stroke: 1px crimson; font-size: 2.7vmin; }
-
-.ht{color: #00000000; background-color: #faffaf99; 
-background-size: contain; background-position-x: center; background-position-y: center; background-repeat: no-repeat; 
-     background-image: url(../Game/BloodWeb.png); 
-    color: none; -webkit-text-stroke:none;}
-.headtitle{color: whitesmoke;
--webkit-text-stroke: 0.7px #00ffff;  background-color: #2196F355;   
-}
-
-/* Score*/
-h2 {
-    border: 1px solid greenyellow;
-    margin: 0 auto; 
-    margin-top: -5.6vh;
-    margin-bottom: .1vh;
-    font-size: 4.5vmax;
-    color: #000;
-    box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #04AA6Daf;
-    border-radius: 10%;
-    height: fit-content;
-    width: max-content;
-}
-/* Prestige bar */
-h3{
-    width: 40%; z-index: 2; height: fit-content; 
-    display: block; background-color: aqua; border-radius: 10%;
-}
-/* CPS */
-h6 {
-    font-size: 2.6vmin;
-    text-align: center;
-    float: left;
-}
-#prestigebar{    
-    width: 80%; height: 1vmin; background-color: khaki;
-}
-
 /**HEADER WAVE**/
 #wave{
+    position: absolute;
     background: repeating-linear-gradient(183deg,
     #f0e68cf0, green, greenyellow) ; 
 }
-.wave{ width: 94vw;
-    padding: 4vh 3vw 5vh 3vw;
-    height: 2.7vmin;
+.wave{ 
+   
+    width: 94vw;
+    padding-left: 3vmin;
+    padding-right: 3vmin;
+    height: 16.7vmin;
     position: relative;
    
 }
@@ -119,6 +77,55 @@ h6 {
     background-image:
     radial-gradient(circle at 10px 15px, #fafaf9 12px, transparent 13px);
   }
+/*Top Block*/
+/*Title*/
+h1 {   
+    width: fit-content; font-size: 3.2vmin; 
+    float: left; margin-top:-5.5vh; border: 4px double #ee82ee99 ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#title{ color: black; -webkit-text-stroke: 1px crimson; font-size: 2.7vmin; }
+
+.ht{color: #00000000; background-color: #faffaf99; 
+background-size: contain; background-position-x: center; background-position-y: center; background-repeat: no-repeat; 
+     background-image: url(bweb.png); 
+    color: none; -webkit-text-stroke:none;}
+.headtitle{color: whitesmoke;
+-webkit-text-stroke: 0.7px #00ffff;  background-color: #2196F355;  
+margin-bottom: .1vmin; 
+}
+
+/* Score*/
+h2 {
+ 
+    border: 1px solid greenyellow;
+    margin: 0 auto; 
+   
+    font-size: 4.5vmax;
+    color: #000;
+    box-shadow: 0 10px 20px rgba(1,1,1,1.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #04AA6Daf;
+    border-radius: 10%;
+    height: fit-content;
+    width: max-content;
+}
+/* Prestige bar */
+h3{
+    width: 40%; z-index: 2; height: fit-content; 
+    display: block; background-color: aqua; border-radius: 10%;
+}
+/* CPS */
+h6 {
+    font-size: 2.6vmin;
+    text-align: center;
+
+}
+#prestigebar{    
+    width: 80%; height: 1vmin; background-color: khaki;
+}
+
+
 /*End of topblock*/
 
 /*Click main area*/
@@ -132,8 +139,8 @@ h6 {
     background-image: url(Logs/Chest/chestultra.png);
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y:8vh;
-    background-size: 50vmax;
+    background-position-y:center;
+    background-size: 60vmax;
     z-index: -1;   
 }
 /*Button styling*/
@@ -173,11 +180,9 @@ header .Imagebtn {
    -webkit-text-stroke: 0.2px blue; font-size: 2.1vmin;
 }
 #KatzeMenu{
-    position: absolute;
-    right: 0;
-    top: 0;
+position: absolute;    right:1vmin ;
     height: 11.7vmin ;
-    margin-right: 4vmin;
+    top: 0;
     background-color: gold;
     border: 6px solid transparent;
     border-image: url(Logs/Chest/fsun.png)  1000 round  ;
@@ -191,7 +196,9 @@ header .Imagebtn {
 #HeadMenuOverlay{
     width: 76vw;
     padding-top: 1vh;
-    margin-top: -1vh;
+ 
+    margin: 0 auto;
+    margin-top: 10.7vh;
     padding-left: 1vw;
     padding-right: 1vw;
 
@@ -221,7 +228,7 @@ button a {
  background-color: #fafafa;   
 }
 span {
-    box-shadow: 5px 10px 18px red;
+  
     display: inline-table; 
 }
 progress {
@@ -252,9 +259,6 @@ td {
 tr { width: 100%;
 height: 33%;
 }
-
-td .description {
-   width: 100%; border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; height:10vh; overflow: auto;}
 span {
     background-color: #faf;
 }
@@ -313,11 +317,7 @@ background-color:
     background-color:     
         #00ffff
     }
-.description {
-    font-size: 2vmin;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: whitesmoke;
-}
+
 .red {
     color: #ff0000;
 }
@@ -334,6 +334,12 @@ background-color:
     font-size: 2vh;
     color: thistle;
     -webkit-text-stroke: 2px black;
+}
+.subselected{
+    box-shadow: 1px 1px 8px gray, 1px 1px 8px goldenrod, 1px 1px 8px goldenrod;
+    font-size: 1.6vh;
+    color: thistle;
+    -webkit-text-stroke: 1px black;
 }
 .deselected{
     box-shadow:0;
@@ -598,10 +604,23 @@ background-color:
     z-index: 0;
     height: 100%;
     width: 98%;
+}
+#menunav{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    margin: 0 auto;
+    left: 0;
+    width: 100%;
+    background-color: #faf0f0ff;
+    height: 10vh;
+    border-radius:0 0 50% 50%;
 
 }
 #closemenu {
     position: absolute; right: 0;
+    top: 0;
     background-color: #faf;
 }
 .hiddentab {
@@ -619,50 +638,84 @@ background-color:
       background-color: rebeccapurple;
       border: 2px solid blanchedalmond;
       width: 100%;
+      border-radius: 0 0 6% 6%;
 }
-.MenuKat{
-   display: block;
-    position: absolute;
-    width: 89vw;
-   border-top: 1px double red; padding-left: 3vw; padding-right: 3vw;
-}
-.MenuKat>section{
-    
+.MenuKat{width: 94%; cursor:url("bweb.svg") 0 gg0, pointer;}
+div>section{
+    display: inline-block;
+    z-index: 4;
     font-size: 1.8vmin;
     font-family:Georgia, 'Times New Roman', Times, serif ;
     border: 4px double transparent;
     margin-top: 0.5vh;
     border-image: url(Logs/Chest/goldpile.jpg) 80 stretch; 
- 
     background-color: wheat;
 }
-.MenuKat>img{
-    width: 10vmin; height: 10vmin;
-}
+.left{ position : absolute;left: 0; top: 0;  text-align: left; padding-left: 1%; display: inline;}
+.right{position : absolute;right: 0; top: 0; text-align: right;padding-right: 1%;}
 #RKTT,#LKTT{
 font-size: 2vmin;
 font-weight: bolder;
 background-color: whitesmoke;
 border: 1px solid greenyellow;
 width: 92%;
-
 }
-.LK{ float: left; text-align: left;}
-.RK{float: right; text-align: right;}
+
+#LKbar{    
+         margin-left:0%; width: 80%; height: 1vmin; background-color: rgb(241, 220, 28);
+}
+#RKbar{    
+    margin-right:0%; width: 40%; height: 1vmin; background-color: goldenrod;
+}
+.LKimg,.RKimg{
+    width: 10vmin; height: 10vmin;
+}
+
 
 #upgradetable {
     margin-top: 3vh ;
+     padding-bottom:1vh;
     display: inline-block;
-    height: 86%;
     position: absolute;
-      background: linear-gradient(
+   border-radius: 10%;
+}
+.Clickster{
+background: linear-gradient(
         80deg,
         #321,
         #f0f,
         #1f1,
         #f0f,
-        #321
-    );
+        #321 );
+}
+.Sorcerer{
+    background: linear-gradient(
+        80deg,
+        blue,
+        skyblue,
+        darkblue,
+        skyblue,
+        blue );
+}
+td .description { display: block;
+    width: 100%; border: 2px solid black; background-color: #00ffff; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; height:10vh; }
+ 
+.description {
+ 
+    font-size: 2vmin;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+.reqdesc::before{
+     background-color: #66ff00cf;
+     border: 1px dashed red;
+    content: "Unlock :";
+    width: 100%;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 20%;
+    display: inline-block;
+    margin-bottom: 1vh;
 }
 .MaXXed{
     -webkit-text-stroke: 0.02vmax gold;
@@ -679,6 +732,13 @@ border-radius: 10%;
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
 }
 
+.spanbar {
+    margin-top: 0.4vmin; width: 99%; z-index: 2; height: fit-content; display: block; background-color: #0a0a0a55; 
+    border: 1px solid gold; border-radius: 10%;
+}
+.Kspan{
+    width: 40%; height: 1vmin; background-color: goldenrod;
+}
 .prestitlebtns{
     font-size: 2vmin;
  
@@ -745,7 +805,20 @@ display: block;
 #stats > div.stats{ background-color: #00ffff;
     width: 30%;
 margin-top: 0 auto;}
-
+.StatDiv {
+    border: 2px solid red;
+    height: 60%;
+    width: 22%;
+    background-color: red;
+    display: inline-block;
+   
+}
+.StatDiv >p {
+    max-width:40px;
+}
+.statimgs{
+    width:80%; height: 50%;
+}
 figure {
      margin :0 auto;
      position: relative;

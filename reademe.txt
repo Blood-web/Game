@@ -1,7 +1,144 @@
 Known Issues:
--prestige wierd increment
--second upg open clears menu
+-prestige weird increment
+
 -buy multi not working
-not loading in properl//
--mana bmanaimg
--sidebar
+not loading in properly//
+earth, Mana, 
+
+
+Current State : Ver 0.2.7 ;
+
+Target State :  0.3 - working upg menu ==
+                0.4 - Prestige Menu
+                0.5 - Main  Graphic overhaul
+
+                0.0.8 -  top menu
+                0.0.9 - Lower btn centring 
+
+
+
+Guide:
+
+1.0 : Banker
+    [
+        11,0:Investment Portfolio | 12,1: | 15,4:Diamond Mine |
+    ]
+
+1.1 : Clickster
+    [
+       | 11,0:BaseClick+10 | 12,1:NoMoreCD | 13,2:AutoUL | 14,3:TriClick | 15,4:LuckyClick |
+       | 21,5:Shiftery | 22,6:dbzbuster | 23,7:RageUl |   | 25,9:Rage$red   |
+    ]
+1.2 : Sorcerer
+
+       | 11,0: Fireball | 12,1:Arcane | 13,2:Ice | 14,3:Earth | 15,4:AllSpells |
+       | 21,5: | 22,6:dbzbuster | 23,7:RageUl |   | 25,9:Rage$red   |
+       ||| 35,11:Duplicator |
+
+
+
+
+// UPGRADE Menu Descriptions//
+
+///// MAIN /////
+P=prestige; 
+# = count;
+
+array M: [lvl,upg$,val,Pupg#,upg#,Pcast#,cast#]
+
+null = default 0,
+
+0:lvl: Current upg level :: null,
+1:upg$: Cost for current upgrade :: math/level,
+2:Val: normally cast income :: Val *prestige,
+3:Pupg#: Upgrades this prestige, null,
+4:upg#: Total upgrades :: get local,
+5:Pcast#: Casts this prestige :: null,
+6:cast#: Total casts :: get local,
+7:Status: Varies, :: BasicBitch,
+8:upgstatus: if click >= upg TRUE :: false,
+9:Cast$ : Cost each cast :: math/level,
+
+
+lower box == < ???, auto clicker, earth, arc, MAIN, fire, ice, mana , rage  >
+
+
+
+
+
+// seperator == "////"      //
+
+
+
+1.1
+/////////////////
+Const Clickster
+
+
+
+Master array
+::lvl,  progress, requirement, Bonus, Pupg#, upg#, Puse, totaluses, 
+
+Upgrades : 11:BaseClick+10:BC10:, 12:NoMoreCD:NMCD:, 13:Auto:AUTO:, 14:Triclick:TRIO:, 15:LuckyClick:LUCK:
+           21:Shiftery,  
+
+Upg:
+
+11.BaseClick +10 :BC10
+Unlock: player clicks once
+Increases base click val by 10
+
+12.No More CD :NMCD
+Unlock: player clicks >100
+No longer a cooldown for base click
+
+13.Auto unlock :AUTO
+Unlock Auto 
+
+14.Triclick :TRIO
+//Unlock:
+#Clicker dblclick function var ".Trio[1]"=1 => passing function on dblclick
+
+15.Lucky click :LucK
+//Unlock: Score a Critical hit
+ Var ".Luck[1]"= level + chance(Luck[1]*10).  Var".Luck[3]"=Cooldowntimer.
+
+21.shiftery :SHFT
+//Unlock: $
+Var ".Shift[1]"= level == shiftery bonuses
+    ::Bonus:: S1, Clicker multi Inc,
+              S2, Sorcerer multi inc,
+              S3, Mana & Rage generate inc,
+
+
+1.2
+/////////////////////
+Const Sorcerer
+
+
+
+Upgrades : 11:Fireball:FIRE:, 12:Arcauto:ARCA:, 13:Icewall:IWLL:, 14:Earth:URTH:, 15:AllSpells:AllS:
+           21:
+
+Upg:
+
+11.Fireball :FIRE
+//Unlock: $
+Upgrades total fireballs cast once
+
+12.Arcane Auto :ARCA
+//Unlock: $
+Unlocks The ability to auto cast Arcane Auto ( Auto implemenation)
+
+13.Icewall :Iwll
+Some effect
+
+14.Earth :Urth
+//Unlock:
+Unlocks magnitude
+    ::Magnitude:: Earth Spell generates a number between ".Magnitude[2]"
+                  & ".Magnitude[3]", then multplies cast value by result
+
+15.AllSpells :AllS
+//Unlock: Cast 100 spells
+Increase Muspell multiplier: Var ".Multi[1]"= Multi Val.
