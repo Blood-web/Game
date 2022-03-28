@@ -1,4 +1,2 @@
-# Game
-Game libs, some assets are self made others are not, an i probably have no right to use them.
+UnikaZte clicker game, developed in association with BW development
 
-&Copy;
