@@ -51,4 +51,4 @@ function StartShift(){
 
 function killshiftery(){
     clearInterval(run);
-alert("CUNT");}
+alert("Shiftery KO");}
