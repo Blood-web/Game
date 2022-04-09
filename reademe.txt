@@ -18,35 +18,48 @@ Target State :  0.3 - working upg menu ==
 
 
 Guide:
+3.1 BoxMain Actions
+    3.1.0AutoClicker,
+    3.1.1Fire,
+    3.1.2Arc,
+    3.1.3Ice,
+    3.1.4Earth,
+    3.1.5Mana,
+    3.1.6Rage,
+    3.1.7Mblast
 
-1.0 : Banker
+
+10.0 : Banker
     [
         11,0:Investment Portfolio | 12,1: | 15,4:Diamond Mine |
     ]
 
-1.1 : Clickster
+10.1 : Clickster
     [
        | 11,0:BaseClick+10 | 12,1:NoMoreCD | 13,2:AutoUL | 14,3:TriClick | 15,4:LuckyClick |
-       | 21,5:Shiftery | 22,6:dbzbuster | 23,7:RageUl |   | 25,9:Rage$red   |
+       | 21,5:Shiftery | 22,6:dbzbuster | 23,7:RageUl |   | 24,8:Rage$red   |
     ]
-1.2 : Sorcerer
+10.2 : Sorcerer
 
        | 11,0: Fireball | 12,1:Arcane | 13,2:Ice | 14,3:Earth | 15,4:AllSpells |
-       | 21,5: | 22,6:dbzbuster | 23,7:RageUl |   | 25,9:Rage$red   |
+       | 21,5: Plus10Mana | 22,6:ManaOverflow | 23,7:FreeCast | 24,8:Mana$reduc  | 25,9:Manamax   |
        ||| 35,11:Duplicator |
 
 
 
-
+3.1 : Action bar
 // UPGRADE Menu Descriptions//
+lower box == < ???, auto clicker, earth, Arc, MAIN, fire, ice, mana , rage  >
 
-///// MAIN /////
-P=prestige; 
-# = count;
 
-array M: [lvl,upg$,val,Pupg#,upg#,Pcast#,cast#]
 
-null = default 0,
+///// MAIN Upgrades /////
+
+Lvl: MenuUpglvl-[Type/C/S/B]-[number]
+Cost: MenuUpg$-[Type/C/S/B]-[number]
+Max level: MenuUpgM-[Type/C/S/B]-[number]
+
+array M: [0,1,2,3,4,5,6,"status","Tstatus",9,10]
 
 0:lvl: Current upg level :: null,
 1:upg$: Cost for current upgrade :: math/level,
@@ -55,26 +68,15 @@ null = default 0,
 4:upg#: Total upgrades :: get local,
 5:Pcast#: Casts this prestige :: null,
 6:cast#: Total casts :: get local,
-7:Status: Varies, :: BasicBitch,
-8:upgstatus: if click >= upg TRUE :: false,
+7:Status: Varies, :: empty string,
+8:True Status: Composite of [all] :: empty string,
 9:Cast$ : Cost each cast :: math/level,
-
-
-lower box == < ???, auto clicker, earth, arc, MAIN, fire, ice, mana , rage  >
-
+10:UpgReady : Boolean :: False,
 
 
 
-
-// seperator == "////"      //
-
-
-
-1.1
-/////////////////
-Const Clickster
-
-
+//Part:10.1//
+10.1 Const Clickster
 
 Master array
 ::lvl,  progress, requirement, Bonus, Pupg#, upg#, Puse, totaluses, 
@@ -117,7 +119,7 @@ Const Sorcerer
 
 
 
-Upgrades : 11:Fireball:FIRE:, 12:Arcauto:ARCA:, 13:Icewall:IWLL:, 14:Earth:URTH:, 15:AllSpells:AllS:
+Upgrades : 11:Fireball:FIRE:, 12:Arcauto:ArcA:, 13:Icewall:IWLL:, 14:Earth:URTH:, 15:AllSpells:AllS:
            21:
 
 Upg:
@@ -126,7 +128,7 @@ Upg:
 //Unlock: $
 Upgrades total fireballs cast once
 
-12.Arcane Auto :ARCA
+12.Arcane Auto :ArcA
 //Unlock: $
 Unlocks The ability to auto cast Arcane Auto ( Auto implemenation)
 
@@ -142,3 +144,12 @@ Unlocks magnitude
 15.AllSpells :AllS
 //Unlock: Cast 100 spells
 Increase Muspell multiplier: Var ".Multi[1]"= Multi Val.
+
+21.Mana plus 10 :mp10
+//Unlock:
+
+24.Mana flow
+//Unlock: Reach 200 total mana
+converts excess mana generation 
+    ::Upg1::Convert to gold
+    ::Upg2::Convert to gold+ and rage

@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="bweb.ico" style="border-radius: 50%;">
 </head>
-<body id="body" onload=" selftestini();  scorepersecon(); clickreset(); onload(); " onclick="incandset('Clickster',1); selftest(); " style="z-index: 0;"> 
-<!-- startintro(); -->
+<body id="body" onload="selftestini();   openmenu('upg');  scorepersecon(); clickreset(); updateallboxmain();" onclick=" selftest(); " style="z-index: 0;"> 
+<!-- startintro();             -->
 <!--Score and cash symbol-->
 <div id="intro" class="intro" style="display:none;"> <p onclick="skipintro()" style="background-color: bisque; border: 2px solid sandybrown; cursor: pointer;">
 Skip intro</p> <br>
@@ -75,7 +75,7 @@ Skip intro</p> <br>
 
         <!--Prestige menu button-->
         <div class="Imagebtn" onclick="openmenu('Prestige')" id="prestigeovermenu">
-            <img id="prestige" class="haadimgs" src="Logs/Chest/fsun.png" alt="orestige sun" />
+            <img id="prestige" class="haadimgs" src="Logs/MenuMix/Chest/fsun.png" alt="orestige sun" />
             <br>
             <p>Prestige </p>
         </div>
@@ -134,11 +134,11 @@ Skip intro</p> <br>
             <div  id="manabar"  > <p style="margin: 0 auto; text-align: center;"> HERE</p> </div> </span>
          
          <!--Button1 Autoclicket-->
-            <span id="abvauto"> <p id="autotop"></p><br>
-            <img id="buyauto" class="Gamebtn" />
-            <br> <button id="autobutton" onclick="boxmainbuy(auto, Clickster)" class="upgradebutton" >
+            <span id="AutoMaster"> <p id="AutoCC"></p><br>
+            <img id="Autoimg" class="Gamebtn" />
+            <br> <button id="Autobtn" onclick="boxmainbuy(auto, Clickster)" class="upgradebutton" >
             <p>Upgrade <br>Auto-Clicker:</p>
-            <br><p id="autocost">(100)</p><p>&#128176;</p>
+            <br><p id="Autotxt">(100)</p><p>&#128176;</p>
             </button></span>  
             
             <!--Button2 ManaBlast --> 
@@ -155,50 +155,50 @@ Skip intro</p> <br>
             </button></span>
 
             <!--Button3 Earthspell-->
-            <span id="abvearth" style="display: none;"><p id="earthtop" >1000</p><span class="mana"></span><br>
-                <img id="earthball"  class="Gamebtn"   style="opacity:0.1 ;" />
-            <br> <button id="earthbtn" onclick="boxmainbuy(earth,Sorcerer)"  class="upgradebutton">
+            <span id="EarthballMaster" style="display: none;"><p id="EarthballCC" >1000</p><span class="mana"></span><br>
+                <img id="Earthballimg"  class="Gamebtn"   style="opacity:0.1 ;" />
+            <br> <button id="Earthballbtn" onclick="boxmainbuy('Earth',Sorcerer)"  class="upgradebutton">
             <p>EarthSpell <br>
                 Upgradecost</p>
-            <p id="button7txt">(100)</p><p>&#128176;</p>
+            <p id="Earthballtxt">(100)</p><p>&#128176;</p>
             </button></span>  
 
-            <!-- Button 4 arcspell -->
-            <span id="abvarc"><p id="arccastcost">20</p> <span class="mana"></span><br>
-            <img  class="Gamebtn" id="arcball" style="opacity: 0.1;"/>
-            <br><button id="arcbutton" onclick="boxmainbuy(arc,Sorcerer)" class="upgradebutton">
-                <p>arc<br>
+            <!-- Button 4 Arcspell -->
+            <span id="ArcballMaster"><p id="ArcballCC">20</p> <span class="mana"></span><br>
+            <img onclick="castspell('Arc')"  class="Gamebtn" id="Arcballimg" />
+            <br><button id="Arcballbtn" onclick="boxmainbuy('Arc',Sorcerer)" class="upgradebutton">
+                <p>Arc<br>
               Upgrade cost:</p>
-            <p id="button6txt">(10)</p> <p>&#128176;</p> 
+            <p id="Arcballtxt">(10)</p> <p>&#128176;</p> 
             </button></span>
 
             <!--Button5 MC   -->
-            <span id="abvclick" ><p id="clickertop">+1</p><br>
-            <img id="clickerimg" class="Gamebtn"  />
-            <br> <button onclick="boxmainbuy(clicker,Clickster)" id="clickerbtn" class="upgradebutton" >
+            <span id="ClickerMaster" ><p id="ClickerCC">+1</p><br>
+            <img id="Clickerimg" class="Gamebtn"  />
+            <br> <button onclick="boxmainbuy('Main',Clickster)" id="Clickerbtn" class="upgradebutton" >
             <p>Upgrade Click<strong>+1</strong></p>
-            <br><p id="clicker$"></p>  
+            <br><p id="Clickertxt"></p>  
             </button></span>
 
             <!--Button6 FIREBALL-->
-            <span id="abvfire"><p>-<p id="fireballcastcost">10</p><span class="mana"></span></p><br>
-            <img onclick="castspell(fire,'Fire')"  id="fireball" class="Gamebtn" style="opacity: 0.1;" />
-            <br> <button id="fbbutton" onclick="boxmainbuy(fire,Sorcerer)" class="upgradebutton">
+            <span id="FireballMaster"><p>-<p id="FireballCC">10</p><span class="mana"></span></p><br>
+            <img onclick="castspell('Fire')"  id="Fireballimg" class="Gamebtn"  />
+            <br> <button id="Fireballbtn" onclick="boxmainbuy('Fire',Sorcerer)" class="upgradebutton">
             <p>Fireball</p><br><p>Upgrade Cost:</p>
-            <br><p id="button4txt">10</p> <p>&#128176;</p>
+            <br><p id="Fireballtxt">10</p> <p>&#128176;</p>
             </button></span>
             
             <!--Button7 Iceball-->
-            <span id="abvice">- <p id="icecastcost">290</p><span class="mana"></span><br>
-            <img id="iceball" onclick="iceballcast()" class="Gamebtn" style="opacity: 1;" />
-            <br> <button id="icebutton"  onclick="upgradeice()" class="upgradebutton"> 
+            <span id="IceballMaster">- <p id="IceballCC">290</p><span class="mana"></span><br>
+            <img id="Iceballimg" onclick="castspell('Ice')" class="Gamebtn"  />
+            <br> <button id="Iceballbtn"  onclick="boxmainbuy('Ice',Sorcerer)" class="upgradebutton"> 
             <p>Ice Upgrade:</p>    
-            <p id="button3txt">120</p><p>&#128176;</p>
+            <p id="Iceballtxt">120</p><p>&#128176;</p>
             </button></span>
 
             <!--Button8 MANA-->
             <span id="abvmana"><p id="manatop">+1</p><span class="mana"></span><br>
-                <img onclick="manacast()"  id="metergain"  class="Gamebtn" style="opacity:0.1;"  />
+                <img onclick="manacast()"  id="metergain"  class="Gamebtn" src="Logs/MenuMix/Mana/ob2.png"  />
             <br><button id="manabutton" onclick="upgrademana()" class="upgradebutton"  >
                 <p> Mana <span class="mana"></span> 
                 <br>Upgrade:</p><br><p id="manaupgcost">250</p><p>&#128176;</p>
@@ -215,12 +215,11 @@ Skip intro</p> <br>
     </fieldset>
  
 
-<fieldset id="hiddenwrap" style=" display: none;" onclick="incandset('Clickster',1)">
-   
-      
+<fieldset id="hiddenwrap" style=" display: none;" onclick="incandset(Clickster,1)">
+ 
 <span id="menunav">
     <span id="MenuKat" class="MenuKat">
-        <div class="left" style="float: left;">
+        <div class="left" style="float: left;" onclick="buyupgrade('Test', Banker)">
                 <img class="LK"  id="LKimg" src="g.png" alt="Left hand Kat" />
             <section class="LK">
             <p  id="LKTT"></p>
@@ -232,13 +231,13 @@ Skip intro</p> <br>
         </div>
         <div class="right">
             <section class="RK">
-                    <p id="RKTT">Banker</p> <br>
+                    <p id="RKTT">SideGig</p> <br>
                 <span class="spanbar">
                     <div id="RKbar" value="0" min="0" max="1000"></div>
                 </span>
-                    <p  id="RKT" >Lvl: 4<br>Next: 0/100 <br> Bonus:10%</p>
+                    <p  id="RKT" >Lvl: 4 <br> Bonus:10%</p>
             </section>
-            <img class="RK" id="RKimg" src="" alt="Right hand Kat" style="transform: scaleX(-1);"  />
+            <img class="RK" id="RKimg" src="bweb.png" alt="Right hand Kat" style="transform: scaleX(-1);"  />
         </div>
     </span>
     
@@ -262,7 +261,12 @@ Skip intro</p> <br>
     </span>
         
     </span>
-
+    <span id="menutable" class="hiddentab">
+        <div id="ResumeMenu"> <p onclick="closemenu()"> Resume</p></div>
+        <div id="OptionsMenu"><p>Options</p></div>
+        <div id="Guide"><p> Guides and help</p></div>
+        <div id="Quit"><p>Save & Quit</p></div>
+    </span>
     <span id="upgradetable" class="hiddentab"  >
         <p id="menuscore" style="margin: 1vh; background-color: aliceblue; width: 20%;" >Score : PH</p> 
         <table id="hiddenupgrades" cellspacing="0" > 
@@ -277,12 +281,12 @@ Skip intro</p> <br>
             </td>
         
             <td id="TA12" class="finished">
-                <p id="TT12"  class="tdtile"> arc Autocast </p> 
-                    <img id="Ti12" onclick="upgarcautocast()"  alt="arc auto"  />
+                <p id="TT12"  class="tdtile"> Arc Autocast </p> 
+                    <img id="Ti12" onclick="upgArcautocast()"  alt="Arc auto"  />
                     <br>
                 <p id="T$12" >300K</p>
               
-                <p id="Td12"  class="description">Your powerfull arc spells cast themselves! (click to toggle)</p>
+                <p id="Td12"  class="description">Your powerfull Arc spells cast themselves! (click to toggle)</p>
             </td>
         
             <td>
@@ -331,7 +335,7 @@ Skip intro</p> <br>
             </td>
             <td  class="finished">
                 <p id="TT23" class="tdtile"> Chest Buster </p>
-                <img onclick="unlockdbzbuster()" id="Ti23"  alt="arc autocast" />
+                <img onclick="unlockdbzbuster()" id="Ti23"  alt="Arc autocast" />
                 <br>
                 <p id="T$23">placeholder</p> 
                 <p id="Td23" class="description"> Placeholder!</p>
@@ -422,8 +426,8 @@ Skip intro</p> <br>
              <p>Spell Multiplier =</p><p id="allspellscounter"></p>
             <br><p>Fire counter = </p> <p id="firecounter">0</p>
             <p>Fire level = </p> <p id="firelevel">1x0</p>
-            <br><p>arc level= </p><p id="arclevel">0</p>
-            <p>arc counter= </p><p id="arccounter">0</p>
+            <br><p>Arc level= </p><p id="Arclevel">0</p>
+            <p>Arc counter= </p><p id="Arccounter">0</p>
             <br><p>Earth level= </p><p id="earthlevel">0</p>
             <p>Earth counter=</p> <p id="earthcounter">0</p> 
             <p id="magmincounter"></p>
@@ -431,7 +435,7 @@ Skip intro</p> <br>
 
     <div id="statmenuend"></div>
 </span>
-
+  <span id="bottomMenuDecoration"></span>
 <span id="prestigetable" class="hiddentab" style="display: none;">
     <button class="prestitlebtns " id="presSbtn" style="float: left;" onclick="prestigetabactive('s')"><p style="transform: rotate(180deg);">➩</p> Prestige Stats </button> 
     <button class="prestitlebtns"  id="presUbtn" style="float: right;" onclick="prestigetabactive('u')">Prestige Upgrades <p>➩</p> </span></button>
@@ -448,7 +452,7 @@ Skip intro</p> <br>
 <div id="prestigec2">
     Prestige <br><p id="bannerlevel"> 1</p> 
    <figure>     
-        <img src="Logs/Chest/goldpile.jpg" alt=""></figure>
+        <img src="Logs/MenuMix/Chest/goldpile.jpg" alt=""></figure>
     <p id="Prestigeinload"> Prestiging Increases base click value by +14%</p> <br>
     You Currently have <p id="prestige_of"></p> Prestige
     <br> <p> Would you like to prestige?</p>
@@ -495,9 +499,14 @@ Skip intro</p> <br>
 
 
     <ref alt="image src" hidden>https://www.clipartmax.com/download/m2H7i8d3b1K9G6N4_chest-icon-treasure-chest-icon-png/</ref>
-     <script src="game.js"></script>
-     <script src="Shiftery.js"></script>
-     <script src="config.js"></script>
+    
+     <script src="config.js" type="text/javascript"></script>
+     <script src="ref.js" type="text/javascript"></script>
+    <script src="Spells&Upgrades.js" type="text/javascript"></script>
+      <script src="game.js" type="text/javascript"></script>
+    
+     <script src="Shiftery.js" type="text/javascript"></script>
+    
    
 </body>
 </html>

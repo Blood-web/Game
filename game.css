@@ -3,9 +3,9 @@
     margin: 0 auto;
     padding: 0;
 }
-html{width: 100%; height: 100%;}
-body{ width: 100%; 
-    text-align: center;
+html{width: 100vw; height: 100vh;}
+body{ 
+    text-align: center; overflow-x:hidden;
     font-family: 'lobster', cursive;}
 
 #body { 
@@ -136,7 +136,7 @@ h6 {
     border: 1vmin solid transparent ;
     border-image: url(Logs/Blast/yragemb.png) 999 round;
     margin: 0 auto;
-    background-image: url(Logs/Chest/chestultra.png);
+    background-image: url(Logs/MenuMix/Chest/chestultra.png);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y:center;
@@ -185,7 +185,7 @@ position: absolute;    right:1vmin ;
     top: 0;
     background-color: gold;
     border: 6px solid transparent;
-    border-image: url(Logs/Chest/fsun.png)  1000 round  ;
+    border-image: url(Logs/MenuMix/Chest/fsun.png)  1000 round  ;
 }
 #KatzeMenu> button{
     display: inline;
@@ -220,7 +220,7 @@ margin-top: 28vh;
     margin-top:100px;
     width: 10vmin; height: 10vmin;
     background-size: contain;
-    background-image: url(Logs/Clicker/mcCD.png); border: 2px solid red;
+    background-image: url(Logs/MenuMix/Clicker/mcCD.png); border: 2px solid red;
 }
 p { display: inline-block;}
 
@@ -273,7 +273,7 @@ width: 15px;
 border-radius: 50%;
 display: inline-block;
 opacity: 1;
-background-image: url(Logs/Mana/ob2.png);
+background-image: url(Logs/MenuMix/Mana/ob2.png);
 
 background-size: cover;
 background-blend-mode: darken;
@@ -300,7 +300,7 @@ background-color:
     display: inline-block;
     opacity: 1;
     background-position-x: center;
-    background-image: url(Logs/Chest/goldpile.jpg);
+    background-image: url(Logs/MenuMix/Chest/goldpile.jpg);
     background-size: cover;
     background-blend-mode: darken;
     background-color: #ffa1a155;          
@@ -397,7 +397,7 @@ background-color:
 }
 #cardbutton {
     opacity: 1;
-    float: right;background-image: url("Logs/Chest/rocket.png");
+    float: right;background-image: url("Logs/MenuMix/Chest/rocket.png");
     background-size: contain; transform: rotate(-90deg); height: 10vh; width:10vh; 
     border-radius: 10%; border: ridge 2px aqua; background-repeat:no-repeat ;
 }
@@ -487,16 +487,16 @@ background-color:
     background-size: cover;
     border-radius: 50%; 
 }
-#fireball { 
+#Fireballimg { 
     background-color: #000;
 }
-#iceball {
+#Iceballimg {
     background-color: #0f0;
 }
-#arcball { 
+#Arcballimg { 
     background-color: #f0a;
 }
-#earthball {
+#Earthballimg {
     background-color: #00fd;
     border-radius: 10%; 
 }
@@ -536,27 +536,27 @@ background-color:
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);   
 }
-.blastcooldown{  animation: cooldown 10000ms reverse;
+.blastcooldown{  animation: cooldown 10000ms reverse; opacity: 0.7;
     animation-fill-mode: reverse;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    }
-.firecooldown{
-    animation: cooldown 6000ms ease-in-out ;
+.Fireballcooldown{
+    animation: cooldown 6000ms ease-in-out  ; opacity: 0.7;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
 }
-.arccooldown{
-    animation: arccooldown 1000ms  ease-out ;
+.Arcballcooldown{
+    animation: Arccooldown 1000ms  ease-out ; opacity: 0.7;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
 }
-.earthcooldown{
-    animation: cooldown 10000ms ease-out;
+.Earthballcooldown{
+    animation: cooldown 10000ms ease-out; opacity: 0.7;
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
-.icecooldown{
-    animation: cooldown 10000ms reverse;
+.Iceballcooldown{
+    animation: cooldown 10000ms reverse; opacity: 0.7;
     animation-fill-mode: reverse;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
 }
-@keyframes arccooldown {
+@keyframes Arccooldown {
     from { background: linear-gradient(to right, pink 100%);}
     0% { background: linear-gradient(to right, #f05 1%,pink, pink,pink,pink,  pink, pink, pink, pink, pink );}
     10% { background: linear-gradient(to right, #f05 1%,pink,pink,pink,pink,  rgb(248, 237, 239) );} 
@@ -584,9 +584,9 @@ background-color:
 }
 @keyframes manaCD {
     0%{opacity: 0.8;}
-    25%{box-shadow: 2px sandybrown; background-image: url(Logs/Mana/oblo.png);}
+    25%{box-shadow: 2px sandybrown; background-image: url(Logs/MenuMix/Mana/oblo.png);}
     50%{ opacity: 0.9; background-color: #00ff1f;}
-    75%{background-image: url(Logs/Mana/ring.png);}
+    75%{background-image: url(Logs/MenuMix/Mana/ring.png);}
     100%{opacity: 1;}
 }
 @keyframes backwardcooldown {}
@@ -616,7 +616,23 @@ background-color:
     background-color: #faf0f0ff;
     height: 10vh;
     border-radius:0 0 50% 50%;
-
+    padding-bottom: 14vh;
+}
+#menunav>span>div>button{
+font-size: 3vw;
+}
+#menusubsetdiv > button {
+    font-size: 2vw;
+}
+#bottomMenuDecoration{
+ position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #faf0f0ff;
+    border-radius: 50% 50% 0 0;
+    padding: 10%;
+    z-index: -1;height: 10vh;
+  width: 80%;
 }
 #closemenu {
     position: absolute; right: 0;
@@ -627,11 +643,26 @@ background-color:
     font-family: 'lobster', cursive;
     height: 25vh;
     width: 90vw;
-    top: 5vh;
+    top: 15vh;
     left: 2.5vw;
     z-index: 0;
     display: inline-block;
     position: absolute;
+
+}
+#menutable{
+    background-color:#00000055;
+    height: fit-content;
+    
+}
+#menutable>div{
+    
+    border: 2px solid black;
+    margin: 1ch;
+    background-color:#aa0a0aa5;
+}
+#menutable>div>p{
+    font-size:10vw;cursor: pointer;
 }
 #hiddenupgrades {
       position: absolute;
@@ -647,8 +678,8 @@ div>section{
     font-size: 1.8vmin;
     font-family:Georgia, 'Times New Roman', Times, serif ;
     border: 4px double transparent;
-    margin-top: 0.5vh;
-    border-image: url(Logs/Chest/goldpile.jpg) 80 stretch; 
+    margin-top: .5vh;
+    border-image: url(Logs/MenuMix/Chest/goldpile.jpg) 80 stretch; 
     background-color: wheat;
 }
 .left{ position : absolute;left: 0; top: 0;  text-align: left; padding-left: 1%; display: inline;}
@@ -922,55 +953,3 @@ figure {
     100%{background-image: url(BloodWeb.png);   background:linear-gradient(90deg, black, gray,gray,gray,gray,gray)}
 }
 
-
-/*Bumper jumper*/
-#game {
-    border: 10px solid #000;
-    width: 1000px;
-    height: 400px;
-    background-image:url(../../Pictures/Logos/bg.jfif);
-    background-repeat: repeat-x;
-    background-size: contain;
-    animation: BG  1s  linear infinite;
-}
-@keyframes BG {
-    from {background-position-x: 0px ;}
-    to {background-position-x: -1000px ;}
-}
-#character {
-    width: 100px;
-    height: 100px; 
-    position: relative;
-    top: 200px;
-    background-image: url(../../Pictures/Logos/buttr.jfif);
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-size: contain;  
-}
-.animate{
-    animation: jump 500ms;
-}
-@keyframes jump {
-    0% {top: 200px;}
-    30% {top: 100px;}
-    70% {top: 100px;}
-    100% {top: 200px;}
-}
-#block {
-    
-    width: 40px;
-    height: 40px;
-    position: relative;
-    top: 150px;
-    left: 1000px;
-    background-color: aqua;
-    animation: block 1s linear infinite;
-}
-@keyframes block {
-    0% {left: 1000px;}
-    100% {left: -40px;}
-}
-#plonk {
-    width: 40px;
-    height: 40px;
-}
